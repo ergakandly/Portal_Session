@@ -22,24 +22,6 @@ public class PortalAction extends Action {
 		
 		System.out.println("aab");
 
-//		PortalForm portalForm = (PortalForm) form;
-//		PortalManager manager = new PortalManager();
-
-//		if("add".equalsIgnoreCase(portalForm.getTask())){
-//			return mapping.findForward("add");
-//		}else if("insert".equalsIgnoreCase(portalForm.getTask())){
-//			manager.insert(portalForm.getRegionBean().getFirstName(), hForm.getRegionBean().getLastName(), hForm.getRegionBean().getPhoneNumber(), hForm.getRegionBean().getEmail(), hForm.getRegionBean().getSalary());
-//		}
-		
-		
-//		hForm.setTotalPage((manager.getTotalRow(hForm.getMin(), hForm.getMax()) / 10)+1);
-//		hForm.setMin((hForm.getPage()*10)-9); 
-//		hForm.setMax((hForm.getPage()*10));
-//		request.setAttribute("totalPage", hForm.getTotalPage());
-		
-//		System.out.println(hForm.getMin()+" "+ hForm.getMax());
-		
-//		portalForm.setListRegions(manager.getEmployees(hForm.getSearchName(), hForm.getMin(), hForm.getMax()));
 		return mapping.findForward("success");
 	}
 }

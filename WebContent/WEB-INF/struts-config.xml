@@ -6,22 +6,21 @@
 	<form-beans>
 		<form-bean name="PortalForm" type="com.finalproject.portal.form.PortalForm"></form-bean>
 	</form-beans>
+
 	<action-mappings>
-		<action path="/portal" name="PortalForm" type="com.finalproject.portal.handler.PortalAction" scope="request">
-			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward>
-<!-- 			<forward name="update" path="/WEB-INF/jsp/Update.jsp"></forward> -->
-<!-- 			<forward name="add" path="/WEB-INF/jsp/Insert.jsp"></forward> -->
-<!-- 			<forward name="viewDept" path="/WEB-INF/jsp/ViewDept.jsp"></forward> -->
+		<action path="/portal" name="PortalForm"
+			type="com.finalproject.portal.handler.PortalAction" scope="request">
+<!-- 			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward> -->
+<!-- 			<forward name="success" path="/WEB-INF/jsp/DashboardUser.jsp"></forward> -->
+			<forward name="success" path="/WEB-INF/jsp/DashboardAdmin.jsp"></forward>
 		</action>
 	</action-mappings>
-	
+
+	<!-- UNTUK VALIDATOR -->
 	<message-resources parameter="ApplicationResources" />
-	
 	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-        <set-property property="pathnames" 
-                      value="/WEB-INF/validator-rules.xml,
-                             /WEB-INF/validator-user.xml"/>
-	<!-- hanya validator-user.xml yang boleh diganti sesuai dengan nama filenya -->
-	</plug-in>	
-	
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,
+                             /WEB-INF/validator-user.xml" />
+	</plug-in>
 </struts-config>      
