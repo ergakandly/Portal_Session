@@ -8,7 +8,7 @@
 	</form-beans>
 	<action-mappings>
 		<action path="/portal" name="PortalForm" type="com.finalproject.portal.handler.PortalAction" scope="request">
-			<forward name="success" path="/WEB-INF/jsp/Home.jsp"></forward>
+			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward>
 <!-- 			<forward name="update" path="/WEB-INF/jsp/Update.jsp"></forward> -->
 <!-- 			<forward name="add" path="/WEB-INF/jsp/Insert.jsp"></forward> -->
 <!-- 			<forward name="viewDept" path="/WEB-INF/jsp/ViewDept.jsp"></forward> -->
