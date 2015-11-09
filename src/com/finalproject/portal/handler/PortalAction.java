@@ -20,7 +20,7 @@ public class PortalAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, Exception {
 		
-		System.out.println("aa");
+		System.out.println("aab");
 
 //		PortalForm portalForm = (PortalForm) form;
 //		PortalManager manager = new PortalManager();
