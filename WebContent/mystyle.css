@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+
+h2 {
+	color: maroon;
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+.kanan {
+	text-align: right
+}
+
+.btn {
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+}
+
+.form-control {
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+}
+
+.kanan {
+	text-align: right;
+}
+
+hr{
+	size: 50px;
+}
