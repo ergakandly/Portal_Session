@@ -1,0 +1,112 @@
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="employees">
+
+<!-- 	Kalau ga pake paging, Create Table Employees ini Jalan -->
+<!-- 	Digunakan jika user belum memiliki Tabel emp_short  -->
+	<statement id="getCreateTable">	
+		CREATE TABLE 
+			emp_short AS select employee_id, 
+								first_name, 
+								last_name,
+								phone_number,
+								email,
+								salary
+		FROM 
+			employees
+		ORDER BY 
+			employee_id
+	</statement>
+	
+	
+	<select id="getEmployees" resultClass="model.EmployeeBean" parameterClass="java.util.Map">
+		SELECT
+			employee_id AS employeeId,
+			first_name AS firstName,
+			last_name AS lastName,
+			phone_number AS phoneNumber,
+			email AS email,
+			salary AS salary
+		FROM
+			(
+            SELECT
+				rownum as num,
+	            employee_id,
+				first_name,
+				last_name,
+				phone_number,
+				email,
+				salary
+			from 
+				emp_short
+			WHERE 1=1
+		<dynamic prepend="AND">
+			<isNotEmpty property = "searchName">
+				lower(first_name) = lower(#searchName#)
+			</isNotEmpty>
+		</dynamic> 
+			)
+			Where num &gt;= #min# and num &lt;= #max#
+			ORDER BY 
+				employee_id
+			
+<!-- 		where  -->
+<!-- 			lower(first_name) like '%'||lower(#searchName#)||'%' -->
+			
+		
+		
+	</select>
+	
+	<select id = "getOneEmp" resultClass="model.EmployeeBean" parameterClass="java.lang.String">
+		SELECT
+			employee_id AS employeeId,
+			first_name AS firstName,
+			last_name AS lastName,
+			phone_number AS phoneNumber,
+			email AS email,
+			salary AS salary
+		FROM
+			emp_short
+		WHERE 
+			employee_id = #empId#
+		ORDER BY 
+			employee_id
+	</select>
+	
+	<update id = "saveData" parameterClass="java.util.Map">
+		UPDATE 
+			emp_short
+		SET
+			first_name = #firstName#,
+			last_name = #lastName#
+			phone_number = #phoneNumber#,
+			email = #email#,
+			salary = #salary#
+		WHERE
+			employee_id = #employeeId#
+	</update>
+	
+	<delete id = "delete" parameterClass="java.util.Map">
+		DELETE FROM
+			emp_short
+		WHERE
+			employee_id = #employeeId#
+	</delete>
+	
+	<insert id = "insert" parameterClass="java.util.Map">
+		INSERT INTO
+			emp_short
+		VALUES
+			((SELECT MAX(employee_id) AS MAX_ID FROM emp_short)+1, #firstName#, #lastName#, #phoneNumber#, #email#, #salary#)
+	</insert>
+	
+	<select id="totalRow" resultClass="java.lang.String">
+		SELECT
+			count (employee_id)
+		FROM
+			emp_short	
+	</select>
+	
+</sqlMap>
