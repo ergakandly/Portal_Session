@@ -1,10 +1,10 @@
-package com.finalproject.portal.form;
+package com.hris.portal.form;
 
 import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
-import com.finalproject.portal.model.PortalBean;
+import com.hris.portal.model.PortalBean;
 
 public class PortalForm extends ActionForm{
 	private List<PortalBean> listRegions;

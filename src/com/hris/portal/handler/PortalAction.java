@@ -1,4 +1,4 @@
-package com.finalproject.portal.handler;
+package com.hris.portal.handler;
 
 import java.sql.SQLException;
 
@@ -10,8 +10,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.finalproject.portal.form.PortalForm;
-import com.finalproject.portal.manager.PortalManager;
+import com.hris.portal.form.PortalForm;
+import com.hris.portal.manager.PortalManager;
 
 public class PortalAction extends Action {
 	

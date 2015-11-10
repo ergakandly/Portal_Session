@@ -1,6 +1,6 @@
-package com.finalproject.portal.manager;
+package com.hris.portal.manager;
 
-import com.finalproject.portal.ibatis.IbatisHelper;
+import com.hris.portal.ibatis.IbatisHelper;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 public class PortalManager {

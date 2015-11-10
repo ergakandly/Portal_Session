@@ -1,4 +1,4 @@
-package com.finalproject.portal.model;
+package com.hris.portal.model;
 
 import java.io.Serializable;
 

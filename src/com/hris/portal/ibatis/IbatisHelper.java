@@ -1,4 +1,4 @@
-package com.finalproject.portal.ibatis;
+package com.hris.portal.ibatis;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import java.io.Reader;
