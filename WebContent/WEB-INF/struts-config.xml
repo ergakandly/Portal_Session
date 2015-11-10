@@ -9,11 +9,11 @@
 
 	<action-mappings>
  		<action path="/portal" name="PortalForm"
- 			type="com.finalproject.portal.handler.PortalAction" scope="request">
-<!-- 			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward> -->
-<!-- 			<forward name="success" path="/WEB-INF/jsp/DashboardUser.jsp"></forward> -->
-<!-- 			<forward name="success" path="/WEB-INF/jsp/DashboardAdmin.jsp"></forward> -->
-			<forward name="success" path="/WEB-INF/jsp/MasterRole.jsp"></forward>
+ 			type="com.hris.portal.handler.PortalAction" scope="request">
+			<forward name="masterRole" path="/WEB-INF/jsp/MasterRole.jsp"></forward>
+			<forward name="dashboardUser" path="/WEB-INF/jsp/DashboardUser.jsp"></forward>
+			<forward name="dashboardAdmin" path="/WEB-INF/jsp/DashboardAdmin.jsp"></forward>
+			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward>
  		</action>
 	</action-mappings>
 
@@ -22,6 +22,6 @@
 	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
 		<set-property property="pathnames"
 			value="/WEB-INF/validator-rules.xml,
-                             /WEB-INF/validator-user.xml" />
+                   /WEB-INF/validator-user.xml" />
 	</plug-in>
 </struts-config>      

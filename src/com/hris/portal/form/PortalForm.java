@@ -7,24 +7,24 @@ import org.apache.struts.action.ActionForm;
 import com.hris.portal.model.PortalBean;
 
 public class PortalForm extends ActionForm{
-	private List<PortalBean> listRegions;
-	private PortalBean regionBean = new PortalBean();
+	private List<PortalBean> listPortal;
+	private PortalBean portalBean = new PortalBean();
 	private String task;
 	private String id;
-	private int min;
-	private int max;
+	private String user;
+	private String pass;
 	
-	public List<PortalBean> getListRegions() {
-		return listRegions;
+	public List<PortalBean> getListPortal() {
+		return listPortal;
 	}
-	public void setListRegions(List<PortalBean> listRegions) {
-		this.listRegions = listRegions;
+	public void setListPortal(List<PortalBean> listPortal) {
+		this.listPortal = listPortal;
 	}
-	public PortalBean getRegionBean() {
-		return regionBean;
+	public PortalBean getPortalBean() {
+		return portalBean;
 	}
-	public void setRegionBean(PortalBean regionBean) {
-		this.regionBean = regionBean;
+	public void setPortalBean(PortalBean portalBean) {
+		this.portalBean = portalBean;
 	}
 	public String getTask() {
 		return task;
@@ -38,16 +38,18 @@ public class PortalForm extends ActionForm{
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getMin() {
-		return min;
+	public String getUser() {
+		return user;
 	}
-	public void setMin(int min) {
-		this.min = min;
+	public void setUser(String user) {
+		this.user = user;
 	}
-	public int getMax() {
-		return max;
+	public String getPass() {
+		return pass;
 	}
-	public void setMax(int max) {
-		this.max = max;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
+
+	
 }
