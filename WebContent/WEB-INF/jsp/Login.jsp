@@ -1,3 +1,7 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,7 +32,18 @@
 <title>Login Page</title>
 </head>
 
+<script type="text/javascript">
+	function flyToPage(task, id) {
+	    	document.forms[0].task.value=task;
+	    	document.forms[0].id.value=id;
+	 		document.forms[0].submit();	 	
+	}
+</script>
+
 <body>
+<html:form method="post" action="/helloWorld">
+<html:hidden name="ibForm" property="task"/>
+<html:hidden name="ibForm" property="id"/>
 	<br>
 	<br>
 	<br>
@@ -76,5 +91,6 @@
 			</div>
 		</div>
 		<!--END PANEL-->
+</html:form>
 </body>
 </html>
