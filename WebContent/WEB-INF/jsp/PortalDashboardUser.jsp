@@ -31,13 +31,77 @@
 			id="bs-example-navbar-collapse-1">
 
 			<ul class="nav navbar-nav navbar-right">
+
+				<!-- DROPDOWN NOTIFICATION -->
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span><span
+						class="badge">3</span> <b class="caret"></b></a>
+					<ul class="dropdown-menu message-dropdown">
+						<li class="message-preview"><a href="#">
+								<div class="media">
+									<span class="pull-left"> <img class="media-object"
+										src="http://placehold.it/50x50" alt="">
+									</span>
+									<div class="media-body">
+										<h5 class="media-heading">
+											<strong>John Smith</strong>
+										</h5>
+										<p class="small text-muted">
+											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
+										</p>
+										<p>Lorem ipsum dolor sit amet, consectetur...</p>
+									</div>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li class="message-preview"><a href="#">
+								<div class="media">
+									<span class="pull-left"> <img class="media-object"
+										src="http://placehold.it/50x50" alt="">
+									</span>
+									<div class="media-body">
+										<h5 class="media-heading">
+											<strong>John Smith</strong>
+										</h5>
+										<p class="small text-muted">
+											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
+										</p>
+										<p>Lorem ipsum dolor sit amet, consectetur...</p>
+									</div>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li class="message-preview"><a href="#">
+								<div class="media">
+								
+									<span class="pull-left"> <img class="media-object"
+										src="http://placehold.it/50x50" alt="">
+									</span>
+									
+									<div class="media-body">
+										<h5 class="media-heading">
+											<strong>John Smith</strong>
+										</h5>
+										<p class="small text-muted">
+											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
+										</p>
+										<p>Lorem ipsum dolor sit amet, consectetur...</p>
+									</div>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li class="message-footer"><a href="#">Read All New
+								Notification</a></li>
+					</ul></li>
+				<!-- END DROPDOWN NOTIFICATION -->
+
+				<!-- DROPDOWN USER -->
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
 						Hi, User <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">
-						<large>
-						<span class="glyphicon glyphicon-user"></span><large>
+						<li><a href="#"> <large> <span
+									class="glyphicon glyphicon-user"></span> <large>
 								Profile</a></li>
 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
 								Settings</a></li>
@@ -52,9 +116,9 @@
 	<!-- END NAVBAR -->
 	<br />
 	<br />
-	
+
 	<!-- CONTAINER -->
-	<div class="container-fluid well" style="min-height:100%;!important" >
+	<div class="container-fluid well" style="min-height: 100%;!important">
 		<!--wadah-->
 		<div class="row">
 			<div class="col-md-12">
@@ -68,31 +132,33 @@
 					<div class="tab-pane active" id="dashboard">
 						<br> <br> <br>
 
-						
-							<center>
-								<button class="btn btn-default" type="button"
-									style="height: 200px; width: 200px;">
-									<span class="glyphicon glyphicon-user"></span><br>
-									<Large>Employees</Large>
-								</button>
-								<button class="btn btn-default" type="button"
-									style="height: 100px; width: 100px;">
-									<span class="glyphicon glyphicon-check"></span><br>
-									<Large>Attendance</Large>
-								</button>
-								<button class="btn btn-default" type="button"
-									style="height: 100px; width: 100px;">
-									<span class="glyphicon glyphicon-send"></span><br>
-									<Large>Leave</Large>
-								</button>
-								<br> <br>
-							</center>
-						
+
+						<center>
+							<button class="btn btn-default" type="button"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-user" style="font-size: 100px;"></span><br>
+								<h3>Employees</h3>
+							</button>
+							<button class="btn btn-default" type="button"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-check"
+									style="font-size: 100px;"></span><br>
+								<h3>Attendence</h3>
+							</button>
+							<button class="btn btn-default" type="button"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-send" style="font-size: 100px;"></span><br>
+								<h3>Leave</h3>
+							</button>
+							<br> <br>
+						</center>
+
 
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- END CONTAINER -->
 </body>
 </html>

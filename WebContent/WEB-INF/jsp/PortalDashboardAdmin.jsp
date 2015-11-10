@@ -59,150 +59,137 @@ table th {
 
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#"> <span
-							class="glyphicon glyphicon-user"></span> Home <span
-							class="sr-only">(current)</span>
-					</a></li>
-					<li><a href="javascript:flyToPage('masterRole');"> <span
-							class="glyphicon glyphicon-check"></span> Role Settings
-					</a></li>
-					<li><a href="javascript:flyToPage('assignRole');"> <span class="glyphicon glyphicon-send"></span>
-							Assign Role
-					</a></li>
-					<li><a href="javascript:flyToPage('masterModul');"> <span class="glyphicon glyphicon-send"></span>
-							Moduls
-					</a></li>
-				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-					<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-					<!-- 						Nama User <b class="caret"></b></a> -->
-					<!-- 					<ul class="dropdown-menu"> -->
-					<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-					<!-- 								Profile</a></li> -->
-					<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-					<!-- 						</li> -->
-					<!-- 						<li class="divider"></li> -->
-					<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-					<!-- 								Out</a></li> -->
-					<!-- 					</ul></li> -->
+
+					<!-- DROPDOWN NOTIFICATION -->
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span><span
+							class="badge">3</span> <b class="caret"></b></a>
+						<ul class="dropdown-menu message-dropdown">
+							<li class="message-preview"><a href="#">
+									<div class="media">
+										<span class="pull-left"> <img class="media-object"
+											src="http://placehold.it/50x50" alt="">
+										</span>
+										<div class="media-body">
+											<h5 class="media-heading">
+												<strong>John Smith</strong>
+											</h5>
+											<p class="small text-muted">
+												<span class="glyphicon glyphicon-time"></span> Yesterday at
+												4:32 PM
+											</p>
+											<p>Lorem ipsum dolor sit amet, consectetur...</p>
+										</div>
+									</div>
+							</a></li>
+							<li class="divider"></li>
+							<li class="message-preview"><a href="#">
+									<div class="media">
+										<span class="pull-left"> <img class="media-object"
+											src="http://placehold.it/50x50" alt="">
+										</span>
+										<div class="media-body">
+											<h5 class="media-heading">
+												<strong>John Smith</strong>
+											</h5>
+											<p class="small text-muted">
+												<span class="glyphicon glyphicon-time"></span> Yesterday at
+												4:32 PM
+											</p>
+											<p>Lorem ipsum dolor sit amet, consectetur...</p>
+										</div>
+									</div>
+							</a></li>
+							<li class="divider"></li>
+							<li class="message-preview"><a href="#">
+									<div class="media">
+
+										<span class="pull-left"> <img class="media-object"
+											src="http://placehold.it/50x50" alt="">
+										</span>
+
+										<div class="media-body">
+											<h5 class="media-heading">
+												<strong>John Smith</strong>
+											</h5>
+											<p class="small text-muted">
+												<span class="glyphicon glyphicon-time"></span> Yesterday at
+												4:32 PM
+											</p>
+											<p>Lorem ipsum dolor sit amet, consectetur...</p>
+										</div>
+									</div>
+							</a></li>
+							<li class="divider"></li>
+							<li class="message-footer"><a href="#">Read All New
+									Notification</a></li>
+						</ul></li>
+					<!-- END DROPDOWN NOTIFICATION -->
+
+					<!-- DROPDOWN USER -->
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							Hi, Admin <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"> <large> <span
+										class="glyphicon glyphicon-user"></span> <large>
+									Profile</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
+									Settings</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><span
+									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+						</ul></li>
 				</ul>
 			</div>
 		</div>
 		</nav>
 		<!-- END NAVBAR -->
-
+		
 		<br />
 		<br />
 		<!-- CONTAINER -->
-		<div class="container-fluid well">
-			<!--wadah-->
-			<div class="row">
-				<div class="col-md-12">
-					<h3>Menu Admin</h3>
-					<hr>
-				</div>
+	<div class="container-fluid well" style="min-height: 100%;!important">
+		<!--wadah-->
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Menu Admin</h3>
+				<hr>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="tab-content">
-						<div class="tab-pane active" id="dashboard">
-							<br> <br> <br>
-
-							<!-- MENU COLUMN -->
-							<div class="col-md-8">
-								<center>
-									<button type="button" class="btn btn-primary">
-										<a href="javascript:flyToPage('masterRole');"
-											style="color: white;"> <span
-											class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-											Add New Role
-										</a>
-									</button>
-									<button type="button" class="btn btn-primary">
-										<a href="javascript:flyToPage('masterRole');"
-											style="color: white;"> <span
-											class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-											Add New User Role
-										</a>
-									</button>
-									<br /> <br />
-									<table align="center"
-										class="table table-nonfluid table-striped table-bordered table-hover"
-										width="70%">
-										<tr>
-											<th>Employee Name</th>
-											<th>Role</th>
-											<th>Button Action</th>
-										</tr>
-
-										<tr>
-											<td>Employee 1</td>
-											<td>Role 1</td>
-											<td>
-												<button type="button" class="btn btn-info" onclick="">
-													<span class="glyphicon glyphicon-pencil"></span> Edit
-												</button>
-												<button type="button" class="btn btn-danger" onclick="">
-													<span class="glyphicon glyphicon-remove"></span> Delete
-												</button>
-											</td>
-										</tr>
-
-										<tr>
-											<td>Employee 2</td>
-											<td>Role 2</td>
-											<td>
-												<button type="button" class="btn btn-info" onclick="">
-													<span class="glyphicon glyphicon-pencil"></span> Edit
-												</button>
-												<button type="button" class="btn btn-danger" onclick="">
-													<span class="glyphicon glyphicon-remove"></span> Delete
-												</button>
-											</td>
-										</tr>
-
-										<tr>
-											<td>Employee 3</td>
-											<td>Role 3</td>
-											<td>
-												<button type="button" class="btn btn-info" onclick="">
-													<span class="glyphicon glyphicon-pencil"></span> Edit
-												</button>
-												<button type="button" class="btn btn-danger" onclick="">
-													<span class="glyphicon glyphicon-remove"></span> Delete
-												</button>
-											</td>
-										</tr>
-
-									</table>
-								</center>
-							</div>
-
-							<!-- MENU USER -->
-							<div class="col-md-4">
-								<ul class="nav nav-stacked nav-pills">
-									<li class="active"><a href="index.html"> <span class="glyphicon glyphicon-user">
-										</span> &nbsp; Hi, Admin
-									</a></li>
-									<li><a href="javascript:flyToPage('changePass');"> <span class="glyphicon glyphicon-edit">
-										</span> &nbsp; Change Password
-									</a></li>
-									<li><a href="#"> <span class="glyphicon glyphicon-flag">
-										</span> &nbsp; Notification
-									</a></li>
-									<li><a href="javascript:flyToPage('success');"> <span class="glyphicon glyphicon-log-out">
-										</span> &nbsp; Logout
-									</a></li>
-								</ul>
-							</div>
-						</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tab-content">
+					<div class="tab-pane active" id="dashboard">
+						<br/> <br/> <br/>
+						<center>
+							<button class="btn btn-default" type="button" onclick="javascript:flyToPage('masterRole');"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-user" style="font-size: 100px;"></span><br>
+								<h3>Role Settings</h3>
+							</button>
+							<button class="btn btn-default" type="button" onclick="javascript:flyToPage('assignRole');"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-check"
+									style="font-size: 100px;"></span><br>
+								<h3>Assign Role</h3>
+							</button>
+							<button class="btn btn-default" type="button" onclick="javascript:flyToPage('masterModul');"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-send" style="font-size: 100px;"></span><br>
+								<h3>Moduls</h3>
+							</button>
+							
+							<br> <br>
+						</center>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	<!-- END CONTAINER -->
 	</html:form>
 </body>
 </html>
