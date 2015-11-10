@@ -25,27 +25,30 @@ public class PortalAction extends Action {
 		
 		if("login".equalsIgnoreCase(hForm.getTask())){
 			if(hForm.getUser().equals("user") && hForm.getPass().equals("user")){
-				System.out.println(hForm.getUser());
-				System.out.println(hForm.getPass());
+				System.out.println("Jenis User : " + hForm.getUser());
 				return mapping.findForward("dashboardUser");
 			}
 			else if(hForm.getUser().equals("admin") && hForm.getPass().equals("admin")){
-				System.out.println(hForm.getUser());
-				System.out.println(hForm.getPass());
+				System.out.println("Jenis User : " + hForm.getUser());
 				return mapping.findForward("dashboardAdmin");
 			}
 			else {
 				System.out.println("SALAAAAHHH");
 			}
 		}else if ("masterRole".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("masterRole");
 		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("changePass");
 		}else if ("addEditRole".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("addEditRole");
 		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("masterModul");
 		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("assignRole");
 		}
 

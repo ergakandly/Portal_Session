@@ -18,6 +18,7 @@
 
 <title>Dashboard User</title>
 </head>
+<!-- <body style="min-height:768px;!important"> -->
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,32 +29,86 @@
 
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#"> <span
-						class="glyphicon glyphicon-user"></span> Home <span
-						class="sr-only">(current)</span>
-				</a></li>
-				<li><a href="javascript:flyToPage('masterRole');"> <span
-						class="glyphicon glyphicon-check"></span> Role Settings
-				</a></li>
-				<li><a href="#"> <span class="glyphicon glyphicon-send"></span>
-						Assign Role
-				</a></li>
-			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-				<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-				<!-- 						Nama User <b class="caret"></b></a> -->
-				<!-- 					<ul class="dropdown-menu"> -->
-				<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-				<!-- 								Profile</a></li> -->
-				<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-				<!-- 						</li> -->
-				<!-- 						<li class="divider"></li> -->
-				<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-				<!-- 								Out</a></li> -->
-				<!-- 					</ul></li> -->
+
+				<!-- DROPDOWN NOTIFICATION -->
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span><span
+						class="badge">3</span> <b class="caret"></b></a>
+					<ul class="dropdown-menu message-dropdown">
+						<li class="message-preview"><a href="#">
+								<div class="media">
+									<span class="pull-left"> <img class="media-object"
+										src="http://placehold.it/50x50" alt="">
+									</span>
+									<div class="media-body">
+										<h5 class="media-heading">
+											<strong>John Smith</strong>
+										</h5>
+										<p class="small text-muted">
+											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
+										</p>
+										<p>Lorem ipsum dolor sit amet, consectetur...</p>
+									</div>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li class="message-preview"><a href="#">
+								<div class="media">
+									<span class="pull-left"> <img class="media-object"
+										src="http://placehold.it/50x50" alt="">
+									</span>
+									<div class="media-body">
+										<h5 class="media-heading">
+											<strong>John Smith</strong>
+										</h5>
+										<p class="small text-muted">
+											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
+										</p>
+										<p>Lorem ipsum dolor sit amet, consectetur...</p>
+									</div>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li class="message-preview"><a href="#">
+								<div class="media">
+								
+									<span class="pull-left"> <img class="media-object"
+										src="http://placehold.it/50x50" alt="">
+									</span>
+									
+									<div class="media-body">
+										<h5 class="media-heading">
+											<strong>John Smith</strong>
+										</h5>
+										<p class="small text-muted">
+											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
+										</p>
+										<p>Lorem ipsum dolor sit amet, consectetur...</p>
+									</div>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li class="message-footer"><a href="#">Read All New
+								Notification</a></li>
+					</ul></li>
+				<!-- END DROPDOWN NOTIFICATION -->
+
+				<!-- DROPDOWN USER -->
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+						Hi, User <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#"> <large> <span
+									class="glyphicon glyphicon-user"></span> <large>
+								Profile</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
+								Settings</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+								Log Out</a></li>
+					</ul></li>
 			</ul>
 		</div>
 	</div>
@@ -61,12 +116,13 @@
 	<!-- END NAVBAR -->
 	<br />
 	<br />
+
 	<!-- CONTAINER -->
-	<div class="container-fluid well">
+	<div class="container-fluid well" style="min-height: 100%;!important">
 		<!--wadah-->
 		<div class="row">
 			<div class="col-md-12">
-				<h3>Menu</h3>
+				<h3>Modals Users</h3>
 				<hr>
 			</div>
 		</div>
@@ -76,49 +132,33 @@
 					<div class="tab-pane active" id="dashboard">
 						<br> <br> <br>
 
-						<!-- MENU COLUMN -->
-						<div class="col-md-8">
-							<center>
-								<button class="btn btn-default" type="button"
-									style="height: 100px; width: 100px;">
-									<span class="glyphicon glyphicon-user"></span><br>
-									<Large>Employees</Large>
-								</button>
-								<button class="btn btn-default" type="button"
-									style="height: 100px; width: 100px;">
-									<span class="glyphicon glyphicon-check"></span><br>
-									<Large>Attendance</Large>
-								</button>
-								<button class="btn btn-default" type="button"
-									style="height: 100px; width: 100px;">
-									<span class="glyphicon glyphicon-send"></span><br>
-									<Large>Leave</Large>
-								</button>
-								<br> <br>
-							</center>
-						</div>
 
-						<!-- MENU USER -->
-						<div class="col-md-4">
-							<ul class="nav nav-stacked nav-pills">
-								<li class="active"><a href="index.html"> <span
-										class="glyphicon glyphicon-user"></span> &nbsp; Hi, User
-								</a></li>
-								<li><a href="#"> <span class="glyphicon glyphicon-edit"></span>
-										&nbsp; Edit Profile
-								</a></li>
-								<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
-										&nbsp; Notification
-								</a></li>
-								<li><a href="#"> <span
-										class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
-								</a></li>
-							</ul>
-						</div>
+						<center>
+							<button class="btn btn-default" type="button"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-user" style="font-size: 100px;"></span><br>
+								<h3>Employees</h3>
+							</button>
+							<button class="btn btn-default" type="button"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-check"
+									style="font-size: 100px;"></span><br>
+								<h3>Attendence</h3>
+							</button>
+							<button class="btn btn-default" type="button"
+								style="height: 200px; width: 200px;">
+								<span class="glyphicon glyphicon-send" style="font-size: 100px;"></span><br>
+								<h3>Leave</h3>
+							</button>
+							<br> <br>
+						</center>
+
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- END CONTAINER -->
 </body>
 </html>
