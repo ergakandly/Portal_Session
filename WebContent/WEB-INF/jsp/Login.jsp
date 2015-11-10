@@ -4,6 +4,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,11 +33,14 @@
 <title>Login Page</title>
 </head>
 
-<script type="text/javascript">
-	function flyToPage(task, id) {
-	    	document.forms[0].task.value=task;
-	    	document.forms[0].id.value=id;
-	 		document.forms[0].submit();	 	
+<script language="JavaScript">
+	function doSubmit(){
+		var frm = document.forms[0];
+		if (!validateForm(frm)){
+//	 		alert("I am an alert box!");
+			return;
+		}
+		frm.submit();
 	}
 </script>
 
@@ -81,10 +85,11 @@
 							</div>
 						</div>
 						<div class=kanan>
-							<button class="btn btn-primary btn-lg" data-toggle="modal"
-								data-target="#myModal">
+							<input type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+								data-target="#myModal" onclick= "javascript:doSubmit();">
 								<span class="glyphicon glyphicon-log-in"></span> &nbsp; Login
 							</button>
+<!-- 							<input type= "button" value ="Input" onclick= "javascript:doSubmit();" /> -->
 						</div>
 					</form>
 				</div>
