@@ -67,10 +67,10 @@ table th {
 					<li><a href="javascript:flyToPage('masterRole');"> <span
 							class="glyphicon glyphicon-check"></span> Role Settings
 					</a></li>
-					<li><a href="#"> <span class="glyphicon glyphicon-send"></span>
+					<li><a href="javascript:flyToPage('assignRole');"> <span class="glyphicon glyphicon-send"></span>
 							Assign Role
 					</a></li>
-					<li><a href="#"> <span class="glyphicon glyphicon-send"></span>
+					<li><a href="javascript:flyToPage('masterModul');"> <span class="glyphicon glyphicon-send"></span>
 							Moduls
 					</a></li>
 				</ul>
@@ -184,17 +184,17 @@ table th {
 							<!-- MENU USER -->
 							<div class="col-md-4">
 								<ul class="nav nav-stacked nav-pills">
-									<li class="active"><a href="index.html"> <span
-											class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
+									<li class="active"><a href="index.html"> <span class="glyphicon glyphicon-user">
+										</span> &nbsp; Hi, Admin
 									</a></li>
-									<li><a href="#"> <span
-											class="glyphicon glyphicon-edit"></span> &nbsp; Edit Profile
+									<li><a href="javascript:flyToPage('changePass');"> <span class="glyphicon glyphicon-edit">
+										</span> &nbsp; Change Password
 									</a></li>
-									<li><a href="#"> <span
-											class="glyphicon glyphicon-flag"></span> &nbsp; Notification
+									<li><a href="#"> <span class="glyphicon glyphicon-flag">
+										</span> &nbsp; Notification
 									</a></li>
-									<li><a href="#"> <span
-											class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
+									<li><a href="javascript:flyToPage('success');"> <span class="glyphicon glyphicon-log-out">
+										</span> &nbsp; Logout
 									</a></li>
 								</ul>
 							</div>

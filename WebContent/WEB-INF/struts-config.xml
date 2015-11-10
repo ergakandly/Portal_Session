@@ -13,6 +13,10 @@
 			<forward name="masterRole" path="/WEB-INF/jsp/PortalMasterRole.jsp"></forward>
 			<forward name="dashboardUser" path="/WEB-INF/jsp/PortalDashboardUser.jsp"></forward>
 			<forward name="dashboardAdmin" path="/WEB-INF/jsp/PortalDashboardAdmin.jsp"></forward>
+			<forward name="changePass" path="/WEB-INF/jsp/PortalUserChangePassword.jsp"></forward>
+			<forward name="addEditRole" path="/WEB-INF/jsp/PortalAddEditRole.jsp"></forward>
+			<forward name="masterModul" path="/WEB-INF/jsp/PortalMasterModul.jsp"></forward>
+			<forward name="assignRole" path="/WEB-INF/jsp/PortalMasterAssignRole.jsp"></forward>
 			<forward name="success" path="/WEB-INF/jsp/PortalLogin.jsp"></forward>
 <!-- 			<forward name="success" path="/WEB-INF/jsp/PortalUserChangePassword.jsp"></forward> -->
  		</action>

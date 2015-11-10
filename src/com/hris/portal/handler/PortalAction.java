@@ -37,9 +37,16 @@ public class PortalAction extends Action {
 			else {
 				System.out.println("SALAAAAHHH");
 			}
-		}
-		else if ("masterRole".equalsIgnoreCase(hForm.getTask())){
+		}else if ("masterRole".equalsIgnoreCase(hForm.getTask())){
 			return mapping.findForward("masterRole");
+		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
+			return mapping.findForward("changePass");
+		}else if ("addEditRole".equalsIgnoreCase(hForm.getTask())){
+			return mapping.findForward("addEditRole");
+		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
+			return mapping.findForward("masterModul");
+		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
+			return mapping.findForward("assignRole");
 		}
 
 		return mapping.findForward("success");

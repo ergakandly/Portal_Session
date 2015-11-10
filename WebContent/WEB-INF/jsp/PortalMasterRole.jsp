@@ -1,6 +1,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,7 +23,20 @@
 
 <title>Master Role</title>
 </head>
+
+<script type="text/javascript">
+	function flyToPage(task, id) {
+		document.forms[0].task.value = task;
+		document.forms[0].id.value = id;
+		document.forms[0].submit();
+	}
+</script>
+
 <body>
+
+<html:form method="post" action="/portal">
+<html:hidden name="PortalForm" property="task" />
+<html:hidden name="PortalForm" property="id" />
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
@@ -85,9 +99,11 @@
 					<!-- MENU COLUMN -->
 					<div class="col-md-8">
 						<center>
-							<button type="button" class="btn btn-primary" onclick="#">
+							<button type="button" class="btn btn-primary">
+							<a href="javascript:flyToPage('addEditRole');" style="color: white;">
 								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-								Add New Role
+									Add New Role
+							</a>
 							</button>
 							<br /> <br />
 							<table align="center"
@@ -219,5 +235,6 @@
 		</div>
 	</div>
 </div>
+</html:form>
 </body>
 </html>
