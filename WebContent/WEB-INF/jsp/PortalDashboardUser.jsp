@@ -18,6 +18,7 @@
 
 <title>Dashboard User</title>
 </head>
+<!-- <body style="min-height:768px;!important"> -->
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,32 +29,22 @@
 
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#"> <span
-						class="glyphicon glyphicon-user"></span> Home <span
-						class="sr-only">(current)</span>
-				</a></li>
-				<li><a href="javascript:flyToPage('masterRole');"> <span
-						class="glyphicon glyphicon-check"></span> Role Settings
-				</a></li>
-				<li><a href="#"> <span class="glyphicon glyphicon-send"></span>
-						Assign Role
-				</a></li>
-			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-				<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-				<!-- 						Nama User <b class="caret"></b></a> -->
-				<!-- 					<ul class="dropdown-menu"> -->
-				<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-				<!-- 								Profile</a></li> -->
-				<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-				<!-- 						</li> -->
-				<!-- 						<li class="divider"></li> -->
-				<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-				<!-- 								Out</a></li> -->
-				<!-- 					</ul></li> -->
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+						Hi, User <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">
+						<large>
+						<span class="glyphicon glyphicon-user"></span><large>
+								Profile</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
+								Settings</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+								Log Out</a></li>
+					</ul></li>
 			</ul>
 		</div>
 	</div>
@@ -61,12 +52,13 @@
 	<!-- END NAVBAR -->
 	<br />
 	<br />
+	
 	<!-- CONTAINER -->
-	<div class="container-fluid well">
+	<div class="container-fluid well" style="min-height:100%;!important" >
 		<!--wadah-->
 		<div class="row">
 			<div class="col-md-12">
-				<h3>Menu</h3>
+				<h3>Modals Users</h3>
 				<hr>
 			</div>
 		</div>
@@ -76,11 +68,10 @@
 					<div class="tab-pane active" id="dashboard">
 						<br> <br> <br>
 
-						<!-- MENU COLUMN -->
-						<div class="col-md-8">
+						
 							<center>
 								<button class="btn btn-default" type="button"
-									style="height: 100px; width: 100px;">
+									style="height: 200px; width: 200px;">
 									<span class="glyphicon glyphicon-user"></span><br>
 									<Large>Employees</Large>
 								</button>
@@ -96,25 +87,8 @@
 								</button>
 								<br> <br>
 							</center>
-						</div>
+						
 
-						<!-- MENU USER -->
-						<div class="col-md-4">
-							<ul class="nav nav-stacked nav-pills">
-								<li class="active"><a href="index.html"> <span
-										class="glyphicon glyphicon-user"></span> &nbsp; Hi, User
-								</a></li>
-								<li><a href="#"> <span class="glyphicon glyphicon-edit"></span>
-										&nbsp; Edit Profile
-								</a></li>
-								<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
-										&nbsp; Notification
-								</a></li>
-								<li><a href="#"> <span
-										class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
-								</a></li>
-							</ul>
-						</div>
 					</div>
 				</div>
 			</div>
