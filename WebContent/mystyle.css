@@ -28,3 +28,13 @@ h2 {
 hr{
 	size: 50px;
 }
+
+table th {
+	background-color: black;
+	color: white;
+	align: center;
+}
+
+.table-nonfluid {
+	width: auto !important;
+}

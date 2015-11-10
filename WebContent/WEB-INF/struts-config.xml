@@ -8,12 +8,13 @@
 	</form-beans>
 
 	<action-mappings>
-		<action path="/portal" name="PortalForm"
-			type="com.hris.portal.handler.PortalAction" scope="request">
+ 		<action path="/portal" name="PortalForm"
+ 			type="com.finalproject.portal.handler.PortalAction" scope="request">
 <!-- 			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward> -->
 <!-- 			<forward name="success" path="/WEB-INF/jsp/DashboardUser.jsp"></forward> -->
-			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward>
-		</action>
+<!-- 			<forward name="success" path="/WEB-INF/jsp/DashboardAdmin.jsp"></forward> -->
+			<forward name="success" path="/WEB-INF/jsp/MasterRole.jsp"></forward>
+ 		</action>
 	</action-mappings>
 
 	<!-- UNTUK VALIDATOR -->
