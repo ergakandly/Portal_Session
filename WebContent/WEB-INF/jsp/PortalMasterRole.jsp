@@ -22,6 +22,7 @@
 
 <title>Master Role</title>
 </head>
+<body>
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
@@ -68,7 +69,10 @@
 	<!--wadah-->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Menu Admin</h3>
+			<button type="button" class="btn btn-info" onclick="#">
+				Back
+			</button>
+			<h3>Master Role</h3>
 			<hr>
 		</div>
 	</div>

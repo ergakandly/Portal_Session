@@ -32,8 +32,7 @@
 
 <title>Login Page</title>
 
-</head>
-
+<!-- SCRIPT -->
 <script language="JavaScript">
 	function doSubmit(){
 		var frm = document.forms[0];
@@ -44,6 +43,10 @@
 		frm.submit();
 	}
 </script>
+
+</head>
+
+
 
 <body>
 <html:form method="post" action="/portal">

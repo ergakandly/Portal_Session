@@ -16,7 +16,7 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 
-<title>Insert title here</title>
+<title>Dashboard User</title>
 </head>
 <body>
 	<!-- NAVBAR -->
@@ -28,18 +28,18 @@
 
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<!-- 			<ul class="nav navbar-nav"> -->
-			<!-- 				<li class="active"><a href="#"> <span -->
-			<!-- 						class="glyphicon glyphicon-user"></span> Employees <span -->
-			<!-- 						class="sr-only">(current)</span> -->
-			<!-- 				</a></li> -->
-			<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-			<!-- 						class="glyphicon glyphicon-check"></span> Attendance -->
-			<!-- 				</a></li> -->
-			<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-			<!-- 						class="glyphicon glyphicon-send"></span> Leave -->
-			<!-- 				</a></li> -->
-			<!-- 			</ul> -->
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#"> <span
+						class="glyphicon glyphicon-user"></span> Home <span
+						class="sr-only">(current)</span>
+				</a></li>
+				<li><a href="javascript:flyToPage('masterRole');"> <span
+						class="glyphicon glyphicon-check"></span> Role Settings
+				</a></li>
+				<li><a href="#"> <span class="glyphicon glyphicon-send"></span>
+						Assign Role
+				</a></li>
+			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->

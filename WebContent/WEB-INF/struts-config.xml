@@ -10,10 +10,11 @@
 	<action-mappings>
  		<action path="/portal" name="PortalForm"
  			type="com.hris.portal.handler.PortalAction" scope="request">
-			<forward name="masterRole" path="/WEB-INF/jsp/MasterRole.jsp"></forward>
-			<forward name="dashboardUser" path="/WEB-INF/jsp/DashboardUser.jsp"></forward>
-			<forward name="dashboardAdmin" path="/WEB-INF/jsp/DashboardAdmin.jsp"></forward>
-			<forward name="success" path="/WEB-INF/jsp/Login.jsp"></forward>
+			<forward name="masterRole" path="/WEB-INF/jsp/PortalMasterRole.jsp"></forward>
+			<forward name="dashboardUser" path="/WEB-INF/jsp/PortalDashboardUser.jsp"></forward>
+			<forward name="dashboardAdmin" path="/WEB-INF/jsp/PortalDashboardAdmin.jsp"></forward>
+			<forward name="success" path="/WEB-INF/jsp/PortalLogin.jsp"></forward>
+<!-- 			<forward name="success" path="/WEB-INF/jsp/PortalUserChangePassword.jsp"></forward> -->
  		</action>
 	</action-mappings>
 
