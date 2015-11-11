@@ -59,74 +59,7 @@ table th {
 
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-
 				<ul class="nav navbar-nav navbar-right">
-
-					<!-- DROPDOWN NOTIFICATION -->
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span><span
-							class="badge">3</span> <b class="caret"></b></a>
-						<ul class="dropdown-menu message-dropdown">
-							<li class="message-preview"><a href="#">
-									<div class="media">
-										<span class="pull-left"> <img class="media-object"
-											src="http://placehold.it/50x50" alt="">
-										</span>
-										<div class="media-body">
-											<h5 class="media-heading">
-												<strong>John Smith</strong>
-											</h5>
-											<p class="small text-muted">
-												<span class="glyphicon glyphicon-time"></span> Yesterday at
-												4:32 PM
-											</p>
-											<p>Lorem ipsum dolor sit amet, consectetur...</p>
-										</div>
-									</div>
-							</a></li>
-							<li class="divider"></li>
-							<li class="message-preview"><a href="#">
-									<div class="media">
-										<span class="pull-left"> <img class="media-object"
-											src="http://placehold.it/50x50" alt="">
-										</span>
-										<div class="media-body">
-											<h5 class="media-heading">
-												<strong>John Smith</strong>
-											</h5>
-											<p class="small text-muted">
-												<span class="glyphicon glyphicon-time"></span> Yesterday at
-												4:32 PM
-											</p>
-											<p>Lorem ipsum dolor sit amet, consectetur...</p>
-										</div>
-									</div>
-							</a></li>
-							<li class="divider"></li>
-							<li class="message-preview"><a href="#">
-									<div class="media">
-
-										<span class="pull-left"> <img class="media-object"
-											src="http://placehold.it/50x50" alt="">
-										</span>
-
-										<div class="media-body">
-											<h5 class="media-heading">
-												<strong>John Smith</strong>
-											</h5>
-											<p class="small text-muted">
-												<span class="glyphicon glyphicon-time"></span> Yesterday at
-												4:32 PM
-											</p>
-											<p>Lorem ipsum dolor sit amet, consectetur...</p>
-										</div>
-									</div>
-							</a></li>
-							<li class="divider"></li>
-							<li class="message-footer"><a href="#">Read All New
-									Notification</a></li>
-						</ul></li>
-					<!-- END DROPDOWN NOTIFICATION -->
 
 					<!-- DROPDOWN USER -->
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -136,8 +69,6 @@ table th {
 							<li><a href="#"> <large> <span
 										class="glyphicon glyphicon-user"></span> <large>
 									Profile</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
 							<li class="divider"></li>
 							<li><a href="#"><span
 									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
@@ -152,21 +83,26 @@ table th {
 		<br />
 		<!-- CONTAINER -->
 		<div class="container-fluid well" style="min-height: 100%;!important">
-			<!--wadah-->
+		
+			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
 					<h3>Dashboard</h3>
 					<hr>
-					<!-- Page Heading -->
+					
+					<!-- BREADCRUMB -->
 					<div class="alert alert-info" role="alert">
 						<ul class="breadcrumb">
 							<li><span class="glyphicon glyphicon-user"></span>Dashboard</a></li>
 						</ul>
 					</div>
-
-					<!-- /.row -->
+					<!-- END BREADCRUMB -->
+					
 				</div>
 			</div>
+			<!-- END ROW 12 -->
+			
+			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
 					<div class="tab-content">
@@ -200,8 +136,11 @@ table th {
 					</div>
 				</div>
 			</div>
+			<!-- END ROW 12 -->
+			
 		</div>
 		<!-- END CONTAINER -->
+		
 	</html:form>
 </body>
 </html>
