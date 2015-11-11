@@ -2,6 +2,15 @@
 PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<!-- <sqlMap namespace="employees"> -->
+<sqlMap namespace="employees">
 
-<!-- </sqlMap> -->
+	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean">
+		SELECT
+		employee_id AS employeeId,
+		first_name AS employeeFName,
+		last_name AS employeeLName
+		FROM
+		emp_coba
+	</select>
+
+</sqlMap>

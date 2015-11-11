@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.hris.portal.form.PortalForm;
 import com.hris.portal.manager.PortalManager;
+import com.hris.portal.model.PortalBean;
 
 public class PortalAction extends Action {
 	
@@ -21,7 +22,8 @@ public class PortalAction extends Action {
 			throws ClassNotFoundException, SQLException, Exception {
 		
 		PortalForm hForm = (PortalForm) form;
-//		PortalManager manager = new PortalManager();
+		PortalManager manager = new PortalManager();
+		PortalBean portalBean = new PortalBean();
 		
 		if("login".equalsIgnoreCase(hForm.getTask())){
 			if(hForm.getUser().equals("user") && hForm.getPass().equals("user")){
@@ -50,8 +52,13 @@ public class PortalAction extends Action {
 		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("assignRole");
+		}else if ("assignRoleEmployee".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setListPortal(manager.getEmployee());
+//			portalBean.setEmployeeName(portalBean.getEmployeeFName()+" "+portalBean.getEmployeeLName());
+			return mapping.findForward("assignRoleEmployee");
 		}
-
+		
 		return mapping.findForward("success");
 	}
 }

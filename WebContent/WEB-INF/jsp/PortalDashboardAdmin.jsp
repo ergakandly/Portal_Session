@@ -70,7 +70,7 @@ table th {
 										class="glyphicon glyphicon-user"></span> <large>
 									Profile</a></li>
 							<li class="divider"></li>
-							<li><a href="#"><span
+							<li><a href="javascript:flyToPage('success');"><span
 									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 						</ul></li>
 				</ul>

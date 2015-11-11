@@ -22,6 +22,20 @@
 
 <title>New Master User</title>
 </head>
+
+<script type="text/javascript">
+	function flyToPage(task, id) {
+		document.forms[0].task.value = task;
+		document.forms[0].id.value = id;
+		document.forms[0].submit();
+	}
+</script>
+<body>
+
+	<html:form method="post" action="/portal">
+		<html:hidden name="PortalForm" property="task" />
+		<html:hidden name="PortalForm" property="id" />
+		
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
@@ -68,7 +82,7 @@
 	<!--wadah-->
 	<div class="row">
 		<div class="col-md-12">
-			<button type="button" class="btn btn-info" onclick="#">Back
+			<button type="button" class="btn btn-info" onclick="javascript:flyToPage('dashboardAdmin');">Back
 			</button>
 			<h3>Master Assign Role</h3>
 			<hr>
@@ -91,10 +105,10 @@
 								<tr>
 									<td class="rataKanan">Employee Name :</td>
 									<td><input type="text" class="form-control"
-										id="exampleInputName2" placeholder="Ex : Jane Doe"></td>
+										id="exampleInputName2" placeholder="Ex : Jane Doe" readonly="readonly"></td>
 										<td>
 										<input
-										type="button" value="browse" class="btn btn-primary" /></td>
+										type="button" value="browse" class="btn btn-primary" onclick="javascript:flyToPage('assignRoleEmployee');" /></td>
 								</tr>
 								<tr>
 									<td class="rataKanan">Role :</td>
@@ -142,5 +156,6 @@
 		</div>
 	</div>
 </div>
+</html:form>
 </body>
 </html>
