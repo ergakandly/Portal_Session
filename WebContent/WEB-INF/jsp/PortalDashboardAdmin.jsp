@@ -110,23 +110,20 @@ table th {
 						<div class="tab-pane active" id="dashboard">
 							<br /> <br /> <br />
 							<center>
-								<button class="btn btn-default" type="button"
-									onclick="javascript:flyToPage('masterRole');"
-									style="height: 200px; width: 200px;">
+								<button class="btn btn-default iconDashboard" type="button"
+									onclick="javascript:flyToPage('masterRole');">
 									<span class="glyphicon glyphicon-king"
 										style="font-size: 100px;"></span><br>
 									<h3>Roles</h3>
 								</button>
-								<button class="btn btn-default" type="button"
-									onclick="javascript:flyToPage('assignRole');"
-									style="height: 200px; width: 200px;">
+								<button class="btn btn-default iconDashboard" type="button"
+									onclick="javascript:flyToPage('assignRole');">
 									<span class="glyphicon glyphicon-screenshot"
 										style="font-size: 100px;"></span><br>
 									<h3>Assign Role</h3>
 								</button>
-								<button class="btn btn-default" type="button"
-									onclick="javascript:flyToPage('masterModul');"
-									style="height: 200px; width: 200px;">
+								<button class="btn btn-default iconDashboard" type="button"
+									onclick="javascript:flyToPage('masterModul');">
 									<span class="glyphicon glyphicon-th-large"
 										style="font-size: 100px;"></span><br>
 									<h3>Modules</h3>

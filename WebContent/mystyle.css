@@ -28,6 +28,11 @@ td.width30 {
 	width: 30%;
 }
 
+.iconDashboard{
+	height: 200px; 
+	width: 200px;
+}
+
 .table-nonfluid {
 	/* 	width: auto !important; */
 	
