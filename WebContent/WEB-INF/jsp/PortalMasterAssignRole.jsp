@@ -35,6 +35,7 @@
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
+<<<<<<< HEAD
 		
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -132,11 +133,133 @@
 						</ul>
 					</div>
 					<!-- END KOLOM MD 4-->
-				</div>
+=======
+
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+
+			<!-- LOGO -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="Brand"
+					src="asset/img/logo-normal.png">
+				</a>
+			</div>
+			<!-- END LOGO -->
+
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav navbar-right">
+
+					<!-- DROPDOWN USER -->
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							Hi, Admin <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"> <large> <span
+										class="glyphicon glyphicon-user"></span> <large>
+									Profile</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><span
+									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+						</ul></li>
+				</ul>
 			</div>
 		</div>
-	</div>
-</div>
-</html:form>
+		</nav>
+		<!-- END NAVBAR -->
+
+		<br />
+		<br />
+		<!-- CONTAINER -->
+		<div class="container-fluid">
+
+			<!-- ROW 12 -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Assign Role</h3>
+					<hr>
+
+					<!-- BREADCRUMB -->
+					<ul class="breadcrumb">
+						<li><span class="glyphicon glyphicon-dashboard"></span><a
+							href="#"> Dashboard</a></li>
+						<li><span class="glyphicon glyphicon-screenshot"></span>
+							Assign Role</li>
+					</ul>
+					<!-- END BREADCRUMB -->
+
+>>>>>>> 514fefcef93474a8edf223b1bdd9ffba74b2c37f
+				</div>
+			</div>
+			<!-- END ROW 12 -->
+
+			<!-- KOLOM MD 8-->
+			<div class="col-md-6 col-md-offset-3 div-center">
+				<center>
+					<button type="button" class="btn btn-primary">
+						<a href="javascript:flyToPage('masterRole');"
+							style="color: white;"> <span class="glyphicon glyphicon-plus"></span>
+							Add New Assign Role
+						</a>
+					</button>
+					<br /> <br />
+					<table align="center"
+						class="table table-nonfluid table-striped table-bordered table-hover"
+						width="70%">
+						<tr>
+							<th>Employee Name</th>
+							<th>Role</th>
+							<th>Button Action</th>
+						</tr>
+
+						<tr>
+							<td>Employee 1</td>
+							<td>Role 1</td>
+							<td>
+								<button type="button" class="btn btn-info" onclick="">
+									<span class="glyphicon glyphicon-pencil"></span> Edit
+								</button>
+								<button type="button" class="btn btn-danger" onclick="">
+									<span class="glyphicon glyphicon-remove"></span> Delete
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Employee 2</td>
+							<td>Role 2</td>
+							<td>
+								<button type="button" class="btn btn-info" onclick="">
+									<span class="glyphicon glyphicon-pencil"></span> Edit
+								</button>
+								<button type="button" class="btn btn-danger" onclick="">
+									<span class="glyphicon glyphicon-remove"></span> Delete
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Employee 3</td>
+							<td>Role 3</td>
+							<td>
+								<button type="button" class="btn btn-info" onclick="">
+									<span class="glyphicon glyphicon-pencil"></span> Edit
+								</button>
+								<button type="button" class="btn btn-danger" onclick="">
+									<span class="glyphicon glyphicon-remove"></span> Delete
+								</button>
+							</td>
+						</tr>
+
+					</table>
+				</center>
+
+			</div>
+			<!-- END KOLOM MD 8-->
+
+		</div>
+	</html:form>
 </body>
 </html>

@@ -1,16 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-h2 {
-	color: maroon;
-	font-size: 14pt;
-	font-weight: bold;
-	text-align: center;
-}
-
-.kanan {
-	text-align: right
-}
-
 .btn {
 	border-bottom-right-radius: 20px;
 	border-top-left-radius: 20px;
@@ -25,7 +14,7 @@ h2 {
 	text-align: right;
 }
 
-hr{
+hr {
 	size: 50px;
 }
 
@@ -35,6 +24,11 @@ table th {
 	align: center;
 }
 
+td.width30 {
+	width: 30%;
+}
+
 .table-nonfluid {
-/* 	width: auto !important; */
+	/* 	width: auto !important; */
+	
 }

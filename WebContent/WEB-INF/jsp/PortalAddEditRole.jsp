@@ -25,37 +25,30 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
+
+	<!-- LOGO -->
 	<div class="navbar-header">
-		<a class="navbar-brand"> HRIS Dashboard </a>
+		<a class="navbar-brand" href="#"> <img alt="Brand"
+			src="asset/img/logo-normal.png">
+		</a>
 	</div>
+	<!-- END LOGO -->
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<!-- 			<ul class="nav navbar-nav"> -->
-		<!-- 				<li class="active"><a href="#"> <span -->
-		<!-- 						class="glyphicon glyphicon-user"></span> Employees <span -->
-		<!-- 						class="sr-only">(current)</span> -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-check"></span> Attendance -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-send"></span> Leave -->
-		<!-- 				</a></li> -->
-		<!-- 			</ul> -->
 
 		<ul class="nav navbar-nav navbar-right">
-			<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-			<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 						Nama User <b class="caret"></b></a> -->
-			<!-- 					<ul class="dropdown-menu"> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 								Profile</a></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-			<!-- 						</li> -->
-			<!-- 						<li class="divider"></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-			<!-- 								Out</a></li> -->
-			<!-- 					</ul></li> -->
+
+			<!-- DROPDOWN USER -->
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+					Hi, Admin <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#"> <large> <span
+								class="glyphicon glyphicon-user"></span> <large> Profile</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+							Log Out</a></li>
+				</ul></li>
 		</ul>
 	</div>
 </div>
@@ -64,90 +57,73 @@
 <br />
 <br />
 <!-- CONTAINER -->
-<div class="container-fluid well">
-	<!--wadah-->
+<div class="container-fluid">
+
+	<!-- ROW 12 -->
 	<div class="row">
 		<div class="col-md-12">
-			<button type="button" class="btn btn-info" onclick="#">Back
-			</button>
-			<h3>Master Role</h3>
+			<h3>Add New Role</h3>
 			<hr>
+
+			<!-- BREADCRUMB -->
+				<ul class="breadcrumb">
+					<li><span class="glyphicon glyphicon-dashboard"></span><a
+						href="#"> Dashboard</a></li>
+					<li><span class="glyphicon glyphicon-king"></span> <a href="#">
+							Roles</a></li>
+					<li><span class="glyphicon glyphicon-plus"></span> Add</li>
+				</ul>
+			<!-- END BREADCRUMB -->
+
 		</div>
 	</div>
+	<!-- END ROW 12 -->
+
+	<!-- ROW MD6 OFFSET3 -->
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6 col-md-offset-3 div-center">
 			<div class="tab-content">
 				<div class="tab-pane active" id="dashboard">
-					<br> <br> <br>
-
-					<!-- KOLOM MD 8-->
-					<div class="col-md-8">
-						<center>
-							<table align="center"
-								class="table table-nonfluid table-striped table-hover ">
-								<tr>
-									<th colspan="2">Add New Role</th>
-								</tr>
-								<tr>
-									<td class="rataKanan">Role Name :</td>
-									<td> </td>
-								</tr>
-								<tr>
-									<td class="rataKanan">Access Menu :</td>
-									<td><div class="checkbox">
-											<label> <input type="checkbox"> Employee <br />
-												<input type="checkbox"> Attendance <br /> <input
-												type="checkbox"> Leave <br />
-											</label>
-										</div></td>
-								</tr>
-								<tr>
-									<td class="rataKanan">Access Privilages :</td>
-									<td><div class="checkbox">
-											<label> <input type="checkbox"> Insert <br />
-												<input type="checkbox"> Update <br /> <input
-												type="checkbox"> Delete <br /> <input
-												type="checkbox"> List <br />
-											</label>
-										</div></td>
-								</tr>
-								<tr>
-									<td colspan="2" align="center"><input type="button"
-										value="Save" class="btn btn-primary"
-										onclick="javascript:doSubmit();" /></td>
-								</tr>
-							</table>
-
-						</center>
+					<br />
+					<table
+						class="table table-nonfluid table-striped table-bordered table-hover">
+						<tr>
+							<th colspan="2">Add New Role</th>
+						</tr>
+						<tr>
+							<td>Role Name</td>
+							<td><input type="text" class="form-control"></td>
+						</tr>
+						<tr>
+							<td>Access Menu</td>
+							<td><div class="checkbox">
+									<label> <input type="checkbox"> Employee <br />
+										<input type="checkbox"> Attendance <br /> <input
+										type="checkbox"> Leave <br />
+									</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td>Access Privilages</td>
+							<td><div class="checkbox">
+									<label> <input type="checkbox"> Insert <br />
+										<input type="checkbox"> Update <br /> <input
+										type="checkbox"> Delete <br /> <input type="checkbox">
+										List <br />
+									</label>
+								</div></td>
+						</tr>
+					</table>
+					<div class="left">
+						<input type="button" value="Save" class="btn btn-primary"
+							onclick="javascript:doSubmit();" />
 					</div>
-					<!-- END KOLOM MD 8-->
-					
-					<!-- --------------------------------------------- -->
-					<!-- -----				PEMBATAS				-- -->
-					<!-- --------------------------------------------- -->
 
-					<!-- KOLOM MD 4-->
-					<div class="col-md-4">
-						<ul class="nav nav-stacked nav-pills">
-							<li class="active"><a href="index.html"> <span
-									class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-edit"></span>
-									&nbsp; Edit Profile
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
-									&nbsp; Notification
-							</a></li>
-							<li><a href="#"> <span
-									class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
-							</a></li>
-						</ul>
-					</div>
-					<!-- END KOLOM MD 4-->
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- ROW MD6 OFFSET3 -->
 </div>
 </body>
 </html>

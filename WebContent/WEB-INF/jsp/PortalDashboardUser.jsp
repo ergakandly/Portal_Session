@@ -41,77 +41,19 @@
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
+
+		<!-- LOGO -->
 		<div class="navbar-header">
-			<a class="navbar-brand"> HRIS Dashboard </a>
+			<a class="navbar-brand" href="#"> <img alt="Brand"
+				src="asset/img/logo-normal.png">
+			</a>
 		</div>
+		<!-- END LOGO -->
 
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 
 			<ul class="nav navbar-nav navbar-right">
-
-				<!-- DROPDOWN NOTIFICATION -->
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span><span
-						class="badge">3</span> <b class="caret"></b></a>
-					<ul class="dropdown-menu message-dropdown">
-						<li class="message-preview"><a href="#">
-								<div class="media">
-									<span class="pull-left"> <img class="media-object"
-										src="http://placehold.it/50x50" alt="">
-									</span>
-									<div class="media-body">
-										<h5 class="media-heading">
-											<strong>John Smith</strong>
-										</h5>
-										<p class="small text-muted">
-											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
-										</p>
-										<p>Lorem ipsum dolor sit amet, consectetur...</p>
-									</div>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li class="message-preview"><a href="#">
-								<div class="media">
-									<span class="pull-left"> <img class="media-object"
-										src="http://placehold.it/50x50" alt="">
-									</span>
-									<div class="media-body">
-										<h5 class="media-heading">
-											<strong>John Smith</strong>
-										</h5>
-										<p class="small text-muted">
-											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
-										</p>
-										<p>Lorem ipsum dolor sit amet, consectetur...</p>
-									</div>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li class="message-preview"><a href="#">
-								<div class="media">
-								
-									<span class="pull-left"> <img class="media-object"
-										src="http://placehold.it/50x50" alt="">
-									</span>
-									
-									<div class="media-body">
-										<h5 class="media-heading">
-											<strong>John Smith</strong>
-										</h5>
-										<p class="small text-muted">
-											<span class="glyphicon glyphicon-time"></span> Yesterday at 4:32 PM
-										</p>
-										<p>Lorem ipsum dolor sit amet, consectetur...</p>
-									</div>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li class="message-footer"><a href="#">Read All New
-								Notification</a></li>
-					</ul></li>
-				<!-- END DROPDOWN NOTIFICATION -->
 
 				<!-- DROPDOWN USER -->
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -121,10 +63,8 @@
 						<li><a href="#"> <large> <span
 									class="glyphicon glyphicon-user"></span> <large>
 								Profile</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-								Settings</a></li>
 						<li class="divider"></li>
-						<li><a href="javascript:flyToPage('success');"><span class="glyphicon glyphicon-log-out"></span>
+						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
 								Log Out</a></li>
 					</ul></li>
 			</ul>
@@ -136,7 +76,7 @@
 	<br />
 
 	<!-- CONTAINER -->
-	<div class="container-fluid well" style="min-height: 100%;!important">
+	<div class="container-fluid" style="min-height: 100%;!important">
 		<!--wadah-->
 		<div class="row">
 			<div class="col-md-12">
