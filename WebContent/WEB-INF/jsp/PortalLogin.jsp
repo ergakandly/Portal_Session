@@ -83,7 +83,7 @@
 								<div class="form-group has-error">
 									<label for="inputPassword3" class="col-sm-2 control-label">Username</label>
 									<div class="col-sm-10">
-										<!-- 								<input type="text" class="form-control widthh" placeholder="Enter your username"> -->
+<!-- 										<input type="text" class="form-control widthh" placeholder="Enter your username" name="PortalForm" property="user"> -->
 										<html:text name="PortalForm" property="user"></html:text>
 									</div>
 								</div>
@@ -96,10 +96,11 @@
 								</div>
 								<div class=kanan>
 
-									<!-- 								<button type="button" class="btn btn-danger"> -->
-									<!-- 															<span class="glyphicon glyphicon-remove" -->
-									<!-- 																aria-hidden="true"></span> Delete -->
-									<!-- 														</button> -->
+<!-- 									<button type="button" class="btn btn-primary" -->
+<!-- 										onclick="javascript:doSubmit();"> -->
+<!-- 										<span class="glyphicon glyphicon-plus"></span> Login -->
+<!-- 									</button> -->
+
 
 									<!-- 							<input type="button" class="btn btn-primary btn-lg" data-toggle="modal" -->
 									<!-- 								data-target="#myModal" onclick= "javascript:doSubmit();"> -->

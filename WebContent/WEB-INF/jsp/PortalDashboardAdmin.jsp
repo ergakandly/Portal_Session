@@ -53,55 +53,56 @@ table th {
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
+
+			<!-- LOGO -->
 			<div class="navbar-header">
-				<a class="navbar-brand"> HRIS Dashboard </a>
+				<a class="navbar-brand" href="#"> <img alt="Brand"
+					src="asset/img/logo-normal.png">
+				</a>
 			</div>
+			<!-- END LOGO -->
 
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-
-					<!-- DROPDOWN USER -->
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-							Hi, Admin <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#"> <large> <span
-										class="glyphicon glyphicon-user"></span> <large>
-									Profile</a></li>
-							<li class="divider"></li>
-							<li><a href="javascript:flyToPage('success');"><span
-									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-						</ul></li>
-				</ul>
-			</div>
+			<!-- MENU KANAN -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+						Hi, Admin <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#"> <large> <span
+									class="glyphicon glyphicon-user"></span> <large>
+								Profile</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+								Log Out</a></li>
+					</ul></li>
+			</ul>
+			<!-- END MENU KANAN -->
 		</div>
 		</nav>
 		<!-- END NAVBAR -->
 
 		<br />
 		<br />
-		<!-- CONTAINER -->
-		<div class="container-fluid well" style="min-height: 100%;!important">
 		
+		<!-- CONTAINER -->
+		<div class="container-fluid">
+
 			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
 					<h3>Dashboard</h3>
 					<hr>
-					
+
 					<!-- BREADCRUMB -->
-					<div class="alert alert-info" role="alert">
 						<ul class="breadcrumb">
-							<li><span class="glyphicon glyphicon-user"></span>Dashboard</a></li>
+							<li><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li>
 						</ul>
-					</div>
 					<!-- END BREADCRUMB -->
-					
+
 				</div>
 			</div>
 			<!-- END ROW 12 -->
-			
+
 			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
@@ -137,10 +138,10 @@ table th {
 				</div>
 			</div>
 			<!-- END ROW 12 -->
-			
+
 		</div>
 		<!-- END CONTAINER -->
-		
+
 	</html:form>
 </body>
 </html>

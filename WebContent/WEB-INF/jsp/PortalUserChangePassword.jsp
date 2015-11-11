@@ -25,37 +25,30 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
+
+	<!-- LOGO -->
 	<div class="navbar-header">
-		<a class="navbar-brand"> HRIS Dashboard </a>
+		<a class="navbar-brand" href="#"> <img alt="Brand"
+			src="asset/img/logo-normal.png">
+		</a>
 	</div>
+	<!-- END LOGO -->
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<!-- 			<ul class="nav navbar-nav"> -->
-		<!-- 				<li class="active"><a href="#"> <span -->
-		<!-- 						class="glyphicon glyphicon-user"></span> Employees <span -->
-		<!-- 						class="sr-only">(current)</span> -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-check"></span> Attendance -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-send"></span> Leave -->
-		<!-- 				</a></li> -->
-		<!-- 			</ul> -->
 
 		<ul class="nav navbar-nav navbar-right">
-			<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-			<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 						Nama User <b class="caret"></b></a> -->
-			<!-- 					<ul class="dropdown-menu"> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 								Profile</a></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-			<!-- 						</li> -->
-			<!-- 						<li class="divider"></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-			<!-- 								Out</a></li> -->
-			<!-- 					</ul></li> -->
+
+			<!-- DROPDOWN USER -->
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+					Hi, Admin <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#"> <large> <span
+								class="glyphicon glyphicon-user"></span> <large> Profile</a></li>
+					<li class="divider"></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+							Log Out</a></li>
+				</ul></li>
 		</ul>
 	</div>
 </div>
@@ -90,15 +83,15 @@
 								</tr>
 								<tr>
 									<td class="rataKanan">Old Password:</td>
-									<td> </td>
+									<td></td>
 								</tr>
 								<tr>
 									<td class="rataKanan">New Password :</td>
-									<td> </td>
+									<td></td>
 								</tr>
 								<tr>
 									<td class="rataKanan">Retype New Password :</td>
-									<td> </td>
+									<td></td>
 								</tr>
 								<tr>
 									<td colspan="2" align="center"><input type="button"
@@ -110,7 +103,7 @@
 						</center>
 					</div>
 					<!-- END KOLOM MD 8-->
-					
+
 					<!-- --------------------------------------------- -->
 					<!-- -----				PEMBATAS				-- -->
 					<!-- --------------------------------------------- -->
@@ -121,8 +114,8 @@
 							<li><a href="index.html"> <span
 									class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
 							</a></li>
-							<li class="active"><a href="#"> <span class="glyphicon glyphicon-edit"></span>
-									&nbsp; Change Password
+							<li class="active"><a href="#"> <span
+									class="glyphicon glyphicon-edit"></span> &nbsp; Change Password
 							</a></li>
 							<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
 									&nbsp; Notification

@@ -35,127 +35,131 @@
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
-		
-<!-- NAVBAR -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand"> HRIS Dashboard </a>
-	</div>
 
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<!-- 			<ul class="nav navbar-nav"> -->
-		<!-- 				<li class="active"><a href="#"> <span -->
-		<!-- 						class="glyphicon glyphicon-user"></span> Employees <span -->
-		<!-- 						class="sr-only">(current)</span> -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-check"></span> Attendance -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-send"></span> Leave -->
-		<!-- 				</a></li> -->
-		<!-- 			</ul> -->
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
 
-		<ul class="nav navbar-nav navbar-right">
-			<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-			<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 						Nama User <b class="caret"></b></a> -->
-			<!-- 					<ul class="dropdown-menu"> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 								Profile</a></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-			<!-- 						</li> -->
-			<!-- 						<li class="divider"></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-			<!-- 								Out</a></li> -->
-			<!-- 					</ul></li> -->
-		</ul>
-	</div>
-</div>
-</nav>
-<!-- END NAVBAR -->
-<br />
-<br />
-<!-- CONTAINER -->
-<div class="container-fluid well">
-	<!--wadah-->
-	<div class="row">
-		<div class="col-md-12">
-			<button type="button" class="btn btn-info" onclick="javascript:flyToPage('dashboardAdmin');">Back
-			</button>
-			<h3>Master Assign Role</h3>
-			<hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="tab-content">
-				<div class="tab-pane active" id="dashboard">
-					<br> <br> <br>
+			<!-- LOGO -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="Brand"
+					src="asset/img/logo-normal.png">
+				</a>
+			</div>
+			<!-- END LOGO -->
 
-					<!-- KOLOM MD 8-->
-					<div class="col-md-8">
-						<center>
-							<table align="center"
-								class="table table-nonfluid table-striped table-hover ">
-								<tr>
-									<th colspan="3">Add New Assign Role</th>
-								</tr>
-								<tr>
-									<td class="rataKanan">Employee Name :</td>
-									<td><input type="text" class="form-control"
-										id="exampleInputName2" placeholder="Ex : Jane Doe" readonly="readonly"></td>
-										<td>
-										<input
-										type="button" value="browse" class="btn btn-primary" onclick="javascript:flyToPage('assignRoleEmployee');" /></td>
-								</tr>
-								<tr>
-									<td class="rataKanan">Role :</td>
-									<td><select class="form-control">
-											<option value="volvo">Admin</option>
-											<option value="saab">HR</option>
-											<option value="mercedes">User</option>
-									</select></td>
-								</tr>
-								<tr>
-									<td colspan="2" align="center"><input type="button"
-										value="Save" class="btn btn-primary"
-										onclick="javascript:doSubmit();" /></td>
-								</tr>
-							</table>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
 
-						</center>
-					</div>
-					<!-- END KOLOM MD 8-->
+				<ul class="nav navbar-nav navbar-right">
 
-					<!-- --------------------------------------------- -->
-					<!-- -----				PEMBATAS				-- -->
-					<!-- --------------------------------------------- -->
-
-					<!-- KOLOM MD 4-->
-					<div class="col-md-4">
-						<ul class="nav nav-stacked nav-pills">
-							<li class="active"><a href="index.html"> <span
-									class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-edit"></span>
-									&nbsp; Edit Profile
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
-									&nbsp; Notification
-							</a></li>
-							<li><a href="#"> <span
-									class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
-							</a></li>
-						</ul>
-					</div>
-					<!-- END KOLOM MD 4-->
-				</div>
+					<!-- DROPDOWN USER -->
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							Hi, Admin <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"> <large> <span
+										class="glyphicon glyphicon-user"></span> <large>
+									Profile</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><span
+									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+						</ul></li>
+				</ul>
 			</div>
 		</div>
-	</div>
-</div>
-</html:form>
+		</nav>
+		<!-- END NAVBAR -->
+
+		<br />
+		<br />
+		<!-- CONTAINER -->
+		<div class="container-fluid">
+
+			<!-- ROW 12 -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Assign Role</h3>
+					<hr>
+
+					<!-- BREADCRUMB -->
+					<ul class="breadcrumb">
+						<li><span class="glyphicon glyphicon-dashboard"></span><a
+							href="#"> Dashboard</a></li>
+						<li><span class="glyphicon glyphicon-screenshot"></span>
+							Assign Role</li>
+					</ul>
+					<!-- END BREADCRUMB -->
+
+				</div>
+			</div>
+			<!-- END ROW 12 -->
+
+			<!-- KOLOM MD 8-->
+			<div class="col-md-6 col-md-offset-3 div-center">
+				<center>
+					<button type="button" class="btn btn-primary">
+						<a href="javascript:flyToPage('masterRole');"
+							style="color: white;"> <span class="glyphicon glyphicon-plus"></span>
+							Add New Assign Role
+						</a>
+					</button>
+					<br /> <br />
+					<table align="center"
+						class="table table-nonfluid table-striped table-bordered table-hover"
+						width="70%">
+						<tr>
+							<th>Employee Name</th>
+							<th>Role</th>
+							<th>Button Action</th>
+						</tr>
+
+						<tr>
+							<td>Employee 1</td>
+							<td>Role 1</td>
+							<td>
+								<button type="button" class="btn btn-info" onclick="">
+									<span class="glyphicon glyphicon-pencil"></span> Edit
+								</button>
+								<button type="button" class="btn btn-danger" onclick="">
+									<span class="glyphicon glyphicon-remove"></span> Delete
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Employee 2</td>
+							<td>Role 2</td>
+							<td>
+								<button type="button" class="btn btn-info" onclick="">
+									<span class="glyphicon glyphicon-pencil"></span> Edit
+								</button>
+								<button type="button" class="btn btn-danger" onclick="">
+									<span class="glyphicon glyphicon-remove"></span> Delete
+								</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Employee 3</td>
+							<td>Role 3</td>
+							<td>
+								<button type="button" class="btn btn-info" onclick="">
+									<span class="glyphicon glyphicon-pencil"></span> Edit
+								</button>
+								<button type="button" class="btn btn-danger" onclick="">
+									<span class="glyphicon glyphicon-remove"></span> Delete
+								</button>
+							</td>
+						</tr>
+
+					</table>
+				</center>
+
+			</div>
+			<!-- END KOLOM MD 8-->
+
+		</div>
+	</html:form>
 </body>
 </html>

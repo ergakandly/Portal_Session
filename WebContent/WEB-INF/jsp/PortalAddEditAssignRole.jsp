@@ -1,3 +1,6 @@
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,9 +20,18 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 
-<title>Master Moduls</title>
+<title>New Master User</title>
 </head>
+
+<script type="text/javascript">
+	function flyToPage(task, id) {
+		document.forms[0].task.value = task;
+		document.forms[0].id.value = id;
+		document.forms[0].submit();
+	}
+</script>
 <body>
+
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
@@ -67,84 +79,57 @@
 			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Modules</h3>
+					<h3>Assign Role</h3>
 					<hr>
 
 					<!-- BREADCRUMB -->
 					<ul class="breadcrumb">
 						<li><span class="glyphicon glyphicon-dashboard"></span><a
 							href="#"> Dashboard</a></li>
-						<li><span class="glyphicon glyphicon-th-large"></span>
-							Modules</li>
+						<li><span class="glyphicon glyphicon-screenshot"></span>
+							Assign Role</li>
 					</ul>
 					<!-- END BREADCRUMB -->
 
 				</div>
 			</div>
 			<!-- END ROW 12 -->
-			<br />
-			<!-- ROW MD6 OFFSET3 -->
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 div-center">
-					<center>
-						<button type="button" class="btn btn-primary">
-							<a href="javascript:flyToPage('masterRole');"
-								style="color: white;"> <span
-								class="glyphicon glyphicon-plus"></span> Add
-								New Modul
-							</a>
-						</button>
-					</center>
 
-					<br /> <br />
+			<!-- KOLOM MD 8-->
+			<div class="col-md-6 col-md-offset-3 div-center">
+				<center>
 					<table align="center"
-						class="table table-nonfluid table-striped table-bordered table-hover"
-						width="70%">
+						class="table table-nonfluid table-striped table-hover ">
 						<tr>
-							<th>Modul Name</th>
-							<th>Button Action</th>
+							<th colspan="3">Add New Assign Role</th>
 						</tr>
-
 						<tr>
-							<td>Employee</td>
-							<td class="width30">
-								<button type="button" class="btn btn-info" onclick="">
-									<span class="glyphicon glyphicon-pencil"></span> Edit
-								</button>
-								<button type="button" class="btn btn-danger" onclick="">
-									<span class="glyphicon glyphicon-remove"></span> Delete
-								</button>
-							</td>
+							<td class="rataKanan">Employee Name :</td>
+							<td><input type="text" class="form-control"
+								id="exampleInputName2" placeholder="Ex : Jane Doe"
+								readonly="readonly"></td>
+							<td><input type="button" value="browse"
+								class="btn btn-primary"
+								onclick="javascript:flyToPage('assignRoleEmployee');" /></td>
 						</tr>
-
 						<tr>
-							<td>Attendance</td>
-							<td>
-								<button type="button" class="btn btn-info" onclick="">
-									<span class="glyphicon glyphicon-pencil"></span> Edit
-								</button>
-								<button type="button" class="btn btn-danger" onclick="">
-									<span class="glyphicon glyphicon-remove"></span> Delete
-								</button>
-							</td>
+							<td class="rataKanan">Role :</td>
+							<td><select class="form-control">
+									<option value="volvo">Admin</option>
+									<option value="saab">HR</option>
+									<option value="mercedes">User</option>
+							</select></td>
 						</tr>
-
 						<tr>
-							<td>Leave</td>
-							<td>
-								<button type="button" class="btn btn-info" onclick="">
-									<span class="glyphicon glyphicon-pencil"></span> Edit
-								</button>
-								<button type="button" class="btn btn-danger" onclick="">
-									<span class="glyphicon glyphicon-remove"></span> Delete
-								</button>
-							</td>
+							<input type="button" value="Save" class="btn btn-primary"
+								onclick="javascript:doSubmit();" />
 						</tr>
 					</table>
-				</div>
 
+				</center>
 			</div>
-			<!-- ROW MD6 OFFSET3 -->
+			<!-- END KOLOM MD 8-->
+
 		</div>
 	</html:form>
 </body>

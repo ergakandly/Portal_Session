@@ -47,7 +47,7 @@
 			<!-- LOGO -->
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#"> <img alt="Brand"
-					src="img/logo-normal.png">
+					src="asset/img/logo-normal.png">
 				</a>
 			</div>
 			<!-- END LOGO -->
@@ -65,8 +65,6 @@
 							<li><a href="#"> <large> <span
 										class="glyphicon glyphicon-user"></span> <large>
 									Profile</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
-									Settings</a></li>
 							<li class="divider"></li>
 							<li><a href="#"><span
 									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
@@ -94,7 +92,7 @@
 
 
 		<!-- CONTAINER -->
-		<div class="container-fluid well" style="min-height: 100%;!important">
+		<div class="container-fluid" style="min-height: 100%;!important">
 			<!--wadah-->
 
 
@@ -116,15 +114,16 @@
 									<div class="col-md-10">
 										<h3>Roles</h3>
 										<hr>
-										<!-- Page Heading -->
-										<div class="alert alert-info" role="alert">
+										
+										<!-- BREADCRUMB -->
 											<ul class="breadcrumb">
 												<li><span class="glyphicon glyphicon-dashboard"></span><a
 													href="#"> Dashboard</a></li>
 												<li><span class="glyphicon glyphicon-king"></span>
 													Roles</li>
 											</ul>
-										</div>
+										<!-- END BREADCRUMB -->
+										
 										<center>
 											<button type="button" class="btn btn-primary">
 												<a href="javascript:flyToPage('addEditRole');"

@@ -23,117 +23,112 @@
 <title>New Master User</title>
 </head>
 <body>
-<!-- NAVBAR -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand"> HRIS Dashboard </a>
-	</div>
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
 
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<!-- 			<ul class="nav navbar-nav"> -->
-		<!-- 				<li class="active"><a href="#"> <span -->
-		<!-- 						class="glyphicon glyphicon-user"></span> Employees <span -->
-		<!-- 						class="sr-only">(current)</span> -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-check"></span> Attendance -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-send"></span> Leave -->
-		<!-- 				</a></li> -->
-		<!-- 			</ul> -->
+		<!-- LOGO -->
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#"> <img alt="Brand"
+				src="asset/img/logo-normal.png">
+			</a>
+		</div>
+		<!-- END LOGO -->
 
-		<ul class="nav navbar-nav navbar-right">
-			<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-			<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 						Nama User <b class="caret"></b></a> -->
-			<!-- 					<ul class="dropdown-menu"> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 								Profile</a></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-			<!-- 						</li> -->
-			<!-- 						<li class="divider"></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-			<!-- 								Out</a></li> -->
-			<!-- 					</ul></li> -->
-		</ul>
-	</div>
-</div>
-</nav>
-<!-- END NAVBAR -->
-<br />
-<br />
-<!-- CONTAINER -->
-<div class="container-fluid well">
-	<!--wadah-->
-	<div class="row">
-		<div class="col-md-12">
-			<button type="button" class="btn btn-info" onclick="#">Back
-			</button>
-			<h3>Master Role</h3>
-			<hr>
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<!-- DROPDOWN USER -->
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+						Hi, Admin <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#"> <large> <span
+									class="glyphicon glyphicon-user"></span> <large>
+								Profile</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+								Log Out</a></li>
+					</ul></li>
+			</ul>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="tab-content">
-				<div class="tab-pane active" id="dashboard">
-					<br> <br> <br>
+	</nav>
+	<!-- END NAVBAR -->
+	<br />
+	<br />
+	<!-- CONTAINER -->
+	<div class="container-fluid well">
+		<!--wadah-->
+		<div class="row">
+			<div class="col-md-12">
+				<button type="button" class="btn btn-info" onclick="#">Back
+				</button>
+				<h3>Master Role</h3>
+				<hr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tab-content">
+					<div class="tab-pane active" id="dashboard">
+						<br> <br> <br>
 
-					<!-- KOLOM MD 8-->
-					<div class="col-md-8">
-						<center>
-							<table align="center"
-								class="table table-nonfluid table-striped table-hover ">
-								<tr>
-									<th colspan="2">Add New Modul</th>
-								</tr>
-								<tr>
-									<td class="rataKanan">Modul Name :</td>
-									<td> textbox </td>
-								</tr>
-								<tr>
-									<td class="rataKanan">Modul Link :</td>
-									<td> textbox </td>
-								</tr>
-								<tr>
-									<td colspan="2" align="center"><input type="button"
-										value="Save" class="btn btn-primary"
-										onclick="javascript:doSubmit();" /></td>
-								</tr>
-							</table>
+						<!-- KOLOM MD 8-->
+						<div class="col-md-8">
+							<center>
+								<table align="center"
+									class="table table-nonfluid table-striped table-hover ">
+									<tr>
+										<th colspan="2">Add New Modul</th>
+									</tr>
+									<tr>
+										<td class="rataKanan">Modul Name :</td>
+										<td>textbox</td>
+									</tr>
+									<tr>
+										<td class="rataKanan">Modul Link :</td>
+										<td>textbox</td>
+									</tr>
+									<tr>
+										<td colspan="2" align="center"><input type="button"
+											value="Save" class="btn btn-primary"
+											onclick="javascript:doSubmit();" /></td>
+									</tr>
+								</table>
 
-						</center>
+							</center>
+						</div>
+						<!-- END KOLOM MD 8-->
+
+						<!-- --------------------------------------------- -->
+						<!-- -----				PEMBATAS				-- -->
+						<!-- --------------------------------------------- -->
+
+						<!-- KOLOM MD 4-->
+						<div class="col-md-4">
+							<ul class="nav nav-stacked nav-pills">
+								<li class="active"><a href="index.html"> <span
+										class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
+								</a></li>
+								<li><a href="#"> <span class="glyphicon glyphicon-edit"></span>
+										&nbsp; Edit Profile
+								</a></li>
+								<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
+										&nbsp; Notification
+								</a></li>
+								<li><a href="#"> <span
+										class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
+								</a></li>
+							</ul>
+						</div>
+						<!-- END KOLOM MD 4-->
 					</div>
-					<!-- END KOLOM MD 8-->
-					
-					<!-- --------------------------------------------- -->
-					<!-- -----				PEMBATAS				-- -->
-					<!-- --------------------------------------------- -->
-
-					<!-- KOLOM MD 4-->
-					<div class="col-md-4">
-						<ul class="nav nav-stacked nav-pills">
-							<li class="active"><a href="index.html"> <span
-									class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-edit"></span>
-									&nbsp; Edit Profile
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
-									&nbsp; Notification
-							</a></li>
-							<li><a href="#"> <span
-									class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
-							</a></li>
-						</ul>
-					</div>
-					<!-- END KOLOM MD 4-->
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>
