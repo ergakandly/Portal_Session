@@ -112,23 +112,23 @@ table th {
 								<button class="btn btn-default" type="button"
 									onclick="javascript:flyToPage('masterRole');"
 									style="height: 200px; width: 200px;">
-									<span class="glyphicon glyphicon-user"
+									<span class="glyphicon glyphicon-king"
 										style="font-size: 100px;"></span><br>
-									<h3>Role Settings</h3>
+									<h3>Roles</h3>
 								</button>
 								<button class="btn btn-default" type="button"
 									onclick="javascript:flyToPage('assignRole');"
 									style="height: 200px; width: 200px;">
-									<span class="glyphicon glyphicon-check"
+									<span class="glyphicon glyphicon-screenshot"
 										style="font-size: 100px;"></span><br>
 									<h3>Assign Role</h3>
 								</button>
 								<button class="btn btn-default" type="button"
 									onclick="javascript:flyToPage('masterModul');"
 									style="height: 200px; width: 200px;">
-									<span class="glyphicon glyphicon-send"
+									<span class="glyphicon glyphicon-th-large"
 										style="font-size: 100px;"></span><br>
-									<h3>Moduls</h3>
+									<h3>Modules</h3>
 								</button>
 								<br> <br>
 							</center>
