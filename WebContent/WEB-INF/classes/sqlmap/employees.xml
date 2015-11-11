@@ -4,7 +4,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 
 <sqlMap namespace="employees">
 
-<<<<<<< HEAD
 <!-- 	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean"> -->
 <!-- 		SELECT -->
 <!-- 		employee_id AS employeeId, -->
@@ -53,15 +52,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			ms_employee
 		WHERE 
 			employee_id = #empId#
-=======
-	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean">
-		SELECT
-		employee_id AS employeeId,
-		first_name AS employeeFName,
-		last_name AS employeeLName
-		FROM
-		emp_coba
->>>>>>> 514fefcef93474a8edf223b1bdd9ffba74b2c37f
 	</select>
 
 </sqlMap>
