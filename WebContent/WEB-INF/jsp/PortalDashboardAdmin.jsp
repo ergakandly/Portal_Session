@@ -147,49 +147,61 @@ table th {
 		</div>
 		</nav>
 		<!-- END NAVBAR -->
-		
+
 		<br />
 		<br />
 		<!-- CONTAINER -->
-	<div class="container-fluid well" style="min-height: 100%;!important">
-		<!--wadah-->
-		<div class="row">
-			<div class="col-md-12">
-				<h3>Menu Admin</h3>
-				<hr>
+		<div class="container-fluid well" style="min-height: 100%;!important">
+			<!--wadah-->
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Dashboard</h3>
+					<hr>
+					<!-- Page Heading -->
+					<div class="alert alert-info" role="alert">
+						<ul class="breadcrumb">
+							<li><span class="glyphicon glyphicon-user"></span>Dashboard</a></li>
+						</ul>
+					</div>
+
+					<!-- /.row -->
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="tab-content">
-					<div class="tab-pane active" id="dashboard">
-						<br/> <br/> <br/>
-						<center>
-							<button class="btn btn-default" type="button" onclick="javascript:flyToPage('masterRole');"
-								style="height: 200px; width: 200px;">
-								<span class="glyphicon glyphicon-user" style="font-size: 100px;"></span><br>
-								<h3>Role Settings</h3>
-							</button>
-							<button class="btn btn-default" type="button" onclick="javascript:flyToPage('assignRole');"
-								style="height: 200px; width: 200px;">
-								<span class="glyphicon glyphicon-check"
-									style="font-size: 100px;"></span><br>
-								<h3>Assign Role</h3>
-							</button>
-							<button class="btn btn-default" type="button" onclick="javascript:flyToPage('masterModul');"
-								style="height: 200px; width: 200px;">
-								<span class="glyphicon glyphicon-send" style="font-size: 100px;"></span><br>
-								<h3>Moduls</h3>
-							</button>
-							
-							<br> <br>
-						</center>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tab-content">
+						<div class="tab-pane active" id="dashboard">
+							<br /> <br /> <br />
+							<center>
+								<button class="btn btn-default" type="button"
+									onclick="javascript:flyToPage('masterRole');"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-user"
+										style="font-size: 100px;"></span><br>
+									<h3>Role Settings</h3>
+								</button>
+								<button class="btn btn-default" type="button"
+									onclick="javascript:flyToPage('assignRole');"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-check"
+										style="font-size: 100px;"></span><br>
+									<h3>Assign Role</h3>
+								</button>
+								<button class="btn btn-default" type="button"
+									onclick="javascript:flyToPage('masterModul');"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-send"
+										style="font-size: 100px;"></span><br>
+									<h3>Moduls</h3>
+								</button>
+								<br> <br>
+							</center>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- END CONTAINER -->
+		<!-- END CONTAINER -->
 	</html:form>
 </body>
 </html>

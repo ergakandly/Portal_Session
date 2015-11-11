@@ -4,6 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!-- BOOTSTRAP -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- END BOOTSTRAP -->
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+
 <title>Master Moduls</title>
 </head>
 <body>
@@ -62,7 +75,7 @@
 			<!--wadah-->
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Menu Admin</h3>
+					<h3>Moduls</h3>
 					<hr>
 				</div>
 			</div>
@@ -79,16 +92,10 @@
 										<a href="javascript:flyToPage('masterRole');"
 											style="color: white;"> <span
 											class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-											Add New Role
+											Add New Modul
 										</a>
 									</button>
-									<button type="button" class="btn btn-primary">
-										<a href="javascript:flyToPage('masterRole');"
-											style="color: white;"> <span
-											class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-											Moduls List
-										</a>
-									</button>
+									
 									<br /> <br />
 									<table align="center"
 										class="table table-nonfluid table-striped table-bordered table-hover"

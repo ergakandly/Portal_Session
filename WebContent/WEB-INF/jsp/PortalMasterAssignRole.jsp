@@ -86,16 +86,23 @@
 							<table align="center"
 								class="table table-nonfluid table-striped table-hover ">
 								<tr>
-									<th colspan="2">Add New Assign Role</th>
+									<th colspan="3">Add New Assign Role</th>
 								</tr>
 								<tr>
 									<td class="rataKanan">Employee Name :</td>
-									<td> textbox </td>
-									<td> browse </td>
+									<td><input type="text" class="form-control"
+										id="exampleInputName2" placeholder="Ex : Jane Doe"></td>
+										<td>
+										<input
+										type="button" value="browse" class="btn btn-primary" /></td>
 								</tr>
 								<tr>
 									<td class="rataKanan">Role :</td>
-									<td>dropdown dari macam2 role</td>
+									<td><select class="form-control">
+											<option value="volvo">Admin</option>
+											<option value="saab">HR</option>
+											<option value="mercedes">User</option>
+									</select></td>
 								</tr>
 								<tr>
 									<td colspan="2" align="center"><input type="button"
@@ -107,7 +114,7 @@
 						</center>
 					</div>
 					<!-- END KOLOM MD 8-->
-					
+
 					<!-- --------------------------------------------- -->
 					<!-- -----				PEMBATAS				-- -->
 					<!-- --------------------------------------------- -->
