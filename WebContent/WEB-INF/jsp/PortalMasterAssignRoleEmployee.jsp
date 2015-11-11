@@ -3,6 +3,11 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%
+String choose = request.getContextPath()+"/img/select.png";
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -74,44 +79,28 @@
 					<div class="col-md-8">
 						<center>
 						
-<!-- 							<table align="center" -->
-<!-- 								class="table table-nonfluid table-striped table-hover "> -->
-<!-- 								<tr> -->
-<!-- 									<th colspan="3">Assign Role to Employee</th> -->
-<!-- 								</tr> -->
-<!-- 								<tr> -->
-<!-- 									<td class="rataKanan">Employee Name :</td> -->
-<!-- 									<td><input type="text" class="form-control" -->
-<!-- 										id="exampleInputName2" placeholder="Ex : Jane Doe" readonly="readonly"></td> -->
-<!-- 										<td> -->
-<!-- 										<input -->
-<!-- 										type="button" value="browse" class="btn btn-primary" /></td> -->
-<!-- 								</tr> -->
-<!-- 								<tr> -->
-<!-- 									<td class="rataKanan">Role :</td> -->
-<!-- 									<td><select class="form-control"> -->
-<!-- 											<option value="volvo">Admin</option> -->
-<!-- 											<option value="saab">HR</option> -->
-<!-- 											<option value="mercedes">User</option> -->
-<!-- 									</select></td> -->
-<!-- 								</tr> -->
-<!-- 								<tr> -->
-<!-- 									<td colspan="2" align="center"><input type="button" -->
-<!-- 										value="Save" class="btn btn-primary" -->
-<!-- 										onclick="javascript:doSubmit();" /></td> -->
-<!-- 								</tr> -->
-<!-- 							</table> -->
-
+								<p align="center">Search Employee Name : <html:text name="PortalForm" property="searchName"/>
+									<button onclick="javascript:flyToPage('search');">
+										Search
+									</button>
+								</p>
+								
 								<table align="center" border ="5px">
-									<tr style="background-color: #736EF5; color: white;">
-										<td>Employee ID</td>
-										<td>Employee Name</td>
+									<tr style="background-color: #736EF5; color: white; height: 40px;">
+										<td align="center">Employee ID</td>
+										<td align="center">Employee Name</td>
+										<td align="center">Department Name</td>
+										<td align="center">Location Name</td>
+										<td align="center"></td>
 									</tr>
 									<logic:notEmpty name="PortalForm" property="listPortal">
 										<logic:iterate id="portalList" name="PortalForm" property="listPortal">
-											<tr style="background-color: #F2F2F5;">				
-												<td><bean:write name="portalList" property="employeeId"/></td>
-												<td><bean:write name="portalList" property="employeeName"/></td>
+											<tr style="background-color: #F2F2F5; height: 40px;">				
+												<td width="100px" align="center"><bean:write name="portalList" property="employeeId"/></td>
+												<td width="200px" align="center"><bean:write name="portalList" property="employeeName"/></td>
+												<td width="200px" align="center"><bean:write name="portalList" property="departmentName"/></td>
+												<td width="200px" align="center"><bean:write name="portalList" property="locationName"/></td>
+												<td width="40px" align="center"><a href="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');"><html:img src="<%=choose%>" width="25px" height="25px" alt="select" /></a></td>
 											</tr>
 										</logic:iterate>
 									</logic:notEmpty>

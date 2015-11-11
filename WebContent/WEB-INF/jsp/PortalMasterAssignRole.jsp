@@ -44,32 +44,7 @@
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<!-- 			<ul class="nav navbar-nav"> -->
-		<!-- 				<li class="active"><a href="#"> <span -->
-		<!-- 						class="glyphicon glyphicon-user"></span> Employees <span -->
-		<!-- 						class="sr-only">(current)</span> -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-check"></span> Attendance -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-send"></span> Leave -->
-		<!-- 				</a></li> -->
-		<!-- 			</ul> -->
-
 		<ul class="nav navbar-nav navbar-right">
-			<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-			<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 						Nama User <b class="caret"></b></a> -->
-			<!-- 					<ul class="dropdown-menu"> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 								Profile</a></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-			<!-- 						</li> -->
-			<!-- 						<li class="divider"></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-			<!-- 								Out</a></li> -->
-			<!-- 					</ul></li> -->
 		</ul>
 	</div>
 </div>
@@ -104,8 +79,14 @@
 								</tr>
 								<tr>
 									<td class="rataKanan">Employee Name :</td>
-									<td><input type="text" class="form-control"
-										id="exampleInputName2" placeholder="Ex : Jane Doe" readonly="readonly"></td>
+									<td>
+										<logic:equal name="PortalForm" property="id" value="undefined">
+											<input type="text" class="form-control" id="exampleInputName2" readonly="readonly">
+										</logic:equal>
+										<logic:notEqual name="PortalForm" property="id" value="undefined">
+											<html:text styleClass="form-control" styleId="exampleInputName2" property="portalBean.employeeName" readonly="true"><bean:write name="PortalForm" property="portalBean.employeeName"/></html:text>
+										</logic:notEqual>
+										</td>
 										<td>
 										<input
 										type="button" value="browse" class="btn btn-primary" onclick="javascript:flyToPage('assignRoleEmployee');" /></td>

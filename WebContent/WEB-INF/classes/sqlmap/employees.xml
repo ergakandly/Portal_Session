@@ -2,6 +2,56 @@
 PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<!-- <sqlMap namespace="employees"> -->
+<sqlMap namespace="employees">
 
-<!-- </sqlMap> -->
+<!-- 	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean"> -->
+<!-- 		SELECT -->
+<!-- 		employee_id AS employeeId, -->
+<!-- 		first_name AS employeeFName, -->
+<!-- 		last_name AS employeeLName -->
+<!-- 		FROM -->
+<!-- 		emp_coba -->
+<!-- 	</select> -->
+
+<!-- 	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean"> -->
+<!-- 		SELECT -->
+<!-- 		employee_id AS employeeId, -->
+<!-- 		employee_name AS employeeName -->
+<!-- 		FROM -->
+<!-- 		ms_employee -->
+<!-- 	</select> -->
+	
+	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.util.Map">
+		SELECT
+			e.employee_id AS employeeId,
+			e.employee_name AS employeeName,
+			d.department_name AS departmentName,
+			l.location_name AS locationName
+		FROM
+			ms_employee e
+			left outer join ms_department d 
+            on d.department_id = e.department_id
+            left outer join ms_location l 
+            on l.location_id = d.department_id
+		WHERE 1=1
+		<dynamic prepend="AND">
+			<isNotEmpty property = "searchName">
+<!-- 				lower(e.employee_name) = lower(#searchName#) -->
+				lower(e.employee_name) like '%'||lower(#searchName#)||'%'
+			</isNotEmpty>
+		</dynamic> 
+			ORDER BY 
+				employee_id
+	</select>
+
+	<select id = "getOneEmp" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
+		SELECT
+			employee_id AS employeeId,
+			employee_name AS employeeName
+		FROM
+			ms_employee
+		WHERE 
+			employee_id = #empId#
+	</select>
+
+</sqlMap>

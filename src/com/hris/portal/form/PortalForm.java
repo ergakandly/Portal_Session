@@ -13,7 +13,14 @@ public class PortalForm extends ActionForm{
 	private String id;
 	private String user;
 	private String pass;
+	private String searchName;
 	
+	public String getSearchName() {
+		return searchName;
+	}
+	public void setSearchName(String searchName) {
+		this.searchName = searchName;
+	}
 	public List<PortalBean> getListPortal() {
 		return listPortal;
 	}
