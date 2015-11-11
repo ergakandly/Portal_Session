@@ -30,12 +30,13 @@
 		document.forms[0].submit();
 	}
 </script>
+
 <body>
 
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
-		
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
@@ -44,32 +45,7 @@
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<!-- 			<ul class="nav navbar-nav"> -->
-		<!-- 				<li class="active"><a href="#"> <span -->
-		<!-- 						class="glyphicon glyphicon-user"></span> Employees <span -->
-		<!-- 						class="sr-only">(current)</span> -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-check"></span> Attendance -->
-		<!-- 				</a></li> -->
-		<!-- 				<li><a href="javascript:flyToPage('showListDept');"> <span -->
-		<!-- 						class="glyphicon glyphicon-send"></span> Leave -->
-		<!-- 				</a></li> -->
-		<!-- 			</ul> -->
-
 		<ul class="nav navbar-nav navbar-right">
-			<!-- 				<li class="dropdown"><a href="#" class="dropdown-toggle" -->
-			<!-- 					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 						Nama User <b class="caret"></b></a> -->
-			<!-- 					<ul class="dropdown-menu"> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> -->
-			<!-- 								Profile</a></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a> -->
-			<!-- 						</li> -->
-			<!-- 						<li class="divider"></li> -->
-			<!-- 						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log -->
-			<!-- 								Out</a></li> -->
-			<!-- 					</ul></li> -->
 		</ul>
 	</div>
 </div>
@@ -82,7 +58,7 @@
 	<!--wadah-->
 	<div class="row">
 		<div class="col-md-12">
-			<button type="button" class="btn btn-info" onclick="javascript:flyToPage('dashboardAdmin');">Back
+			<button type="button" class="btn btn-info" onclick="javascript:flyToPage('assignRole');">Back
 			</button>
 			<h3>Master Assign Role</h3>
 			<hr>
@@ -97,33 +73,49 @@
 					<!-- KOLOM MD 8-->
 					<div class="col-md-8">
 						<center>
-							<table align="center"
-								class="table table-nonfluid table-striped table-hover ">
-								<tr>
-									<th colspan="3">Add New Assign Role</th>
-								</tr>
-								<tr>
-									<td class="rataKanan">Employee Name :</td>
-									<td><input type="text" class="form-control"
-										id="exampleInputName2" placeholder="Ex : Jane Doe" readonly="readonly"></td>
-										<td>
-										<input
-										type="button" value="browse" class="btn btn-primary" onclick="javascript:flyToPage('assignRoleEmployee');" /></td>
-								</tr>
-								<tr>
-									<td class="rataKanan">Role :</td>
-									<td><select class="form-control">
-											<option value="volvo">Admin</option>
-											<option value="saab">HR</option>
-											<option value="mercedes">User</option>
-									</select></td>
-								</tr>
-								<tr>
-									<td colspan="2" align="center"><input type="button"
-										value="Save" class="btn btn-primary"
-										onclick="javascript:doSubmit();" /></td>
-								</tr>
-							</table>
+						
+<!-- 							<table align="center" -->
+<!-- 								class="table table-nonfluid table-striped table-hover "> -->
+<!-- 								<tr> -->
+<!-- 									<th colspan="3">Assign Role to Employee</th> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td class="rataKanan">Employee Name :</td> -->
+<!-- 									<td><input type="text" class="form-control" -->
+<!-- 										id="exampleInputName2" placeholder="Ex : Jane Doe" readonly="readonly"></td> -->
+<!-- 										<td> -->
+<!-- 										<input -->
+<!-- 										type="button" value="browse" class="btn btn-primary" /></td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td class="rataKanan">Role :</td> -->
+<!-- 									<td><select class="form-control"> -->
+<!-- 											<option value="volvo">Admin</option> -->
+<!-- 											<option value="saab">HR</option> -->
+<!-- 											<option value="mercedes">User</option> -->
+<!-- 									</select></td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td colspan="2" align="center"><input type="button" -->
+<!-- 										value="Save" class="btn btn-primary" -->
+<!-- 										onclick="javascript:doSubmit();" /></td> -->
+<!-- 								</tr> -->
+<!-- 							</table> -->
+
+								<table align="center" border ="5px">
+									<tr style="background-color: #736EF5; color: white;">
+										<td>Employee ID</td>
+										<td>Employee Name</td>
+									</tr>
+									<logic:notEmpty name="PortalForm" property="listPortal">
+										<logic:iterate id="portalList" name="PortalForm" property="listPortal">
+											<tr style="background-color: #F2F2F5;">				
+												<td><bean:write name="portalList" property="employeeId"/></td>
+												<td><bean:write name="portalList" property="employeeName"/></td>
+											</tr>
+										</logic:iterate>
+									</logic:notEmpty>
+								</table>
 
 						</center>
 					</div>

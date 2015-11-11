@@ -1,3 +1,7 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,7 +23,21 @@
 <title>Dashboard User</title>
 </head>
 <!-- <body style="min-height:768px;!important"> -->
+
+<script type="text/javascript">
+	function flyToPage(task, id) {
+		document.forms[0].task.value = task;
+		document.forms[0].id.value = id;
+		document.forms[0].submit();
+	}
+</script>
+
 <body>
+
+	<html:form method="post" action="/portal">
+		<html:hidden name="PortalForm" property="task" />
+		<html:hidden name="PortalForm" property="id" />
+
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
@@ -106,7 +124,7 @@
 						<li><a href="#"><span class="glyphicon glyphicon-wrench"></span>
 								Settings</a></li>
 						<li class="divider"></li>
-						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+						<li><a href="javascript:flyToPage('success');"><span class="glyphicon glyphicon-log-out"></span>
 								Log Out</a></li>
 					</ul></li>
 			</ul>
@@ -160,5 +178,6 @@
 		</div>
 	</div>
 	<!-- END CONTAINER -->
+	</html:form>
 </body>
 </html>
