@@ -8,17 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<!-- BOOTSTRAP -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- END BOOTSTRAP -->
-
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href="mystyle.css">
+<%@include file="PartBootstrap.jsp"%>
 
 <title>New Master User</title>
 </head>
@@ -76,46 +66,21 @@
 						<tr>
 							<th>Employee Name</th>
 							<th>Role</th>
-							<th>Button Action</th>
 						</tr>
 
 						<tr>
 							<td>Employee 1</td>
 							<td>Role 1</td>
-							<td>
-								<button type="button" class="btn btn-info" onclick="">
-									<span class="glyphicon glyphicon-pencil"></span> Edit
-								</button>
-								<button type="button" class="btn btn-danger" onclick="">
-									<span class="glyphicon glyphicon-remove"></span> Delete
-								</button>
-							</td>
 						</tr>
 
 						<tr>
 							<td>Employee 2</td>
 							<td>Role 2</td>
-							<td>
-								<button type="button" class="btn btn-info" onclick="">
-									<span class="glyphicon glyphicon-pencil"></span> Edit
-								</button>
-								<button type="button" class="btn btn-danger" onclick="">
-									<span class="glyphicon glyphicon-remove"></span> Delete
-								</button>
-							</td>
 						</tr>
 
 						<tr>
 							<td>Employee 3</td>
 							<td>Role 3</td>
-							<td>
-								<button type="button" class="btn btn-info" onclick="">
-									<span class="glyphicon glyphicon-pencil"></span> Edit
-								</button>
-								<button type="button" class="btn btn-danger" onclick="">
-									<span class="glyphicon glyphicon-remove"></span> Delete
-								</button>
-							</td>
 						</tr>
 
 					</table>
