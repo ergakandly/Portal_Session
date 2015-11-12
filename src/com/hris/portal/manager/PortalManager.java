@@ -64,4 +64,48 @@ public class PortalManager {
 		return pBean;
 	}
 	
+	
+	public List<PortalBean> getRoleName(){
+		List<PortalBean> list =  null;
+		
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("employees.getRoleName", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	
+	public List<PortalBean> getRoleList(){
+		List<PortalBean> list =  null;
+		
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("employees.getRoleList", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
 }

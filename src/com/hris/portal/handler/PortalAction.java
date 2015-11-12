@@ -62,12 +62,16 @@ public class PortalAction extends Action {
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName()));
 			return mapping.findForward("assignRoleEmployee");
 		}else if ("select".equalsIgnoreCase(hForm.getTask())){
-			System.out.println(hForm.getId());
 			hForm.setPortalBean(manager.getOneEmployee(hForm.getId()));
-			System.out.println(hForm.getPortalBean().getEmployeeName());
+			hForm.setListPortal(manager.getRoleName());
+//			System.out.println(hForm.getPortalBean().getEmployeeName());
+//			System.out.println(hForm.getId());
 			return mapping.findForward("addEditAssignRole");
 		}else if ("addEditAssignRole".equalsIgnoreCase(hForm.getTask())){
+			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");
+		}else if("insert".equalsIgnoreCase(hForm.getTask())){
+//			manager.insert(hForm.getRegionBean().getFirstName(), hForm.getRegionBean().getLastName(), hForm.getRegionBean().getPhoneNumber(), hForm.getRegionBean().getEmail(), hForm.getRegionBean().getSalary());
 		}
 		
 		return mapping.findForward("success");

@@ -54,4 +54,25 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			employee_id = #empId#
 	</select>
 
+	<select id = "getRoleList" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
+		SELECT
+		    e.employee_name AS employeeName,
+		    r.role_name AS roleName
+		FROM
+		    ms_employee e
+		    join ms_user u 
+		    on u.employee_id = e.employee_id
+		    join ms_role r 
+		    on u.role_id = r.role_id
+		ORDER BY 
+		    e.employee_id	
+	</select>
+	
+	<select id = "getRoleName" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
+		SELECT
+		    role_name AS roleName
+		FROM
+		    ms_role
+	</select>
+
 </sqlMap>

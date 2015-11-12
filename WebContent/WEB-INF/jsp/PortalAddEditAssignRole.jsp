@@ -30,12 +30,24 @@
 		document.forms[0].submit();
 	}
 </script>
+
+<script language="JavaScript">
+	function doSubmit(){
+		var frm = document.forms[0];
+		if (!validateForm(frm)){
+//	 		alert("I am an alert box!");
+			return;
+		}
+		frm.submit();
+	}
+</script>
+
 <body>
 
 	<html:form method="post" action="/portal">
-		<html:hidden name="PortalForm" property="task" />
+		<html:hidden name="PortalForm" property="task" value="insert"/>
 		<html:hidden name="PortalForm" property="id" />
-		
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
@@ -91,18 +103,23 @@
 										<input
 										type="button" value="browse" class="btn btn-primary" onclick="javascript:flyToPage('assignRoleEmployee');" /></td>
 								</tr>
-								<tr>
+								<tr>							
+								
 									<td class="rataKanan">Role :</td>
-									<td><select class="form-control">
-											<option value="volvo">Admin</option>
-											<option value="saab">HR</option>
-											<option value="mercedes">User</option>
-									</select></td>
+										<logic:notEmpty name="PortalForm" property="listPortal">
+											<td><select class="form-control">
+												<logic:iterate id="portalList" name="PortalForm" property="listPortal">
+													<option value="<bean:write name="portalList" property="roleName"/>"><bean:write name="portalList" property="roleName"/></option>
+												</logic:iterate>
+											</select></td>
+										</logic:notEmpty>
+									
 								</tr>
 								<tr>
-									<td colspan="2" align="center"><input type="button"
-										value="Save" class="btn btn-primary"
-										onclick="javascript:doSubmit();" /></td>
+									<td colspan="2" align="center">
+									<html:submit value="Save" onclick="javascript:doSubmit();"/>
+<!-- 									<input type= "button" value ="Input" onclick= "javascript:doSubmit();" /> -->
+<!-- 									<input type="button" value="Save" class="btn btn-primary" onclick="javascript:doSubmit();" /></td> -->
 								</tr>
 							</table>
 
