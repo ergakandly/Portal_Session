@@ -8,7 +8,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<%@include file="PartBootstrap.jsp"%>
+<!-- BOOTSTRAP -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- END BOOTSTRAP -->
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="mystyle.css">
 
 <title>New Master User</title>
 </head>
@@ -71,24 +81,6 @@
 						<tr>
 							<th>Employee Name</th>
 							<th>Role</th>
-<<<<<<< HEAD
-						</tr>
-
-						<tr>
-							<td>Employee 1</td>
-							<td>Role 1</td>
-						</tr>
-
-						<tr>
-							<td>Employee 2</td>
-							<td>Role 2</td>
-						</tr>
-
-						<tr>
-							<td>Employee 3</td>
-							<td>Role 3</td>
-=======
->>>>>>> a5193108c2394deb621c943477457afbe5014d92
 						</tr>
 						
 						<logic:notEmpty name="PortalForm" property="listPortal">
