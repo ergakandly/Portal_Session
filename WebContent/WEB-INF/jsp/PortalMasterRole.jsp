@@ -36,9 +36,7 @@
 				<div class="col-md-12">
 					<!--JUDUL-->
 					<div class="page-header">
-						<h3 id="timeline">
-							Roles
-						</h1>
+						<h3 id="timeline">Roles</h3>
 					</div>
 					<!-- END JUDUL -->
 

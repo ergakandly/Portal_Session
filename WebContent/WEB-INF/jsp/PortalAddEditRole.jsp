@@ -20,17 +20,20 @@
 	<!-- ROW 12 -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Add New Role</h3>
-			<hr>
+			<!--JUDUL-->
+			<div class="page-header">
+				<h3 id="timeline">Add Role</h3>
+			</div>
+			<!-- END JUDUL -->
 
 			<!-- BREADCRUMB -->
-				<ul class="breadcrumb">
-					<li><span class="glyphicon glyphicon-dashboard"></span><a
-						href="#"> Dashboard</a></li>
-					<li><span class="glyphicon glyphicon-king"></span> <a href="#">
-							Roles</a></li>
-					<li><span class="glyphicon glyphicon-plus"></span> Add</li>
-				</ul>
+			<ul class="breadcrumb">
+				<li><span class="glyphicon glyphicon-dashboard"></span><a
+					href="#"> Dashboard</a></li>
+				<li><span class="glyphicon glyphicon-king"></span> <a href="#">
+						Roles</a></li>
+				<li><span class="glyphicon glyphicon-plus"></span> Add</li>
+			</ul>
 			<!-- END BREADCRUMB -->
 
 		</div>
