@@ -1,11 +1,12 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <%
-String choose = request.getContextPath()+"/img/select.png";
+	String choose = request.getContextPath() + "/img/select.png";
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -42,101 +43,134 @@ String choose = request.getContextPath()+"/img/select.png";
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand"> HRIS Dashboard </a>
-	</div>
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
 
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<ul class="nav navbar-nav navbar-right">
-		</ul>
-	</div>
-</div>
-</nav>
-<!-- END NAVBAR -->
-<br />
-<br />
-<!-- CONTAINER -->
-<div class="container-fluid well">
-	<!--wadah-->
-	<div class="row">
-		<div class="col-md-12">
-			<button type="button" class="btn btn-info" onclick="javascript:flyToPage('assignRole');">Back
-			</button>
-			<h3>Master Assign Role</h3>
-			<hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="tab-content">
-				<div class="tab-pane active" id="dashboard">
-					<br> <br> <br>
+			<!-- LOGO -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="Brand"
+					src="asset/img/logo-normal.png">
+				</a>
+			</div>
+			<!-- END LOGO -->
 
-					<!-- KOLOM MD 8-->
-					<div class="col-md-8">
-						<center>
-						
-								<p align="center">Search Employee Name : <html:text name="PortalForm" property="searchName"/>
-									<button onclick="javascript:flyToPage('search');">
-										Search
-									</button>
-								</p>
-								
-								<table align="center" border ="5px">
-									<tr style="background-color: #736EF5; color: white; height: 40px;">
-										<td align="center">Employee ID</td>
-										<td align="center">Employee Name</td>
-										<td align="center">Department Name</td>
-										<td align="center">Location Name</td>
-										<td align="center"></td>
-									</tr>
-									<logic:notEmpty name="PortalForm" property="listPortal">
-										<logic:iterate id="portalList" name="PortalForm" property="listPortal">
-											<tr style="background-color: #F2F2F5; height: 40px;">				
-												<td width="100px" align="center"><bean:write name="portalList" property="employeeId"/></td>
-												<td width="200px" align="center"><bean:write name="portalList" property="employeeName"/></td>
-												<td width="200px" align="center"><bean:write name="portalList" property="departmentName"/></td>
-												<td width="200px" align="center"><bean:write name="portalList" property="locationName"/></td>
-												<td width="40px" align="center"><a href="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');"><html:img src="<%=choose%>" width="25px" height="25px" alt="select" /></a></td>
-											</tr>
-										</logic:iterate>
-									</logic:notEmpty>
-								</table>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
 
-						</center>
-					</div>
-					<!-- END KOLOM MD 8-->
+				<ul class="nav navbar-nav navbar-right">
 
-					<!-- --------------------------------------------- -->
-					<!-- -----				PEMBATAS				-- -->
-					<!-- --------------------------------------------- -->
-
-					<!-- KOLOM MD 4-->
-					<div class="col-md-4">
-						<ul class="nav nav-stacked nav-pills">
-							<li class="active"><a href="index.html"> <span
-									class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-edit"></span>
-									&nbsp; Edit Profile
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
-									&nbsp; Notification
-							</a></li>
-							<li><a href="#"> <span
-									class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
-							</a></li>
-						</ul>
-					</div>
-					<!-- END KOLOM MD 4-->
-				</div>
+					<!-- DROPDOWN USER -->
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							Hi, Admin <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"> <large> <span
+										class="glyphicon glyphicon-user"></span> <large>
+									Profile</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><span
+									class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+						</ul></li>
+				</ul>
 			</div>
 		</div>
-	</div>
-</div>
-</html:form>
+		</nav>
+		<!-- END NAVBAR -->
+
+		<br />
+		<br />
+		<!-- CONTAINER -->
+		<div class="container-fluid">
+
+			<!-- ROW 12 -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Search Employee</h3>
+					<hr>
+
+					<!-- BREADCRUMB -->
+					<ul class="breadcrumb">
+						<li><span class="glyphicon glyphicon-dashboard"></span><a
+							href="#"> Dashboard</a></li>
+						<li><span class="glyphicon glyphicon-screenshot"></span> <a
+							href="#"> Assign Role</a></li>
+						<li><span class="glyphicon glyphicon-plus"></span> <a
+							href="#"> New </a></li>
+						<li><span class="glyphicon glyphicon-search"></span> Search</li>
+					</ul>
+					<!-- END BREADCRUMB -->
+				</div>
+			</div>
+			<!-- END ROW 12 -->
+			<br />
+			<!-- ROW MD6 OFFSET3 -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 div-center">
+				
+				<!-- 				COLLAPSE -->
+				<div class="panel-group" id="accordion">
+<!-- 					panel 1 -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapse"> <span class="glyphicon glyphicon-search"></span>
+									Search Options
+								</a>
+							</h4>
+						</div>
+						<div id="collapse" class="panel-collapse collapse">
+<!-- 							collapse in to show it- -->
+
+<p class="tengah">
+						Search Employee Name :
+						<html:text name="PortalForm" property="searchName" />
+						<button onclick="javascript:flyToPage('search');">Search</button>
+					</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- END COLLAPSE -->
+
+					
+
+					<table
+						class="table table-nonfluid table-striped table-bordered table-hover">
+						<tr style="background-color: #736EF5; color: white; height: 40px;">
+							<th>Employee ID</th>
+							<th>Employee Name</th>
+							<th>Department Name</th>
+							<th>Location Name</th>
+							<th>Select</th>
+						</tr>
+						<logic:notEmpty name="PortalForm" property="listPortal">
+							<logic:iterate id="portalList" name="PortalForm"
+								property="listPortal">
+								<tr>
+									<td><bean:write name="portalList" property="employeeId" /></td>
+									<td><bean:write name="portalList" property="employeeName" /></td>
+									<td><bean:write name="portalList"
+											property="departmentName" /></td>
+									<td><bean:write name="portalList" property="locationName" /></td>
+									<td>
+										<button type="button" class="btn btn-primary"
+											onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
+											<span class="glyphicon glyphicon-ok"></span>
+										</button>
+									</td>
+								</tr>
+							</logic:iterate>
+						</logic:notEmpty>
+					</table>
+
+
+				</div>
+
+			</div>
+			<!-- ROW MD6 OFFSET3 -->
+		</div>
+	</html:form>
 </body>
 </html>

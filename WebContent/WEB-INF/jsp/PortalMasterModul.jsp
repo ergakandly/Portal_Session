@@ -97,8 +97,8 @@
 					</center>
 
 					<br /> <br />
-					<table align="center"
-						class="table table-nonfluid table-striped table-bordered table-hover"
+					<table
+						class="table table-nonfluid table-striped table-bordered table-hover tengah"
 						width="70%">
 						<tr>
 							<th>Modul Name</th>

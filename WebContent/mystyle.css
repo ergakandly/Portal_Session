@@ -1,5 +1,17 @@
 @CHARSET "ISO-8859-1";
 
+.tengah {
+	text-align: center;
+}
+
+.kiri {
+	text-align: left;
+}
+
+.kanan {
+	text-align: right;
+}
+
 .btn {
 	border-bottom-right-radius: 20px;
 	border-top-left-radius: 20px;
@@ -28,12 +40,12 @@ td.width30 {
 	width: 30%;
 }
 
-.iconDashboard{
-	height: 200px; 
+.iconDashboard {
+	height: 200px;
 	width: 200px;
 }
 
 .table-nonfluid {
-	/* 	width: auto !important; */
+	/* width: auto !important; */
 	
 }
