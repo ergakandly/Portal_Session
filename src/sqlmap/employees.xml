@@ -74,5 +74,12 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		FROM
 		    ms_role
 	</select>
+	
+	<insert id = "insertUser" parameterClass="java.util.Map">
+		INSERT INTO
+			MS_USER
+		VALUES
+			(MS_USER_SEQ.NEXTVAL, #employeeName#, 'admin', 4, 4, null, SYSDATE, null, null)
+	</insert>
 
 </sqlMap>

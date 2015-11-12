@@ -51,7 +51,7 @@ public class PortalAction extends Action {
 			return mapping.findForward("masterModul");
 		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
-			System.out.println(hForm.getId());
+			hForm.setListPortal(manager.getRoleList());
 			return mapping.findForward("assignRole");
 		}else if ("assignRoleEmployee".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
@@ -62,11 +62,12 @@ public class PortalAction extends Action {
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName()));
 			return mapping.findForward("assignRoleEmployee");
 		}else if ("select".equalsIgnoreCase(hForm.getTask())){
-			hForm.setPortalBean(manager.getOneEmployee(hForm.getId()));
-			hForm.setListPortal(manager.getRoleName());
+//			hForm.setPortalBean(manager.getOneEmployee(hForm.getId()));
+//			hForm.setListPortal(manager.getRoleName());
 //			System.out.println(hForm.getPortalBean().getEmployeeName());
 //			System.out.println(hForm.getId());
-			return mapping.findForward("addEditAssignRole");
+			hForm.setListPortal(manager.getRoleList());
+			return mapping.findForward("assignRole");
 		}else if ("addEditAssignRole".equalsIgnoreCase(hForm.getTask())){
 			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");

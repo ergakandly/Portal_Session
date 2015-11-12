@@ -54,7 +54,12 @@
 			<div class="col-md-6 col-md-offset-3 div-center">
 				<center>
 					<button type="button" class="btn btn-primary">
-						<a href="javascript:flyToPage('addEditAssignRole');"
+<!-- 						<a href="javascript:flyToPage('addEditAssignRole');" -->
+<!-- 							style="color: white;"> <span class="glyphicon glyphicon-plus"></span> -->
+<!-- 							Add New Assign Role -->
+<!-- 						</a> -->
+
+						<a href="javascript:flyToPage('assignRoleEmployee');"
 							style="color: white;"> <span class="glyphicon glyphicon-plus"></span>
 							Add New Assign Role
 						</a>
@@ -66,6 +71,7 @@
 						<tr>
 							<th>Employee Name</th>
 							<th>Role</th>
+<<<<<<< HEAD
 						</tr>
 
 						<tr>
@@ -81,7 +87,18 @@
 						<tr>
 							<td>Employee 3</td>
 							<td>Role 3</td>
+=======
+>>>>>>> a5193108c2394deb621c943477457afbe5014d92
 						</tr>
+						
+						<logic:notEmpty name="PortalForm" property="listPortal">
+							<logic:iterate id="portalList" name="PortalForm" property="listPortal">
+								<tr>
+									<td><bean:write name="portalList" property="employeeName"/></td>
+									<td><bean:write name="portalList" property="roleName" /></td>
+								</tr>								
+							</logic:iterate>
+						</logic:notEmpty>
 
 					</table>
 				</center>
