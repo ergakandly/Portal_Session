@@ -92,7 +92,7 @@
 
 
 						<center>
-							<button class="btn btn-default" type="button"
+							<button class="btn btn-default" type="button" onclick="location.href='/HRIS_Employee/index.do'"
 								style="height: 200px; width: 200px;">
 								<span class="glyphicon glyphicon-user" style="font-size: 100px;"></span><br>
 								<h3>Employees</h3>
