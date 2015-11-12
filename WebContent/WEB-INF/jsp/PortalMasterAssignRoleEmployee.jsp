@@ -113,8 +113,7 @@
 							<th>Select</th>
 						</tr>
 						<logic:notEmpty name="PortalForm" property="listPortal">
-							<logic:iterate id="portalList" name="PortalForm"
-								property="listPortal">
+							<logic:iterate id="portalList" name="PortalForm" property="listPortal">
 								<tr>
 									<td><bean:write name="portalList" property="employeeId" /></td>
 									<td><bean:write name="portalList" property="employeeName" /></td>
