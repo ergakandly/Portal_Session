@@ -37,87 +37,52 @@
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
+		
+		<%@include file="PartNavbar.jsp" %>
+		
+		<!-- CONTAINER -->
+		<div class="container-fluid" style="min-height: 100%;!important">
 
-	<!-- NAVBAR -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-
-		<!-- LOGO -->
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#"> <img alt="Brand"
-				src="asset/img/logo-normal.png">
-			</a>
-		</div>
-		<!-- END LOGO -->
-
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-
-			<ul class="nav navbar-nav navbar-right">
-
-				<!-- DROPDOWN USER -->
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-						Hi, User <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#"> <large> <span
-									class="glyphicon glyphicon-user"></span> <large>
-								Profile</a></li>
-						<li class="divider"></li>
-						<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
-								Log Out</a></li>
-					</ul></li>
-			</ul>
-		</div>
-	</div>
-	</nav>
-	<!-- END NAVBAR -->
-	<br />
-	<br />
-
-	<!-- CONTAINER -->
-	<div class="container-fluid" style="min-height: 100%;!important">
-		<!--wadah-->
-		<div class="row">
-			<div class="col-md-12">
-				<h3>Modals Users</h3>
-				<hr>
+			<!-- PAGE HEADER -->
+			<div class="page-header">
+				<h3 id="timeline">Modals Users</h3>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="tab-content">
-					<div class="tab-pane active" id="dashboard">
-						<br> <br> <br>
+			<!-- END PAGE HEADER -->
+			'
 
-
-						<center>
-							<button class="btn btn-default" type="button" onclick="location.href='/HRIS_Employee/index.do'"
-								style="height: 200px; width: 200px;">
-								<span class="glyphicon glyphicon-user" style="font-size: 100px;"></span><br>
-								<h3>Employees</h3>
-							</button>
-							<button class="btn btn-default" type="button"
-								style="height: 200px; width: 200px;">
-								<span class="glyphicon glyphicon-check"
-									style="font-size: 100px;"></span><br>
-								<h3>Attendence</h3>
-							</button>
-							<button class="btn btn-default" type="button"
-								style="height: 200px; width: 200px;">
-								<span class="glyphicon glyphicon-send" style="font-size: 100px;"></span><br>
-								<h3>Leave</h3>
-							</button>
-							<br> <br>
-						</center>
-
-
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tab-content">
+						<div class="tab-pane active" id="dashboard">
+							<br> <br> <br>
+							<center>
+								<button class="btn btn-default" type="button"
+									onclick="location.href='/HRIS_Employee/index.do'"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-user"
+										style="font-size: 100px;"></span><br>
+									<h3>Employees</h3>
+								</button>
+								<button class="btn btn-default" type="button"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-check"
+										style="font-size: 100px;"></span><br>
+									<h3>Attendance</h3>
+								</button>
+								<button class="btn btn-default" type="button"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-send"
+										style="font-size: 100px;"></span><br>
+									<h3>Leave</h3>
+								</button>
+								<br> <br>
+							</center>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- END CONTAINER -->
+		<!-- END CONTAINER -->
 	</html:form>
 </body>
 </html>

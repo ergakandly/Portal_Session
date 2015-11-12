@@ -22,40 +22,8 @@
 
 <title>New Master Role</title>
 </head>
-<!-- NAVBAR -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="container-fluid">
+<%@include file="PartNavbar.jsp"%>
 
-	<!-- LOGO -->
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#"> <img alt="Brand"
-			src="asset/img/logo-normal.png">
-		</a>
-	</div>
-	<!-- END LOGO -->
-
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-		<ul class="nav navbar-nav navbar-right">
-
-			<!-- DROPDOWN USER -->
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-					Hi, Admin <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="#"> <large> <span
-								class="glyphicon glyphicon-user"></span> <large> Profile</a></li>
-					<li class="divider"></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
-							Log Out</a></li>
-				</ul></li>
-		</ul>
-	</div>
-</div>
-</nav>
-<!-- END NAVBAR -->
-<br />
-<br />
 <!-- CONTAINER -->
 <div class="container-fluid">
 
