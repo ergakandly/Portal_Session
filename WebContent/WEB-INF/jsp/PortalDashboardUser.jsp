@@ -43,7 +43,8 @@
 
 					<!-- BREADCRUMB -->
 					<ul class="breadcrumb">
-						<li><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+						<li><span class="glyphicon glyphicon-dashboard"></span>
+							Dashboard</a></li>
 					</ul>
 					<!-- END BREADCRUMB -->
 					<br /> <br /> <br />
@@ -62,6 +63,7 @@
 							<h3>Attendance</h3>
 						</button>
 						<button class="btn btn-default" type="button"
+							onclick="location.href='/HRIS_Leave/leaveAction.do'"
 							style="height: 200px; width: 200px;">
 							<span class="glyphicon glyphicon-send" style="font-size: 100px;"></span><br>
 							<h3>Leave</h3>
