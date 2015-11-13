@@ -35,29 +35,27 @@ table th {
 </script>
 
 <body>
+
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
 
-		<%@include file="PartNavbar.jsp"%>
-
+		<%@include file="PartNavbar.jsp" %>
+		
 		<!-- CONTAINER -->
 		<div class="container-fluid">
+
+			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
-
-					<!--JUDUL-->
-					<div class="page-header">
-						<h3 id="timeline">Dashboard Admin</h3>
-					</div>
-					<!-- END JUDUL -->
+					<h3>Dashboard</h3>
+					<hr>
 
 					<!-- BREADCRUMB -->
-					<ul class="breadcrumb">
-						<li><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-					</ul>
+						<ul class="breadcrumb">
+							<li><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li>
+						</ul>
 					<!-- END BREADCRUMB -->
-<<<<<<< HEAD
 
 				</div>
 			</div>
@@ -91,35 +89,11 @@ table th {
 								<br> <br>
 							</center>
 						</div>
-=======
-					<br /> <br /> <br />
-					
-					<!-- ICON MENU -->
-					<div class="tengah">
-						<button class="btn btn-default iconDashboard" type="button"
-							onclick="javascript:flyToPage('masterRole');">
-							<span class="glyphicon glyphicon-king" style="font-size: 100px;"></span><br>
-							<h3>Roles</h3>
-						</button>
-						<button class="btn btn-default iconDashboard" type="button"
-							onclick="javascript:flyToPage('assignRole');">
-							<span class="glyphicon glyphicon-screenshot"
-								style="font-size: 100px;"></span><br>
-							<h3>Assign Role</h3>
-						</button>
-						<button class="btn btn-default iconDashboard" type="button"
-							onclick="javascript:flyToPage('masterModul');">
-							<span class="glyphicon glyphicon-th-large"
-								style="font-size: 100px;"></span><br>
-							<h3>Modules</h3>
-						</button>
-						<br> <br>
->>>>>>> 1adad6d8f38f3377054fb73080f207de09c39c60
 					</div>
-					<!-- END ICON MENU -->
-					
 				</div>
 			</div>
+			<!-- END ROW 12 -->
+
 		</div>
 		<!-- END CONTAINER -->
 
