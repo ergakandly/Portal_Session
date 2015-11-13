@@ -14,16 +14,17 @@
 </head>
 <body>
 	<%@include file="PartNavbar.jsp"%>
-	
+
 	<!-- CONTAINER -->
 	<div class="container-fluid well">
 		<!--wadah-->
 		<div class="row">
 			<div class="col-md-12">
-				<button type="button" class="btn btn-info" onclick="#">Back
-				</button>
-				<h3>Master Role</h3>
-				<hr>
+				<!--JUDUL-->
+				<div class="page-header">
+					<h3 id="timeline">Add Module</h3>
+				</div>
+				<!-- END JUDUL -->
 			</div>
 		</div>
 		<div class="row">

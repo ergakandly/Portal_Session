@@ -16,16 +16,17 @@
 
 		<%@include file="PartNavbar.jsp"%>
 
-		<br />
-		<br />
 		<!-- CONTAINER -->
 		<div class="container-fluid">
 
 			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Modules</h3>
-					<hr>
+					<!--JUDUL-->
+					<div class="page-header">
+						<h3 id="timeline">Modules</h3>
+					</div>
+					<!-- END JUDUL -->
 
 					<!-- BREADCRUMB -->
 					<ul class="breadcrumb">
@@ -47,8 +48,7 @@
 						<button type="button" class="btn btn-primary">
 							<a href="javascript:flyToPage('masterRole');"
 								style="color: white;"> <span
-								class="glyphicon glyphicon-plus"></span> Add
-								New Modul
+								class="glyphicon glyphicon-plus"></span> Add New Modul
 							</a>
 						</button>
 					</center>
