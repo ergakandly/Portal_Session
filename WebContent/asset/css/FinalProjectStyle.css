@@ -1,5 +1,6 @@
 @CHARSET "ISO-8859-1";
 
+/*ALIGN*/
 .tengah {
 	text-align: center;
 }
@@ -22,10 +23,6 @@
 	border-top-left-radius: 20px;
 }
 
-.kanan {
-	text-align: right;
-}
-
 hr {
 	size: 50px;
 }
@@ -34,6 +31,11 @@ table th {
 	background-color: black;
 	color: white;
 	align: center;
+}
+
+.table-nonfluid {
+	/* width: auto !important; */
+	
 }
 
 td.width30 {
@@ -45,11 +47,57 @@ td.width30 {
 	width: 200px;
 }
 
-.table-nonfluid {
-	/* width: auto !important; */
-	
-}
-/* PEMBATAS!!!!  */
 #timeline {
-	margin : 0px 0px -7px 0px;
+	margin: 0px 0px -7px 0px;
+}
+
+.hitam {
+	background-color: black;
+	min-height: 100%;
+}
+
+.row {
+	height: 620px;
+}
+
+/* SIDEBAR */
+.sidebar {
+	background-color: black;
+	min-height: 700px;
+	padding-top: 20px;
+	float: left;
+}
+
+.sidebar ul {
+	height: 10%;
+	list-style-type: none;
+	margin: 0;
+	width: 200px;
+}
+
+.sidebar ul li {
+	height: 40px;
+	margin: 0px 0px 0px -48px;
+	padding: 5px 0px 5px 5px;
+}
+
+.sidebar ul li a {
+	display: block;
+	height: 100%;
+	text-decoration: none;
+	color: #999999;
+	/* 	background: blue; */
+}
+
+.sidebar ul li a:hover {
+	text-decoration: none;
+	color: black;
+	background: white;
+	font-weight: bold;
+}
+
+.barTerpilih {
+	font-weight: bold;
+	color: white;
+	font-weight: bold;
 }
