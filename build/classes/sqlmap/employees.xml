@@ -35,15 +35,32 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
             on l.location_id = d.department_id
 		WHERE 1=1
 		<dynamic prepend="AND">
+			<isNotEmpty property = "departmentId" >
+				d.department_id = #departmentId#
+			</isNotEmpty>
+		</dynamic> 
+		<dynamic prepend="AND">
 			<isNotEmpty property = "searchName">
 <!-- 				lower(e.employee_name) = lower(#searchName#) -->
 				lower(e.employee_name) like '%'||lower(#searchName#)||'%'
 			</isNotEmpty>
 		</dynamic> 
+
 			ORDER BY 
 				employee_id
 	</select>
 
+	<select id = "getDepartmentName" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
+		SELECT
+			department_id AS departmentId,
+		    department_name AS msDepartmentName,
+		    location_id AS locationId
+		FROM
+		    ms_department
+		order by
+		    department_id
+	</select>
+	
 	<select id = "getOneEmp" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
 		SELECT
 			employee_id AS employeeId,

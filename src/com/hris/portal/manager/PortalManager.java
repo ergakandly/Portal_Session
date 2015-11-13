@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.hris.portal.ibatis.IbatisHelper;
 import com.hris.portal.model.PortalBean;
+import com.hris.portal.model.PortalDepartmentBean;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 public class PortalManager {
@@ -16,13 +17,15 @@ public class PortalManager {
 		ibatis = new IbatisHelper().getSqlMapInstance();		
 	}
 	
-	public List<PortalBean> getEmployee(String searchName){
+	public List<PortalBean> getEmployee(String searchName, String departmentId){
 		List<PortalBean> list =  null;
 		
 		Map map = new HashMap();
 		map.put("searchName", searchName);
-
+		map.put("departmentId", departmentId);
+		
 		System.out.println("Search Name: " + searchName);
+		System.out.println("Department ID: " + departmentId);
 		
 		try {
 			ibatis.startTransaction();
@@ -86,6 +89,26 @@ public class PortalManager {
 		return list;
 	}
 	
+	public List<PortalDepartmentBean> getDepartmentName(){
+		List<PortalDepartmentBean> list =  null;
+		
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("employees.getDepartmentName", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
 	
 	public List<PortalBean> getRoleList(){
 		List<PortalBean> list =  null;

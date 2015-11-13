@@ -5,15 +5,32 @@ import java.util.List;
 import org.apache.struts.action.ActionForm;
 
 import com.hris.portal.model.PortalBean;
+import com.hris.portal.model.PortalDepartmentBean;
 
 public class PortalForm extends ActionForm{
 	private List<PortalBean> listPortal;
 	private PortalBean portalBean = new PortalBean();
+	private List<PortalDepartmentBean> listPortalDepartment;
+	private PortalDepartmentBean portalDepartmentBean = new PortalDepartmentBean();
 	private String task;
 	private String id;
 	private String user;
 	private String pass;
 	private String searchName;
+	
+	public List<PortalDepartmentBean> getListPortalDepartment() {
+		return listPortalDepartment;
+	}
+	public void setListPortalDepartment(
+			List<PortalDepartmentBean> listPortalDepartment) {
+		this.listPortalDepartment = listPortalDepartment;
+	}
+	public PortalDepartmentBean getPortalDepartmentBean() {
+		return portalDepartmentBean;
+	}
+	public void setPortalDepartmentBean(PortalDepartmentBean portalDepartmentBean) {
+		this.portalDepartmentBean = portalDepartmentBean;
+	}
 	
 	public String getSearchName() {
 		return searchName;

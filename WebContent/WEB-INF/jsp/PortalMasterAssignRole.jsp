@@ -69,7 +69,7 @@
 <!-- 							Add New Assign Role -->
 <!-- 						</a> -->
 
-						<a href="javascript:flyToPage('assignRoleEmployee');"
+						<a href="javascript:flyToPage('addEditAssignRole');"
 							style="color: white;"> <span class="glyphicon glyphicon-plus"></span>
 							Add New Assign Role
 						</a>

@@ -80,11 +80,23 @@
 						<div id="collapse" class="panel-collapse collapse">
 <!-- 							collapse in to show it- -->
 
-<p class="tengah">
+					<p class="tengah">
 						Search Employee Name :
 						<html:text name="PortalForm" property="searchName" />
-						<button onclick="javascript:flyToPage('search');">Search</button>
 					</p>
+					<br>
+					<logic:notEmpty name="PortalForm" property="listPortalDepartment">
+						<td><html:select styleClass="form-control" name="PortalForm" property="portalDepartmentBean.departmentId">
+								<option value="">ALL</option>
+								<logic:iterate id="portalDepartmentList" name="PortalForm" property="listPortalDepartment">
+									<option value="<bean:write name="portalDepartmentList" property="departmentId"/>">
+										<bean:write name="portalDepartmentList" property="msDepartmentName" />
+<%-- 										<html:hidden name="portalDepartmentList" property="departmentId"/> --%>
+									</option>
+								</logic:iterate>
+						</html:select></td>
+					</logic:notEmpty>
+						<button onclick="javascript:flyToPage('search');">Search</button>
 					</div>
 				</div>
 			</div>
