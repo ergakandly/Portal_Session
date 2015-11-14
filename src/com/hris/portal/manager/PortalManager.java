@@ -46,17 +46,39 @@ public class PortalManager {
 	}
 	
 	
-	public PortalBean getOneEmployee(String empId){
-		PortalBean pBean = null;
+//	public PortalBean getOneEmployee(String empId){
+//		PortalBean pBean = null;
+//		
+//		try {
+//			ibatis.startTransaction();
+//			pBean = (PortalBean) ibatis.queryForObject("employees.getOneEmp", empId);
+//			ibatis.commitTransaction();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				ibatis.endTransaction();
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				e.printStackTrace();
+//			}
+//		}
+//		return pBean;
+//	}
+	
+	public PortalDepartmentBean getOneEmployee(String empId){
+		PortalDepartmentBean portalDeptBean = null;
 		
 		try {
 			ibatis.startTransaction();
-			pBean = (PortalBean) ibatis.queryForObject("employees.getOneEmp", empId);
+			//pBean = (PortalBean) ibatis.queryForObject("employees.getOneEmp", empId);
+			portalDeptBean = (PortalDepartmentBean) ibatis.queryForObject("employees.getOneEmp", empId);
 			ibatis.commitTransaction();
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
+		} finally{
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
@@ -64,9 +86,8 @@ public class PortalManager {
 				e.printStackTrace();
 			}
 		}
-		return pBean;
+		return portalDeptBean;
 	}
-	
 	
 	public List<PortalBean> getRoleName(){
 		List<PortalBean> list =  null;

@@ -61,14 +61,26 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    department_id
 	</select>
 	
-	<select id = "getOneEmp" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
+	<select id = "getOneEmp" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
+<!-- 		SELECT -->
+<!-- 			employee_id AS employeeId, -->
+<!-- 			employee_name AS employeeName -->
+<!-- 		FROM -->
+<!-- 			ms_employee -->
+<!-- 		WHERE  -->
+<!-- 			employee_id = #empId# -->
+		
 		SELECT
-			employee_id AS employeeId,
-			employee_name AS employeeName
+<!-- 		    e.employee_id AS employeeId, -->
+		    e.department_id AS departmentId,
+		    d.department_name AS msDepartmentName,
+		    d.location_id AS locationId
 		FROM
-			ms_employee
-		WHERE 
-			employee_id = #empId#
+		    ms_employee e
+		    join ms_department d
+		    on d.department_id = e.department_id
+		WHERE
+			e.employee_id = #empId# 
 	</select>
 
 	<select id = "getRoleList" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">

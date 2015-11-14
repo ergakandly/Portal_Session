@@ -1,6 +1,7 @@
 package com.hris.portal.handler;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,7 +68,26 @@ public class PortalAction extends Action {
 			hForm.setListPortalDepartment(manager.getDepartmentName());
 			return mapping.findForward("assignRoleEmployee");
 		}else if ("select".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("ID : "+hForm.getId());
+			hForm.setPortalDepartmentBean(manager.getOneEmployee(hForm.getId()));
+			System.out.println("Department Name: " + hForm.getPortalDepartmentBean().getMsDepartmentName());
 			
+			//compare
+			hForm.setListPortal(manager.getRoleName());
+			System.out.println();
+			
+//			System.out.println("RoleName : " + hForm.getListPortal().get(1).getRoleName());
+			for(int i=1; i<hForm.getListPortal().size(); i++){
+				if(hForm.getPortalDepartmentBean().getMsDepartmentName().equals(hForm.getListPortal().get(i).getRoleName())){
+					//insert
+					System.out.println("Compare Role Name "+i+" :"+hForm.getListPortal().get(i).getRoleName());
+					System.out.println("Compare Department Name "+i+" :"+hForm.getPortalDepartmentBean().getMsDepartmentName());
+				}else{
+					System.out.println("aaaaa");
+//					hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
+//					System.out.println("Compare Department Name 2: "+hForm.getPortalDepartmentBean().getMsDepartmentName());
+				}
+			}
 			
 			System.out.println("Employee ID: " + hForm.getId());
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName(), hForm.getPortalDepartmentBean().getDepartmentId()));
