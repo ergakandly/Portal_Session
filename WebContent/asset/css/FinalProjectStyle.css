@@ -1,6 +1,6 @@
 @CHARSET "ISO-8859-1";
 
-/*ALIGN*/
+/*====== ALIGN ===========*/
 .tengah {
 	text-align: center;
 }
@@ -12,57 +12,54 @@
 .kanan {
 	text-align: right;
 }
+/*====== END ALIGN ===========*/
 
-.btn {
-	border-bottom-right-radius: 20px;
-	border-top-left-radius: 20px;
+/*====== COLOR ===========*/
+.fontHitam {
+	color: blue !important;
 }
 
-.form-control {
-	border-bottom-right-radius: 20px;
-	border-top-left-radius: 20px;
+.fontMerah {
+	color: red;
 }
 
-hr {
-	size: 50px;
+.fontBold {
+	font-weight: bold;
 }
 
+.backgroundRed {
+	background-color: red;
+}
+
+.backgroundGreen {
+	background-color: green;
+}
+/*====== END COLOR ===========*/
+
+/*====== TABLE ===========*/
 table th {
 	background-color: black;
 	color: white;
 	align: center;
 }
 
-.table-nonfluid {
-	/* width: auto !important; */
-	
-}
-
 td.width30 {
 	width: 30%;
 }
 
-.iconDashboard {
-	height: 200px;
-	width: 200px;
+.table-borderless td, .table-borderless th {
+	border: 0 !important;
 }
 
-#timeline {
-	margin: 0px 0px -7px 0px;
+.table-nonfluid {
+	width: auto !important;
 }
+/*======END TABLE ===========*/
 
-.hitam {
-	background-color: black;
-	min-height: 100%;
-}
-
-.row {
-	height: 620px;
-}
-
-/* SIDEBAR */
+/*====== SIDE BAR ===========*/
 .sidebar {
 	background-color: black;
+	min-height: 100%;
 	min-height: 700px;
 	padding-top: 20px;
 	float: left;
@@ -78,7 +75,7 @@ td.width30 {
 .sidebar ul li {
 	height: 40px;
 	margin: 0px 0px 0px -48px;
-	padding: 5px 0px 5px 5px;
+	/* 	padding: 5px 0px 5px 5px; */
 }
 
 .sidebar ul li a {
@@ -100,4 +97,33 @@ td.width30 {
 	font-weight: bold;
 	color: white;
 	font-weight: bold;
+}
+/*======END SIDE BAR ===========*/
+
+/*====== KHUSUS HRIS_PORTAL ===========*/
+.iconDashboard {
+	height: 200px;
+	width: 200px;
+}
+/*====== KHUSUS HRUS_PORTAL ===========*/
+#timeline {
+	margin: 0px 0px -7px 0px;
+}
+
+.row {
+	height: 100%;
+}
+
+.btn {
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+}
+
+.form-control {
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+}
+
+hr {
+	size: 50px;
 }

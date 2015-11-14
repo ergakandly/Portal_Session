@@ -29,53 +29,61 @@
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
 
-		<%@include file="PartNavbar.jsp"%>
+		<div id="wrapper">
+			<%@include file="PartNavbar.jsp"%>
 
-		<!-- CONTAINER -->
-		<div class="container-fluid" style="min-height: 100%;!important">
-			<div class="row">
-				<div class="col-md-12">
-					<!-- PAGE HEADER -->
-					<div class="page-header">
-						<h3 id="timeline">Dashboard User</h3>
+			<div id="page-wrapper">
+
+				<!-- CONTAINER -->
+				<div class="container-fluid"">
+					<div class="row">
+						<div class="col-md-12">
+							<!-- PAGE HEADER -->
+							<div class="page-header">
+								<h3 id="timeline">Dashboard User</h3>
+							</div>
+							<!-- END PAGE HEADER -->
+
+							<!-- BREADCRUMB -->
+							<ul class="breadcrumb">
+								<li><span class="glyphicon glyphicon-dashboard"></span>
+									Dashboard</a></li>
+							</ul>
+							<!-- END BREADCRUMB -->
+							<br /> <br /> <br />
+
+							<!-- ICON MENU -->
+							<div class="tengah">
+								<button class="btn btn-default" type="button"
+									onclick="location.href='/HRIS_Employee/index.do'"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-user"
+										style="font-size: 100px;"></span><br>
+									<h3>Employees</h3>
+								</button>
+								<button class="btn btn-default" type="button"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-check"
+										style="font-size: 100px;"></span><br>
+									<h3>Attendance</h3>
+								</button>
+								<button class="btn btn-default" type="button"
+									onclick="location.href='/HRIS_Leave/leaveAction.do'"
+									style="height: 200px; width: 200px;">
+									<span class="glyphicon glyphicon-send"
+										style="font-size: 100px;"></span><br>
+									<h3>Leave</h3>
+								</button>
+								<br> <br>
+							</div>
+							<!-- END ICON MENU -->
+
+						</div>
 					</div>
-					<!-- END PAGE HEADER -->
-
-					<!-- BREADCRUMB -->
-					<ul class="breadcrumb">
-						<li><span class="glyphicon glyphicon-dashboard"></span>
-							Dashboard</a></li>
-					</ul>
-					<!-- END BREADCRUMB -->
-					<br /> <br /> <br />
-
-					<!-- ICON MENU -->
-					<div class="tengah">
-						<button class="btn btn-default" type="button"
-							onclick="location.href='/HRIS_Employee/index.do'"
-							style="height: 200px; width: 200px;">
-							<span class="glyphicon glyphicon-user" style="font-size: 100px;"></span><br>
-							<h3>Employees</h3>
-						</button>
-						<button class="btn btn-default" type="button"
-							style="height: 200px; width: 200px;">
-							<span class="glyphicon glyphicon-check" style="font-size: 100px;"></span><br>
-							<h3>Attendance</h3>
-						</button>
-						<button class="btn btn-default" type="button"
-							onclick="location.href='/HRIS_Leave/leaveAction.do'"
-							style="height: 200px; width: 200px;">
-							<span class="glyphicon glyphicon-send" style="font-size: 100px;"></span><br>
-							<h3>Leave</h3>
-						</button>
-						<br> <br>
-					</div>
-					<!-- END ICON MENU -->
-
 				</div>
+				<!-- END CONTAINER -->
 			</div>
 		</div>
-		<!-- END CONTAINER -->
 	</html:form>
 </body>
 </html>

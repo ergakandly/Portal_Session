@@ -28,61 +28,38 @@
 		<div class="col-md-12">
 			<div class="tab-content">
 				<div class="tab-pane active" id="dashboard">
-					<br> <br> <br>
-
-					<!-- KOLOM MD 8-->
-					<div class="col-md-8">
-						<center>
-							<table align="center"
-								class="table table-nonfluid table-striped table-hover ">
-								<tr>
-									<th colspan="2">Change Password</th>
-								</tr>
-								<tr>
-									<td class="rataKanan">Old Password:</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="rataKanan">New Password :</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td class="rataKanan">Retype New Password :</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td colspan="2" align="center"><input type="button"
-										value="Save" class="btn btn-primary"
-										onclick="javascript:doSubmit();" /></td>
-								</tr>
-							</table>
-
-						</center>
+					
+					<div class="col-md-6 col-md-offset-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<span class="glyphicon glyphicon-lock"></span> Change Password
+								</h3>
+							</div>
+							<div class="panel-body">
+								<table align="center"
+									class="table table-hover ">
+									<tr>
+										<td class="kanan fontBold">Old Password:</td>
+										<td><input type="password"></td>
+									</tr>
+									<tr>
+										<td class="kanan fontBold">New Password :</td>
+										<td><input type="password"></td>
+									</tr>
+									<tr>
+										<td class="kanan fontBold">Retype New Password :</td>
+										<td><input type="password"></td>
+									</tr>
+									<tr>
+										<td colspan="2" align="center"><input type="button"
+											value="Save Password Changes" class="btn btn-primary"
+											onclick="javascript:doSubmit();" /></td>
+									</tr>
+								</table>
+							</div>
+						</div>
 					</div>
-					<!-- END KOLOM MD 8-->
-
-					<!-- --------------------------------------------- -->
-					<!-- -----				PEMBATAS				-- -->
-					<!-- --------------------------------------------- -->
-
-					<!-- KOLOM MD 4-->
-					<div class="col-md-4">
-						<ul class="nav nav-stacked nav-pills">
-							<li><a href="index.html"> <span
-									class="glyphicon glyphicon-user"></span> &nbsp; Hi, Admin
-							</a></li>
-							<li class="active"><a href="#"> <span
-									class="glyphicon glyphicon-edit"></span> &nbsp; Change Password
-							</a></li>
-							<li><a href="#"> <span class="glyphicon glyphicon-flag"></span>
-									&nbsp; Notification
-							</a></li>
-							<li><a href="#"> <span
-									class="glyphicon glyphicon-log-out"></span> &nbsp; Logout
-							</a></li>
-						</ul>
-					</div>
-					<!-- END KOLOM MD 4-->
 				</div>
 			</div>
 		</div>
