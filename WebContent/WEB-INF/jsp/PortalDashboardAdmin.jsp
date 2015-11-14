@@ -35,65 +35,53 @@ table th {
 </script>
 
 <body>
-
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
 
-		<%@include file="PartNavbar.jsp" %>
-		
+		<%@include file="PartNavbar.jsp"%>
+
 		<!-- CONTAINER -->
 		<div class="container-fluid">
 
 			<!-- ROW 12 -->
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Dashboard</h3>
-					<hr>
+					<!--JUDUL-->
+					<div class="page-header">
+						<h3 id="timeline">Dashboard</h3>
+					</div>
+					<!-- END JUDUL -->
 
 					<!-- BREADCRUMB -->
-						<ul class="breadcrumb">
-							<li><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li>
-						</ul>
+					<ul class="breadcrumb">
+						<li><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li>
+					</ul>
 					<!-- END BREADCRUMB -->
-
-				</div>
-			</div>
-			<!-- END ROW 12 -->
-
-			<!-- ROW 12 -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="tab-content">
-						<div class="tab-pane active" id="dashboard">
-							<br /> <br /> <br />
-							<center>
-								<button class="btn btn-default iconDashboard" type="button"
-									onclick="javascript:flyToPage('masterRole');">
-									<span class="glyphicon glyphicon-king"
-										style="font-size: 100px;"></span><br>
-									<h3>Roles</h3>
-								</button>
-								<button class="btn btn-default iconDashboard" type="button"
-									onclick="javascript:flyToPage('assignRoleEmployee');">
-									<span class="glyphicon glyphicon-screenshot"
-										style="font-size: 100px;"></span><br>
-									<h3>Assign Role</h3>
-								</button>
-								<button class="btn btn-default iconDashboard" type="button"
-									onclick="javascript:flyToPage('masterModul');">
-									<span class="glyphicon glyphicon-th-large"
-										style="font-size: 100px;"></span><br>
-									<h3>Modules</h3>
-								</button>
-								<br> <br>
-							</center>
-						</div>
+					<br /> <br /> <br />
+					<div class="tengah">
+						<button class="btn btn-default iconDashboard" type="button"
+							onclick="javascript:flyToPage('masterRole');">
+							<span class="glyphicon glyphicon-king" style="font-size: 100px;"></span><br>
+							<h3>Roles</h3>
+						</button>
+						<button class="btn btn-default iconDashboard" type="button"
+							onclick="javascript:flyToPage('assignRoleEmployee');">
+							<span class="glyphicon glyphicon-screenshot"
+								style="font-size: 100px;"></span><br>
+							<h3>Assign Role</h3>
+						</button>
+						<button class="btn btn-default iconDashboard" type="button"
+							onclick="javascript:flyToPage('masterModul');">
+							<span class="glyphicon glyphicon-th-large"
+								style="font-size: 100px;"></span><br>
+							<h3>Modules</h3>
+						</button>
+						<br> <br>
 					</div>
 				</div>
 			</div>
 			<!-- END ROW 12 -->
-
 		</div>
 		<!-- END CONTAINER -->
 
