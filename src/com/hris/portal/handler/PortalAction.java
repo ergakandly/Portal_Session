@@ -71,25 +71,44 @@ public class PortalAction extends Action {
 			System.out.println("ID : "+hForm.getId());
 			hForm.setPortalDepartmentBean(manager.getOneEmployee(hForm.getId()));
 			System.out.println("Department Name: " + hForm.getPortalDepartmentBean().getMsDepartmentName());
-			
+			System.out.println(hForm.getPortalDepartmentBean().getDeptEmployeeName());
 			//compare
 			hForm.setListPortal(manager.getRoleName());
-			System.out.println();
 			
 //			System.out.println("RoleName : " + hForm.getListPortal().get(1).getRoleName());
 			for(int i=1; i<hForm.getListPortal().size(); i++){
 				if(hForm.getPortalDepartmentBean().getMsDepartmentName().equals(hForm.getListPortal().get(i).getRoleName())){
-					//insert
-					System.out.println("Compare Role Name "+i+" :"+hForm.getListPortal().get(i).getRoleName());
+					
+					System.out.println("Role Name "+i+" :"+hForm.getListPortal().get(i).getRoleName());
+					System.out.println("Role ID "+i+" :"+hForm.getListPortal().get(i).getRoleId());
 					System.out.println("Compare Department Name "+i+" :"+hForm.getPortalDepartmentBean().getMsDepartmentName());
+					
+//					System.out.println("Employee ID: " + hForm.getId());
+					
+					//insert
+					manager.insertUser(hForm.getPortalDepartmentBean().getDeptEmployeeName(), hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getId(), hForm.getListPortal().get(i).getRoleId());
+					
+					hForm.setSearchName(null);
+					hForm.getPortalDepartmentBean().setDepartmentId(null);
+					hForm.setListPortal(manager.getEmployee(hForm.getSearchName(), hForm.getPortalDepartmentBean().getDepartmentId()));
+					hForm.setListPortalDepartment(manager.getDepartmentName());
+					return mapping.findForward("assignRoleEmployee");
 				}else{
-					System.out.println("aaaaa");
-//					hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
-//					System.out.println("Compare Department Name 2: "+hForm.getPortalDepartmentBean().getMsDepartmentName());
+					System.out.println("Else Role Name "+i+" = "+hForm.getListPortal().get(i).getRoleName());
+					System.out.println("Else Role ID "+i+" :"+hForm.getListPortal().get(i).getRoleId());
+					
 				}
 			}
+//			System.out.println("Employee ID: " + hForm.getId());
+			hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
+			hForm.getPortalBean().setRoleId("4");
+			System.out.println("Department Name Baru = "+hForm.getPortalDepartmentBean().getMsDepartmentName()+"ID Role :"+hForm.getPortalBean().getRoleId());
 			
-			System.out.println("Employee ID: " + hForm.getId());
+			//insert
+			manager.insertUser(hForm.getPortalDepartmentBean().getDeptEmployeeName(), hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getId(), hForm.getPortalBean().getRoleId());
+			
+			hForm.setSearchName(null);
+			hForm.getPortalDepartmentBean().setDepartmentId(null);
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName(), hForm.getPortalDepartmentBean().getDepartmentId()));
 			hForm.setListPortalDepartment(manager.getDepartmentName());
 			return mapping.findForward("assignRoleEmployee");

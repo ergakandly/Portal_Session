@@ -72,6 +72,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		
 		SELECT
 <!-- 		    e.employee_id AS employeeId, -->
+			e.employee_name AS deptEmployeeName,
 		    e.department_id AS departmentId,
 		    d.department_name AS msDepartmentName,
 		    d.location_id AS locationId
@@ -99,6 +100,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	
 	<select id = "getRoleName" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
 		SELECT
+			role_id AS roleId,
 		    role_name AS roleName
 		FROM
 		    ms_role
@@ -108,7 +110,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		INSERT INTO
 			MS_USER
 		VALUES
-			(MS_USER_SEQ.NEXTVAL, #employeeName#, 'admin', 4, 4, null, SYSDATE, null, null)
+			((SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1, #employeeName#, #msDepartmentName#, #empId#, #roleId#, null, SYSDATE, null, null)
 	</insert>
 
 </sqlMap>

@@ -152,4 +152,37 @@ public class PortalManager {
 		return list;
 	}
 	
+	public void insertUser(String employeeName, String msDepartmentName, String empId, String roleId){
+		
+		Map map = new HashMap();
+		map.put("employeeName", employeeName);
+		map.put("msDepartmentName", msDepartmentName);
+		map.put("empId", empId);
+		map.put("roleId", roleId);
+		
+		System.out.println();
+		System.out.println();
+		System.out.println("Di manager Insert");
+		System.out.println(employeeName);
+		System.out.println(msDepartmentName);
+		System.out.println(empId);
+		System.out.println(roleId);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("employees.insertUser", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
 }

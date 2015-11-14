@@ -6,7 +6,14 @@ public class PortalDepartmentBean implements Serializable {
 	private String departmentId;
 	private String msDepartmentName;
 	private String locationId;
+	private String deptEmployeeName;
 	
+	public String getDeptEmployeeName() {
+		return deptEmployeeName;
+	}
+	public void setDeptEmployeeName(String deptEmployeeName) {
+		this.deptEmployeeName = deptEmployeeName;
+	}
 	public String getDepartmentId() {
 		return departmentId;
 	}
