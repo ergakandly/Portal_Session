@@ -6,18 +6,34 @@ import org.apache.struts.action.ActionForm;
 
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalDepartmentBean;
+import com.hris.portal.model.PortalUserBean;
 
 public class PortalForm extends ActionForm{
 	private List<PortalBean> listPortal;
 	private PortalBean portalBean = new PortalBean();
 	private List<PortalDepartmentBean> listPortalDepartment;
 	private PortalDepartmentBean portalDepartmentBean = new PortalDepartmentBean();
+	private List<PortalUserBean> listUserDepartment;
+	private PortalUserBean portalUserBean = new PortalUserBean();
 	private String task;
 	private String id;
 	private String user;
 	private String pass;
 	private String searchName;
 	
+	
+	public List<PortalUserBean> getListUserDepartment() {
+		return listUserDepartment;
+	}
+	public void setListUserDepartment(List<PortalUserBean> listUserDepartment) {
+		this.listUserDepartment = listUserDepartment;
+	}
+	public PortalUserBean getPortalUserBean() {
+		return portalUserBean;
+	}
+	public void setPortalUserBean(PortalUserBean portalUserBean) {
+		this.portalUserBean = portalUserBean;
+	}
 	public List<PortalDepartmentBean> getListPortalDepartment() {
 		return listPortalDepartment;
 	}

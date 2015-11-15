@@ -26,13 +26,16 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			e.employee_id AS employeeId,
 			e.employee_name AS employeeName,
 			d.department_name AS departmentName,
-			l.location_name AS locationName
+			l.location_name AS locationName,
+   	 		u.employee_id AS userEmployeeId
 		FROM
 			ms_employee e
 			left outer join ms_department d 
             on d.department_id = e.department_id
             left outer join ms_location l 
-            on l.location_id = d.department_id
+            on l.location_id = d.location_id
+            left outer join ms_user u
+    		on u.employee_id = e.employee_id
 		WHERE 1=1
 		<dynamic prepend="AND">
 			<isNotEmpty property = "departmentId" >
@@ -47,16 +50,18 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		</dynamic> 
 
 			ORDER BY 
-				employee_id
+				e.employee_id
 	</select>
 
 	<select id = "getDepartmentName" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
 		SELECT
-			department_id AS departmentId,
-		    department_name AS msDepartmentName,
-		    location_id AS locationId
+			d.department_id AS departmentId,
+		    d.department_name || ' - ' || l.location_name AS msDepartmentName,
+		    d.location_id AS locationId
 		FROM
-		    ms_department
+		    ms_department d
+		    join ms_location l
+		    on l.location_id = d.location_id
 		order by
 		    department_id
 	</select>
@@ -104,6 +109,18 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    role_name AS roleName
 		FROM
 		    ms_role
+	</select>
+	
+	<select id = "getUserList" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.lang.String">
+	SELECT
+		username AS userName,
+	    password AS password,
+	    role_id AS  userRoleId,
+	    e.employee_id AS userEmployeeId
+	FROM
+	    ms_user
+	    left outer join ms_user u
+	    on u.employee_id = e.employee_id
 	</select>
 	
 	<insert id = "insertUser" parameterClass="java.util.Map">

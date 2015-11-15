@@ -123,10 +123,19 @@
 											property="departmentName" /></td>
 									<td><bean:write name="portalList" property="locationName" /></td>
 									<td>
-										<button type="button" class="btn btn-primary"
-											onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
-											<span class="glyphicon glyphicon-ok"></span>
-										</button>
+										<logic:empty name="portalList" property="userEmployeeId">
+											<button type="button" class="btn btn-primary"
+												onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
+												<span class="glyphicon glyphicon-ok"></span>
+											</button>
+										</logic:empty>
+										
+										<logic:notEmpty name="portalList" property="userEmployeeId">
+											<button type="button" class="btn btn-primary"
+												onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');" disabled="true">
+												<span class="glyphicon glyphicon-ok"></span>
+											</button>
+										</logic:notEmpty>
 									</td>
 								</tr>
 							</logic:iterate>

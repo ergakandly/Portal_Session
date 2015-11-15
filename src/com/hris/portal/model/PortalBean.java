@@ -11,9 +11,16 @@ public class PortalBean implements Serializable {
 	private String locationName;
 	private String roleName;
 	private String roleId;
+	private String userEmployeeId;
 	
 	public String getRoleId() {
 		return roleId;
+	}
+	public String getUserEmployeeId() {
+		return userEmployeeId;
+	}
+	public void setUserEmployeeId(String userEmployeeId) {
+		this.userEmployeeId = userEmployeeId;
 	}
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
