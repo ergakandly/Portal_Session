@@ -20,6 +20,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- END INTERNET BOOTSTRAP -->
 
 <!-- COBA -->
@@ -35,7 +37,9 @@
 <!-- <link rel="stylesheet" type="text/css" href="asset/css/sidebar.css"> -->
 
 <!-- <link rel="stylesheet" type="text/css" href="asset/css/font-awesome.css"> -->
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+	rel="stylesheet">
 <!-- END CSS -->
 </head>
 <body>

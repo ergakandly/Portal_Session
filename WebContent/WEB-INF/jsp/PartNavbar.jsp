@@ -8,8 +8,8 @@
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	
-	 <!-- LOGO -->
+
+	<!-- LOGO -->
 	<div class="navbar-header">
 		<a class="navbar-brand" href="#"> <img alt="Brand"
 			src="asset/img/logo-normal.png">
@@ -20,16 +20,16 @@
 	<ul class="nav navbar-nav navbar-right">
 		<!-- DROPDOWN USER -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
-			data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
-				Hi, User <b class="caret"> </b></a>
+			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, User <b
+				class="caret"> </b></a>
 			<ul class="dropdown-menu">
 				<li><a href="#" data-toggle="modal" data-target="#myModal">
-						<large> <span class="glyphicon glyphicon-user"></span> <large>
+						<large> <i class=" fa fa-user"></i> <large>
 						Profile 
 				</a></li>
 				<li class="divider"></li>
-				<li><a href="javascript:flyToPage('success');"><span
-						class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+				<li><a href="javascript:flyToPage('success');"><i
+						class=" fa fa-sign-out"></i> Log Out</a></li>
 			</ul></li>
 	</ul>
 	</div>

@@ -24,7 +24,6 @@
 </script>
 
 <body>
-
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
@@ -46,7 +45,7 @@
 
 							<!-- BREADCRUMB -->
 							<ul class="breadcrumb">
-								<li><i class="icon-dashboard"></i> Dashboard</li>
+								<li><i class="fa fa-dashboard"></i> Dashboard</li>
 							</ul>
 							<!-- END BREADCRUMB -->
 							<br /> <br /> <br />
