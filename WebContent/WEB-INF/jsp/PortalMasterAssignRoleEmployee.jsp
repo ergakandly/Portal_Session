@@ -49,11 +49,11 @@
 					<!-- BREADCRUMB -->
 					<ul class="breadcrumb">
 						<li><span class="glyphicon glyphicon-dashboard"></span><a
-							href="#"> Dashboard</a></li>
-						<li><span class="glyphicon glyphicon-screenshot"></span> <a
-							href="#"> Assign Role</a></li>
-						<li><span class="glyphicon glyphicon-plus"></span> <a
-							href="#"> New </a></li>
+							href="javascript:flyToPage('dashboardAdmin');"> Dashboard</a></li>
+<!-- 						<li><span class="glyphicon glyphicon-screenshot"></span> <a -->
+<!-- 							href="#"> Assign Role</a></li> -->
+<!-- 						<li><span class="glyphicon glyphicon-plus"></span> <a -->
+<!-- 							href="#"> New </a></li> -->
 						<li><span class="glyphicon glyphicon-search"></span> Search</li>
 					</ul>
 					<!-- END BREADCRUMB -->
@@ -112,7 +112,7 @@
 							<th>Employee Name</th>
 							<th>Department Name</th>
 							<th>Location Name</th>
-							<th>Select</th>
+							<th>Assign Role</th>
 						</tr>
 						<logic:notEmpty name="PortalForm" property="listPortal">
 							<logic:iterate id="portalList" name="PortalForm" property="listPortal">

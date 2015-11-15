@@ -44,6 +44,8 @@ public class PortalAction extends Action {
 		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("changePass");
+		}else if ("dashboardAdmin".equalsIgnoreCase(hForm.getTask())){
+			return mapping.findForward("dashboardAdmin");
 		}else if ("addEditRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("addEditRole");
