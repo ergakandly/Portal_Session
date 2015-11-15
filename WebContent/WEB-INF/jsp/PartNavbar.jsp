@@ -8,8 +8,8 @@
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<!-- Brand and toggle get grouped for better mobile display --> <!-- LOGO -->
-
+	
+	 <!-- LOGO -->
 	<div class="navbar-header">
 		<a class="navbar-brand" href="#"> <img alt="Brand"
 			src="asset/img/logo-normal.png">
