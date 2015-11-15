@@ -33,6 +33,9 @@
 <link rel="stylesheet" type="text/css"
 	href="asset/css/FinalProjectStyle.css">
 <!-- <link rel="stylesheet" type="text/css" href="asset/css/sidebar.css"> -->
+
+<!-- <link rel="stylesheet" type="text/css" href="asset/css/font-awesome.css"> -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <!-- END CSS -->
 </head>
 <body>

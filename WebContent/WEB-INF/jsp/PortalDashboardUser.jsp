@@ -46,30 +46,27 @@
 
 							<!-- BREADCRUMB -->
 							<ul class="breadcrumb">
-								<li><span class="glyphicon glyphicon-dashboard"></span>
-									Dashboard</a></li>
+								<li><i class="icon-dashboard"></i> Dashboard</li>
 							</ul>
 							<!-- END BREADCRUMB -->
 							<br /> <br /> <br />
 
 							<!-- ICON MENU -->
 							<div class="tengah">
-								<button class="btn btn-default" type="button"
-									onclick="location.href='/HRIS_Employee/index.do'"
-									style="height: 200px; width: 200px;">
+								<button class="btn btn-default iconDashboard" type="button"
+									onclick="location.href='/HRIS_Employee/index.do'">
 									<span class="glyphicon glyphicon-user"
 										style="font-size: 100px;"></span><br>
 									<h3>Employees</h3>
 								</button>
-								<button class="btn btn-default" type="button"
-									style="height: 200px; width: 200px;">
+								<button class="btn btn-default iconDashboard" type="button"
+									onclick="location.href='/HRIS_Attendance/attendance.do'">
 									<span class="glyphicon glyphicon-check"
 										style="font-size: 100px;"></span><br>
 									<h3>Attendance</h3>
 								</button>
-								<button class="btn btn-default" type="button"
-									onclick="location.href='/HRIS_Leave/leaveAction.do'"
-									style="height: 200px; width: 200px;">
+								<button class="btn btn-default iconDashboard" type="button"
+									onclick="location.href='/HRIS_Leave/leaveAction.do'">
 									<span class="glyphicon glyphicon-send"
 										style="font-size: 100px;"></span><br>
 									<h3>Leave</h3>
