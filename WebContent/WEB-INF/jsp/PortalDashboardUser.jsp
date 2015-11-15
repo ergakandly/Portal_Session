@@ -46,7 +46,7 @@
 
 							<!-- BREADCRUMB -->
 							<ul class="breadcrumb">
-								<li><span class="glyphicon glyphicon-dashboard"></span>
+								<li><i class="icon-dashboard"></i>
 									Dashboard</a></li>
 							</ul>
 							<!-- END BREADCRUMB -->
