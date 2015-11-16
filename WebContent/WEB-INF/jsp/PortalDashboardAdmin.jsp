@@ -86,5 +86,7 @@ table th {
 		<!-- END CONTAINER -->
 
 	</html:form>
+	<!-- JAVASCRIPT -->
+	<%@include file="PartJavascript.jsp"%>
 </body>
 </html>

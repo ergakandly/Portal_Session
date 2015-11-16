@@ -37,7 +37,7 @@
 		<html:hidden name="PortalForm" property="id" />
 
 		<%@include file="PartNavbar.jsp"%>
-		
+
 		<!-- CONTAINER -->
 		<div class="container-fluid">
 
@@ -64,10 +64,10 @@
 			<div class="col-md-6 col-md-offset-3 div-center">
 				<center>
 					<button type="button" class="btn btn-primary">
-<!-- 						<a href="javascript:flyToPage('addEditAssignRole');" -->
-<!-- 							style="color: white;"> <span class="glyphicon glyphicon-plus"></span> -->
-<!-- 							Add New Assign Role -->
-<!-- 						</a> -->
+						<!-- 						<a href="javascript:flyToPage('addEditAssignRole');" -->
+						<!-- 							style="color: white;"> <span class="glyphicon glyphicon-plus"></span> -->
+						<!-- 							Add New Assign Role -->
+						<!-- 						</a> -->
 
 						<a href="javascript:flyToPage('addEditAssignRole');"
 							style="color: white;"> <span class="glyphicon glyphicon-plus"></span>
@@ -82,13 +82,14 @@
 							<th>Employee Name</th>
 							<th>Role</th>
 						</tr>
-						
+
 						<logic:notEmpty name="PortalForm" property="listPortal">
-							<logic:iterate id="portalList" name="PortalForm" property="listPortal">
+							<logic:iterate id="portalList" name="PortalForm"
+								property="listPortal">
 								<tr>
-									<td><bean:write name="portalList" property="employeeName"/></td>
+									<td><bean:write name="portalList" property="employeeName" /></td>
 									<td><bean:write name="portalList" property="roleName" /></td>
-								</tr>								
+								</tr>
 							</logic:iterate>
 						</logic:notEmpty>
 
@@ -100,5 +101,7 @@
 
 		</div>
 	</html:form>
+	<!-- JAVASCRIPT -->
+	<%@include file="PartJavascript.jsp"%>
 </body>
 </html>

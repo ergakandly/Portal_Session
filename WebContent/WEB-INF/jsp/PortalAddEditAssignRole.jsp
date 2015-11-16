@@ -39,7 +39,7 @@
 		<html:hidden name="PortalForm" property="id" />
 
 		<%@include file="PartNavbar.jsp"%>
-		
+
 		<!-- CONTAINER -->
 		<div class="container-fluid well">
 			<div class="row">
@@ -137,5 +137,7 @@
 			</div>
 		</div>
 	</html:form>
+	<!-- JAVASCRIPT -->
+	<%@include file="PartJavascript.jsp"%>
 </body>
 </html>

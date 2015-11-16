@@ -87,5 +87,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- JAVASCRIPT -->
+	<%@include file="PartJavascript.jsp"%>
 </body>
 </html>

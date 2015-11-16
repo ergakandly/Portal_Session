@@ -70,12 +70,13 @@
 								<th>Action Button</th>
 							</tr>
 							<logic:notEmpty name="PortalForm" property="listPortalMasterRole">
-								<logic:iterate id="portalMasterRoleList" name="PortalForm" property="listPortalMasterRole">
+								<logic:iterate id="portalMasterRoleList" name="PortalForm"
+									property="listPortalMasterRole">
 									<tr>
-<%-- 										<td><bean:write name="portalMasterRoleList" property="roleName" /></td> --%>
-										
-									
-									
+										<%-- 										<td><bean:write name="portalMasterRoleList" property="roleName" /></td> --%>
+
+
+
 										<td>Admin</td>
 										<td>
 											<div class="checkbox">
@@ -173,5 +174,7 @@
 			</div>
 		</div>
 	</html:form>
+	<!-- JAVASCRIPT -->
+	<%@include file="PartJavascript.jsp"%>
 </body>
 </html>

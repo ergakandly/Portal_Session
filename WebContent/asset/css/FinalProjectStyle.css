@@ -34,6 +34,10 @@
 .backgroundGreen {
 	background-color: green;
 }
+
+.backgroundBlack {
+	background-color: black;
+}
 /*====== END COLOR ===========*/
 
 /*====== TABLE ===========*/
@@ -105,7 +109,9 @@ td.width30 {
 	height: 200px;
 	width: 200px;
 }
-/*====== KHUSUS HRUS_PORTAL ===========*/
+/*====== END KHUSUS HRIS_PORTAL ===========*/
+
+/*====== OTHERS ===========*/
 #timeline {
 	margin: 0px 0px -7px 0px;
 }
@@ -129,5 +135,10 @@ hr {
 }
 
 div.modal div.modal-backdrop {
-    z-index: 0;
+	z-index: 0;
 }
+
+.datepicker {
+	z-index: 1151 !important;
+}
+/*====== END OTHERS ===========*/

@@ -5,42 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<!-- LOCAL BOOTSTRAP -->
-<!-- <link href="asset/css/bootstrap.min.css" rel="stylesheet"> -->
-
-<!-- <script src="asset/js/bootstrap.min.js"></script> -->
-<!-- <script src="asset/js/jquery-2.1.1.min.js"></script> -->
-<!-- <script src="asset/js/jquery.js"></script> -->
-<!-- END LOCAL BOOTSTRAP -->
-
 <!-- INTERNET BOOTSTRAP -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- END INTERNET BOOTSTRAP -->
 
-<!-- COBA -->
-<!-- <link href="bootstrap.min.css" rel="stylesheet"> -->
-<!-- <link href="font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-<!-- <script src="jquery.js"></script> -->
-<!-- <script src="bootstrap.min.js"></script> -->
-<!-- END COBA -->
+<!-- LOCAL CSS -->
 
-<!-- CSS -->
+<!-- CSS buatan sendiri -->
 <link rel="stylesheet" type="text/css"
 	href="asset/css/FinalProjectStyle.css">
-<!-- <link rel="stylesheet" type="text/css" href="asset/css/sidebar.css"> -->
 
-<!-- <link rel="stylesheet" type="text/css" href="asset/css/font-awesome.css"> -->
-<link
-	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
-	rel="stylesheet">
-<!-- END CSS -->
+<!-- Bootstrap-Iconpicker -->
+<link rel="stylesheet" href="asset/css/bootstrap-iconpicker.css" />
+
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
 </head>
 <body>
 

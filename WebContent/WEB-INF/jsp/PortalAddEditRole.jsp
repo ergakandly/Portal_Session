@@ -86,5 +86,7 @@
 	</div>
 	<!-- ROW MD6 OFFSET3 -->
 </div>
+<!-- JAVASCRIPT -->
+<%@include file="PartJavascript.jsp"%>
 </body>
 </html>

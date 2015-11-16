@@ -42,10 +42,12 @@
 					<input type="password" name="pass" placeholder="**********"
 						value="<bean:write name="PortalForm" property="pass"/>">
 				</div>
-				
+
 				<html:submit value="Login" onclick="javascript:doSubmit();" />
 			</form>
 		</div>
 	</html:form>
+	<!-- JAVASCRIPT -->
+	<%@include file="PartJavascript.jsp"%>
 </body>
 </html>

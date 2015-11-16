@@ -47,13 +47,11 @@
 							<ul class="breadcrumb">
 								<li><i class="fa fa-dashboard"></i><a
 									href="javascript:flyToPage('dashboardAdmin');"> Dashboard</a></li>
-								<li><span class="glyphicon glyphicon-screenshot"></span>
-									Assign Role</li>
+								<li><i class="fa fa-crosshairs"></i> Assign Role</li>
 							</ul>
 							<!-- END BREADCRUMB -->
 						</div>
 					</div>
-
 					<!-- END ROW 12 -->
 					<br />
 					<!-- ROW MD6 OFFSET3 -->
@@ -183,5 +181,7 @@
 		</div>
 		<!-- END WRAPPER -->
 	</html:form>
+	<!-- JAVASCRIPT -->
+	<%@include file="PartJavascript.jsp"%>
 </body>
 </html>
