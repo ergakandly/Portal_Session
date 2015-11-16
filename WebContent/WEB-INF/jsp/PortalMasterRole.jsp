@@ -69,96 +69,104 @@
 								<th>Access Privileges</th>
 								<th>Action Button</th>
 							</tr>
-							<tr>
-								<td>Admin</td>
-								<td>
-									<div class="checkbox">
-										<label> <input type="checkbox"> Employee <br />
-											<input type="checkbox"> Attendance <br /> <input
-											type="checkbox"> Leave <br />
-										</label>
-									</div>
-								</td>
-								<td>
-									<div class="checkbox">
-										<label> <input type="checkbox"> Insert <br />
-											<input type="checkbox"> Update <br /> <input
-											type="checkbox"> Delete <br /> <input
-											type="checkbox"> List <br />
-										</label>
-									</div>
-								</td>
-								<td>
-									<button type="button" class="btn btn-info">
-										<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-										Edit
-									</button>
-									<button type="button" class="btn btn-danger">
-										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-										Delete
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>HR</td>
-								<td>
-									<div class="checkbox">
-										<label> <input type="checkbox"> Employee <br />
-											<input type="checkbox"> Attendance <br /> <input
-											type="checkbox"> Leave <br />
-										</label>
-									</div>
-								</td>
-								<td>
-									<div class="checkbox">
-										<label> <input type="checkbox"> Insert <br />
-											<input type="checkbox"> Update <br /> <input
-											type="checkbox"> Delete <br /> <input
-											type="checkbox"> List <br />
-										</label>
-									</div>
-								</td>
-								<td>
-									<button type="button" class="btn btn-info">
-										<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-										Edit
-									</button>
-									<button type="button" class="btn btn-danger">
-										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-										Delete
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>User</td>
-								<td>
-									<div class="checkbox">
-										<label> <input type="checkbox"> Employee <br />
-											<input type="checkbox"> Attendance <br /> <input
-											type="checkbox"> Leave <br />
-										</label>
-									</div>
-								</td>
-								<td>
-									<div class="checkbox">
-										<label> <input type="checkbox"> Insert <br />
-											<input type="checkbox"> Update <br /> <input
-											type="checkbox"> Delete <br /> <input
-											type="checkbox"> List <br />
-										</label>
-									</div>
-								</td>
-								<td>
-									<button type="button" class="btn btn-info">
-										<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-										Edit
-									</button>
-									<button type="button" class="btn btn-danger">
-										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-										Delete
-									</button>
-								</td>
-							</tr>
+							<logic:notEmpty name="PortalForm" property="listPortalMasterRole">
+								<logic:iterate id="portalMasterRoleList" name="PortalForm" property="listPortalMasterRole">
+									<tr>
+<%-- 										<td><bean:write name="portalMasterRoleList" property="roleName" /></td> --%>
+										
+									
+									
+										<td>Admin</td>
+										<td>
+											<div class="checkbox">
+												<label> <input type="checkbox"> Employee <br />
+													<input type="checkbox"> Attendance <br /> <input
+													type="checkbox"> Leave <br />
+												</label>
+											</div>
+										</td>
+										<td>
+											<div class="checkbox">
+												<label> <input type="checkbox"> Insert <br />
+													<input type="checkbox"> Update <br /> <input
+													type="checkbox"> Delete <br /> <input
+													type="checkbox"> List <br />
+												</label>
+											</div>
+										</td>
+										<td>
+											<button type="button" class="btn btn-info">
+												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+												Edit
+											</button>
+											<button type="button" class="btn btn-danger">
+												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+												Delete
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>HR</td>
+										<td>
+											<div class="checkbox">
+												<label> <input type="checkbox"> Employee <br />
+													<input type="checkbox"> Attendance <br /> <input
+													type="checkbox"> Leave <br />
+												</label>
+											</div>
+										</td>
+										<td>
+											<div class="checkbox">
+												<label> <input type="checkbox"> Insert <br />
+													<input type="checkbox"> Update <br /> <input
+													type="checkbox"> Delete <br /> <input
+													type="checkbox"> List <br />
+												</label>
+											</div>
+										</td>
+										<td>
+											<button type="button" class="btn btn-info">
+												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+												Edit
+											</button>
+											<button type="button" class="btn btn-danger">
+												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+												Delete
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>User</td>
+										<td>
+											<div class="checkbox">
+												<label> <input type="checkbox"> Employee <br />
+													<input type="checkbox"> Attendance <br /> <input
+													type="checkbox"> Leave <br />
+												</label>
+											</div>
+										</td>
+										<td>
+											<div class="checkbox">
+												<label> <input type="checkbox"> Insert <br />
+													<input type="checkbox"> Update <br /> <input
+													type="checkbox"> Delete <br /> <input
+													type="checkbox"> List <br />
+												</label>
+											</div>
+										</td>
+										<td>
+											<button type="button" class="btn btn-info">
+												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+												Edit
+											</button>
+											<button type="button" class="btn btn-danger">
+												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+												Delete
+											</button>
+										</td>
+									</tr>
+								</logic:iterate>
+							</logic:notEmpty>
 						</table>
 					</center>
 				</div>

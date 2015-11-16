@@ -8,6 +8,7 @@ import java.util.Map;
 import com.hris.portal.ibatis.IbatisHelper;
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalDepartmentBean;
+import com.hris.portal.model.PortalMasterRoleBean;
 import com.hris.portal.model.PortalUserBean;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -17,6 +18,8 @@ public class PortalManager {
 	public PortalManager(){
 		ibatis = new IbatisHelper().getSqlMapInstance();		
 	}
+	
+	//ASSIGN ROLE
 	
 	public List<PortalBean> getEmployee(String searchName, String departmentId){
 		List<PortalBean> list =  null;
@@ -205,6 +208,29 @@ public class PortalManager {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	
+	//MASTER ROLE
+	public List<PortalMasterRoleBean> getMasterRoleName(){
+		List<PortalMasterRoleBean> list =  null;
+		
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("employees.getMasterRoleName", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return list;
 	}
 	
 }

@@ -40,6 +40,7 @@ public class PortalAction extends Action {
 			}
 		}else if ("masterRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setListPortalMasterRole(manager.getMasterRoleName());
 			return mapping.findForward("masterRole");
 		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());

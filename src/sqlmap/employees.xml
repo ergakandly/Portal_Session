@@ -4,23 +4,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 
 <sqlMap namespace="employees">
 
-<!-- 	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean"> -->
-<!-- 		SELECT -->
-<!-- 		employee_id AS employeeId, -->
-<!-- 		first_name AS employeeFName, -->
-<!-- 		last_name AS employeeLName -->
-<!-- 		FROM -->
-<!-- 		emp_coba -->
-<!-- 	</select> -->
-
-<!-- 	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean"> -->
-<!-- 		SELECT -->
-<!-- 		employee_id AS employeeId, -->
-<!-- 		employee_name AS employeeName -->
-<!-- 		FROM -->
-<!-- 		ms_employee -->
-<!-- 	</select> -->
-	
+<!-- ASSIGN ROLE	 -->
 	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.util.Map">
 		SELECT
 			e.employee_id AS employeeId,
@@ -129,5 +113,33 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		VALUES
 			((SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1, #employeeName#, #msDepartmentName#, #empId#, #roleId#, null, SYSDATE, null, null)
 	</insert>
+
+
+
+<!-- MASTER ROLE -->
+	<select id = "getMasterRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+			role_id AS roleId,
+			role_name AS roleName
+		FROM
+		    ms_role
+		order by
+		    role_id
+	</select>
+
+	<select id = "getMenuRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    m.menu AS menuName,
+		    p.privilege AS privilegeName
+		FROM
+		    left outer join ms_menu m
+		    on trm.menu_id = m.menu_id
+		    left outer join tr_role_privilege trp
+		    on trp.role_id = r.role_id
+		    left outer join ms_privilege p
+		    on trp.privilege_id = p.privilege_id
+		order by
+		    r.role_id
+	</select>
 
 </sqlMap>

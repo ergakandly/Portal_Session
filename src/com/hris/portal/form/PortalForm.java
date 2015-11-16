@@ -7,6 +7,7 @@ import org.apache.struts.action.ActionForm;
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalDepartmentBean;
 import com.hris.portal.model.PortalUserBean;
+import com.hris.portal.model.PortalMasterRoleBean;
 
 public class PortalForm extends ActionForm{
 	private List<PortalBean> listPortal;
@@ -15,6 +16,8 @@ public class PortalForm extends ActionForm{
 	private PortalDepartmentBean portalDepartmentBean = new PortalDepartmentBean();
 	private List<PortalUserBean> listUserDepartment;
 	private PortalUserBean portalUserBean = new PortalUserBean();
+	private List<PortalMasterRoleBean> listPortalMasterRole;
+	private PortalMasterRoleBean PortalMasterRoleBean = new PortalMasterRoleBean();
 	private String task;
 	private String id;
 	private String user;
@@ -22,6 +25,19 @@ public class PortalForm extends ActionForm{
 	private String searchName;
 	
 	
+	public List<PortalMasterRoleBean> getListPortalMasterRole() {
+		return listPortalMasterRole;
+	}
+	public void setListPortalMasterRole(
+			List<PortalMasterRoleBean> listPortalMasterRole) {
+		this.listPortalMasterRole = listPortalMasterRole;
+	}
+	public PortalMasterRoleBean getPortalMasterRoleBean() {
+		return PortalMasterRoleBean;
+	}
+	public void setPortalMasterRoleBean(PortalMasterRoleBean portalMasterRoleBean) {
+		PortalMasterRoleBean = portalMasterRoleBean;
+	}
 	public List<PortalUserBean> getListUserDepartment() {
 		return listUserDepartment;
 	}
