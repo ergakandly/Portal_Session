@@ -25,7 +25,7 @@
 			<ul class="dropdown-menu">
 				<li><a href="#" data-toggle="modal" data-target="#myModal">
 						<large> <i class=" fa fa-user"></i> <large>
-						Profile 
+						Change Password 
 				</a></li>
 				<li class="divider"></li>
 				<li><a href="javascript:flyToPage('success');"><i
