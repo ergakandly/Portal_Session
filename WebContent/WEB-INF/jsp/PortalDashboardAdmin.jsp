@@ -69,7 +69,7 @@ table th {
 							onclick="javascript:flyToPage('assignRoleEmployee');">
 							<span class="glyphicon glyphicon-screenshot"
 								style="font-size: 100px;"></span><br>
-							<h3>Assign Role</h3>
+							<h3>User Activation</h3>
 						</button>
 						<button class="btn btn-default iconDashboard" type="button"
 							onclick="javascript:flyToPage('masterModul');">
