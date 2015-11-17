@@ -119,9 +119,10 @@ public class PortalAction extends Action {
 		}else if ("addEditAssignRole".equalsIgnoreCase(hForm.getTask())){
 			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");
-		}else if("insert".equalsIgnoreCase(hForm.getTask())){
-//			manager.insert(hForm.getRegionBean().getFirstName(), hForm.getRegionBean().getLastName(), hForm.getRegionBean().getPhoneNumber(), hForm.getRegionBean().getEmail(), hForm.getRegionBean().getSalary());
 		}
+//		else if("insert".equalsIgnoreCase(hForm.getTask())){
+//			manager.insert(hForm.getRegionBean().getFirstName(), hForm.getRegionBean().getLastName(), hForm.getRegionBean().getPhoneNumber(), hForm.getRegionBean().getEmail(), hForm.getRegionBean().getSalary());
+//		}
 		
 		return mapping.findForward("success");
 	}

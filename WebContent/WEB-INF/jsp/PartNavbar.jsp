@@ -34,6 +34,10 @@
 	</ul>
 	</div>
 
+	</nav>
+	<!-- END NAVBAR -->
+	<br />
+	<br />
 	<!-- MODAL -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
@@ -81,10 +85,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- MODAL --> </nav>
-	<!-- END NAVBAR -->
-	<br />
-	<br />
-
+	<!-- MODAL -->
 </body>
 </html>
