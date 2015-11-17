@@ -112,7 +112,7 @@
 						<table align="center"
 							class="table table-nonfluid table-striped table-bordered table-hover">
 							<tr>
-								<th>Employee ID</th>
+<!-- 								<th>Employee ID</th> -->
 								<th>Employee Name</th>
 								<th>Department Name</th>
 								<th>Location Name</th>
@@ -122,7 +122,7 @@
 								<logic:iterate id="portalList" name="PortalForm"
 									property="listPortal">
 									<tr align="center">
-										<td><bean:write name="portalList" property="employeeId" /></td>
+<%-- 										<td><bean:write name="portalList" property="employeeId" /></td> --%>
 										<td><bean:write name="portalList" property="employeeName" /></td>
 										<td><bean:write name="portalList"
 												property="departmentName" /></td>
