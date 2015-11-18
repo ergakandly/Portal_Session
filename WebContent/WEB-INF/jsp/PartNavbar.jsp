@@ -25,7 +25,7 @@
 			<ul class="dropdown-menu">
 				<li><a href="#" data-toggle="modal" data-target="#modalLogin" data-backdrop="static">
 						<large> <i class=" fa fa-user"></i> <large>
-						Profile 
+						Change Password 
 				</a></li>
 				<li class="divider"></li>
 				<li><a href="javascript:flyToPage('success');"><i
@@ -34,6 +34,10 @@
 	</ul>
 	</div>
 
+	</nav>
+	<!-- END NAVBAR -->
+	<br />
+	<br />
 	<!-- MODAL -->
 	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
@@ -81,10 +85,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- MODAL --> </nav>
-	<!-- END NAVBAR -->
-	<br />
-	<br />
-
+	<!-- MODAL -->
 </body>
 </html>

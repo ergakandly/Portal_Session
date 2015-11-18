@@ -42,8 +42,8 @@
 					<input type="password" name="pass" placeholder="**********"
 						value="<bean:write name="PortalForm" property="pass"/>">
 				</div>
-
 				<html:submit value="Login" onclick="javascript:doSubmit();" />
+<!-- 				<a href=""> Forgot Password ?</a> -->
 			</form>
 		</div>
 	</html:form>

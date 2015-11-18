@@ -8,7 +8,7 @@
 <!-- CSS -->
 <%@include file="PartBootstrap.jsp"%>
 
-<title>Master Moduls</title>
+<title>Master Module</title>
 </head>
 <body>
 	<html:form method="post" action="/portal">
@@ -26,7 +26,7 @@
 						<div class="col-md-12">
 							<!-- PAGE HEADER -->
 							<div class="page-header">
-								<h3 id="timeline">Modul</h3>
+								<h3 id="timeline">Module</h3>
 							</div>
 							<!-- END PAGE HEADER -->
 
@@ -34,7 +34,7 @@
 							<ul class="breadcrumb">
 								<li><i class="fa fa-dashboard"></i><a
 									href="javascript:flyToPage('dashboardAdmin');"> Dashboard</a></li>
-								<li><i class="fa fa-th-large"></i> Modul</li>
+								<li><i class="fa fa-th-large"></i> Module</li>
 							</ul>
 							<!-- END BREADCRUMB -->
 						</div>
@@ -47,7 +47,7 @@
 						<div class="tengah">
 							<button type="button" class="btn btn-primary" data-toggle="modal"
 								data-target="#modalAddModul">
-								<span class="glyphicon glyphicon-plus"></span> Add New Modul
+								<span class="glyphicon glyphicon-plus"></span> Add New Module
 							</button>
 
 							<div class="modal fade" id="modalAddModul" tabindex="-1"
@@ -59,16 +59,16 @@
 												aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
-											<h4 class="modal-title" id="myModalLabel">Add New Modul</h4>
+											<h4 class="modal-title" id="myModalLabel">Add New Module</h4>
 										</div>
 										<div class="modal-body">
 											<table>
 												<tr>
-													<td>Modul Name :</td>
+													<td>Module Name :</td>
 													<td><input type=text></td>
 												</tr>
 												<tr>
-													<td>Modul Link :</td>
+													<td>Module Link :</td>
 													<td><input type=text></td>
 												</tr>
 												<tr>
@@ -96,7 +96,7 @@
 							class="table table-nonfluid table-striped table-bordered table-hover tengah"
 							width="70%">
 							<tr>
-								<th style="background-color: black;">Modul Name</th>
+								<th style="background-color: black;">Module Name</th>
 								<th style="background-color: black;">Button Action</th>
 							</tr>
 
