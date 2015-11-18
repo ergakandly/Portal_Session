@@ -52,12 +52,10 @@
 				<!-- KOLOM MD 8-->
 				<div class="col-md-6 col-md-offset-3 div-center">
 					<center>
-						<button type="button" class="btn btn-primary">
-							<a href="javascript:flyToPage('addEditRole');"
-								style="color: white;"> <span
-								class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-								New Role
-							</a>
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+							data-target="#modalAddRole" data-backdrop="static">
+							<span class="glyphicon glyphicon-plus"></span> Add New Role
+
 						</button>
 						<br /> <br />
 						<table align="center"
@@ -174,6 +172,74 @@
 			</div>
 		</div>
 	</html:form>
+
+	<!-- MODAL -->
+	<div class="modal fade" id="modalAddRole" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Add New Role</h4>
+				</div>
+				<div class="modal-body ">
+					<table>
+						<tr>
+							<td class="kanan">Role Name :</td>
+							<td><input type="text" class="form-control"></td>
+						</tr>
+
+					</table>
+
+
+					<table
+						class="table table-nonfluid table-striped table-bordered table-hover">
+						<tr>
+							<td rowspan="2">Access Menu</td>
+							<td colspan="4">Access Privilages</td>
+						</tr>
+						<tr>
+							<td>Insert</td>
+							<td>Update</td>
+							<td>Delete</td>
+							<td>List</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"> Employee</td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"> Attendance</td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"> Leave</td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+							<td><input type="checkbox"></td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"
+						onclick="javascript:doSubmit();">Submit</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MODAL -->
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
 </body>

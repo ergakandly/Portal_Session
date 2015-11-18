@@ -23,7 +23,7 @@
 			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, User <b
 				class="caret"> </b></a>
 			<ul class="dropdown-menu">
-				<li><a href="#" data-toggle="modal" data-target="#myModal">
+				<li><a href="#" data-toggle="modal" data-target="#modalLogin" data-backdrop="static">
 						<large> <i class=" fa fa-user"></i> <large>
 						Profile 
 				</a></li>
@@ -35,7 +35,7 @@
 	</div>
 
 	<!-- MODAL -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
