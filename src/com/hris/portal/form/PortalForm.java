@@ -16,8 +16,12 @@ public class PortalForm extends ActionForm{
 	private PortalDepartmentBean portalDepartmentBean = new PortalDepartmentBean();
 	private List<PortalUserBean> listUserDepartment;
 	private PortalUserBean portalUserBean = new PortalUserBean();
+	
 	private List<PortalMasterRoleBean> listPortalMasterRole;
 	private PortalMasterRoleBean PortalMasterRoleBean = new PortalMasterRoleBean();
+	
+	private List<PortalMasterRoleBean> listPortalMasterRoleName;
+	private PortalMasterRoleBean PortalMasterRoleNameBean = new PortalMasterRoleBean();
 	private String task;
 	private String id;
 	private String user;
@@ -64,6 +68,20 @@ public class PortalForm extends ActionForm{
 		this.portalDepartmentBean = portalDepartmentBean;
 	}
 	
+	public List<PortalMasterRoleBean> getListPortalMasterRoleName() {
+		return listPortalMasterRoleName;
+	}
+	public void setListPortalMasterRoleName(
+			List<PortalMasterRoleBean> listPortalMasterRoleName) {
+		this.listPortalMasterRoleName = listPortalMasterRoleName;
+	}
+	public PortalMasterRoleBean getPortalMasterRoleNameBean() {
+		return PortalMasterRoleNameBean;
+	}
+	public void setPortalMasterRoleNameBean(
+			PortalMasterRoleBean portalMasterRoleNameBean) {
+		PortalMasterRoleNameBean = portalMasterRoleNameBean;
+	}
 	public String getSearchName() {
 		return searchName;
 	}

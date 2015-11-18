@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionMapping;
 import com.hris.portal.form.PortalForm;
 import com.hris.portal.manager.PortalManager;
 import com.hris.portal.model.PortalBean;
+import com.hris.portal.model.PortalMasterRoleBean;
 
 public class PortalAction extends Action {
 	
@@ -40,7 +41,30 @@ public class PortalAction extends Action {
 			}
 		}else if ("masterRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			List<PortalMasterRoleBean> list = null;
 			hForm.setListPortalMasterRole(manager.getMasterRoleName());
+		
+			for(int i=0; i<hForm.getListPortalMasterRole().size(); i++){	
+				
+				System.out.println(hForm.getListPortalMasterRole().get(i).getRoleId());
+
+				list = (manager.getMenuRoleName(hForm.getListPortalMasterRole().get(i).getRoleId()));
+				hForm.getListPortalMasterRole().get(i).setListMasterRoleBean(list);
+				
+//				for (int j=0;j<list.size();j++){
+//					System.out.println(list.get(j).getMenuName());
+//				}
+			}
+//			for (int i=0;i<hForm.getListPortalMasterRole().size();i++){
+//				System.out.println("virgiawanganteng: "+hForm.getListPortalMasterRole().get(i).getRoleId());
+//				System.out.println("virgiawanganteng: "+hForm.getListPortalMasterRole().get(i).getRoleName());
+//				System.out.println("Menu aksesnya:");
+//				for(int j=0;j<hForm.getListPortalMasterRole().get(i).getListMasterRoleBean().size();j++)
+//				{
+//					System.out.println(hForm.getListPortalMasterRole().get(i).getListMasterRoleBean().get(j).getMenuName());	
+//				}
+//			}
+			hForm.setListPortalMasterRole(hForm.getListPortalMasterRole());
 			return mapping.findForward("masterRole");
 		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());

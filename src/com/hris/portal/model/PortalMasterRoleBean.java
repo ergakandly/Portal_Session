@@ -1,6 +1,7 @@
 package com.hris.portal.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class PortalMasterRoleBean implements Serializable {
 	private String roleId;
@@ -12,6 +13,16 @@ public class PortalMasterRoleBean implements Serializable {
 	private String roleMenuId;
 	private String rolePrivilegeId;
 	
+	//Untuk NestedIterate
+	
+	private List<PortalMasterRoleBean> listMasterRoleBean;
+	
+	public List<PortalMasterRoleBean> getListMasterRoleBean() {
+		return listMasterRoleBean;
+	}
+	public void setListMasterRoleBean(List<PortalMasterRoleBean> listMasterRoleBean) {
+		this.listMasterRoleBean = listMasterRoleBean;
+	}
 	public String getMenuId() {
 		return menuId;
 	}
