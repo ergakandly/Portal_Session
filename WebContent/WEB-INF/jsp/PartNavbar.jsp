@@ -18,19 +18,80 @@
 	<!-- END LOGO -->
 
 	<ul class="nav navbar-nav navbar-right">
+		<!-- DROPDOWN OTIFICATION -->
+		<li class="dropdown"><a href="#" class="dropdown-toggle"
+			data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span>
+				<span class="badge">3</span> <b class="caret"></b></a>
+			<ul class="dropdown-menu message-dropdown">
+				<li class="message-preview"><a href="#">
+						<div class="media">
+							<span class="pull-left"> <img class="media-object"
+								src="http://placehold.it/50x50" alt="">
+							</span>
+							<div class="media-body">
+								<h5 class="media-heading">
+									<strong>John Smith</strong>
+								</h5>
+								<p class="small text-muted">
+									<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
+								</p>
+								<p>Lorem ipsum dolor sit amet, consectetur...</p>
+							</div>
+						</div>
+				</a></li>
+				<li class="divider"></li>
+				<li class="message-preview"><a href="#">
+						<div class="media">
+							<span class="pull-left"> <img class="media-object"
+								src="http://placehold.it/50x50" alt="">
+							</span>
+							<div class="media-body">
+								<h5 class="media-heading">
+									<strong>John Smith</strong>
+								</h5>
+								<p class="small text-muted">
+									<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
+								</p>
+								<p>Lorem ipsum dolor sit amet, consectetur...</p>
+							</div>
+						</div>
+				</a></li>
+				<li class="divider"></li>
+				<li class="message-preview"><a href="#">
+						<div class="media">
+							<span class="pull-left"> <img class="media-object"
+								src="http://placehold.it/50x50" alt="">
+							</span>
+							<div class="media-body">
+								<h5 class="media-heading">
+									<strong>John Smith</strong>
+								</h5>
+								<p class="small text-muted">
+									<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
+								</p>
+								<p>Lorem ipsum dolor sit amet, consectetur...</p>
+							</div>
+						</div>
+				</a></li>
+				<li class="divider"></li>
+				<li class="message-footer"><a href="#">Read All New
+						Messages</a></li>
+			</ul></li>
+		<!-- END NOTIFICATION -->
+
 		<!-- DROPDOWN USER -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
 			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, User <b
 				class="caret"> </b></a>
 			<ul class="dropdown-menu">
-				<li><a href="#" data-toggle="modal" data-target="#modalLogin" data-backdrop="static">
-						<large> <i class=" fa fa-user"></i> <large>
-						Change Password 
-				</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#modalLogin"
+					data-backdrop="static"> <large> <i class=" fa fa-user"></i>
+						<large> Change Password </a></li>
 				<li class="divider"></li>
 				<li><a href="javascript:flyToPage('success');"><i
 						class=" fa fa-sign-out"></i> Log Out</a></li>
 			</ul></li>
+		<!-- END DROPDOWN USER -->
 	</ul>
 	</div>
 

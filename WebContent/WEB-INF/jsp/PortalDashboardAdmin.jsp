@@ -55,7 +55,7 @@ table th {
 
 					<!-- BREADCRUMB -->
 					<ul class="breadcrumb">
-						<li><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a></li>
+						<li><i class="fa fa-dashboard"></i> Dashboard</a></li>
 					</ul>
 					<!-- END BREADCRUMB -->
 					<br /> <br /> <br />
