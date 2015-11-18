@@ -121,13 +121,22 @@ td.width30 {
 }
 
 .btn {
-	border-bottom-right-radius: 20px;
-	border-top-left-radius: 20px;
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 .form-control {
 	border-bottom-right-radius: 20px;
 	border-top-left-radius: 20px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.nopadding {
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
 }
 
 hr {

@@ -49,59 +49,21 @@
 								data-target="#modalAddModul">
 								<span class="glyphicon glyphicon-plus"></span> Add New Module
 							</button>
-
-							<div class="modal fade" id="modalAddModul" tabindex="-1"
-								role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-											<h4 class="modal-title" id="myModalLabel">Add New Module</h4>
-										</div>
-										<div class="modal-body">
-											<table>
-												<tr>
-													<td>Module Name :</td>
-													<td><input type=text></td>
-												</tr>
-												<tr>
-													<td>Module Link :</td>
-													<td><input type=text></td>
-												</tr>
-												<tr>
-													<td>Icon :</td>
-													<td>
-														<button class="btn btn-default" data-iconset="glyphicon"
-															data-icon="glyphicon-camera" role="iconpicker"></button>
-													</td>
-												</tr>
-
-											</table>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-primary">Submit</button>
-											<button type="button" class="btn btn-default"
-												data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 
-						<br /> <br />
+						<br />
 						<table
-							class="table table-nonfluid table-striped table-bordered table-hover tengah"
+							class="table table-nonfluid table-striped table-bordered table-hover "
 							width="70%">
 							<tr>
-								<th style="background-color: black;">Module Name</th>
-								<th style="background-color: black;">Button Action</th>
+								<th>Module Name</th>
+								<th>Module Link</th>
+								<th>Button Action</th>
 							</tr>
 
 							<tr>
 								<td>Employee</td>
+								<td>Link Employee</td>
 								<td class="width30">
 									<button type="button" class="btn btn-info" onclick="">
 										<span class="glyphicon glyphicon-pencil"></span> Edit
@@ -114,6 +76,7 @@
 
 							<tr>
 								<td>Attendance</td>
+								<td>Link Attendance</td>
 								<td>
 									<button type="button" class="btn btn-info" onclick="">
 										<span class="glyphicon glyphicon-pencil"></span> Edit
@@ -126,6 +89,7 @@
 
 							<tr>
 								<td>Leave</td>
+								<td>Link Leave</td>
 								<td>
 									<button type="button" class="btn btn-info" onclick="">
 										<span class="glyphicon glyphicon-pencil"></span> Edit
@@ -142,6 +106,50 @@
 			</div>
 		</div>
 	</html:form>
+
+	<!-- MODAL -->
+	<div class="modal fade" id="modalAddModul" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Add New Module</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table table-borderless">
+						<tr>
+							<td class="kanan">Module Name :</td>
+							<td><input type=text class="form-control"></td>
+						</tr>
+						<tr>
+							<td class="kanan">Module Link :</td>
+							<td><input type=text class="form-control"></td>
+						</tr>
+						<tr>
+							<td class="kanan">Icon :</td>
+							<td>
+								<button class="btn btn-default" data-iconset="glyphicon"
+									data-icon="glyphicon-camera" role="iconpicker"></button>
+							</td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">
+						<i class="fa fa-check"></i> Submit
+					</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<i class="fa fa-close"></i> Close
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
