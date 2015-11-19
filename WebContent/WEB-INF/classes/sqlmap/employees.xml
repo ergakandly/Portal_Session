@@ -151,7 +151,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    p.privilege AS privilegeName
 		FROM
 		    ms_role r
-		    join tr_role_privilege trp
+		    left outer join tr_role_privilege trp
 		    on trp.role_id = r.role_id 
 		    left outer join ms_privilege p
 		    on trp.privilege_id = p.privilege_id
@@ -159,6 +159,28 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    r.role_id=#roleId#
 		ORDER BY
 		    r.role_id
+	</select>
+	
+<!-- 	MENU VIEW -->
+	<select id = "getMasterMenuName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    menu_id AS menuIdView,
+		    menu AS menuNameView
+		FROM
+		    ms_menu
+		order by
+		    menu_id
+	</select>
+	
+<!-- 	PRIVILAGE VIEW -->
+	<select id = "getMasterPrivilegeName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    privilege_id AS privilegeIdView,
+		    privilege AS privilegeNameView
+		FROM
+		    ms_privilege
+		order by
+		    privilege_id
 	</select>
 
 </sqlMap>

@@ -31,10 +31,25 @@ public class PortalForm extends ActionForm{
 	private String user;
 	private String pass;
 	private String searchName;
+	private String addRoleName;
+	private String selectNewMenu;
+	public String[] selectedNewMenu;
 	
 	
+	public String getSelectNewMenu() {
+		return selectNewMenu;
+	}
+	public void setSelectNewMenu(String selectNewMenu) {
+		this.selectNewMenu = selectNewMenu;
+	}
 	public List<PortalMasterRoleBean> getListPortalMasterRoleMenu() {
 		return listPortalMasterRoleMenu;
+	}
+	public String[] getSelectedNewMenu() {
+		return selectedNewMenu;
+	}
+	public void setSelectedNewMenu(String[] selectedNewMenu) {
+		this.selectedNewMenu = selectedNewMenu;
 	}
 	public void setListPortalMasterRoleMenu(
 			List<PortalMasterRoleBean> listPortalMasterRoleMenu) {
@@ -49,6 +64,12 @@ public class PortalForm extends ActionForm{
 	}
 	public PortalMasterRoleBean getPortalMasterRoleBean() {
 		return PortalMasterRoleBean;
+	}
+	public String getAddRoleName() {
+		return addRoleName;
+	}
+	public void setAddRoleName(String addRoleName) {
+		this.addRoleName = addRoleName;
 	}
 	public void setPortalMasterRoleBean(PortalMasterRoleBean portalMasterRoleBean) {
 		PortalMasterRoleBean = portalMasterRoleBean;

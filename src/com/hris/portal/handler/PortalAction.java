@@ -43,6 +43,12 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			List<PortalMasterRoleBean> list = null;
 			List<PortalMasterRoleBean> listPriv = null;
+			
+//			INSERT NEW ROLE
+//			if(hForm.getAddRoleName().equals(null)){
+//				manager.getinsertRole
+//			}
+			
 			hForm.setListPortalMasterRole(manager.getMasterRoleName());
 		
 			for(int i=0; i<hForm.getListPortalMasterRole().size(); i++){	
@@ -71,6 +77,9 @@ public class PortalAction extends Action {
 			
 			hForm.setListPortalMasterRoleMenu(manager.getMasterMenuName());
 			hForm.setListPortalMasterRolePriv(manager.getMasterPrivilegeName());
+			
+			hForm.setAddRoleName(null);
+			
 			return mapping.findForward("masterRole");
 		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());

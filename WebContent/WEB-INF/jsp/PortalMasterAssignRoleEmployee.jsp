@@ -71,8 +71,7 @@
 									class="table table-borderless table-condensed table-nonfluid">
 									<tr>
 										<td class="fontBold paddingg">Employee Name :</td>
-										<td><html:text styleClass="form-control"
-												name="PortalForm" property="searchName" size="57" /></td>
+										<td><html:text styleClass="form-control" name="PortalForm" property="searchName" size="57" /></td>
 									</tr>
 								</table>
 
@@ -98,15 +97,14 @@
 																<option value="">ALL</option>
 																<logic:iterate id="portalDepartmentList"
 																	name="PortalForm" property="listPortalDepartment">
-																	<option
-																		value="<bean:write name="portalDepartmentList" property="departmentId"/>">
-																		<bean:write name="portalDepartmentList"
-																			property="msDepartmentName" />
+																	<option value="<bean:write name="portalDepartmentList" property="departmentId"/>">
+																		<bean:write name="portalDepartmentList"	property="msDepartmentName" />
 																		<%--<html:hidden name="portalDepartmentList" property="departmentId"/> --%>
 																	</option>
 																</logic:iterate>
 															</html:select>
-														</logic:notEmpty></td>
+														</logic:notEmpty>
+													</td>
 												</tr>
 											</table>
 										</div>
@@ -127,7 +125,7 @@
 					
 						<table class="table table-striped table-bordered table-hover">
 							<tr>
-								<!-- 								<th>Employee ID</th> -->
+								<!-- <th>Employee ID</th> -->
 								<th>Employee Name</th>
 								<th>Department Name</th>
 								<th>Location Name</th>
@@ -137,7 +135,7 @@
 								<logic:iterate id="portalList" name="PortalForm"
 									property="listPortal">
 									<tr align="center">
-										<%-- 										<td><bean:write name="portalList" property="employeeId" /></td> --%>
+										<%-- <td><bean:write name="portalList" property="employeeId" /></td> --%>
 										<td><bean:write name="portalList" property="employeeName" /></td>
 										<td><bean:write name="portalList"
 												property="departmentName" /></td>
