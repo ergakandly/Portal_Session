@@ -193,20 +193,6 @@
 								</tr>
 							</logic:iterate>
 						</logic:notEmpty>
-<!-- 						<tr> -->
-<!-- 							<td><input type="checkbox"> Attendance</td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 							<td><input type="checkbox"> Leave</td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 							<td><input type="checkbox"></td> -->
-<!-- 						</tr> -->
 
 					</table>
 				</div>
