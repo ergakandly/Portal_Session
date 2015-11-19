@@ -20,8 +20,12 @@ public class PortalForm extends ActionForm{
 	private List<PortalMasterRoleBean> listPortalMasterRole;
 	private PortalMasterRoleBean PortalMasterRoleBean = new PortalMasterRoleBean();
 	
-	private List<PortalMasterRoleBean> listPortalMasterRoleName;
-	private PortalMasterRoleBean PortalMasterRoleNameBean = new PortalMasterRoleBean();
+	private List<PortalMasterRoleBean> listPortalMasterRoleMenu;
+	private PortalMasterRoleBean PortalMasterRoleMenu = new PortalMasterRoleBean();
+	
+	private List<PortalMasterRoleBean> listPortalMasterRolePriv;
+	private PortalMasterRoleBean PortalMasterRolePriv = new PortalMasterRoleBean();
+	
 	private String task;
 	private String id;
 	private String user;
@@ -29,6 +33,13 @@ public class PortalForm extends ActionForm{
 	private String searchName;
 	
 	
+	public List<PortalMasterRoleBean> getListPortalMasterRoleMenu() {
+		return listPortalMasterRoleMenu;
+	}
+	public void setListPortalMasterRoleMenu(
+			List<PortalMasterRoleBean> listPortalMasterRoleMenu) {
+		this.listPortalMasterRoleMenu = listPortalMasterRoleMenu;
+	}
 	public List<PortalMasterRoleBean> getListPortalMasterRole() {
 		return listPortalMasterRole;
 	}
@@ -67,20 +78,25 @@ public class PortalForm extends ActionForm{
 	public void setPortalDepartmentBean(PortalDepartmentBean portalDepartmentBean) {
 		this.portalDepartmentBean = portalDepartmentBean;
 	}
-	
-	public List<PortalMasterRoleBean> getListPortalMasterRoleName() {
-		return listPortalMasterRoleName;
+
+	public PortalMasterRoleBean getPortalMasterRoleMenu() {
+		return PortalMasterRoleMenu;
 	}
-	public void setListPortalMasterRoleName(
-			List<PortalMasterRoleBean> listPortalMasterRoleName) {
-		this.listPortalMasterRoleName = listPortalMasterRoleName;
+	public void setPortalMasterRoleMenu(PortalMasterRoleBean portalMasterRoleMenu) {
+		PortalMasterRoleMenu = portalMasterRoleMenu;
 	}
-	public PortalMasterRoleBean getPortalMasterRoleNameBean() {
-		return PortalMasterRoleNameBean;
+	public List<PortalMasterRoleBean> getListPortalMasterRolePriv() {
+		return listPortalMasterRolePriv;
 	}
-	public void setPortalMasterRoleNameBean(
-			PortalMasterRoleBean portalMasterRoleNameBean) {
-		PortalMasterRoleNameBean = portalMasterRoleNameBean;
+	public void setListPortalMasterRolePriv(
+			List<PortalMasterRoleBean> listPortalMasterRolePriv) {
+		this.listPortalMasterRolePriv = listPortalMasterRolePriv;
+	}
+	public PortalMasterRoleBean getPortalMasterRolePriv() {
+		return PortalMasterRolePriv;
+	}
+	public void setPortalMasterRolePriv(PortalMasterRoleBean portalMasterRolePriv) {
+		PortalMasterRolePriv = portalMasterRolePriv;
 	}
 	public String getSearchName() {
 		return searchName;

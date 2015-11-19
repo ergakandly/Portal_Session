@@ -281,5 +281,47 @@ public class PortalManager {
 			return list;
 		}
 	
-	
+		//MASTER MENU
+		public List<PortalMasterRoleBean> getMasterMenuName(){
+			List<PortalMasterRoleBean> list =  null;
+			
+			try {
+				ibatis.startTransaction();
+				list = ibatis.queryForList("employees.getMasterMenuName", "");
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+			return list;
+		}
+				
+		//MASTER PRIVILAGES
+				public List<PortalMasterRoleBean> getMasterPrivilegeName(){
+					List<PortalMasterRoleBean> list =  null;
+					
+					try {
+						ibatis.startTransaction();
+						list = ibatis.queryForList("employees.getMasterPrivilegeName", "");
+						ibatis.commitTransaction();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} finally{
+						try {
+							ibatis.endTransaction();
+						} catch (Exception e) {
+							// TODO: handle exception
+							e.printStackTrace();
+						}
+					}
+					return list;
+				}
 }

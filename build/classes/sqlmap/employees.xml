@@ -160,5 +160,27 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		ORDER BY
 		    r.role_id
 	</select>
+	
+<!-- 	MENU VIEW -->
+	<select id = "getMasterMenuName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    menu_id AS menuIdView,
+		    menu AS menuNameView
+		FROM
+		    ms_menu
+		order by
+		    menu_id
+	</select>
+	
+<!-- 	PRIVILAGE VIEW -->
+	<select id = "getMasterPrivilegeName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    privilege_id AS privilegeIdView,
+		    privilege AS privilegeNameView
+		FROM
+		    ms_privilege
+		order by
+		    privilege_id
+	</select>
 
 </sqlMap>

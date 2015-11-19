@@ -43,7 +43,7 @@
 					<!-- BREADCRUMB -->
 					<ul class="breadcrumb">
 						<li><span class="glyphicon glyphicon-dashboard"></span><a
-							href="#"> Dashboard</a></li>
+							href="javascript:flyToPage('dashboardAdmin');"> Dashboard</a></li>
 						<li><span class="glyphicon glyphicon-king"></span> Roles</li>
 					</ul>
 					<!-- END BREADCRUMB -->
@@ -94,6 +94,9 @@
 <!-- 												<label>  -->
 													<logic:notEmpty name="portalMasterRoleList" property="listMasterRoleBeanPriv">
 														<logic:iterate id="priv" name="portalMasterRoleList" property="listMasterRoleBeanPriv">
+															<logic:empty name="priv" property="privilegeName" >
+															<p><br /> - </p>
+															</logic:empty>
 															<bean:write name="priv" property="privilegeName" /><br />
 														</logic:iterate>
 													</logic:notEmpty>
@@ -112,96 +115,6 @@
 											</button>
 										</td>
 										
-<!-- 										<td>Admin</td> -->
-<!-- 										<td> -->
-<!-- 											<div class="checkbox"> -->
-<!-- 												<label> <input type="checkbox"> Employee <br /> -->
-<!-- 													<input type="checkbox"> Attendance <br /> <input -->
-<!-- 													type="checkbox"> Leave <br /> -->
-<!-- 												</label> -->
-<!-- 											</div> -->
-<!-- 										</td> -->
-<!-- 										<td> -->
-<!-- 											<div class="checkbox"> -->
-<!-- 												<label> <input type="checkbox"> Insert <br /> -->
-<!-- 													<input type="checkbox"> Update <br /> <input -->
-<!-- 													type="checkbox"> Delete <br /> <input -->
-<!-- 													type="checkbox"> List <br /> -->
-<!-- 												</label> -->
-<!-- 											</div> -->
-<!-- 										</td> -->
-<!-- 										<td> -->
-<!-- 											<button type="button" class="btn btn-info"> -->
-<!-- 												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> -->
-<!-- 												Edit -->
-<!-- 											</button> -->
-<!-- 											<button type="button" class="btn btn-danger"> -->
-<!-- 												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> -->
-<!-- 												Delete -->
-<!-- 											</button> -->
-<!-- 										</td> -->
-<!-- 									</tr> -->
-<!-- 									<tr> -->
-<!-- 										<td>HR</td> -->
-<!-- 										<td> -->
-<!-- 											<div class="checkbox"> -->
-<!-- 												<label> <input type="checkbox"> Employee <br /> -->
-<!-- 													<input type="checkbox"> Attendance <br /> <input -->
-<!-- 													type="checkbox"> Leave <br /> -->
-<!-- 												</label> -->
-<!-- 											</div> -->
-<!-- 										</td> -->
-<!-- 										<td> -->
-<!-- 											<div class="checkbox"> -->
-<!-- 												<label> <input type="checkbox"> Insert <br /> -->
-<!-- 													<input type="checkbox"> Update <br /> <input -->
-<!-- 													type="checkbox"> Delete <br /> <input -->
-<!-- 													type="checkbox"> List <br /> -->
-<!-- 												</label> -->
-<!-- 											</div> -->
-<!-- 										</td> -->
-<!-- 										<td> -->
-<!-- 											<button type="button" class="btn btn-info"> -->
-<!-- 												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> -->
-<!-- 												Edit -->
-<!-- 											</button> -->
-<!-- 											<button type="button" class="btn btn-danger"> -->
-<!-- 												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> -->
-<!-- 												Delete -->
-<!-- 											</button> -->
-<!-- 										</td> -->
-<!-- 									</tr> -->
-<!-- 									<tr> -->
-<!-- 										<td>User</td> -->
-<!-- 										<td> -->
-<!-- 											<div class="checkbox"> -->
-<!-- 												<label> <input type="checkbox"> Employee <br /> -->
-<!-- 													<input type="checkbox"> Attendance <br /> <input -->
-<!-- 													type="checkbox"> Leave <br /> -->
-<!-- 												</label> -->
-<!-- 											</div> -->
-<!-- 										</td> -->
-<!-- 										<td> -->
-<!-- 											<div class="checkbox"> -->
-<!-- 												<label> <input type="checkbox"> Insert <br /> -->
-<!-- 													<input type="checkbox"> Update <br /> <input -->
-<!-- 													type="checkbox"> Delete <br /> <input -->
-<!-- 													type="checkbox"> List <br /> -->
-<!-- 												</label> -->
-<!-- 											</div> -->
-<!-- 										</td> -->
-<!-- 										<td> -->
-<!-- 											<button type="button" class="btn btn-info"> -->
-<!-- 												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> -->
-<!-- 												Edit -->
-<!-- 											</button> -->
-<!-- 											<button type="button" class="btn btn-danger"> -->
-<!-- 												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> -->
-<!-- 												Delete -->
-<!-- 											</button> -->
-<!-- 										</td> -->
-
-
 									</tr>
 								</logic:iterate>
 							</logic:notEmpty>
@@ -240,33 +153,41 @@
 							<td rowspan="2">Access Menu</td>
 							<td colspan="4">Access Privilages</td>
 						</tr>
-						<tr>
+						<tr>						
 							<td>Insert</td>
 							<td>Update</td>
 							<td>Delete</td>
 							<td>List</td>
 						</tr>
-						<tr>
-							<td><input type="checkbox"> Employee</td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox"> Attendance</td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox"> Leave</td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-							<td><input type="checkbox"></td>
-						</tr>
+						
+						<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
+							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
+								<tr>
+									<td><input type="checkbox"><bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br /></td>
+									<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
+										<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
+											<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">
+												<td><input type="checkbox"></td>
+											</logic:equal>
+										</logic:iterate>
+									</logic:notEmpty>
+								</tr>
+							</logic:iterate>
+						</logic:notEmpty>
+<!-- 						<tr> -->
+<!-- 							<td><input type="checkbox"> Attendance</td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td><input type="checkbox"> Leave</td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 							<td><input type="checkbox"></td> -->
+<!-- 						</tr> -->
 
 					</table>
 				</div>

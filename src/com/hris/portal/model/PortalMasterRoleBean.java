@@ -12,12 +12,40 @@ public class PortalMasterRoleBean implements Serializable {
 	private String privilegeName;
 	private String roleMenuId;
 	private String rolePrivilegeId;
-	
+	private String menuIdView;
+	private String menuNameView;
+	private String privilegeIdView;
+	private String privilegeNameView;
+
 	//Untuk NestedIterate
 	
 	private List<PortalMasterRoleBean> listMasterRoleBean;
 	private List<PortalMasterRoleBean> listMasterRoleBeanPriv;
-	
+
+	public String getPrivilegeIdView() {
+		return privilegeIdView;
+	}
+	public void setPrivilegeIdView(String privilegeIdView) {
+		this.privilegeIdView = privilegeIdView;
+	}
+	public String getPrivilegeNameView() {
+		return privilegeNameView;
+	}
+	public void setPrivilegeNameView(String privilegeNameView) {
+		this.privilegeNameView = privilegeNameView;
+	}
+	public String getMenuIdView() {
+		return menuIdView;
+	}
+	public void setMenuIdView(String menuIdView) {
+		this.menuIdView = menuIdView;
+	}
+	public String getMenuNameView() {
+		return menuNameView;
+	}
+	public void setMenuNameView(String menuNameView) {
+		this.menuNameView = menuNameView;
+	}
 	public List<PortalMasterRoleBean> getListMasterRoleBean() {
 		return listMasterRoleBean;
 	}
