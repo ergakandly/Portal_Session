@@ -64,7 +64,7 @@
 							<tr>
 								<th>Role Name</th>
 								<th>Access Menu</th>
-								<th>Access Privileges</th>
+								<th>Access Privileges for Employee Modul</th>
 								<th>Action Button</th>
 							</tr>
 							<logic:notEmpty name="PortalForm" property="listPortalMasterRole">
@@ -72,10 +72,10 @@
 									<tr>
 									
 										<!-- ROLE NAME -->
-										<td><bean:write name="portalMasterRoleList" property="roleName" /></td>
+										<td align="center"><bean:write name="portalMasterRoleList" property="roleName" /></td>
 										
 										<!-- MENU -->
-										<td>
+										<td align="center">
 <!-- 											<div class="checkbox">  -->
 <!-- 												<label>  -->
 													<logic:notEmpty name="portalMasterRoleList" property="listMasterRoleBean">
@@ -88,18 +88,29 @@
 										</td>
 										
 										
-										<!-- PRIVILAGES -->
-<!-- 										<td> -->
+ 										<!-- PRIVILAGES -->
+										<td align="center">
 <!-- 											<div class="checkbox"> -->
 <!-- 												<label>  -->
-<%-- 													<logic:notEmpty name="portalMasterRoleList" property="listMasterRoleBean"> --%>
-<%-- 														<logic:iterate id="role" name="portalMasterRoleList" property="listMasterRoleBean"> --%>
-<%-- 															<bean:write name="role" property="menuName" /><br /> --%>
-<%-- 														</logic:iterate> --%>
-<%-- 													</logic:notEmpty> --%>
+													<logic:notEmpty name="portalMasterRoleList" property="listMasterRoleBeanPriv">
+														<logic:iterate id="priv" name="portalMasterRoleList" property="listMasterRoleBeanPriv">
+															<bean:write name="priv" property="privilegeName" /><br />
+														</logic:iterate>
+													</logic:notEmpty>
 <!-- 												</label> -->
 <!-- 											</div> -->
-<!-- 										</td> -->
+										</td>
+										
+										<td align="center">
+											<button type="button" class="btn btn-info">
+												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+												Edit
+											</button>
+											<button type="button" class="btn btn-danger">
+												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+												Delete
+											</button>
+										</td>
 										
 <!-- 										<td>Admin</td> -->
 <!-- 										<td> -->

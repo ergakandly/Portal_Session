@@ -233,7 +233,7 @@ public class PortalManager {
 		return list;
 	}
 	
-	//MASTER ROLE
+	//Menu ROLE
 	public List<PortalMasterRoleBean> getMenuRoleName(String roleId){
 		List<PortalMasterRoleBean> list =  null;
 //		Map map = new HashMap();
@@ -256,5 +256,30 @@ public class PortalManager {
 		}
 		return list;
 	}
+	
+	//Privilage ROLE
+		public List<PortalMasterRoleBean> getPrivRoleName(String roleId){
+			List<PortalMasterRoleBean> list =  null;
+//			Map map = new HashMap();
+//			map.put("roleId", roleId);
+			
+			try {
+				ibatis.startTransaction();
+				list = ibatis.queryForList("employees.getPrivRoleName", roleId);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+			return list;
+		}
+	
 	
 }

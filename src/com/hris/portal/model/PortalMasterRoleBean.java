@@ -16,9 +16,17 @@ public class PortalMasterRoleBean implements Serializable {
 	//Untuk NestedIterate
 	
 	private List<PortalMasterRoleBean> listMasterRoleBean;
+	private List<PortalMasterRoleBean> listMasterRoleBeanPriv;
 	
 	public List<PortalMasterRoleBean> getListMasterRoleBean() {
 		return listMasterRoleBean;
+	}
+	public List<PortalMasterRoleBean> getListMasterRoleBeanPriv() {
+		return listMasterRoleBeanPriv;
+	}
+	public void setListMasterRoleBeanPriv(
+			List<PortalMasterRoleBean> listMasterRoleBeanPriv) {
+		this.listMasterRoleBeanPriv = listMasterRoleBeanPriv;
 	}
 	public void setListMasterRoleBean(List<PortalMasterRoleBean> listMasterRoleBean) {
 		this.listMasterRoleBean = listMasterRoleBean;

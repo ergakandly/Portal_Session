@@ -130,6 +130,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- Menu Role -->
 	<select id = "getMenuRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
+			m.menu_id AS menuId,
 		    m.menu AS menuName
 		FROM
 		    ms_role r
@@ -140,6 +141,23 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		WHERE
 		    r.role_id=#roleId#
 		order by
+		    r.role_id
+	</select>
+	
+<!-- 	Privilage Role -->
+	<select id = "getPrivRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    p.privilege_id AS privilegeId,
+		    p.privilege AS privilegeName
+		FROM
+		    ms_role r
+		    join tr_role_privilege trp
+		    on trp.role_id = r.role_id 
+		    left outer join ms_privilege p
+		    on trp.privilege_id = p.privilege_id
+		WHERE
+		    r.role_id=#roleId#
+		ORDER BY
 		    r.role_id
 	</select>
 

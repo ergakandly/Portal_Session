@@ -42,14 +42,17 @@ public class PortalAction extends Action {
 		}else if ("masterRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			List<PortalMasterRoleBean> list = null;
+			List<PortalMasterRoleBean> listPriv = null;
 			hForm.setListPortalMasterRole(manager.getMasterRoleName());
 		
 			for(int i=0; i<hForm.getListPortalMasterRole().size(); i++){	
 				
-				System.out.println(hForm.getListPortalMasterRole().get(i).getRoleId());
+//				System.out.println(hForm.getListPortalMasterRole().get(i).getRoleId());
 
 				list = (manager.getMenuRoleName(hForm.getListPortalMasterRole().get(i).getRoleId()));
+				listPriv = (manager.getPrivRoleName(hForm.getListPortalMasterRole().get(i).getRoleId()));
 				hForm.getListPortalMasterRole().get(i).setListMasterRoleBean(list);
+				hForm.getListPortalMasterRole().get(i).setListMasterRoleBeanPriv(listPriv);
 				
 //				for (int j=0;j<list.size();j++){
 //					System.out.println(list.get(j).getMenuName());
@@ -58,10 +61,10 @@ public class PortalAction extends Action {
 //			for (int i=0;i<hForm.getListPortalMasterRole().size();i++){
 //				System.out.println("virgiawanganteng: "+hForm.getListPortalMasterRole().get(i).getRoleId());
 //				System.out.println("virgiawanganteng: "+hForm.getListPortalMasterRole().get(i).getRoleName());
-//				System.out.println("Menu aksesnya:");
+//				System.out.println("Privilage aksesnya:");
 //				for(int j=0;j<hForm.getListPortalMasterRole().get(i).getListMasterRoleBean().size();j++)
 //				{
-//					System.out.println(hForm.getListPortalMasterRole().get(i).getListMasterRoleBean().get(j).getMenuName());	
+//					System.out.println(hForm.getListPortalMasterRole().get(i).getListMasterRoleBeanPriv().get(j).getPrivilegeName());	
 //				}
 //			}
 			hForm.setListPortalMasterRole(hForm.getListPortalMasterRole());
