@@ -58,17 +58,21 @@
 							<tr>
 								<th>Module Name</th>
 								<th>Module Link</th>
+								<th>Module Icon</th>
 								<th>Button Action</th>
 							</tr>
 
 							<tr>
 								<td>Employee</td>
 								<td>Link Employee</td>
+								<td class="tengah"><span class="glyphicon glyphicon-user"></span>
 								<td class="width30">
-									<button type="button" class="btn btn-info" onclick="">
+									<button type="button" class="btn btn-info" data-toggle="modal"
+										data-target="#modalAddModul">
 										<span class="glyphicon glyphicon-pencil"></span> Edit
 									</button>
-									<button type="button" class="btn btn-danger" onclick="">
+									<button type="button" class="btn btn-danger" data-toggle="modal"
+										data-target="#modalYakin">
 										<span class="glyphicon glyphicon-remove"></span> Delete
 									</button>
 								</td>
@@ -77,11 +81,14 @@
 							<tr>
 								<td>Attendance</td>
 								<td>Link Attendance</td>
+								<td class="tengah"><span class="glyphicon glyphicon-plane"></span>
 								<td>
-									<button type="button" class="btn btn-info" onclick="">
+									<button type="button" class="btn btn-info" data-toggle="modal"
+										data-target="#modalAddModul">
 										<span class="glyphicon glyphicon-pencil"></span> Edit
 									</button>
-									<button type="button" class="btn btn-danger" onclick="">
+									<button type="button" class="btn btn-danger" data-toggle="modal"
+										data-target="#modalYakin">
 										<span class="glyphicon glyphicon-remove"></span> Delete
 									</button>
 								</td>
@@ -90,11 +97,15 @@
 							<tr>
 								<td>Leave</td>
 								<td>Link Leave</td>
+								<td class="tengah"><span
+									class="glyphicon glyphicon-calendar"></span>
 								<td>
-									<button type="button" class="btn btn-info" onclick="">
+									<button type="button" class="btn btn-info" data-toggle="modal"
+										data-target="#modalAddModul">
 										<span class="glyphicon glyphicon-pencil"></span> Edit
 									</button>
-									<button type="button" class="btn btn-danger" onclick="">
+									<button type="button" class="btn btn-danger" data-toggle="modal"
+										data-target="#modalYakin">
 										<span class="glyphicon glyphicon-remove"></span> Delete
 									</button>
 								</td>
@@ -117,7 +128,7 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Add New Module</h4>
+					<h4 class="modal-title" id="myModalLabel">Add New Modul</h4>
 				</div>
 				<div class="modal-body">
 					<table class="table table-borderless">
@@ -150,6 +161,40 @@
 			</div>
 		</div>
 	</div>
+	<!-- END MODAL  -->
+
+	<!-- MODAL HAPUS -->
+	<!-- MODAL -->
+	<div class="modal fade" id="modalYakin" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Delete Modul
+						Data</h4>
+				</div>
+				<div class="modal-body ">
+					<div class="alert alert-danger kiri" role="alert">
+						<i class="fa fa-exclamation-triangle"></i> Are you sure want to delete this record?
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"
+						onclick="">
+						<i class="fa fa-check "></i> Yes
+					</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<i class="fa fa-close "></i> No
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END MODAL HAPUS-->
 
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>

@@ -9,6 +9,7 @@ import com.hris.portal.ibatis.IbatisHelper;
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalDepartmentBean;
 import com.hris.portal.model.PortalMasterRoleBean;
+import com.hris.portal.model.PortalModulBean;
 import com.hris.portal.model.PortalUserBean;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -311,6 +312,28 @@ public class PortalManager {
 					try {
 						ibatis.startTransaction();
 						list = ibatis.queryForList("employees.getMasterPrivilegeName", "");
+						ibatis.commitTransaction();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} finally{
+						try {
+							ibatis.endTransaction();
+						} catch (Exception e) {
+							// TODO: handle exception
+							e.printStackTrace();
+						}
+					}
+					return list;
+				}
+				
+		// MENU
+				public List<PortalModulBean> getModulName(){
+					List<PortalModulBean> list =  null;
+					
+					try {
+						ibatis.startTransaction();
+						list = ibatis.queryForList("employees.getMenu", "");
 						ibatis.commitTransaction();
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block

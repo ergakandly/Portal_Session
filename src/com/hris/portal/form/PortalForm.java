@@ -9,6 +9,7 @@ import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalDepartmentBean;
 import com.hris.portal.model.PortalUserBean;
 import com.hris.portal.model.PortalMasterRoleBean;
+import com.hris.portal.model.PortalModulBean;
 
 public class PortalForm extends ActionForm{
 	private List<PortalBean> listPortal;
@@ -27,6 +28,8 @@ public class PortalForm extends ActionForm{
 	private List<PortalMasterRoleBean> listPortalMasterRolePriv;
 	private PortalMasterRoleBean PortalMasterRolePriv = new PortalMasterRoleBean();
 	
+	private List<PortalModulBean> listPortalModulBean;
+	
 	private String task;
 	private String id;
 	private String user;
@@ -36,6 +39,12 @@ public class PortalForm extends ActionForm{
 	private String selectNewMenu;
 	public String[] selectedNewMenu;
 	
+	public List<PortalModulBean> getListPortalModulBean() {
+		return listPortalModulBean;
+	}
+	public void setListPortalModulBean(List<PortalModulBean> listPortalModulBean) {
+		this.listPortalModulBean = listPortalModulBean;
+	}
 	public List getViewMenu() {
 		return viewMenu;
 	}

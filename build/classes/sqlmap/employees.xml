@@ -182,5 +182,17 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		order by
 		    privilege_id
 	</select>
-
+	
+	<!-- MENU VIEWW -->
+	<select id = "getMenu" resultClass="com.hris.portal.model.PortalModulBean" parameterClass="java.lang.String">
+		 SELECT
+		    menu_id AS menuIdView,
+		    menu AS menuNameView,
+		    url_menu AS urlView,
+		    icon AS iconView
+		FROM
+		    ms_menu
+		order by
+		    menu_id
+	</select>
 </sqlMap>
