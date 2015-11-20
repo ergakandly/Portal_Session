@@ -300,6 +300,7 @@ public class PortalManager {
 					e.printStackTrace();
 				}
 			}
+		
 			return list;
 		}
 				

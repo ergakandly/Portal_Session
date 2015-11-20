@@ -174,15 +174,21 @@
 						<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
 							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
 								<tr>
-<%-- 									<html:multibox property="selectedNewMenu"> --%>
-<%-- 										<bean:write name="portalMasterRoleMenuList" property="menuNameView" /> --%>
-<%-- 									</html:multibox> --%>
+									<logic:iterate id="item" name="PortalForm" property="viewMenu">
+										<html:multibox name="PortalForm" property="selectedNewMenu">
+											<bean:write name="item" property="menuNameView" />
+										</html:multibox>
+										<bean:write name="item" property="menuNameView" /><br />
+									</logic:iterate>
+									
 <%-- 									<html:checkbox property="selectedNewMenu"> --%>
 <%-- 										<bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br /> --%>
 <%-- 									</html:checkbox> --%>
 <%-- 									<html:checkbox name="hwForm" property="hobby" value="Painting">Painting</html:checkbox> --%>
 <%-- 									<td><html:checkbox name="PortalForm" property="selectNewMenu" value="menuNameView"><bean:write name="portalMasterRoleMenuList" property="menuNameView" /></html:checkbox><br /></td> --%>
-									<td><input type="checkbox" value="true"><bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br /></td>
+
+<%-- 									<td><input type="checkbox" value="true"><bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br /></td> --%>
+									
 									<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
 										<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
 											<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">

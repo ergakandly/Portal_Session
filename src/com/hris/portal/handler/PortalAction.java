@@ -1,7 +1,10 @@
 package com.hris.portal.handler;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +13,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.util.LabelValueBean;
 
 import com.hris.portal.form.PortalForm;
 import com.hris.portal.manager.PortalManager;
@@ -43,7 +47,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			List<PortalMasterRoleBean> list = null;
 			List<PortalMasterRoleBean> listPriv = null;
-			
+			List menuList = null;
 //			INSERT NEW ROLE
 //			if(hForm.getAddRoleName().equals(null)){
 //				manager.getinsertRole
@@ -64,6 +68,7 @@ public class PortalAction extends Action {
 //					System.out.println(list.get(j).getMenuName());
 //				}
 			}
+			
 //			for (int i=0;i<hForm.getListPortalMasterRole().size();i++){
 //				System.out.println("virgiawanganteng: "+hForm.getListPortalMasterRole().get(i).getRoleId());
 //				System.out.println("virgiawanganteng: "+hForm.getListPortalMasterRole().get(i).getRoleName());
@@ -73,11 +78,14 @@ public class PortalAction extends Action {
 //					System.out.println(hForm.getListPortalMasterRole().get(i).getListMasterRoleBeanPriv().get(j).getPrivilegeName());	
 //				}
 //			}
+			
 			hForm.setListPortalMasterRole(hForm.getListPortalMasterRole());
 			
 			hForm.setListPortalMasterRoleMenu(manager.getMasterMenuName());
 			hForm.setListPortalMasterRolePriv(manager.getMasterPrivilegeName());
 			
+			hForm.setViewMenu(hForm.getListPortalMasterRoleMenu());
+			System.out.println("view Menu= "+hForm.getViewMenu().size());
 			hForm.setAddRoleName(null);
 			
 			return mapping.findForward("masterRole");
