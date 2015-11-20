@@ -174,20 +174,15 @@
 						<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
 							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
 								<tr>
+									
 									<logic:iterate id="item" name="PortalForm" property="viewMenu">
+										<td>
 										<html:multibox name="PortalForm" property="selectedNewMenu">
-											<bean:write name="item" property="menuNameView" />
+											<bean:write name="item" property="menuNameView" /><br />
 										</html:multibox>
 										<bean:write name="item" property="menuNameView" /><br />
+										</td>
 									</logic:iterate>
-									
-<%-- 									<html:checkbox property="selectedNewMenu"> --%>
-<%-- 										<bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br /> --%>
-<%-- 									</html:checkbox> --%>
-<%-- 									<html:checkbox name="hwForm" property="hobby" value="Painting">Painting</html:checkbox> --%>
-<%-- 									<td><html:checkbox name="PortalForm" property="selectNewMenu" value="menuNameView"><bean:write name="portalMasterRoleMenuList" property="menuNameView" /></html:checkbox><br /></td> --%>
-
-<%-- 									<td><input type="checkbox" value="true"><bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br /></td> --%>
 									
 									<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
 										<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
@@ -196,6 +191,8 @@
 											</logic:equal>
 										</logic:iterate>
 									</logic:notEmpty>
+									
+									
 								</tr>
 							</logic:iterate>
 						</logic:notEmpty>
@@ -204,8 +201,8 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
-<%-- 						onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">Submit</button> --%>
-						onclick="javascript:doSubmit();">Submit</button>
+						onclick="javascript:flyToPage('select', '<bean:write name="PortalForm" property="addRoleName"/>');">Submit</button>
+<!-- 						onclick="javascript:doSubmit();">Submit</button> -->
 <%-- 					<html:submit value="Send" onclick="javascript:doSubmit();"></html:submit> --%>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				</div>
