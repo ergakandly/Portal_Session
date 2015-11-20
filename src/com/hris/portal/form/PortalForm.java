@@ -35,18 +35,29 @@ public class PortalForm extends ActionForm{
 	private String addRoleName;
 	private String selectNewMenu;
 	public String[] selectedNewMenu;
+	public String[] selectedNewPriv;
+	public List viewMenu;
+	public List viewPriv;
 	
+	public String[] getSelectedNewPriv() {
+		return selectedNewPriv;
+	}
+	public void setSelectedNewPriv(String[] selectedNewPriv) {
+		this.selectedNewPriv = selectedNewPriv;
+	}
 	public List getViewMenu() {
 		return viewMenu;
 	}
 	public void setViewMenu(List viewMenu) {
 		this.viewMenu = viewMenu;
 	}
-	public List viewMenu;
 	
-	
-	
-	
+	public List getViewPriv() {
+		return viewPriv;
+	}
+	public void setViewPriv(List viewPriv) {
+		this.viewPriv = viewPriv;
+	}
 	public String getSelectNewMenu() {
 		return selectNewMenu;
 	}

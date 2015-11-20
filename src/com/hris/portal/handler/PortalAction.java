@@ -43,11 +43,21 @@ public class PortalAction extends Action {
 			else {
 				System.out.println("SALAAAAHHH");
 			}
-		}else if ("masterRole".equalsIgnoreCase(hForm.getTask())){
+		}else if ("masterRole".equalsIgnoreCase(hForm.getTask())){			
 			System.out.println("Tasknya : " + hForm.getTask());
+
+//			if(!hForm.getAddRoleName().equals("null")){
+				System.out.println("Add Role Name: "+hForm.getAddRoleName());
+//			}
+			
+//				if(hForm.getSelectedNewMenu().length==0){
+//					System.out.println("Selected Menu: "+portal);
+//				}
+				
 			List<PortalMasterRoleBean> list = null;
 			List<PortalMasterRoleBean> listPriv = null;
 			List menuList = null;
+			List privList = null;
 //			INSERT NEW ROLE
 //			if(hForm.getAddRoleName().equals(null)){
 //				manager.getinsertRole
@@ -85,7 +95,8 @@ public class PortalAction extends Action {
 			hForm.setListPortalMasterRolePriv(manager.getMasterPrivilegeName());
 			
 			hForm.setViewMenu(hForm.getListPortalMasterRoleMenu());
-			System.out.println("view Menu= "+hForm.getViewMenu().size());
+			hForm.setViewPriv(hForm.getListPortalMasterRolePriv());
+
 			hForm.setAddRoleName(null);
 			
 			return mapping.findForward("masterRole");
@@ -123,6 +134,7 @@ public class PortalAction extends Action {
 			hForm.setPortalDepartmentBean(manager.getOneEmployee(hForm.getId()));
 			System.out.println("Department Name: " + hForm.getPortalDepartmentBean().getMsDepartmentName());
 			System.out.println(hForm.getPortalDepartmentBean().getDeptEmployeeName());
+			
 			//compare
 			hForm.setListPortal(manager.getRoleName());
 			
