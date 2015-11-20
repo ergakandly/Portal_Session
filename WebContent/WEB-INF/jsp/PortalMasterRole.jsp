@@ -172,28 +172,27 @@
 						</tr>
 						
 						<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
-							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
-								<tr>
+<%-- 							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu"> --%>
+																	
+									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="viewMenu">
+										<tr>
+											<td>
+											<html:multibox name="PortalForm" property="selectedNewMenu">
+												<bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br />
+											</html:multibox>
+											<bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br />
+											</td>
 									
-									<logic:iterate id="item" name="PortalForm" property="viewMenu">
-										<td>
-										<html:multibox name="PortalForm" property="selectedNewMenu">
-											<bean:write name="item" property="menuNameView" /><br />
-										</html:multibox>
-										<bean:write name="item" property="menuNameView" /><br />
-										</td>
-									</logic:iterate>
-									
-									<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
-										<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
-											<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">
-												<td><input type="checkbox"></td>
-											</logic:equal>
-										</logic:iterate>
-									</logic:notEmpty>
-									
-									
-								</tr>
+											<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
+												<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
+													<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">
+														<td><input type="checkbox"></td>
+													</logic:equal>
+												</logic:iterate>
+											</logic:notEmpty>
+										
+										</tr>
+<%-- 								</logic:iterate> --%>
 							</logic:iterate>
 						</logic:notEmpty>
 
