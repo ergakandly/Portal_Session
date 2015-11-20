@@ -106,6 +106,8 @@ public class PortalAction extends Action {
 			return mapping.findForward("addEditRole");
 		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			
+			
 			return mapping.findForward("masterModul");
 		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());

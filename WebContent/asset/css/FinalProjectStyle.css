@@ -34,21 +34,19 @@
 .backgroundGreen {
 	background-color: green;
 }
-
-.backgroundBlack {
-	background-color: black;
-}
 /*====== END COLOR ===========*/
 
 /*====== TABLE ===========*/
-table th {
-	background-color: black;
-	color: white;
-	align: center;
+td.width15 {
+	width: 15%;
 }
 
 td.width30 {
 	width: 30%;
+}
+
+td.width100 {
+	width: 1000%;
 }
 
 .table-borderless td, .table-borderless th {
@@ -58,51 +56,11 @@ td.width30 {
 .table-nonfluid {
 	width: auto !important;
 }
+
+.non-fluid{
+	width: auto !important;
+}
 /*======END TABLE ===========*/
-
-/*====== SIDE BAR ===========*/
-.sidebar {
-	background-color: black;
-	min-height: 100%;
-	min-height: 700px;
-	padding-top: 20px;
-	float: left;
-}
-
-.sidebar ul {
-	height: 10%;
-	list-style-type: none;
-	margin: 0;
-	width: 200px;
-}
-
-.sidebar ul li {
-	height: 40px;
-	margin: 0px 0px 0px -48px;
-	/* 	padding: 5px 0px 5px 5px; */
-}
-
-.sidebar ul li a {
-	display: block;
-	height: 100%;
-	text-decoration: none;
-	color: #999999;
-	/* 	background: blue; */
-}
-
-.sidebar ul li a:hover {
-	text-decoration: none;
-	color: black;
-	background: white;
-	font-weight: bold;
-}
-
-.barTerpilih {
-	font-weight: bold;
-	color: white;
-	font-weight: bold;
-}
-/*======END SIDE BAR ===========*/
 
 /*====== KHUSUS HRIS_PORTAL ===========*/
 .iconDashboard {
@@ -110,6 +68,12 @@ td.width30 {
 	width: 200px;
 }
 /*====== END KHUSUS HRIS_PORTAL ===========*/
+
+/*======KHUSUS HRIS_EMPLOYEE =======*/
+.subheader-height {
+	height: 10 !important;
+}
+/* ======================== */
 
 /*====== OTHERS ===========*/
 #timeline {
@@ -120,6 +84,10 @@ td.width30 {
 	height: 100%;
 }
 
+#page-wrapper {
+	min-height: 592px;
+}
+
 .btn {
 	border-bottom-right-radius: 15px;
 	border-top-left-radius: 15px;
@@ -128,11 +96,22 @@ td.width30 {
 }
 
 .form-control {
-	border-bottom-right-radius: 20px;
-	border-top-left-radius: 20px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+ border-bottom-right-radius: 15px;
+ border-top-left-radius: 15px;
+ padding-top: 2px;
+ padding-bottom: 2px;
+ height: 22px !important;
 }
+
+.form-textarea {
+        border-bottom-right-radius: 15px;
+        border-top-left-radius: 15px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        width: 200px !important;
+        resize: none;
+}
+
 
 .nopadding {
 	padding-top: 2px !important;
@@ -143,6 +122,10 @@ hr {
 	size: 50px;
 }
 
+body {
+ font-family: 'Roboto', sans-serif;
+}
+
 div.modal div.modal-backdrop {
 	z-index: 0;
 }
@@ -150,4 +133,77 @@ div.modal div.modal-backdrop {
 .datepicker {
 	z-index: 1151 !important;
 }
+
+#timeText {
+	padding-top: 14px;
+	color: white;
+	font-weight: normal;
+}
 /*====== END OTHERS ===========*/
+
+/*====== WARNA NAVBAR =========*/
+.navbar-inverse {
+	background-color: #337AB7;
+	border-color: #337AB7
+}
+
+#warnaPutih {
+	color: white;
+}
+
+.navbar-inverse .navbar-text>li>a {
+	color: #fff
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #fff
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover,
+	.navbar-inverse .navbar-nav>.active>a:focus {
+	color: white;
+	font-weight: bold;
+	background-color: #5f9dd3 !important;
+}
+
+.badge {
+  background-color: #e60000;
+}
+/*====== END WARNA NAVBAR =========*/
+
+/*==== STYLE DATE TIME PICKER ====*/
+.timepicker-picker .table-condensed td {
+	text-align: center
+}
+
+/*======STYLE INPUT ADDON=====*/
+.input-addon-resize{
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px !important;
+}
+
+/*======PLUS MINUS ADDON=====*/
+.input-number-resize{
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px !important;
+}
+
+.form-width {
+	width: 200px !important;
+}
+
+/*=== back to top ====*/
+#toTop{
+	position: fixed;
+	bottom: 10px;
+	right: 500px;
+	cursor: pointer;
+	display: none;
+	background-color: #337AB7;
+}
