@@ -16,7 +16,9 @@ public class PortalMasterRoleBean implements Serializable {
 	private String menuNameView;
 	private String privilegeIdView;
 	private String privilegeNameView;
-
+	private String insertRoleMenuId;
+	private String insertRolePrivId;
+	
 	//Untuk NestedIterate
 	
 	private List<PortalMasterRoleBean> listMasterRoleBean;
@@ -106,6 +108,18 @@ public class PortalMasterRoleBean implements Serializable {
 	}
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
+	}
+	public String getInsertRoleMenuId() {
+		return insertRoleMenuId;
+	}
+	public void setInsertRoleMenuId(String insertRoleMenuId) {
+		this.insertRoleMenuId = insertRoleMenuId;
+	}
+	public String getInsertRolePrivId() {
+		return insertRolePrivId;
+	}
+	public void setInsertRolePrivId(String insertRolePrivId) {
+		this.insertRolePrivId = insertRolePrivId;
 	}	
 	
 }

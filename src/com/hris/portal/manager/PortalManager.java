@@ -49,34 +49,11 @@ public class PortalManager {
 		return list;
 	}
 	
-	
-//	public PortalBean getOneEmployee(String empId){
-//		PortalBean pBean = null;
-//		
-//		try {
-//			ibatis.startTransaction();
-//			pBean = (PortalBean) ibatis.queryForObject("employees.getOneEmp", empId);
-//			ibatis.commitTransaction();
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				ibatis.endTransaction();
-//			} catch (Exception e) {
-//				// TODO: handle exception
-//				e.printStackTrace();
-//			}
-//		}
-//		return pBean;
-//	}
-	
 	public PortalDepartmentBean getOneEmployee(String empId){
 		PortalDepartmentBean portalDeptBean = null;
 		
 		try {
 			ibatis.startTransaction();
-			//pBean = (PortalBean) ibatis.queryForObject("employees.getOneEmp", empId);
 			portalDeptBean = (PortalDepartmentBean) ibatis.queryForObject("employees.getOneEmp", empId);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
@@ -236,8 +213,6 @@ public class PortalManager {
 	//Menu ROLE
 	public List<PortalMasterRoleBean> getMenuRoleName(String roleId){
 		List<PortalMasterRoleBean> list =  null;
-//		Map map = new HashMap();
-//		map.put("roleId", roleId);
 		
 		try {
 			ibatis.startTransaction();
@@ -260,8 +235,6 @@ public class PortalManager {
 	//Privilage ROLE
 		public List<PortalMasterRoleBean> getPrivRoleName(String roleId){
 			List<PortalMasterRoleBean> list =  null;
-//			Map map = new HashMap();
-//			map.put("roleId", roleId);
 			
 			try {
 				ibatis.startTransaction();
@@ -305,12 +278,73 @@ public class PortalManager {
 		}
 				
 		//MASTER PRIVILAGES
-				public List<PortalMasterRoleBean> getMasterPrivilegeName(){
-					List<PortalMasterRoleBean> list =  null;
+		public List<PortalMasterRoleBean> getMasterPrivilegeName(){
+			List<PortalMasterRoleBean> list =  null;
+			
+			try {
+				ibatis.startTransaction();
+				list = ibatis.queryForList("employees.getMasterPrivilegeName", "");
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+			return list;
+		}
+				
+		//INSERT NEW ROLE Name
+		public void insertNewRoleName(String addRoleName){
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.insert("employees.insertNewRoleName", addRoleName);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		//INSERT NEW ROLE MENU
+		public void insertNewRoleMenu(String insertRoleMenuId){
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.insert("employees.insertNewRoleMenu", insertRoleMenuId);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+				
+		//INSERT NEW ROLE PRIV
+				public void insertNewRolePriv(String insertRolePrivId){
 					
 					try {
 						ibatis.startTransaction();
-						list = ibatis.queryForList("employees.getMasterPrivilegeName", "");
+						ibatis.insert("employees.insertNewRolePriv", insertRolePrivId);
 						ibatis.commitTransaction();
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
@@ -323,6 +357,6 @@ public class PortalManager {
 							e.printStackTrace();
 						}
 					}
-					return list;
-				}
+				}		
+		
 }

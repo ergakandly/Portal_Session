@@ -165,8 +165,8 @@
 						</tr>
 						<tr>						
 							<td>List</td>
-							<td>Insert</td>
-							<td>Update</td>
+							<td>Add</td>
+							<td>Edit</td>
 							<td>Disable</td>
 						</tr>
 						
@@ -177,7 +177,7 @@
 										<tr>
 											<td>
 												<html:multibox name="PortalForm" property="selectedNewMenu">
-													<bean:write name="portalMasterRoleMenuList" property="menuNameView"/><br />
+													<bean:write name="portalMasterRoleMenuList" property="menuIdView"/>
 												</html:multibox>
 												<bean:write name="portalMasterRoleMenuList" property="menuNameView"/><br />
 											</td>
@@ -185,13 +185,10 @@
 											<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
 												<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
 													<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">
-<!-- 														<td><input type="checkbox"></td> -->
-
 														<td>
 															<html:multibox name="PortalForm" property="selectedNewPriv">
-																<bean:write name="portalMasterRolePrivList" property="privilegeNameView"/><br />
+																<bean:write name="portalMasterRolePrivList" property="privilegeIdView"/>
 															</html:multibox>
-															<bean:write name="portalMasterRolePrivList" property="privilegeIdView"/><br />
 														</td>
 														
 													</logic:equal>
@@ -207,7 +204,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
-						onclick="javascript:flyToPage('tes');">Submit</button>
+						onclick="javascript:flyToPage('masterRole');">Submit</button>
 						
 <!-- 						onclick="javascript:doSubmit();">Submit</button> -->
 <%-- 					<html:submit value="Send" onclick="javascript:doSubmit();"></html:submit> --%>

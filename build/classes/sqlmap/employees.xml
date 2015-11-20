@@ -51,13 +51,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	</select>
 	
 	<select id = "getOneEmp" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
-<!-- 		SELECT -->
-<!-- 			employee_id AS employeeId, -->
-<!-- 			employee_name AS employeeName -->
-<!-- 		FROM -->
-<!-- 			ms_employee -->
-<!-- 		WHERE  -->
-<!-- 			employee_id = #empId# -->
 		
 		SELECT
 <!-- 		    e.employee_id AS employeeId, -->
@@ -182,5 +175,29 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		order by
 		    privilege_id
 	</select>
+
+<!-- 	INSERT NEW ROLE Name-->
+	<insert id = "insertNewRoleName" parameterClass="java.lang.String">
+		INSERT INTO
+		    ms_role
+		VALUES
+		    (ms_role_seq.nextval, #addRoleName#, '',sysdate,'','')
+	</insert>
+
+<!-- 	INSERT NEW ROLE TR_MENU-->
+	<insert id = "insertNewRoleMenu" parameterClass="java.lang.String">
+		INSERT INTO
+		    tr_role_menu
+		VALUES
+		    (tr_role_menu_seq.nextval, ms_role_seq.currval, #insertRoleMenuId#)
+	</insert>
+	
+<!-- 	INSERT NEW ROLE -->
+	<insert id = "insertNewRolePriv" parameterClass="java.lang.String">
+		INSERT INTO
+		    tr_role_privilege
+		VALUES
+		    (tr_role_privilege_seq.nextval, ms_role_seq.currval, #insertRolePrivId#)
+	</insert>
 
 </sqlMap>
