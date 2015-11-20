@@ -121,7 +121,7 @@
 												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 												Edit
 											</button>
-											<button type="button" class="btn btn-danger">
+											<button type="button" class="btn btn-danger" onclick="javascript:flyToPage('masterRole');">
 												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 												Delete
 											</button>
@@ -205,9 +205,6 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
 						onclick="javascript:flyToPage('masterRole');">Submit</button>
-						
-<!-- 						onclick="javascript:doSubmit();">Submit</button> -->
-<%-- 					<html:submit value="Send" onclick="javascript:doSubmit();"></html:submit> --%>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				</div>
 			</div>
