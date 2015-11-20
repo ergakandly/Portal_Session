@@ -164,10 +164,10 @@
 							<td colspan="4">Access Privilages</td>
 						</tr>
 						<tr>						
+							<td>List</td>
 							<td>Insert</td>
 							<td>Update</td>
-							<td>Delete</td>
-							<td>List</td>
+							<td>Disable</td>
 						</tr>
 						
 						<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
@@ -176,10 +176,10 @@
 									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="viewMenu">
 										<tr>
 											<td>
-												<html:multibox property="selectedNewMenu">
-													<bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br />
+												<html:multibox name="PortalForm" property="selectedNewMenu">
+													<bean:write name="portalMasterRoleMenuList" property="menuNameView"/><br />
 												</html:multibox>
-												<bean:write name="portalMasterRoleMenuList" property="menuNameView" /><br />
+												<bean:write name="portalMasterRoleMenuList" property="menuNameView"/><br />
 											</td>
 									
 											<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
@@ -189,9 +189,9 @@
 
 														<td>
 															<html:multibox name="PortalForm" property="selectedNewPriv">
-																<bean:write name="portalMasterRolePrivList" property="privilegeNameView" /><br />
+																<bean:write name="portalMasterRolePrivList" property="privilegeNameView"/><br />
 															</html:multibox>
-															<bean:write name="portalMasterRolePrivList" property="privilegeIdView" /><br />
+															<bean:write name="portalMasterRolePrivList" property="privilegeIdView"/><br />
 														</td>
 														
 													</logic:equal>
@@ -207,7 +207,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
-						onclick="javascript:flyToPage('masterRole');">Submit</button>
+						onclick="javascript:flyToPage('tes');">Submit</button>
 						
 <!-- 						onclick="javascript:doSubmit();">Submit</button> -->
 <%-- 					<html:submit value="Send" onclick="javascript:doSubmit();"></html:submit> --%>

@@ -47,11 +47,11 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 
 //			if(!hForm.getAddRoleName().equals("null")){
-				System.out.println("Add Role Name: "+hForm.getAddRoleName());
+//				System.out.println("Add Role Name: "+hForm.getAddRoleName());
 //			}
 			
 //				if(hForm.getSelectedNewMenu().length==0){
-//					System.out.println("Selected Menu: "+portal);
+//					System.out.println("Selected Menu: "+hForm.getSelectedNewMenu().length);
 //				}
 				
 			List<PortalMasterRoleBean> list = null;
@@ -178,6 +178,18 @@ public class PortalAction extends Action {
 		}else if ("addEditAssignRole".equalsIgnoreCase(hForm.getTask())){
 			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");
+		}else if ("tes".equalsIgnoreCase(hForm.getTask())){
+
+				System.out.println("Add Role Name: "+hForm.getAddRoleName());
+				for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
+					System.out.println("Selected Menu: "+hForm.getSelectedNewMenu()[i]);
+					if(hForm.getSelectedNewMenu()[i].equals("Employee<br />")){
+						for(int j=0; j<hForm.getSelectedNewPriv().length; j++){
+							System.out.println("Privilege : "+hForm.getSelectedNewPriv()[j]);
+						}
+					}
+				}
+			return mapping.findForward("masterRole");
 		}
 //		else if("insert".equalsIgnoreCase(hForm.getTask())){
 //			manager.insert(hForm.getRegionBean().getFirstName(), hForm.getRegionBean().getLastName(), hForm.getRegionBean().getPhoneNumber(), hForm.getRegionBean().getEmail(), hForm.getRegionBean().getSalary());
