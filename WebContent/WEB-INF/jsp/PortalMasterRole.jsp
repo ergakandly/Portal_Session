@@ -18,6 +18,8 @@
 
 <script type="text/javascript">
 	function flyToPage(task, id) {
+		alert(document.forms[0].addRoleName.value);
+		
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].submit();
@@ -26,7 +28,6 @@
 
 <script language="JavaScript">
 	function doSubmit(){
-		alert("aaaaa");
 		var frm = document.forms[0];
 		if (!validateForm(frm)){
 			return;
@@ -36,13 +37,12 @@
 </script>
 
 <body>
+	
+	<%@include file="PartNavbar.jsp"%>
 	<html:form method="post" action="/portal">
-		<html:hidden name="PortalForm" property="task" />
-		<html:hidden name="PortalForm" property="id" />
-		<html:hidden name="PortalForm" property="task" value="masterRole" />
-		
-		<%@include file="PartNavbar.jsp"%>
-
+	<html:hidden name="PortalForm" property="task" />
+	<html:hidden name="PortalForm" property="id" />
+	
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -135,7 +135,7 @@
 				</div>
 			</div>
 		</div>
-	</html:form>
+
 
 	<!-- MODAL -->
 	<div class="modal fade" id="modalAddRole" tabindex="-1" role="dialog"
@@ -153,10 +153,9 @@
 					<table>
 						<tr>
 							<td class="kanan">Role Name :</td>
-							<td><html:text styleClass="form-control" name="PortalForm" property="addRoleName" size="57" /></td>
+							<td><html:text styleClass="form-control" name="PortalForm" property="addRoleName" size="57"/></td>
 						</tr>
 					</table>
-
 
 					<table
 						class="table table-nonfluid table-striped table-bordered table-hover">
@@ -165,35 +164,42 @@
 							<td colspan="4">Access Privilages</td>
 						</tr>
 						<tr>						
+							<td>List</td>
 							<td>Insert</td>
 							<td>Update</td>
-							<td>Delete</td>
-							<td>List</td>
+							<td>Disable</td>
 						</tr>
 						
 						<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
-							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
-								<tr>
+<%-- 							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu"> --%>
+																	
+									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="viewMenu">
+										<tr>
+											<td>
+												<html:multibox name="PortalForm" property="selectedNewMenu">
+													<bean:write name="portalMasterRoleMenuList" property="menuNameView"/><br />
+												</html:multibox>
+												<bean:write name="portalMasterRoleMenuList" property="menuNameView"/><br />
+											</td>
 									
-									<logic:iterate id="item" name="PortalForm" property="viewMenu">
-										<td>
-										<html:multibox name="PortalForm" property="selectedNewMenu">
-											<bean:write name="item" property="menuNameView" /><br />
-										</html:multibox>
-										<bean:write name="item" property="menuNameView" /><br />
-										</td>
-									</logic:iterate>
-									
-									<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
-										<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
-											<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">
-												<td><input type="checkbox"></td>
-											</logic:equal>
-										</logic:iterate>
-									</logic:notEmpty>
-									
-									
-								</tr>
+											<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
+												<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
+													<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">
+<!-- 														<td><input type="checkbox"></td> -->
+
+														<td>
+															<html:multibox name="PortalForm" property="selectedNewPriv">
+																<bean:write name="portalMasterRolePrivList" property="privilegeNameView"/><br />
+															</html:multibox>
+															<bean:write name="portalMasterRolePrivList" property="privilegeIdView"/><br />
+														</td>
+														
+													</logic:equal>
+												</logic:iterate>
+											</logic:notEmpty>
+										
+										</tr>
+<%-- 								</logic:iterate> --%>
 							</logic:iterate>
 						</logic:notEmpty>
 
@@ -201,7 +207,8 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
-						onclick="javascript:flyToPage('select', '<bean:write name="PortalForm" property="addRoleName"/>');">Submit</button>
+						onclick="javascript:flyToPage('tes');">Submit</button>
+						
 <!-- 						onclick="javascript:doSubmit();">Submit</button> -->
 <%-- 					<html:submit value="Send" onclick="javascript:doSubmit();"></html:submit> --%>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -209,8 +216,11 @@
 			</div>
 		</div>
 	</div>
+	</html:form>
 	<!-- MODAL -->
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
+		
 </body>
+
 </html>

@@ -38,12 +38,23 @@ public class PortalForm extends ActionForm{
 	private String addRoleName;
 	private String selectNewMenu;
 	public String[] selectedNewMenu;
+	public String[] selectedNewPriv;
+	public List viewMenu;
+	public List viewPriv;
 	
+<<<<<<< HEAD
 	public List<PortalModulBean> getListPortalModulBean() {
 		return listPortalModulBean;
 	}
 	public void setListPortalModulBean(List<PortalModulBean> listPortalModulBean) {
 		this.listPortalModulBean = listPortalModulBean;
+=======
+	public String[] getSelectedNewPriv() {
+		return selectedNewPriv;
+	}
+	public void setSelectedNewPriv(String[] selectedNewPriv) {
+		this.selectedNewPriv = selectedNewPriv;
+>>>>>>> 9b7835eb9106179de433191eebb83d92251f74f3
 	}
 	public List getViewMenu() {
 		return viewMenu;
@@ -51,11 +62,13 @@ public class PortalForm extends ActionForm{
 	public void setViewMenu(List viewMenu) {
 		this.viewMenu = viewMenu;
 	}
-	public List viewMenu;
 	
-	
-	
-	
+	public List getViewPriv() {
+		return viewPriv;
+	}
+	public void setViewPriv(List viewPriv) {
+		this.viewPriv = viewPriv;
+	}
 	public String getSelectNewMenu() {
 		return selectNewMenu;
 	}
