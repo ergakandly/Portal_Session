@@ -175,7 +175,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		order by
 		    privilege_id
 	</select>
-<<<<<<< HEAD
 
 <!-- 	INSERT NEW ROLE Name-->
 	<insert id = "insertNewRoleName" parameterClass="java.lang.String">
@@ -201,19 +200,4 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    (tr_role_privilege_seq.nextval, ms_role_seq.currval, #insertRolePrivId#)
 	</insert>
 
-=======
-	
-	<!-- MENU VIEWW -->
-	<select id = "getMenu" resultClass="com.hris.portal.model.PortalModulBean" parameterClass="java.lang.String">
-		 SELECT
-		    menu_id AS menuIdView,
-		    menu AS menuNameView,
-		    url_menu AS urlView,
-		    icon AS iconView
-		FROM
-		    ms_menu
-		order by
-		    menu_id
-	</select>
->>>>>>> aa79662f441959825cb217bc4d897409f220d45b
 </sqlMap>
