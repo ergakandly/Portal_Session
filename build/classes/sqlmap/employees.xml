@@ -200,4 +200,29 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    (tr_role_privilege_seq.nextval, ms_role_seq.currval, #insertRolePrivId#)
 	</insert>
 
+<!-- 	Delete Role Menu-->
+	<delete id = "deleteRoleMenu" parameterClass="java.lang.String">
+		DELETE FROM
+		    tr_role_menu
+		WHERE
+		    role_id = #roleId#
+	</delete>
+	
+<!-- 	Delete Role Priv-->
+	<delete id = "deleteRolePriv" parameterClass="java.lang.String">
+		DELETE FROM
+		    tr_role_privilege
+		WHERE
+		    role_id = #roleId#
+	</delete>
+	
+<!-- 	Delete Role User-->
+	<delete id = "deleteRoleUser" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_role
+		WHERE
+		    role_id = #roleId#
+	</delete>
+
+
 </sqlMap>

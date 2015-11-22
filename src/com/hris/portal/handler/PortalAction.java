@@ -43,12 +43,64 @@ public class PortalAction extends Action {
 				System.out.println("SALAAAAHHH");
 			}
 		}
+		else if ("deleteRole".equalsIgnoreCase(hForm.getTask())){	
+			System.out.println("Tasknya : " + hForm.getTask());
+			System.out.println("ROLE_ID = "+hForm.getId());
+			
+			manager.deleteRole(hForm.getId());
+			
+			if(hForm.getAddRoleName()!=null){
+				manager.insertNewRoleName(hForm.getAddRoleName());
+				System.out.println("Add Role Name: "+hForm.getAddRoleName());
+			}
+			
+			if(hForm.getSelectedNewMenu()!=null){
+				for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
+					manager.insertNewRoleMenu(hForm.getSelectedNewMenu()[i]);
+					System.out.println("Selected Menu: "+hForm.getSelectedNewMenu()[i]);
+					if(hForm.getSelectedNewMenu()[i].equals("1")){
+						for(int j=0; j<hForm.getSelectedNewPriv().length; j++){
+							manager.insertNewRolePriv(hForm.getSelectedNewPriv()[j]);
+							System.out.println("Privilege : "+hForm.getSelectedNewPriv()[j]);
+						}
+					}
+				}
+			}
+			
+			hForm.setViewMenu(null);
+			hForm.setViewPriv(null);
+			List<PortalMasterRoleBean> list = null;
+			List<PortalMasterRoleBean> listPriv = null;
+			List menuList = null;
+			List privList = null;
+			
+			hForm.setListPortalMasterRole(manager.getMasterRoleName());
+		
+			for(int i=0; i<hForm.getListPortalMasterRole().size(); i++){	
+				
+				list = (manager.getMenuRoleName(hForm.getListPortalMasterRole().get(i).getRoleId()));
+				listPriv = (manager.getPrivRoleName(hForm.getListPortalMasterRole().get(i).getRoleId()));
+				hForm.getListPortalMasterRole().get(i).setListMasterRoleBean(list);
+				hForm.getListPortalMasterRole().get(i).setListMasterRoleBeanPriv(listPriv);
+				
+			}
+			
+			hForm.setListPortalMasterRole(hForm.getListPortalMasterRole());
+			
+			hForm.setListPortalMasterRoleMenu(manager.getMasterMenuName());
+			hForm.setListPortalMasterRolePriv(manager.getMasterPrivilegeName());
+			
+			hForm.setViewMenu(hForm.getListPortalMasterRoleMenu());
+			hForm.setViewPriv(hForm.getListPortalMasterRolePriv());
+
+			hForm.setAddRoleName(null);
+			
+			return mapping.findForward("masterRole");
+		}
 		
 		else if ("masterRole".equalsIgnoreCase(hForm.getTask())){			
 			System.out.println("Tasknya : " + hForm.getTask());
 
-			
-			
 			if(hForm.getAddRoleName()!=null){
 				manager.insertNewRoleName(hForm.getAddRoleName());
 				System.out.println("Add Role Name: "+hForm.getAddRoleName());

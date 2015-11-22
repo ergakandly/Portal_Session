@@ -121,7 +121,7 @@
 												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 												Edit
 											</button>
-											<button type="button" class="btn btn-danger" onclick="javascript:flyToPage('masterRole');">
+											<button type="button" class="btn btn-danger" onclick="javascript:flyToPage('deleteRole', '<bean:write name="portalMasterRoleList" property="roleId" />');">
 												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 												Delete
 											</button>

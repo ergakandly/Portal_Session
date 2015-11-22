@@ -340,23 +340,45 @@ public class PortalManager {
 		}
 				
 		//INSERT NEW ROLE PRIV
-				public void insertNewRolePriv(String insertRolePrivId){
-					
-					try {
-						ibatis.startTransaction();
-						ibatis.insert("employees.insertNewRolePriv", insertRolePrivId);
-						ibatis.commitTransaction();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} finally{
-						try {
-							ibatis.endTransaction();
-						} catch (Exception e) {
-							// TODO: handle exception
-							e.printStackTrace();
-						}
-					}
-				}		
+		public void insertNewRolePriv(String insertRolePrivId){
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.insert("employees.insertNewRolePriv", insertRolePrivId);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}		
+		
+		//Delete Role
+		public void deleteRole(String roleId){
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.delete("employees.deleteRoleMenu", roleId);
+				ibatis.delete("employees.deleteRolePriv", roleId);
+				ibatis.delete("employees.deleteRoleUser", roleId);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}	
 		
 }
