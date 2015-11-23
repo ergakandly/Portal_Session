@@ -9,15 +9,15 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		SELECT
 			e.employee_id AS employeeId,
 			e.employee_name AS employeeName,
-			d.department_name AS departmentName,
-			l.location_name AS locationName,
+			d.department AS departmentName,
+			l.location AS locationName,
    	 		u.employee_id AS userEmployeeId
 		FROM
 			ms_employee e
 			left outer join ms_department d 
             on d.department_id = e.department_id
             left outer join ms_location l 
-            on l.location_id = d.location_id
+            on l.location_id = e.location_id
             left outer join ms_user u
     		on u.employee_id = e.employee_id
 		WHERE 1=1
@@ -38,33 +38,34 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	</select>
 
 	<select id = "getDepartmentName" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
+<!-- 		SELECT -->
+<!-- 			d.department_id AS departmentId, -->
+<!-- 		    d.department || ' - ' || l.location AS msDepartmentName, -->
+<!-- 		    d.location_id AS locationId -->
+<!-- 		FROM -->
+<!-- 		    ms_department d -->
+<!-- 		    join ms_location l -->
+<!-- 		    on l.location_id = d.location_id -->
+<!-- 		order by -->
+<!-- 		    department_id -->
+
 		SELECT
-			d.department_id AS departmentId,
-		    d.department_name || ' - ' || l.location_name AS msDepartmentName,
-		    d.location_id AS locationId
+		    department_id AS departmentId,
+		    department AS msDepartmentName
 		FROM
-		    ms_department d
-		    join ms_location l
-		    on l.location_id = d.location_id
+		    ms_department
 		order by
 		    department_id
 	</select>
 	
 	<select id = "getOneEmp" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
-<!-- 		SELECT -->
-<!-- 			employee_id AS employeeId, -->
-<!-- 			employee_name AS employeeName -->
-<!-- 		FROM -->
-<!-- 			ms_employee -->
-<!-- 		WHERE  -->
-<!-- 			employee_id = #empId# -->
 		
 		SELECT
 <!-- 		    e.employee_id AS employeeId, -->
 			e.employee_name AS deptEmployeeName,
 		    e.department_id AS departmentId,
-		    d.department_name AS msDepartmentName,
-		    d.location_id AS locationId
+		    d.department AS msDepartmentName,
+		    e.location_id AS locationId
 		FROM
 		    ms_employee e
 		    join ms_department d
@@ -188,7 +189,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		INSERT INTO
 		    ms_role
 		VALUES
-		    (ms_role_seq.nextval, #addRoleName#, '',sysdate,'','')
+		    (ms_role_seq.nextval, #addRoleName#, '','', sysdate,'','')
 	</insert>
 
 <!-- 	INSERT NEW ROLE TR_MENU-->
@@ -196,7 +197,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		INSERT INTO
 		    tr_role_menu
 		VALUES
-		    (tr_role_menu_seq.nextval, ms_role_seq.currval, #insertRoleMenuId#)
+		    (tr_role_menu_seq.nextval, ms_role_seq.currval, #insertRoleMenuId#, '', 1, sysdate, '', '')
 	</insert>
 	
 <!-- 	INSERT NEW ROLE -->
@@ -204,7 +205,32 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		INSERT INTO
 		    tr_role_privilege
 		VALUES
-		    (tr_role_privilege_seq.nextval, ms_role_seq.currval, #insertRolePrivId#)
+		    (tr_role_privilege_seq.nextval, ms_role_seq.currval, #insertRolePrivId#, '', 1, sysdate, '', '')
 	</insert>
+
+<!-- 	Delete Role Menu-->
+	<delete id = "deleteRoleMenu" parameterClass="java.lang.String">
+		DELETE FROM
+		    tr_role_menu
+		WHERE
+		    role_id = #roleId#
+	</delete>
+	
+<!-- 	Delete Role Priv-->
+	<delete id = "deleteRolePriv" parameterClass="java.lang.String">
+		DELETE FROM
+		    tr_role_privilege
+		WHERE
+		    role_id = #roleId#
+	</delete>
+	
+<!-- 	Delete Role User-->
+	<delete id = "deleteRoleUser" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_role
+		WHERE
+		    role_id = #roleId#
+	</delete>
+
 
 </sqlMap>
