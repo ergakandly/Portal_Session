@@ -12,7 +12,7 @@
 	<!-- LOGO -->
 	<div class="navbar-header">
 		<a class="navbar-brand" href="#"> <img alt="Brand"
-			src="asset/img/logo-normal.png">
+			src="asset/img/logo-hover.png">
 		</a>
 	</div>
 	<!-- END LOGO -->
@@ -124,15 +124,15 @@
 							<table align="center" class="table table-nonfluid table-hover ">
 								<tr>
 									<td class="kanan fontBold">Old Password:</td>
-									<td><input type="password"></td>
+									<td><input type="password" class="form-control"></td>
 								</tr>
 								<tr>
 									<td class="kanan fontBold">New Password :</td>
-									<td><input type="password"></td>
+									<td><input type="password" class="form-control"></td>
 								</tr>
 								<tr>
 									<td class="kanan fontBold">Retype New Password :</td>
-									<td><input type="password"></td>
+									<td><input type="password" class="form-control"></td>
 								</tr>
 							</table>
 						</div>
