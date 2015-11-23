@@ -9,40 +9,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@include file="PartBootstrap.jsp"%>
-<link rel="stylesheet" type="text/css" href="sidebar3.css">
 
 <title>Master Role</title>
-
-
 </head>
-
-<script type="text/javascript">
+<script language="JavaScript">
 	function flyToPage(task, id) {
 		alert(document.forms[0].addRoleName.value);
-		
+
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].submit();
 	}
-</script>
 
-<script language="JavaScript">
-	function doSubmit(){
+	function doSubmit() {
 		var frm = document.forms[0];
-		if (!validateForm(frm)){
+		if (!validateForm(frm)) {
 			return;
 		}
 		frm.submit();
 	}
+
+	function addModal() {
+		document.forms[0].elements["PortalForm.description"].value = "";
+		document.forms[0].elements["PortalForm.date"].value = "";
+		document.forms[0].task.value = "saveAddNationalHoliday";
+	}
+
+	function editModal(desc, date, specialDateId) {
+		document.forms[0].task.value = "editNationalHoliday";
+		document.forms[0].elements["PortalForm.description"].value = desc;
+		document.forms[0].elements["PortalForm.date"].value = date;
+		document.forms[0].specialDateId.value = specialDateId;
+	}
+
+	function onModalClose() {
+		document.forms[0].elements["PortalForm.description"].value = "";
+		document.forms[0].elements["PortalForm.date"].value = "";
+	}
 </script>
 
 <body>
-	
+
 	<%@include file="PartNavbar.jsp"%>
 	<html:form method="post" action="/portal">
-	<html:hidden name="PortalForm" property="task" />
-	<html:hidden name="PortalForm" property="id" />
-	
+
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -62,159 +72,182 @@
 				</div>
 
 				<!-- KOLOM MD 8-->
-				<div class="col-md-6 col-md-offset-3 div-center">
+				<div class="col-md-8 col-md-offset-2">
 					<center>
-						<button type="button" class="btn btn-primary" data-toggle="modal"
+						<button type="button" onclick="javascript:addModal();" id="addBtn"
+							class="btn btn-primary" data-toggle="modal"
 							data-target="#modalAddRole" data-backdrop="static">
 							<span class="glyphicon glyphicon-plus"></span> Add New Role
-
 						</button>
-						<br /> <br />
-						<table align="center"
-							class="table table-nonfluid table-striped table-bordered table-hover"
-							width="70%">
+					</center>
+					<br /> <br />
+					<table class="table table-striped table-hover table-condensed">
+						<thead>
 							<tr>
 								<th>Role Name</th>
 								<th>Access Menu</th>
-								<th>Access Privileges for Employee Modul</th>
-								<th>Action Button</th>
+								<th class="tengah">Access Privileges for Employee Modul</th>
+								<th class="tengah">Action Button</th>
 							</tr>
-							<logic:notEmpty name="PortalForm" property="listPortalMasterRole">
-								<logic:iterate id="portalMasterRoleList" name="PortalForm" property="listPortalMasterRole">
-									<tr>
-									
-										<!-- ROLE NAME -->
-										<td align="center"><bean:write name="portalMasterRoleList" property="roleName" /></td>
-										
-										<!-- MENU -->
-										<td align="center">
-<!-- 											<div class="checkbox">  -->
-<!-- 												<label>  -->
-													<logic:notEmpty name="portalMasterRoleList" property="listMasterRoleBean">
-														<logic:iterate id="role" name="portalMasterRoleList" property="listMasterRoleBean">
-															<bean:write name="role" property="menuName" /><br />
-														</logic:iterate>
-													</logic:notEmpty>
-<!-- 												</label> -->
-<!-- 											</div> -->
-										</td>
-										
-										
- 										<!-- PRIVILAGES -->
-										<td align="center">
-<!-- 											<div class="checkbox"> -->
-<!-- 												<label>  -->
-													<logic:notEmpty name="portalMasterRoleList" property="listMasterRoleBeanPriv">
-														<logic:iterate id="priv" name="portalMasterRoleList" property="listMasterRoleBeanPriv">
-															<logic:empty name="priv" property="privilegeName" >
-															<p><br /> - </p>
-															</logic:empty>
-															<bean:write name="priv" property="privilegeName" /><br />
-														</logic:iterate>
-													</logic:notEmpty>
-<!-- 												</label> -->
-<!-- 											</div> -->
-										</td>
-										
-										<td align="center">
-											<button type="button" class="btn btn-info">
-												<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-												Edit
-											</button>
-											<button type="button" class="btn btn-danger" onclick="javascript:flyToPage('deleteRole', '<bean:write name="portalMasterRoleList" property="roleId" />');">
-												<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-												Delete
-											</button>
-										</td>
-										
-									</tr>
-								</logic:iterate>
-							</logic:notEmpty>
-						</table>
-					</center>
+						</thead>
+						<logic:notEmpty name="PortalForm" property="listPortalMasterRole">
+							<logic:iterate id="portalMasterRoleList" name="PortalForm"
+								property="listPortalMasterRole">
+								<tr>
+
+									<!-- ROLE NAME -->
+									<td><bean:write name="portalMasterRoleList"
+											property="roleName" /></td>
+
+									<!-- MENU -->
+									<td><logic:notEmpty name="portalMasterRoleList"
+											property="listMasterRoleBean">
+											<logic:iterate id="role" name="portalMasterRoleList"
+												property="listMasterRoleBean">
+												<bean:write name="role" property="menuName" />
+												<br />
+											</logic:iterate>
+										</logic:notEmpty></td>
+
+
+									<!-- PRIVILAGES -->
+									<td class="tengah"><logic:notEmpty
+											name="portalMasterRoleList" property="listMasterRoleBeanPriv">
+											<logic:iterate id="priv" name="portalMasterRoleList"
+												property="listMasterRoleBeanPriv">
+												<logic:empty name="priv" property="privilegeName">
+													<p>
+														<br /> -
+													</p>
+												</logic:empty>
+												<bean:write name="priv" property="privilegeName" />
+												<br />
+											</logic:iterate>
+										</logic:notEmpty></td>
+
+									<td class="tengah">
+										<button type="button" onclick="javascript:editModal();"
+											id="editBtn" class="btn btn-info" data-toggle="modal"
+											data-target="#modalAddRole" data-backdrop="static">
+											<i class="fa fa-pencil"></i> Edit 
+										</button>
+
+										<button type="button" class="btn btn-danger"
+											onclick="javascript:flyToPage('deleteRole', '<bean:write name="portalMasterRoleList" property="roleId" />');">
+											<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+											Delete
+										</button>
+									</td>
+
+								</tr>
+							</logic:iterate>
+						</logic:notEmpty>
+					</table>
 				</div>
 			</div>
 		</div>
 
+		<!-- MODAL -->
+		<div class="modal fade" id="modalAddRole" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 id="modalLabel"></h4>
+					</div>
+					<div class="modal-body ">
+						<html:hidden name="PortalForm" property="task" />
+						<html:hidden name="PortalForm" property="id" />
+						<table align="center">
+							<tr>
+								<td class="kanan">Role Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="addRoleName" size="57" /></td>
+							</tr>
+						</table>
+						<br />
 
-	<!-- MODAL -->
-	<div class="modal fade" id="modalAddRole" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Add New Role</h4>
-				</div>
-				<div class="modal-body ">
-					<table>
-						<tr>
-							<td class="kanan">Role Name :</td>
-							<td><html:text styleClass="form-control" name="PortalForm" property="addRoleName" size="57"/></td>
-						</tr>
-					</table>
+						<table align="center"
+							class="table table-hover table-condensed table-bordered">
+							<thead>
+								<tr>
+									<td style="vertical-align: middle;" rowspan="2" class="tengah">Access
+										Menu</td>
+									<td colspan="4" class="tengah">Access Privilages</td>
+								</tr>
+								<tr>
+									<td class="tengah">List</td>
+									<td class="tengah">Add</td>
+									<td class="tengah">Edit</td>
+									<td class="tengah">Disable</td>
+								</tr>
+							</thead>
 
-					<table
-						class="table table-nonfluid table-striped table-bordered table-hover">
-						<tr>
-							<td rowspan="2">Access Menu</td>
-							<td colspan="4">Access Privilages</td>
-						</tr>
-						<tr>						
-							<td>List</td>
-							<td>Add</td>
-							<td>Edit</td>
-							<td>Disable</td>
-						</tr>
-						
-						<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
-<%-- 							<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu"> --%>
-																	
-									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="viewMenu">
+							<tbody>
+								<logic:notEmpty name="PortalForm"
+									property="listPortalMasterRoleMenu">
+									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm"
+										property="viewMenu">
 										<tr>
-											<td>
-												<html:multibox name="PortalForm" property="selectedNewMenu">
-													<bean:write name="portalMasterRoleMenuList" property="menuIdView"/>
-												</html:multibox>
-												<bean:write name="portalMasterRoleMenuList" property="menuNameView"/><br />
-											</td>
-									
-											<logic:notEmpty name="PortalForm" property="listPortalMasterRolePriv">
-												<logic:iterate id="portalMasterRolePrivList" name="PortalForm" property="listPortalMasterRolePriv">
-													<logic:equal name="portalMasterRoleMenuList" property="menuNameView" value="Employee">
-														<td>
-															<html:multibox name="PortalForm" property="selectedNewPriv">
-																<bean:write name="portalMasterRolePrivList" property="privilegeIdView"/>
-															</html:multibox>
-														</td>
-														
+											<td><html:multibox name="PortalForm"
+													property="selectedNewMenu">
+													<bean:write name="portalMasterRoleMenuList"
+														property="menuIdView" />
+												</html:multibox> <bean:write name="portalMasterRoleMenuList"
+													property="menuNameView" /><br /></td>
+
+											<logic:notEmpty name="PortalForm"
+												property="listPortalMasterRolePriv">
+												<logic:iterate id="portalMasterRolePrivList"
+													name="PortalForm" property="listPortalMasterRolePriv">
+													<logic:equal name="portalMasterRoleMenuList"
+														property="menuNameView" value="Employee">
+														<td class="tengah"><html:multibox name="PortalForm"
+																property="selectedNewPriv">
+																<bean:write name="portalMasterRolePrivList"
+																	property="privilegeIdView" />
+															</html:multibox></td>
+
 													</logic:equal>
 												</logic:iterate>
 											</logic:notEmpty>
-										
-										</tr>
-<%-- 								</logic:iterate> --%>
-							</logic:iterate>
-						</logic:notEmpty>
 
-					</table>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary"
-						onclick="javascript:flyToPage('masterRole');">Submit</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+										</tr>
+									</logic:iterate>
+								</logic:notEmpty>
+							</tbody>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterRole');">
+							<i class="fa fa-check"></i> Submit
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close"></i> Close
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</html:form>
 	<!-- MODAL -->
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
-		
+	<script>
+		$(function() {
+			$('#addBtn').click(function() {
+				$("#modalLabel").html("Add New Role");
+			});
+			$('#editBtn').click(function() {
+				$("#modalLabel").html("Edit Role");
+			});
+		});
+	</script>
 </body>
 
 </html>
