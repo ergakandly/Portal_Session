@@ -130,7 +130,7 @@
 						<tr>
 							<td class="kanan">Icon :</td>
 							<td>
-							<button styleClass="btn btn-default" data-iconset="glyphicon"
+							<button class="btn btn-default" data-iconset="glyphicon"
 								data-icon="glyphicon-camera" role="iconpicker" name="portalModulBean.icon"></button> 
 <!-- 								<button class="btn btn-default" data-iconset="glyphicon" -->
 <!-- 									data-icon="glyphicon-camera" role="iconpicker" ></button> -->
