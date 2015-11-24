@@ -9,6 +9,7 @@ import com.hris.portal.ibatis.IbatisHelper;
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalDepartmentBean;
 import com.hris.portal.model.PortalMasterRoleBean;
+import com.hris.portal.model.PortalModulBean;
 import com.hris.portal.model.PortalUserBean;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -380,5 +381,59 @@ public class PortalManager {
 				}
 			}
 		}	
+		
+		//MASTER MODUL
+		public List<PortalModulBean> getMasterModul(){
+			List<PortalModulBean> list =  null;
+			
+			try {
+				ibatis.startTransaction();
+				list = ibatis.queryForList("employees.getMasterModul", "");
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		
+			return list;
+		}
+		
+		//INSERT NEW MODUL
+		public void insertNewModul(String menuName, String urlMenu, String icon){
+			
+			icon = "glyphicon "+icon;
+			
+			Map map = new HashMap();
+			map.put("menuName", menuName);
+			map.put("urlMenu", urlMenu);
+			map.put("icon", icon);
+
+			System.out.println("MenuName= "+menuName);
+			System.out.println("URLMenu= "+urlMenu);
+			System.out.println("Icon= "+icon);
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.insert("employees.insertNewModul", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}		
 		
 }

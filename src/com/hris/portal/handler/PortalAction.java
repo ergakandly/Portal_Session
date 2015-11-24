@@ -49,24 +49,6 @@ public class PortalAction extends Action {
 			
 			manager.deleteRole(hForm.getId());
 			
-			if(hForm.getAddRoleName()!=null){
-				manager.insertNewRoleName(hForm.getAddRoleName());
-				System.out.println("Add Role Name: "+hForm.getAddRoleName());
-			}
-			
-			if(hForm.getSelectedNewMenu()!=null){
-				for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
-					manager.insertNewRoleMenu(hForm.getSelectedNewMenu()[i]);
-					System.out.println("Selected Menu: "+hForm.getSelectedNewMenu()[i]);
-					if(hForm.getSelectedNewMenu()[i].equals("1")){
-						for(int j=0; j<hForm.getSelectedNewPriv().length; j++){
-							manager.insertNewRolePriv(hForm.getSelectedNewPriv()[j]);
-							System.out.println("Privilege : "+hForm.getSelectedNewPriv()[j]);
-						}
-					}
-				}
-			}
-			
 			hForm.setViewMenu(null);
 			hForm.setViewPriv(null);
 			List<PortalMasterRoleBean> list = null;
@@ -157,11 +139,6 @@ public class PortalAction extends Action {
 		}else if ("addEditRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("addEditRole");
-		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
-			System.out.println("Tasknya : " + hForm.getTask());
-			
-			
-			return mapping.findForward("masterModul");
 		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setListPortal(manager.getRoleList());
@@ -224,6 +201,28 @@ public class PortalAction extends Action {
 		}else if ("addEditAssignRole".equalsIgnoreCase(hForm.getTask())){
 			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");
+		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setListPortalModulBean(manager.getMasterModul());
+			for(int i=0; i<hForm.getListPortalModulBean().size(); i++){
+				System.out.println("Modul ID "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuIdModul());
+				System.out.println("Modul Name "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuName());
+				System.out.println("Modul Icon "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getIcon());
+			}
+			return mapping.findForward("masterModul");
+		}else if ("addNewModule".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+//			System.out.println("Nama URL " + hForm.getPortalModulBean().getUrlMenu());
+//			System.out.println("Nama MenuName " + hForm.getPortalModulBean().getMenuName());
+//			System.out.println("Nama Icon " + hForm.getPortalModulBean().getIcon());
+			manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
+			hForm.setListPortalModulBean(manager.getMasterModul());
+			for(int i=0; i<hForm.getListPortalModulBean().size(); i++){
+				System.out.println("Modul ID "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuIdModul());
+				System.out.println("Modul Name "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuName());
+				System.out.println("Modul Icon "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getIcon());
+			}
+			return mapping.findForward("masterModul");
 		}
 		
 		return mapping.findForward("success");

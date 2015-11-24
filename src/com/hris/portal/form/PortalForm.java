@@ -7,14 +7,18 @@ import org.apache.struts.util.LabelValueBean;
 
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalDepartmentBean;
+import com.hris.portal.model.PortalModulBean;
 import com.hris.portal.model.PortalUserBean;
 import com.hris.portal.model.PortalMasterRoleBean;
 
 public class PortalForm extends ActionForm{
+	
 	private List<PortalBean> listPortal;
 	private PortalBean portalBean = new PortalBean();
+	
 	private List<PortalDepartmentBean> listPortalDepartment;
 	private PortalDepartmentBean portalDepartmentBean = new PortalDepartmentBean();
+	
 	private List<PortalUserBean> listUserDepartment;
 	private PortalUserBean portalUserBean = new PortalUserBean();
 	
@@ -25,7 +29,10 @@ public class PortalForm extends ActionForm{
 	private PortalMasterRoleBean PortalMasterRoleMenu = new PortalMasterRoleBean();
 	
 	private List<PortalMasterRoleBean> listPortalMasterRolePriv;
-	private PortalMasterRoleBean PortalMasterRolePriv = new PortalMasterRoleBean();
+	private PortalMasterRoleBean PortalMasterRolePriv = new PortalMasterRoleBean();	
+	
+	private List<PortalModulBean> listPortalModulBean;
+	private PortalModulBean portalModulBean = new PortalModulBean();
 	
 	private String task;
 	private String id;
@@ -182,6 +189,18 @@ public class PortalForm extends ActionForm{
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	public List<PortalModulBean> getListPortalModulBean() {
+		return listPortalModulBean;
+	}
+	public void setListPortalModulBean(List<PortalModulBean> listPortalModulBean) {
+		this.listPortalModulBean = listPortalModulBean;
+	}
+	public PortalModulBean getPortalModulBean() {
+		return portalModulBean;
+	}
+	public void setPortalModulBean(PortalModulBean portalModulBean) {
+		this.portalModulBean = portalModulBean;
 	}
 
 	

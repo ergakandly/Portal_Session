@@ -14,7 +14,7 @@
 </head>
 <script language="JavaScript">
 	function flyToPage(task, id) {
-		alert(document.forms[0].addRoleName.value);
+// 		alert(document.forms[0].addRoleName.value);
 
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
@@ -29,23 +29,6 @@
 		frm.submit();
 	}
 
-	function addModal() {
-		document.forms[0].elements["PortalForm.description"].value = "";
-		document.forms[0].elements["PortalForm.date"].value = "";
-		document.forms[0].task.value = "saveAddNationalHoliday";
-	}
-
-	function editModal(desc, date, specialDateId) {
-		document.forms[0].task.value = "editNationalHoliday";
-		document.forms[0].elements["PortalForm.description"].value = desc;
-		document.forms[0].elements["PortalForm.date"].value = date;
-		document.forms[0].specialDateId.value = specialDateId;
-	}
-
-	function onModalClose() {
-		document.forms[0].elements["PortalForm.description"].value = "";
-		document.forms[0].elements["PortalForm.date"].value = "";
-	}
 </script>
 
 <body>

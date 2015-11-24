@@ -137,8 +137,7 @@
 									<tr align="center">
 										<%-- <td><bean:write name="portalList" property="employeeId" /></td> --%>
 										<td><bean:write name="portalList" property="employeeName" /></td>
-										<td><bean:write name="portalList"
-												property="departmentName" /></td>
+										<td><bean:write name="portalList" property="departmentName" /></td>
 										<td><bean:write name="portalList" property="locationName" /></td>
 										<td><logic:empty name="portalList"
 												property="userEmployeeId">

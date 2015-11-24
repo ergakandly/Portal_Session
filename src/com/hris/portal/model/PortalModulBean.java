@@ -9,24 +9,38 @@ public class PortalModulBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String menu;
-	private String url_menu;
+	private String menuIdModul;
+	private String menuName;
+	private String urlMenu;
 	private String icon;
 
-	public String getMenu() {
-		return menu;
+
+	public String getMenuIdModul() {
+		return menuIdModul;
 	}
 
-	public void setMenu(String menu) {
-		this.menu = menu;
+	public void setMenuIdModul(String menuIdModul) {
+		this.menuIdModul = menuIdModul;
 	}
 
-	public String getUrl_menu() {
-		return url_menu;
+	public String getMenuName() {
+		return menuName;
 	}
 
-	public void setUrl_menu(String url_menu) {
-		this.url_menu = url_menu;
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+
+	public String getUrlMenu() {
+		return urlMenu;
+	}
+
+	public void setUrlMenu(String urlMenu) {
+		this.urlMenu = urlMenu;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getIcon() {

@@ -166,7 +166,9 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<select id = "getMasterMenuName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
 		    menu_id AS menuIdView,
-		    menu AS menuNameView
+		    menu AS menuNameView,
+		    url_menu AS urlMenuView,
+		    icon AS icon
 		FROM
 		    ms_menu
 		order by
@@ -208,7 +210,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    (tr_role_privilege_seq.nextval, ms_role_seq.currval, #insertRolePrivId#, '', 1, sysdate, '', '')
 	</insert>
 
-<!-- 	Delete Role Menu-->
+<!-- 	DELETE ROLE MENU-->
 	<delete id = "deleteRoleMenu" parameterClass="java.lang.String">
 		DELETE FROM
 		    tr_role_menu
@@ -216,7 +218,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    role_id = #roleId#
 	</delete>
 	
-<!-- 	Delete Role Priv-->
+<!-- 	DELETE ROLE PRIV-->
 	<delete id = "deleteRolePriv" parameterClass="java.lang.String">
 		DELETE FROM
 		    tr_role_privilege
@@ -224,13 +226,33 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    role_id = #roleId#
 	</delete>
 	
-<!-- 	Delete Role User-->
+<!-- 	DELETE ROLE USER-->
 	<delete id = "deleteRoleUser" parameterClass="java.lang.String">
 		DELETE FROM
 		    ms_role
 		WHERE
 		    role_id = #roleId#
 	</delete>
+	
+<!-- 	MODUL VIEW -->
+	<select id = "getMasterModul" resultClass="com.hris.portal.model.PortalModulBean" parameterClass="java.lang.String">
+		SELECT
+		    menu_id AS menuIdModul,
+		    menu AS menuName,
+		    url_menu AS urlMenu,
+		    icon AS icon
+		FROM
+		    ms_menu
+		order by
+		    menu_id
+	</select>
 
-
+<!-- 	INSERT NEW MODUL -->
+	<insert id = "insertNewModul" parameterClass="java.lang.String">
+		INSERT INTO
+		    ms_menu
+		VALUES
+		    (ms_menu_seq.nextval, #menuName#, #urlMenu#, #icon#, 1, sysdate, '', '')
+	</insert>
+	
 </sqlMap>
