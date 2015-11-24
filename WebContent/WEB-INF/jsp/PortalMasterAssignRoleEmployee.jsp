@@ -8,10 +8,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <%@include file="PartBootstrap.jsp"%>
 
-<title>New Assign Role</title>
+<title>Assign Role</title>
 </head>
 
 <script type="text/javascript">
@@ -55,135 +54,116 @@
 					<!-- END ROW 12 -->
 					<br />
 					<!-- ROW MD6 OFFSET3 -->
-<!-- 					6 col-md-offset-3 -->
-
 					<div class="col-md-6 col-md-offset-3">
+						<!-- 						PANEL MANUAL SEARCH -->
+						<!-- 						<div class="panel panel-info"> -->
+						<!-- 							<div class="panel-heading"> -->
+						<!-- 								<h5 class="panel-title"> -->
+						<!-- 									<i class="fa fa-search"></i> Search Option -->
+						<!-- 								</h5> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="panel-body"> -->
+						<!-- 								<table -->
+						<!-- 									class="table table-borderless table-condensed table-nonfluid"> -->
+						<!-- 									<tr> -->
+						<!-- 										<td class="fontBold paddingg">Employee Name :</td> -->
+						<%-- 										<td><html:text styleClass="form-control" --%>
+						<%-- 												name="PortalForm" property="searchName" size="57" /></td> --%>
+						<!-- 									</tr> -->
+						<!-- 								</table> -->
 
-						<!-- PANEL SEARCH -->
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h5 class="panel-title">
-									<i class="fa fa-search"></i> Search Option
-								</h5>
-							</div>
-							<div class="panel-body">
-								<table
-									class="table table-borderless table-condensed table-nonfluid">
-									<tr>
-										<td class="fontBold paddingg">Employee Name :</td>
-										<td><html:text styleClass="form-control" name="PortalForm" property="searchName" size="57" /></td>
-									</tr>
-								</table>
-
-								<!-- ADVANCED SEARCH -->
-								<div class="panel-group" id="accordion">
-									<div class="panel panel-primary">
-										<div class="panel-heading nopadding">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse"> <span
-													class="glyphicon glyphicon-search"></span> Advanced Search
-												</a>
-											</h4>
-										</div>
-										<div id="collapse" class="panel-collapse collapse">
-											<table class="table table-condensed table-nonfluid">
-												<tr>
-													<td class="fontBold">Location :</td>
-													<td><logic:notEmpty name="PortalForm"
-															property="listPortalDepartment">
-															<html:select styleClass="form-control" name="PortalForm"
-																property="portalDepartmentBean.departmentId">
-																<option value="">ALL</option>
-																<logic:iterate id="portalDepartmentList"
-																	name="PortalForm" property="listPortalDepartment">
-																	<option value="<bean:write name="portalDepartmentList" property="departmentId"/>">
-																		<bean:write name="portalDepartmentList"	property="msDepartmentName" />
-																		<%--<html:hidden name="portalDepartmentList" property="departmentId"/> --%>
-																	</option>
-																</logic:iterate>
-															</html:select>
-														</logic:notEmpty>
-													</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</div>
-								<!-- END ADVANCED SEARCH -->
-							</div>
-							<!-- END PANEL BODY -->
-
-							<div class="panel-footer tengah">
-								<button type="button" class="btn btn-primary"
-									onclick="javascript:flyToPage('search');">
-									<i class="fa fa-search"></i> Search
-								</button>
-							</div>
-						</div>
-						<!-- END ANEL -->
-					
-						<table class="table table-striped table-bordered table-hover">
-							<tr>
-								<!-- <th>Employee ID</th> -->
-								<th>Employee Name</th>
-								<th>Department Name</th>
-								<th>Location Name</th>
-								<th>Activated</th>
-							</tr>
-							<logic:notEmpty name="PortalForm" property="listPortal">
-								<logic:iterate id="portalList" name="PortalForm"
-									property="listPortal">
-									<tr align="center">
-										<%-- <td><bean:write name="portalList" property="employeeId" /></td> --%>
-										<td><bean:write name="portalList" property="employeeName" /></td>
-										<td><bean:write name="portalList" property="departmentName" /></td>
-										<td><bean:write name="portalList" property="locationName" /></td>
-										<td><logic:empty name="portalList"
-												property="userEmployeeId">
-												<button type="button" class="btn btn-primary"
-													onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
-													<span class="glyphicon glyphicon-ok"></span>
-												</button>
-											</logic:empty> <logic:notEmpty name="portalList" property="userEmployeeId">
-												<button type="button" class="btn btn-primary"
-													onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');"
-													disabled="true">
-													<span class="glyphicon glyphicon-ok"></span>
-												</button>
-											</logic:notEmpty></td>
-									</tr>
-								</logic:iterate>
-							</logic:notEmpty>
-						</table>
-
-						<!-- MODAL -->
-						<!-- 						<div class="modal fade" id="modalNotification" tabindex="-1" role="dialog" -->
-						<!-- 							aria-labelledby="myModalLabel"> -->
-						<!-- 							<div class="modal-dialog" role="document"> -->
-						<!-- 								<div class="modal-content"> -->
-						<!-- 									<div class="modal-header"> -->
-						<!-- 										<button type="button" class="close" data-dismiss="modal" -->
-						<!-- 											aria-label="Close"> -->
-						<!-- 											<span aria-hidden="true">&times;</span> -->
-						<!-- 										</button> -->
-						<!-- 										<h4 class="modal-title" id="myModalLabel">Notification</h4> -->
-						<!-- 									</div> -->
-						<!-- 									<div class="modal-body "> -->
-
-						<!-- 										Are you sure? -->
-						<!-- 									</div> -->
-						<!-- 									<div class="modal-footer"> -->
-						<!-- 										<button type="button" class="btn btn-primary">Save -->
-						<!-- 											changes</button> -->
-						<!-- 										<button type="button" class="btn btn-default" -->
-						<!-- 											data-dismiss="modal">Close</button> -->
+						<!-- 								ADVANCED SEARCH -->
+						<!-- 								<div class="panel-group" id="accordion"> -->
+						<!-- 									<div class="panel panel-primary"> -->
+						<!-- 										<div class="panel-heading nopadding"> -->
+						<!-- 											<h4 class="panel-title"> -->
+						<!-- 												<a data-toggle="collapse" data-parent="#accordion" -->
+						<!-- 													href="#collapse"> <span -->
+						<!-- 													class="glyphicon glyphicon-search"></span> Advanced Search -->
+						<!-- 												</a> -->
+						<!-- 											</h4> -->
+						<!-- 										</div> -->
+						<!-- 										<div id="collapse" class="panel-collapse collapse"> -->
+						<!-- 											<table class="table table-condensed table-nonfluid"> -->
+						<!-- 												<tr> -->
+						<!-- 													<td class="fontBold">Location :</td> -->
+						<%-- 													<td><logic:notEmpty name="PortalForm" --%>
+						<%-- 															property="listPortalDepartment"> --%>
+						<%-- 															<html:select styleClass="form-control" name="PortalForm" --%>
+						<%-- 																property="portalDepartmentBean.departmentId"> --%>
+						<!-- 																<option value="">ALL</option> -->
+						<%-- 																<logic:iterate id="portalDepartmentList" --%>
+						<%-- 																	name="PortalForm" property="listPortalDepartment"> --%>
+						<!-- 																	<option -->
+						<%-- 																		value="<bean:write name="portalDepartmentList" property="departmentId"/>"> --%>
+						<%-- 																		<bean:write name="portalDepartmentList" --%>
+						<%-- 																			property="msDepartmentName" /> --%>
+						<%-- 																		<html:hidden name="portalDepartmentList" property="departmentId"/> --%>
+						<!-- 																	</option> -->
+						<%-- 																</logic:iterate> --%>
+						<%-- 															</html:select> --%>
+						<%-- 														</logic:notEmpty></td> --%>
+						<!-- 												</tr> -->
+						<!-- 											</table> -->
+						<!-- 										</div> -->
 						<!-- 									</div> -->
 						<!-- 								</div> -->
+						<!-- 								END ADVANCED SEARCH -->
+						<!-- 							</div> -->
+						<!-- 							END PANEL BODY -->
+
+						<!-- 							<div class="panel-footer tengah"> -->
+						<!-- 								<button type="button" class="btn btn-primary" -->
+						<!-- 									onclick="javascript:flyToPage('search');"> -->
+						<!-- 									<i class="fa fa-search"></i> Search -->
+						<!-- 								</button> -->
 						<!-- 							</div> -->
 						<!-- 						</div> -->
-						<!-- MODAL -->
+						<!-- 						END MANUAL PANEL -->
 
+						<table
+							class="table table-striped table-hover table-condensed table-bordered"
+							id="sort">
+							<thead>
+								<tr>
+									<th>Employee ID(Jgn ID yg tampil tapi NIKnya)</th>
+									<th>Employee Name</th>
+									<th>Department Name</th>
+									<th>Location Name</th>
+									<th>Activated</th>
+								</tr>
+							</thead>
+							<tbody>
+								<logic:notEmpty name="PortalForm" property="listPortal">
+									<logic:iterate id="portalList" name="PortalForm"
+										property="listPortal">
+
+										<tr>
+											<td><bean:write name="portalList" property="employeeId" /></td>
+											<td><bean:write name="portalList"
+													property="employeeName" /></td>
+											<td><bean:write name="portalList"
+													property="departmentName" /></td>
+											<td><bean:write name="portalList"
+													property="locationName" /></td>
+											<td><logic:empty name="portalList"
+													property="userEmployeeId">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
+														<span class="glyphicon glyphicon-ok"></span>
+													</button>
+												</logic:empty> <logic:notEmpty name="portalList" property="userEmployeeId">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');"
+														disabled="true">
+														<span class="glyphicon glyphicon-ok"></span>
+													</button>
+												</logic:notEmpty></td>
+										</tr>
+									</logic:iterate>
+								</logic:notEmpty>
+							</tbody>
+						</table>
 					</div>
 					<!-- ROW MD6 OFFSET3 -->
 				</div>
@@ -193,7 +173,12 @@
 		</div>
 		<!-- END WRAPPER -->
 	</html:form>
-	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
+	<script>
+		$(document).ready(function() {
+			$('#sort').DataTable();
+		});
+	</script>
 </body>
+
 </html>

@@ -7,28 +7,29 @@
 </head>
 <body>
 	<!-- JQuery -->
-	<script type="text/javascript"
-		src="asset/js/jQuery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="asset/js/jQuery/jquery-2.1.1.min.js"></script>
 
 	<!-- Bootstrap -->
 	<script type="text/javascript" src="asset/js/boots/bootstrap.js"></script>
-
-	<!-- Bootstrap-Iconpicker Iconset for Glyphicon -->
-	<script type="text/javascript"
-		src="asset/js/iconpicker/iconset-glyphicon.js"></script>
-
+	
+	<!-- Jasny -->
+	<script type="text/javascript" src="asset/js/jasny/jasny-bootstrap.js"></script>
+	
 	<!-- Bootstrap-Iconpicker -->
-	<script type="text/javascript"
-		src="asset/js/iconpicker/bootstrap-iconpicker.js"></script>
-	<script type="text/javascript"
-		src="asset/js/iconpicker/iconset-all.min.js"></script>
+	<script type="text/javascript" src="asset/js/iconpicker/iconset-glyphicon.js"></script>
+	<script type="text/javascript" src="asset/js/iconpicker/bootstrap-iconpicker.js"></script>
+	<script type="text/javascript" src="asset/js/iconpicker/iconset-all.min.js"></script>
 
 	<!-- Font Awesome Icon Picker FAIL -->
-	<script type="text/javascript"
-		src="asset/js/iconpicker/iconset-fontawesome-4.2.0.js"></script>
-	<script type="text/javascript"
-		src="asset/js/iconpicker/iconset-fontawesome-4.0.0.js"></script>
-	<script type="text/javascript"
-		src="asset/js/iconpicker/iconset-fontawesome-4.1.0.js"></script>
+	<script type="text/javascript" src="asset/js/iconpicker/iconset-fontawesome-4.2.0.js"></script>
+	<script type="text/javascript" src="asset/js/iconpicker/iconset-fontawesome-4.0.0.js"></script>
+	<script type="text/javascript" src="asset/js/iconpicker/iconset-fontawesome-4.1.0.js"></script>
+		
+	<!-- DATATABLE TABLESORT -->
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+	
+	<!-- KHUSUS -->
+<!-- 	<script type="text/javascript" src="asset/js/jQuery/bootstrap-datepicker.js"></script> -->
 </body>
 </html>
