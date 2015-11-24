@@ -434,6 +434,26 @@ public class PortalManager {
 					e.printStackTrace();
 				}
 			}
-		}		
+		}
+		
+		//Delete Role
+		public void deleteMenu(String menuIdModul){
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.delete("employees.deleteMenu", menuIdModul);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally{
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
 		
 }

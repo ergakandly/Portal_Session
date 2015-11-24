@@ -88,7 +88,7 @@
 												<span class="glyphicon glyphicon-pencil"></span> Edit
 											</button>
 											<button type="button" class="btn btn-danger" data-toggle="modal"
-												data-target="#modalYakin">
+												data-target="#modalYakin" onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
 												<span class="glyphicon glyphicon-remove"></span> Delete
 											</button>
 										</td>
@@ -139,7 +139,7 @@
 					</table>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('addNewModule');">
+					<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('masterModul');">
 						<i class="fa fa-check"></i> Submit
 					</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -164,14 +164,14 @@
 					</button>
 					<h4 class="modal-title" id="myModalLabel">Delete Modul Data</h4>
 				</div>
-				<div class="modal-body ">
+				<div class="modal-body">
 					<div class="alert alert-danger kiri" role="alert">
 						<i class="fa fa-exclamation-triangle"></i> Are you sure want to delete this record?
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
-						onclick="">
+						>
 						<i class="fa fa-check "></i> Yes
 					</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">

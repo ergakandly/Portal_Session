@@ -203,6 +203,10 @@ public class PortalAction extends Action {
 			return mapping.findForward("addEditAssignRole");
 		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			if (hForm.getPortalModulBean().getMenuName()!=null){
+				System.out.println("Ditambahkan: ");
+				manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
+			}
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			for(int i=0; i<hForm.getListPortalModulBean().size(); i++){
 				System.out.println("Modul ID "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuIdModul());
@@ -210,13 +214,14 @@ public class PortalAction extends Action {
 				System.out.println("Modul Icon "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getIcon());
 			}
 			return mapping.findForward("masterModul");
-		}else if ("addNewModule".equalsIgnoreCase(hForm.getTask())){
+		}else if ("deleteModul".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
-//			System.out.println("Nama URL " + hForm.getPortalModulBean().getUrlMenu());
-//			System.out.println("Nama MenuName " + hForm.getPortalModulBean().getMenuName());
-//			System.out.println("Nama Icon " + hForm.getPortalModulBean().getIcon());
-			manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
+			System.out.println("ROLE_ID = " + hForm.getId());
+			
+			manager.deleteMenu(hForm.getId());
+			
 			hForm.setListPortalModulBean(manager.getMasterModul());
+			
 			for(int i=0; i<hForm.getListPortalModulBean().size(); i++){
 				System.out.println("Modul ID "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuIdModul());
 				System.out.println("Modul Name "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuName());

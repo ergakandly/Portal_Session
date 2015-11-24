@@ -255,4 +255,12 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		    (ms_menu_seq.nextval, #menuName#, #urlMenu#, #icon#, 1, sysdate, '', '')
 	</insert>
 	
+<!-- 	DELETE ROLE USER-->
+	<delete id = "deleteMenu" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_menu
+		WHERE
+		    menu_id = #menuIdModul#
+	</delete>
+	
 </sqlMap>
