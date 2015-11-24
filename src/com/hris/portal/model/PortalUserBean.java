@@ -3,10 +3,24 @@ package com.hris.portal.model;
 import java.io.Serializable;
 
 public class PortalUserBean implements Serializable {
+	private String userId;
 	private String userName;
 	private String password;
 	private String userRoleId;
+	private String userEmployeeId;
 	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getUserEmployeeId() {
+		return userEmployeeId;
+	}
+	public void setUserEmployeeId(String userEmployeeId) {
+		this.userEmployeeId = userEmployeeId;
+	}
 	public String getUserName() {
 		return userName;
 	}

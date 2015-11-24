@@ -18,6 +18,7 @@ public class PortalMasterRoleBean implements Serializable {
 	private String privilegeNameView;
 	private String insertRoleMenuId;
 	private String insertRolePrivId;
+	private String icon;
 	
 	//Untuk NestedIterate
 	
@@ -63,6 +64,12 @@ public class PortalMasterRoleBean implements Serializable {
 	}
 	public String getMenuId() {
 		return menuId;
+	}
+	public String getIcon() {
+		return icon;
+	}
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 	public void setMenuId(String menuId) {
 		this.menuId = menuId;

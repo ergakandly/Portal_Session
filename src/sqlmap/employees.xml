@@ -97,15 +97,16 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	</select>
 	
 	<select id = "getUserList" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.lang.String">
-	SELECT
-		username AS userName,
-	    password AS password,
-	    role_id AS  userRoleId,
-	    e.employee_id AS userEmployeeId
-	FROM
-	    ms_user
-	    left outer join ms_user u
-	    on u.employee_id = e.employee_id
+		SELECT
+		    user_id AS userId,
+		    username AS userName,
+		    password AS password,
+		    role_id AS userRoleId,
+		    employee_id AS userEmployeeId
+		FROM
+		    ms_user
+		ORDER BY
+			user_id
 	</select>
 	
 	<insert id = "insertUser" parameterClass="java.util.Map">
@@ -132,7 +133,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<select id = "getMenuRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
 			m.menu_id AS menuId,
-		    m.menu AS menuName
+		    m.menu AS menuName,
+		    m.icon AS icon
 		FROM
 		    ms_role r
 		    left outer join tr_role_menu trm
