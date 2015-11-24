@@ -31,17 +31,43 @@ public class PortalAction extends Action {
 		PortalManager manager = new PortalManager();
 		
 		if("login".equalsIgnoreCase(hForm.getTask())){
-			if(hForm.getUser().equals("user") && hForm.getPass().equals("user")){
-				System.out.println("Jenis User : " + hForm.getUser());
-				return mapping.findForward("dashboardUser");
-			}
-			else if(hForm.getUser().equals("admin") && hForm.getPass().equals("admin")){
-				System.out.println("Jenis User : " + hForm.getUser());
-				return mapping.findForward("dashboardAdmin");
-			}
-			else {
-				System.out.println("SALAAAAHHH");
-			}
+			hForm.setListUserDepartment(manager.getUserList());
+			
+			for(int i=0; i<hForm.getListUserDepartment().size(); i++){
+				
+//				System.out.println("User "+(i+1)+" = "+hForm.getListUserDepartment().get(i).getUserName());
+//				System.out.println("Password "+(i+1)+" = "+hForm.getListUserDepartment().get(i).getPassword());
+				
+				if(hForm.getUser().toLowerCase().equals(hForm.getListUserDepartment().get(i).getUserName().toLowerCase()) &&
+					hForm.getPass().equals(hForm.getListUserDepartment().get(i).getPassword())){
+					
+					System.out.println("ROLE ID USER= "+hForm.getListUserDepartment().get(i).getUserRoleId());
+					
+					if(hForm.getUser().toLowerCase().equals("admin")){
+						return mapping.findForward("dashboardAdmin");
+					}
+					else{
+						hForm.setListPortalMasterRoleMenu(manager.getMenuRoleName(hForm.getListUserDepartment().get(i).getUserRoleId()));
+						return mapping.findForward("dashboardUser");
+					}
+				}
+				else{
+					System.out.println("Salaaahhh");					
+				}
+				
+			} 
+			
+//			if(hForm.getUser().equals("user") && hForm.getPass().equals("user")){
+//				System.out.println("Jenis User : " + hForm.getUser());
+//				return mapping.findForward("dashboardUser");
+//			}
+//			else if(hForm.getUser().equals("admin") && hForm.getPass().equals("admin")){
+//				System.out.println("Jenis User : " + hForm.getUser());
+//				return mapping.findForward("dashboardAdmin");
+//			}
+//			else {
+//				System.out.println("SALAAAAHHH");
+//			}
 		}
 		else if ("deleteRole".equalsIgnoreCase(hForm.getTask())){	
 			System.out.println("Tasknya : " + hForm.getTask());
@@ -187,7 +213,7 @@ public class PortalAction extends Action {
 			}
 			
 			hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
-			hForm.getPortalBean().setRoleId("4");
+			hForm.getPortalBean().setRoleId("26");
 			System.out.println("Department Name Baru = "+hForm.getPortalDepartmentBean().getMsDepartmentName()+"ID Role :"+hForm.getPortalBean().getRoleId());
 			
 			//insert

@@ -52,24 +52,30 @@
 
 							<!-- ICON MENU -->
 							<div class="tengah">
-								<button class="btn btn-default iconDashboard" type="button"
-									onclick="location.href='/HRIS_Employee/index.do'">
-									<span class="glyphicon glyphicon-user"
-										style="font-size: 100px;"></span><br>
-									<h3>Employees</h3>
-								</button>
-								<button class="btn btn-default iconDashboard" type="button"
-									onclick="location.href='/HRIS_Attendance/attendance.do'">
-									<span class="glyphicon glyphicon-check"
-										style="font-size: 100px;"></span><br>
-									<h3>Attendance</h3>
-								</button>
-								<button class="btn btn-default iconDashboard" type="button"
-									onclick="location.href='/HRIS_Leave/leaveAction.do'">
-									<span class="glyphicon glyphicon-send"
-										style="font-size: 100px;"></span><br>
-									<h3>Leave</h3>
-								</button>
+								<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
+									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
+									
+										<button class="btn btn-default iconDashboard" type="button"
+											onclick="location.href='/HRIS_Employee/index.do'">
+											<span class="<bean:write name="portalMasterRoleMenuList" property="icon" />"
+												style="font-size: 100px;"></span><br>
+											<h3><bean:write name="portalMasterRoleMenuList" property="menuName" /></h3>
+										</button>
+								
+									</logic:iterate>
+								</logic:notEmpty>
+<!-- 								<button class="btn btn-default iconDashboard" type="button" -->
+<!-- 									onclick="location.href='/HRIS_Attendance/attendance.do'"> -->
+<!-- 									<span class="glyphicon glyphicon-check" -->
+<!-- 										style="font-size: 100px;"></span><br> -->
+<!-- 									<h3>Attendance</h3> -->
+<!-- 								</button> -->
+<!-- 								<button class="btn btn-default iconDashboard" type="button" -->
+<!-- 									onclick="location.href='/HRIS_Leave/leaveAction.do'"> -->
+<!-- 									<span class="glyphicon glyphicon-send" -->
+<!-- 										style="font-size: 100px;"></span><br> -->
+<!-- 									<h3>Leave</h3> -->
+<!-- 								</button> -->
 								<br> <br>
 							</div>
 							<!-- END ICON MENU -->
