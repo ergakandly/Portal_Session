@@ -55,8 +55,16 @@
 								<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
 									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
 									
-										<button class="btn btn-default iconDashboard" type="button"
-											onclick="location.href='/HRIS_Employee/index.do'">
+										
+<%-- 										<html:button styleClass="btn btn-default iconDashboard" onclick="location.href='<bean:write name="portalMasterRoleMenuList" property="urlMenu" />'" property="urlMenu"> --%>
+<%-- 											<span class="<bean:write name="portalMasterRoleMenuList" property="icon" />" --%>
+<!-- 												style="font-size: 100px;"></span><br> -->
+<%-- 											<h3><bean:write name="portalMasterRoleMenuList" property="menuName" /></h3>										 --%>
+<%-- 										</html:button> --%>
+										
+<!-- 										<button class="btn btn-default iconDashboard" type="button"	onclick="location.href='/HRIS_Employee/index.do'"> -->
+										
+										<button class="btn btn-default iconDashboard" type="button"	onclick="location.href='/<bean:write name="portalMasterRoleMenuList" property="urlMenuRole" />'">
 											<span class="<bean:write name="portalMasterRoleMenuList" property="icon" />"
 												style="font-size: 100px;"></span><br>
 											<h3><bean:write name="portalMasterRoleMenuList" property="menuName" /></h3>

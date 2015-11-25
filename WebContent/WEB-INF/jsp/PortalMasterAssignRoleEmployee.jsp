@@ -126,7 +126,7 @@
 							id="sort">
 							<thead>
 								<tr>
-									<th>Employee ID(Jgn ID yg tampil tapi NIKnya)</th>
+									<th>Employee ID (NIK)</th>
 									<th>Employee Name</th>
 									<th>Department Name</th>
 									<th>Location Name</th>
@@ -139,7 +139,7 @@
 										property="listPortal">
 
 										<tr>
-											<td><bean:write name="portalList" property="employeeId" /></td>
+											<td><bean:write name="portalList" property="nik" /></td>
 											<td><bean:write name="portalList"
 													property="employeeName" /></td>
 											<td><bean:write name="portalList"

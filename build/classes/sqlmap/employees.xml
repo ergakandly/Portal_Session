@@ -9,6 +9,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		SELECT
 			e.employee_id AS employeeId,
 			e.employee_name AS employeeName,
+			e.nik AS nik,
 			d.department AS departmentName,
 			l.location AS locationName,
    	 		u.employee_id AS userEmployeeId
@@ -63,6 +64,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		SELECT
 <!-- 		    e.employee_id AS employeeId, -->
 			e.employee_name AS deptEmployeeName,
+			e.nik AS nik,
 		    e.department_id AS departmentId,
 		    d.department AS msDepartmentName,
 		    e.location_id AS locationId
@@ -134,6 +136,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		SELECT
 			m.menu_id AS menuId,
 		    m.menu AS menuName,
+		    m.url_menu AS urlMenuRole,
 		    m.icon AS icon
 		FROM
 		    ms_role r

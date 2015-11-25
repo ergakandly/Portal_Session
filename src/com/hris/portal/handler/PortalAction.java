@@ -51,9 +51,9 @@ public class PortalAction extends Action {
 						return mapping.findForward("dashboardUser");
 					}
 				}
-				else{
-					System.out.println("Salaaahhh");					
-				}
+//				else{
+//					System.out.println("Salaaahhh");					
+//				}
 				
 			} 
 			
@@ -213,7 +213,7 @@ public class PortalAction extends Action {
 			}
 			
 			hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
-			hForm.getPortalBean().setRoleId("26");
+			hForm.getPortalBean().setRoleId("82");
 			System.out.println("Department Name Baru = "+hForm.getPortalDepartmentBean().getMsDepartmentName()+"ID Role :"+hForm.getPortalBean().getRoleId());
 			
 			//insert
