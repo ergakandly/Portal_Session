@@ -216,6 +216,9 @@ public class PortalAction extends Action {
 			hForm.getPortalBean().setRoleId("82");
 			System.out.println("Department Name Baru = "+hForm.getPortalDepartmentBean().getMsDepartmentName()+"ID Role :"+hForm.getPortalBean().getRoleId());
 			
+			//insert username
+			
+			
 			//insert
 			manager.insertUser(hForm.getPortalDepartmentBean().getDeptEmployeeName(), hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getId(), hForm.getPortalBean().getRoleId());
 			
