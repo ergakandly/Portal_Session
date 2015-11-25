@@ -19,6 +19,7 @@ import com.hris.portal.form.PortalForm;
 import com.hris.portal.manager.PortalManager;
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalMasterRoleBean;
+import com.hris.portal.util.PortalUtil;
 
 public class PortalAction extends Action {
 	
@@ -31,6 +32,22 @@ public class PortalAction extends Action {
 		PortalManager manager = new PortalManager();
 		
 		if("login".equalsIgnoreCase(hForm.getTask())){
+			PortalUtil pUtil = new PortalUtil();
+			
+			String password = pUtil.getHash(hForm.getPass());
+			hForm.setPortalUserBean(manager.checkLogin(hForm.getUser(), password));
+			if (null != hForm.getPortalUserBean().getUserRoleId()) {
+				System.out.println("ROLE ID USER = "+hForm.getPortalUserBean().getUserRoleId());
+				
+				if("admin".equalsIgnoreCase(hForm.getUser()))
+					return mapping.findForward("dashboardAdmin");
+				else {
+					hForm.setListPortalMasterRoleMenu(manager.getMenuRoleName(hForm.getPortalUserBean().getUserRoleId()));
+					return mapping.findForward("dashboardUser");
+				}
+			}
+			
+			/*
 			hForm.setListUserDepartment(manager.getUserList());
 			
 			for(int i=0; i<hForm.getListUserDepartment().size(); i++){
@@ -56,6 +73,7 @@ public class PortalAction extends Action {
 //				}
 				
 			} 
+			*/
 			
 //			if(hForm.getUser().equals("user") && hForm.getPass().equals("user")){
 //				System.out.println("Jenis User : " + hForm.getUser());

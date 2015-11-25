@@ -7,35 +7,43 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- ASSIGN ROLE	 -->
 	<select id="getEmployee" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.util.Map">
 		SELECT
-			e.employee_id AS employeeId,
-			e.employee_name AS employeeName,
-			e.nik AS nik,
-			d.department AS departmentName,
-			l.location AS locationName,
-   	 		u.employee_id AS userEmployeeId
+			emp.employee_id 	AS employeeId,
+			emp.employee_name 	AS employeeName,
+			emp.nik 			AS nik,
+			dept.department 	AS departmentName,
+			loc.location 		AS locationName,
+   	 		user.employee_id 	AS userEmployeeId
 		FROM
-			ms_employee e
-			left outer join ms_department d 
-            on d.department_id = e.department_id
-            left outer join ms_location l 
-            on l.location_id = e.location_id
-            left outer join ms_user u
-    		on u.employee_id = e.employee_id
-		WHERE 1=1
+			ms_employee emp
+		LEFT JOIN
+			ms_department dept 
+        ON
+        	dept.department_id = emp.department_id
+            
+            LEFT JOIN
+            	ms_location loc
+            ON
+            	loc.location_id = emp.location_id
+	            
+	            LEFT JOIN
+	            	ms_user user
+	    		ON
+	    			user.employee_id = emp.employee_id
+		WHERE
+			1=1
 		<dynamic prepend="AND">
 			<isNotEmpty property = "departmentId" >
-				d.department_id = #departmentId#
+				dept.department_id = #departmentId#
 			</isNotEmpty>
 		</dynamic> 
 		<dynamic prepend="AND">
 			<isNotEmpty property = "searchName">
 <!-- 				lower(e.employee_name) = lower(#searchName#) -->
-				lower(e.employee_name) like '%'||lower(#searchName#)||'%'
+				LOWER(emp.employee_name) like '%'||LOWER(#searchName#)||'%'
 			</isNotEmpty>
 		</dynamic> 
-
-			ORDER BY 
-				e.employee_id
+		ORDER BY 
+			emp.employee_id
 	</select>
 
 	<select id = "getDepartmentName" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
@@ -51,129 +59,160 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- 		    department_id -->
 
 		SELECT
-		    department_id AS departmentId,
-		    department AS msDepartmentName
+		    department_id 	AS departmentId,
+		    department 		AS msDepartmentName
 		FROM
 		    ms_department
-		order by
+		ORDER BY
 		    department_id
 	</select>
 	
 	<select id = "getOneEmp" resultClass="com.hris.portal.model.PortalDepartmentBean" parameterClass="java.lang.String">
-		
 		SELECT
 <!-- 		    e.employee_id AS employeeId, -->
-			e.employee_name AS deptEmployeeName,
-			e.nik AS nik,
-		    e.department_id AS departmentId,
-		    d.department AS msDepartmentName,
-		    e.location_id AS locationId
+			emp.employee_name 	AS deptEmployeeName,
+			emp.nik 			AS nik,
+		    emp.department_id 	AS departmentId,
+		    dept.department 	AS msDepartmentName,
+		    emp.location_id 	AS locationId
 		FROM
-		    ms_employee e
-		    join ms_department d
-		    on d.department_id = e.department_id
+		    ms_employee emp
+		JOIN
+			ms_department dept
+		ON
+			dept.department_id = emp.department_id
 		WHERE
-			e.employee_id = #empId# 
+			emp.employee_id = #empId# 
 	</select>
 
 	<select id = "getRoleList" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
 		SELECT
-		    e.employee_name AS employeeName,
-		    r.role_name AS roleName
+		    emp.employee_name 	AS employeeName,
+		    role.role_name 		AS roleName
 		FROM
-		    ms_employee e
-		    join ms_user u 
-		    on u.employee_id = e.employee_id
-		    join ms_role r 
-		    on u.role_id = r.role_id
+		    ms_employee emp
+		JOIN
+			ms_user user
+		ON
+			user.employee_id = emp.employee_id
+		    
+		    JOIN
+		    	ms_role role
+		    ON
+		    	user.role_id = role.role_id
 		ORDER BY 
-		    e.employee_id	
+		    emp.employee_id	
 	</select>
 	
 	<select id = "getRoleName" resultClass="com.hris.portal.model.PortalBean" parameterClass="java.lang.String">
 		SELECT
-			role_id AS roleId,
-		    role_name AS roleName
+			role_id 	AS roleId,
+		    role_name 	AS roleName
 		FROM
 		    ms_role
 	</select>
 	
 	<select id = "getUserList" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.lang.String">
 		SELECT
-		    user_id AS userId,
-		    username AS userName,
-		    password AS password,
-		    role_id AS userRoleId,
-		    employee_id AS userEmployeeId
+		    user_id 	AS userId,
+		    username 	AS userName,
+		    password 	AS password,
+		    role_id 	AS userRoleId,
+		    employee_id	AS userEmployeeId
 		FROM
 		    ms_user
 		ORDER BY
 			user_id
 	</select>
 	
+	<select id = "checkLogin" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.util.Map">
+		SELECT
+			role_id		AS userRoleId
+		FROM
+		    ms_user
+		WHERE
+			username = #username# AND password = #password#
+	</select>
+	
 	<insert id = "insertUser" parameterClass="java.util.Map">
 		INSERT INTO
 			MS_USER
-		VALUES
-			((SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1, #employeeName#, #msDepartmentName#, #empId#, #roleId#, null, SYSDATE, null, null)
+		VALUES (
+			(SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1,
+			#employeeName#,
+			#msDepartmentName#,
+			#empId#,
+			#roleId#,
+			null,
+			SYSDATE,
+			null,
+			null
+		)
 	</insert>
-
-
 
 <!-- MASTER ROLE -->
 	<select id = "getMasterRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
-			role_id AS roleId,
-			role_name AS roleName
+			role_id 	AS roleId,
+			role_name 	AS roleName
 		FROM
 		    ms_role
-		order by
+		ORDER BY
 		    role_id
 	</select>
 
 <!-- Menu Role -->
 	<select id = "getMenuRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
-			m.menu_id AS menuId,
-		    m.menu AS menuName,
-		    m.url_menu AS urlMenuRole,
-		    m.icon AS icon
+			menu.menu_id 	AS menuId,
+		    menu.menu 		AS menuName,
+		    menu.url_menu 	AS urlMenuRole,
+		    menu.icon 		AS icon
 		FROM
-		    ms_role r
-		    left outer join tr_role_menu trm
-		    on trm.role_id = r.role_id
-		    left outer join ms_menu m
-		    on trm.menu_id = m.menu_id
+		    ms_role role
+		LEFT JOIN
+			tr_role_menu rolemenu
+		ON rolemenu.role_id = role.role_id
+		    
+		    LEFT JOIN
+		    	ms_menu menu
+		    ON
+		    	rolemenu.menu_id = menu.menu_id
 		WHERE
-		    r.role_id=#roleId#
+		    role.role_id=#roleId#
 		order by
-		    r.role_id
+		    role.role_id
 	</select>
 	
 <!-- 	Privilage Role -->
 	<select id = "getPrivRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
-		    p.privilege_id AS privilegeId,
-		    p.privilege AS privilegeName
+		    priv.privilege_id 	AS privilegeId,
+		    priv.privilege 	AS privilegeName
 		FROM
-		    ms_role r
-		    left outer join tr_role_privilege trp
-		    on trp.role_id = r.role_id 
-		    left outer join ms_privilege p
-		    on trp.privilege_id = p.privilege_id
+		    ms_role role
+		LEFT JOIN
+			tr_role_privilege rolepriv
+		ON
+			rolepriv.role_id = role.role_id 
+		    
+		    LEFT JOIN
+		    	ms_privilege priv
+		    ON
+		    	rolepriv.privilege_id = priv.privilege_id
 		WHERE
-		    r.role_id=#roleId#
+		    role.role_id=#roleId#
 		ORDER BY
-		    r.role_id
+		    role.role_id
 	</select>
 	
 <!-- 	MENU VIEW -->
 	<select id = "getMasterMenuName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
-		    menu_id AS menuIdView,
-		    menu AS menuNameView,
-		    url_menu AS urlMenuView,
-		    icon AS icon
+		    menu_id 	AS menuIdView,
+		    menu 		AS menuNameView,
+		    url_menu 	AS urlMenuView,
+		    icon 		AS icon
 		FROM
 		    ms_menu
 		order by
@@ -183,8 +222,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- 	PRIVILAGE VIEW -->
 	<select id = "getMasterPrivilegeName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
-		    privilege_id AS privilegeIdView,
-		    privilege AS privilegeNameView
+		    privilege_id 	AS privilegeIdView,
+		    privilege 		AS privilegeNameView
 		FROM
 		    ms_privilege
 		order by
@@ -195,24 +234,47 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<insert id = "insertNewRoleName" parameterClass="java.lang.String">
 		INSERT INTO
 		    ms_role
-		VALUES
-		    (ms_role_seq.nextval, #addRoleName#, '','', sysdate,'','')
+		VALUES (
+			MS_ROLE_SEQ.NEXTVAL,
+		    #addRoleName#,
+		    '',
+		    '',
+		    SYSDATE,
+		    '',
+		    ''
+		)
 	</insert>
 
 <!-- 	INSERT NEW ROLE TR_MENU-->
 	<insert id = "insertNewRoleMenu" parameterClass="java.lang.String">
 		INSERT INTO
 		    tr_role_menu
-		VALUES
-		    (tr_role_menu_seq.nextval, ms_role_seq.currval, #insertRoleMenuId#, '', 1, sysdate, '', '')
+		VALUES(
+			TR_ROLE_MENU_SEQ.NEXTVAL,
+			MS_ROLE_SEQ.CURRVAL,
+			#insertRoleMenuId#,
+			'',
+			1,
+			SYSDATE,
+			'',
+			''
+		)
 	</insert>
 	
 <!-- 	INSERT NEW ROLE -->
 	<insert id = "insertNewRolePriv" parameterClass="java.lang.String">
 		INSERT INTO
 		    tr_role_privilege
-		VALUES
-		    (tr_role_privilege_seq.nextval, ms_role_seq.currval, #insertRolePrivId#, '', 1, sysdate, '', '')
+		VALUES(
+			TR_ROLE_PRIVILEGE_SEQ.NEXTVAL,
+			MS_ROLE_SEQ.CURRVAL,
+			#insertRolePrivId#,
+			'',
+			1,
+			sysdate,
+			'',
+			''
+		)
 	</insert>
 
 <!-- 	DELETE ROLE MENU-->
@@ -242,10 +304,10 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- 	MODUL VIEW -->
 	<select id = "getMasterModul" resultClass="com.hris.portal.model.PortalModulBean" parameterClass="java.lang.String">
 		SELECT
-		    menu_id AS menuIdModul,
-		    menu AS menuName,
-		    url_menu AS urlMenu,
-		    icon AS icon
+		    menu_id 	AS menuIdModul,
+		    menu 		AS menuName,
+		    url_menu 	AS urlMenu,
+		    icon 		AS icon
 		FROM
 		    ms_menu
 		order by
@@ -256,8 +318,16 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<insert id = "insertNewModul" parameterClass="java.util.Map">
 		INSERT INTO
 		    ms_menu
-		VALUES
-		    (ms_menu_seq.nextval, #menuName#, #urlMenu#, #icon#, 1, sysdate, '', '')
+		VALUES(
+			MS_MENU_SEQ.NEXTVAL,
+			#menuName#,
+			#urlMenu#,
+			#icon#,
+			1,
+			SYSDATE,
+			'',
+			''
+		)
 	</insert>
 	
 <!-- 	DELETE ROLE USER-->
