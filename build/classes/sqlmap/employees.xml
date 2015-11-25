@@ -12,23 +12,23 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			emp.nik 			AS nik,
 			dept.department 	AS departmentName,
 			loc.location 		AS locationName,
-   	 		user.employee_id 	AS userEmployeeId
+   	 		users.employee_id 	AS userEmployeeId
 		FROM
 			ms_employee emp
-		LEFT JOIN
+		LEFT OUTER JOIN
 			ms_department dept 
         ON
         	dept.department_id = emp.department_id
             
-            LEFT JOIN
+            LEFT OUTER JOIN
             	ms_location loc
             ON
             	loc.location_id = emp.location_id
 	            
-	            LEFT JOIN
-	            	ms_user user
+	            LEFT OUTER JOIN
+	            	ms_user users
 	    		ON
-	    			user.employee_id = emp.employee_id
+	    			users.employee_id = emp.employee_id
 		WHERE
 			1=1
 		<dynamic prepend="AND">
@@ -92,14 +92,14 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		FROM
 		    ms_employee emp
 		JOIN
-			ms_user user
+			ms_user users
 		ON
-			user.employee_id = emp.employee_id
+			users.employee_id = emp.employee_id
 		    
 		    JOIN
 		    	ms_role role
 		    ON
-		    	user.role_id = role.role_id
+		    	users.role_id = role.role_id
 		ORDER BY 
 		    emp.employee_id	
 	</select>
@@ -131,7 +131,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		FROM
 		    ms_user
 		WHERE
-			username = #username# AND password = #password#
+			lower(username) = lower(#username#) AND password = #password#
 	</select>
 	
 	<insert id = "insertUser" parameterClass="java.util.Map">
