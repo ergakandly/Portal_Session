@@ -3,6 +3,10 @@ package com.hris.portal.model;
 import java.io.Serializable;
 
 public class PortalBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String employeeId;
 //	private String employeeFName;
 //	private String employeeLName;
