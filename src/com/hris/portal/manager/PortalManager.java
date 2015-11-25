@@ -456,4 +456,18 @@ public class PortalManager {
 			}
 		}
 		
+		public PortalUserBean checkLogin(String username, String password) {
+			Map user = new HashMap();
+			user.put("username", username);
+			user.put("password", password);
+			
+			PortalUserBean bean = null;
+			try {
+				bean = (PortalUserBean) ibatis.queryForObject("employees.checkLogin", user);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return bean;
+		}
+		
 }
