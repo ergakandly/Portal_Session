@@ -162,3 +162,8 @@ h1 a {
 	color: #ea4c89;
 	text-decoration: none;
 }
+
+body {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
