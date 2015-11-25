@@ -11,7 +11,14 @@ public class PortalDepartmentBean implements Serializable {
 	private String msDepartmentName;
 	private String locationId;
 	private String deptEmployeeName;
+	private String dateOfBirth;
 	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 	public String getDeptEmployeeName() {
 		return deptEmployeeName;
 	}

@@ -215,8 +215,48 @@ public class PortalAction extends Action {
 					System.out.println("Role ID "+i+" :"+hForm.getListPortal().get(i).getRoleId());
 					System.out.println("Compare Department Name "+i+" :"+hForm.getPortalDepartmentBean().getMsDepartmentName());
 					
+					//insert EMP_ID -> USERNAME
+					String userName=null;
+					String fName = null;
+					int count=0;
+					String name= new String(hForm.getPortalDepartmentBean().getDeptEmployeeName());
+					
+					for (int j=0; j<name.length(); j++){
+						if (name.charAt(j)==' '){
+							count++;
+						}
+					}
+
+					if(count==0){
+						userName = name;
+					}
+					
+					else if(count==1){
+						name = name.replace(' ', '.').toLowerCase();
+						userName = name;
+					}
+					
+					else if(count>=2){
+						name = name.replace(' ', '.').toLowerCase();
+						fName = name.substring(0, name.indexOf("."))+'.';
+						
+						for(int j=0; j<name.length(); j++){
+							if(name.charAt(j)=='.'){
+								fName=fName+name.substring((j+1), (j+2));
+							}
+						}
+						userName = fName;
+					}
+					
+					//insert DATE -> PASSWORD
+					hForm.getPortalBean().setDateOfBirth(hForm.getPortalDepartmentBean().getDateOfBirth().substring(0, 10));
+					
+					String dOBEdit = hForm.getPortalBean().getDateOfBirth();
+					dOBEdit = dOBEdit.replace("-", "");
+					System.out.println("Tanggal ULTAH= "+dOBEdit);
+					
 					//insert
-					manager.insertUser(hForm.getPortalDepartmentBean().getDeptEmployeeName(), hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getId(), hForm.getListPortal().get(i).getRoleId());
+					manager.insertUser(userName, dOBEdit, hForm.getId(), hForm.getListPortal().get(i).getRoleId());
 					
 					hForm.setSearchName(null);
 					hForm.getPortalDepartmentBean().setDepartmentId(null);
@@ -230,15 +270,53 @@ public class PortalAction extends Action {
 				}
 			}
 			
-			hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
+//			hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
 			hForm.getPortalBean().setRoleId("82");
 			System.out.println("Department Name Baru = "+hForm.getPortalDepartmentBean().getMsDepartmentName()+"ID Role :"+hForm.getPortalBean().getRoleId());
 			
-			//insert username
+			//insert EMP_ID -> USERNAME
+			String userName=null;
+			String fName = null;
+			int count=0;
+			String name= new String(hForm.getPortalDepartmentBean().getDeptEmployeeName());
 			
+			for (int j=0; j<name.length(); j++){
+				if (name.charAt(j)==' '){
+					count++;
+				}
+			}
+
+			if(count==0){
+				userName = name;
+			}
+			
+			else if(count==1){
+				name = name.replace(' ', '.').toLowerCase();
+				userName = name;
+			}
+			
+			else if(count>=2){
+				name = name.replace(' ', '.').toLowerCase();
+				fName = name.substring(0, name.indexOf("."))+'.';
+				
+				for(int i=0; i<name.length(); i++){
+					if(name.charAt(i)=='.'){
+						fName=fName+name.substring((i+1), (i+2));
+					}
+				}
+				userName = fName;
+			}
+			
+			
+			//insert PASSWORD
+			hForm.getPortalBean().setDateOfBirth(hForm.getPortalDepartmentBean().getDateOfBirth().substring(0, 10));
+			
+			String dOBEdit = hForm.getPortalBean().getDateOfBirth();
+			dOBEdit = dOBEdit.replace("-", "");
+			System.out.println("Tanggal ULTAH= "+dOBEdit);
 			
 			//insert
-			manager.insertUser(hForm.getPortalDepartmentBean().getDeptEmployeeName(), hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getId(), hForm.getPortalBean().getRoleId());
+			manager.insertUser(userName, dOBEdit, hForm.getId(), hForm.getPortalBean().getRoleId());
 			
 			hForm.setSearchName(null);
 			hForm.getPortalDepartmentBean().setDepartmentId(null);

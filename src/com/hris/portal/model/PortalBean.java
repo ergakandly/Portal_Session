@@ -17,8 +17,15 @@ public class PortalBean implements Serializable {
 	private String roleId;
 	private String userEmployeeId;
 	private String nik;
+	private String dateOfBirth;
 	
 	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 	public String getNik() {
 		return nik;
 	}

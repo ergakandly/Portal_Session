@@ -155,19 +155,19 @@ public class PortalManager {
 		return list;
 	}
 	
-	public void insertUser(String employeeName, String msDepartmentName, String empId, String roleId){
+	public void insertUser(String userName, String pass, String empId, String roleId){
 		
 		Map map = new HashMap();
-		map.put("employeeName", employeeName);
-		map.put("msDepartmentName", msDepartmentName);
+		map.put("userName", userName);
+		map.put("pass", pass);
 		map.put("empId", empId);
 		map.put("roleId", roleId);
 		
 		System.out.println();
 		System.out.println();
 		System.out.println("Di manager Insert");
-		System.out.println(employeeName);
-		System.out.println(msDepartmentName);
+		System.out.println(userName);
+		System.out.println(pass);
 		System.out.println(empId);
 		System.out.println(roleId);
 		

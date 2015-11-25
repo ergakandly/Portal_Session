@@ -74,7 +74,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			emp.nik 			AS nik,
 		    emp.department_id 	AS departmentId,
 		    dept.department 	AS msDepartmentName,
-		    emp.location_id 	AS locationId
+		    emp.location_id 	AS locationId,
+			emp.date_of_birth	AS dateOfBirth
 		FROM
 		    ms_employee emp
 		JOIN
@@ -139,8 +140,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			MS_USER
 		VALUES (
 			(SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1,
-			#employeeName#,
-			#msDepartmentName#,
+			#userName#,
+			#pass#,
 			#empId#,
 			#roleId#,
 			null,
