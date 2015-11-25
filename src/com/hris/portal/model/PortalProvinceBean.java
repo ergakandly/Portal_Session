@@ -2,7 +2,7 @@ package com.hris.portal.model;
 
 import java.io.Serializable;
 
-public class ProvinceBean implements Serializable{
+public class PortalProvinceBean implements Serializable{
 	/**
 	 * 
 	 */

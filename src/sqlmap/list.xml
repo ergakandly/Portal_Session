@@ -1,0 +1,53 @@
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="list">
+	<select id="getMajor" resultClass="com.hris.portal.model.PortalMajorBean">
+		SELECT
+			major_id 	AS majorId, 
+			major 		AS majorName
+		FROM 
+			ms_major
+	</select>
+	
+	<select id="getLocation" resultClass="com.hris.portal.model.PortalLocationBean">
+		SELECT 
+			location_id AS locationId, 
+			location 	AS locationName
+		FROM
+			ms_location
+	</select>
+	
+	<select id="getPosition" resultClass="com.hris.portal.model.PortalPositionBean">
+		SELECT 
+			position_id AS positionId, 
+			position 	AS positionName
+		FROM 
+			ms_position
+	</select>
+	
+	<select id="getCity" resultClass="com.hris.portal.model.PortalCityBean">
+		SELECT 
+			city_id AS cityId, 
+			city 	AS cityName
+		FROM 
+			ms_city
+	</select>
+	
+	<select id="getProvince" resultClass="com.hris.portal.model.PortalProvinceBean">
+		SELECT 
+			province_id	AS provinceId, 
+			province	AS provinceName
+		FROM 
+			ms_province
+	</select>
+	
+	<select id="getBank" resultClass="com.hris.portal.model.PortalBankBean">
+		SELECT 
+			bank_id AS bankId, 
+			bank 	AS bankName
+		FROM 
+			ms_bank
+	</select>
+</sqlMap>
