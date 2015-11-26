@@ -63,7 +63,7 @@ body {
 	z-index: 999;
 }
 
-h2 {
+.loginFont {
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
@@ -137,18 +137,18 @@ input[type="submit"] {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	background: #91c46c;
+	background: #5091f1;
 	border-radius: 5px;
-	border: 1px solid #73a84c;
+	border: 1px solid #5091f1;
 	outline: none;
 	cursor: pointer;
 	color: #fff;
 	font-size: 14px;
-	-webkit-box-shadow: inset 1px 1px 0px #c8e5b3, 1px 2px 1px
+	-webkit-box-shadow: inset 1px 1px 0px #aacaf9, 1px 2px 1px
 		rgba(0, 0, 0, .09);
-	-moz-box-shadow: inset 1px 1px 0px #c8e5b3, 1px 2px 1px
+	-moz-box-shadow: inset 1px 1px 0px #aacaf9, 1px 2px 1px
 		rgba(0, 0, 0, .09);
-	box-shadow: inset 1px 1px 0px #c8e5b3, 1px 2px 1px rgba(0, 0, 0, .09);
+	box-shadow: inset 1px 1px 0px #aacaf9, 1px 2px 1px rgba(0, 0, 0, .09);
 }
 
 h1 {

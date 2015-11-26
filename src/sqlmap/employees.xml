@@ -306,10 +306,11 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- 	MODUL VIEW -->
 	<select id = "getMasterModul" resultClass="com.hris.portal.model.PortalModulBean" parameterClass="java.lang.String">
 		SELECT
-		    menu_id 	AS menuIdModul,
-		    menu 		AS menuName,
-		    url_menu 	AS urlMenu,
-		    icon 		AS icon
+		    menu_id 			AS menuIdModul,
+		    menu 				AS menuName,
+		    url_menu 			AS urlMenu,
+		    icon 				AS icon,
+		    Substr (icon,11) 	AS iconSubstr
 		FROM
 		    ms_menu
 		order by
@@ -331,6 +332,19 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			''
 		)
 	</insert>
+	
+<!-- 	EDIT MODUL -->
+	<update id = "editModul" parameterClass="java.util.Map">
+		UPDATE
+		    ms_menu
+		SET
+			MENU = #menuName#,
+			URL_MENU = #urlMenu#,
+			ICON = #icon#,
+			UPDATED_BY = 1,
+			UPDATE_DATE = SYSDATE
+		WHERE MENU_ID = #menuIdModul#
+	</update>
 	
 <!-- 	DELETE ROLE USER-->
 	<delete id = "deleteMenu" parameterClass="java.lang.String">
