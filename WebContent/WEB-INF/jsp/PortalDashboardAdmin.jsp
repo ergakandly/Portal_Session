@@ -8,20 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <%@include file="PartBootstrap.jsp"%>
-
-<style>
-table th {
-	background-color: black;
-	color: white;
-	align: center;
-}
-
-.table-nonfluid {
-	width: auto !important;
-}
-</style>
 
 <title>Dashboard Admin</title>
 </head>

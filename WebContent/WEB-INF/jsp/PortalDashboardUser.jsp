@@ -13,7 +13,6 @@
 
 <title>Dashboard User</title>
 </head>
-<!-- <body style="min-height:768px;!important"> -->
 
 <script type="text/javascript">
 	function flyToPage(task, id) {
@@ -77,12 +76,6 @@
 <!-- 									<span class="glyphicon glyphicon-check" -->
 <!-- 										style="font-size: 100px;"></span><br> -->
 <!-- 									<h3>Attendance</h3> -->
-<!-- 								</button> -->
-<!-- 								<button class="btn btn-default iconDashboard" type="button" -->
-<!-- 									onclick="location.href='/HRIS_Leave/leaveAction.do'"> -->
-<!-- 									<span class="glyphicon glyphicon-send" -->
-<!-- 										style="font-size: 100px;"></span><br> -->
-<!-- 									<h3>Leave</h3> -->
 <!-- 								</button> -->
 								<br> <br>
 							</div>
