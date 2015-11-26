@@ -7,12 +7,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <link rel="stylesheet" type="text/css" href="asset/css/login.css">
-<link rel="stylesheet" type="text/css" href="asset/css/FinalProject.css">
+<%@include file="PartBootstrap.jsp"%>
 
 <title>Login Page</title>
-<!-- SCRIPT -->
 <script language="JavaScript">
 	function doSubmit() {
 		var frm = document.forms[0];
@@ -28,12 +26,12 @@
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" value="login" />
 		<div id="login_el">
-			<h2>login</h2>
+			<h1 class="loginFont">login</h1>
 			<form action="#">
 				<div class="input">
 					<label for="name" class="entypo-user"></label>
 					<%-- <html:text name="PortalForm" property="user" styleId="abc"></html:text> --%>
-					<input type="text" name="user" placeholder="username"
+					<input type="text" name="user" placeholder="username" styleClass="form-control"
 						value="<bean:write name="PortalForm" property="user"/>">
 				</div>
 				<div class="input">

@@ -57,9 +57,10 @@
 
 					<div class="col-md-6 col-md-offset-3">
 						<div class="tengah">
-							<button type="button" class="btn btn-primary" data-toggle="modal"
-								data-target="#modalAddModul">
-								<span class="glyphicon glyphicon-plus"></span> Add New Module
+							<button type="button" onclick="javascript:addModal();"
+								class="btn btn-primary" id="addBtn" data-toggle="modal"
+								data-backdrop="static" data-target="#modalAddModul">
+								<span class="fa fa-plus"></span> Add New Module
 							</button>
 						</div>
 
@@ -69,6 +70,7 @@
 							id="sort">
 							<thead>
 								<tr>
+									<th></th>
 									<th>Module Name</th>
 									<th>Module Link</th>
 									<th>Module Icon</th>
@@ -82,20 +84,26 @@
 										property="listPortalModulBean">
 										<tr>
 											<td><bean:write name="portalModulBeanList"
+													property="iconSubstr" /></td>
+											<td><bean:write name="portalModulBeanList"
 													property="menuName" /></td>
 											<td><bean:write name="portalModulBeanList"
 													property="urlMenu" /></td>
 											<td class="tengah"><span
 												class="<bean:write name="portalModulBeanList" property="icon" />"></span>
 											<td class="width30">
-												<button type="button" class="btn btn-info"
+												<button type="button" class="btn btn-info editBtn"
+													onclick="javascript:editModal('<bean:write name="portalModulBeanList"
+													property="menuIdModul" />','<bean:write name="portalModulBeanList"
+													property="menuName" />','<bean:write name="portalModulBeanList"
+													property="urlMenu" />','<bean:write name="portalModulBeanList" property="icon" />');"
 													data-toggle="modal" data-target="#modalAddModul">
-													<span class="glyphicon glyphicon-pencil"></span> Edit
+													<i class="fa fa-pencil"></i> Edit
 												</button>
 												<button type="button" class="btn btn-danger"
 													data-toggle="modal" data-target="#modalYakin"
 													onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-													<span class="glyphicon glyphicon-remove"></span> Delete
+													<i class="fa fa-trash"></i> Delete
 												</button>
 											</td>
 										</tr>
@@ -109,9 +117,7 @@
 			</div>
 		</div>
 
-
-
-		<!-- MODAL -->
+		<!-- MODAL ADD/EDIT-->
 		<div class="modal fade" id="modalAddModul" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
@@ -121,44 +127,45 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Modul</h4>
+						<h4 id="modalLabel"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Module Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalModulBean.menuName" size="57" /></td>
+										property="portalModulBean.menuName" size="30" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Module Link :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalModulBean.urlMenu" size="57" /></td>
+										property="portalModulBean.urlMenu" size="30" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Icon :</td>
 								<td>
 									<button class="btn btn-default" data-iconset="glyphicon"
 										data-icon="glyphicon-camera" role="iconpicker"
-										name="portalModulBean.icon"></button> <!-- 								<button class="btn btn-default" data-iconset="glyphicon" -->
-									<!-- 									data-icon="glyphicon-camera" role="iconpicker" ></button> -->
+										name="portalModulBean.icon"></button>
 								</td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:submitForm('','');">
+<!-- 							onclick="javascript:flyToPage('masterModul');">							 -->
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:onModalClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- END MODAL  -->
+		<!-- END MODAL ADD/EDIT -->
 
 		<!-- MODAL HAPUS -->
 		<div class="modal fade" id="modalYakin" tabindex="-1" role="dialog"
@@ -170,7 +177,7 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Delete Modul Data</h4>
+						<h4 class="modal-title">Notification</h4>
 					</div>
 					<div class="modal-body">
 						<div class="alert alert-danger kiri" role="alert">
@@ -192,10 +199,51 @@
 		<!-- END MODAL HAPUS-->
 
 		<%@include file="PartJavascript.jsp"%>
-		<script>
+		<script type="text/javascript">
+			$(function() {
+				$('#addBtn').click(function() {
+					$("#modalLabel").html("Add New Module");
+					$("#iconnya").html("glyphicon-camera");
+				});
+				$('.editBtn').click(function() {
+					$("#modalLabel").html("Edit Module");
+					$("#iconnya").html("glyphicon-calendar");
+				});
+			});
+
 			$(document).ready(function() {
 				$('#sort').DataTable();
 			});
+
+			function addModal() {
+				document.forms["PortalForm"].elements["currentSpecialDateBean.description"].value = "";
+				document.forms["PortalForm"].elements["currentSpecialDateBean.date"].value = "";
+				document.forms["PortalForm"].task.value = "saveAddModule";
+			}
+
+			function editModal(id, name, link, icon) {
+				document.forms["PortalForm"].task.value = "editModule";
+// 				document.forms["PortalForm"].elements["portalModulBean.menuIdModul"].value = id;
+				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = name;
+				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = link;
+				document.forms["PortalForm"].elements["portalModulBean.icon"].value = icon;
+				document.forms["PortalForm"].id.value = id;
+			}
+
+			function onModalClose() {
+				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
+				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
+			}
+			
+			function submitForm(task, id) {
+				
+				var method = task==""? document.forms["PortalForm"].task.value:task;
+				
+				if(id != "")
+					document.forms["PortalForm"].id.value= id;
+						
+				document.forms["PortalForm"].submit();
+			}
 		</script>
 	</html:form>
 </body>

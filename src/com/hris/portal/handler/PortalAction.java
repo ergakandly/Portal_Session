@@ -41,6 +41,7 @@ public class PortalAction extends Action {
 		
 		PortalForm hForm = (PortalForm) form;
 		PortalManager manager = new PortalManager();
+		System.out.println("Tasknya : " + hForm.getTask());
 		
 		if("login".equalsIgnoreCase(hForm.getTask())){
 			String password = PortalUtil.getHash(hForm.getPass());
@@ -336,16 +337,12 @@ public class PortalAction extends Action {
 			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");
 		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
-			System.out.println("Tasknya : " + hForm.getTask());
-			if (hForm.getPortalModulBean().getMenuName()!=null){
-				System.out.println("Ditambahkan: ");
-				manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
-			}
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			for(int i=0; i<hForm.getListPortalModulBean().size(); i++){
 				System.out.println("Modul ID "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuIdModul());
 				System.out.println("Modul Name "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuName());
 				System.out.println("Modul Icon "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getIcon());
+				System.out.println("Modul Icon Substring "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getIconSubstr());
 			}
 			return mapping.findForward("masterModul");
 		}else if ("deleteModul".equalsIgnoreCase(hForm.getTask())){
@@ -360,7 +357,18 @@ public class PortalAction extends Action {
 				System.out.println("Modul ID "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuIdModul());
 				System.out.println("Modul Name "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuName());
 				System.out.println("Modul Icon "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getIcon());
+				System.out.println("Modul Icon Substring "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getIconSubstr());
 			}
+			return mapping.findForward("masterModul");
+		}else if ("saveAddModule".equalsIgnoreCase(hForm.getTask())){
+			manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
+			return mapping.findForward("masterModul");
+		}else if ("editModule".equalsIgnoreCase(hForm.getTask())){
+			manager.editModul(hForm.getId(), hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
+			hForm.setListPortalModulBean(manager.getMasterModul());
+			hForm.getPortalModulBean().setMenuName("");
+			hForm.getPortalModulBean().setUrlMenu("");
+			
 			return mapping.findForward("masterModul");
 		}
 		

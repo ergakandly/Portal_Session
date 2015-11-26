@@ -13,6 +13,7 @@ public class PortalModulBean implements Serializable {
 	private String menuName;
 	private String urlMenu;
 	private String icon;
+	private String iconSubstr;
 
 
 	public String getMenuIdModul() {
@@ -49,5 +50,13 @@ public class PortalModulBean implements Serializable {
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public String getIconSubstr() {
+		return iconSubstr;
+	}
+
+	public void setIconSubstr(String iconSubstr) {
+		this.iconSubstr = iconSubstr;
 	}
 }
