@@ -216,8 +216,8 @@
 			});
 
 			function addModal() {
-				document.forms["PortalForm"].elements["currentSpecialDateBean.description"].value = "";
-				document.forms["PortalForm"].elements["currentSpecialDateBean.date"].value = "";
+				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
+				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
 				document.forms["PortalForm"].task.value = "saveAddModule";
 			}
 
