@@ -14,7 +14,7 @@
 </head>
 <script language="JavaScript">
 	function flyToPage(task, id) {
-// 		alert(document.forms[0].addRoleName.value);
+		// 		alert(document.forms[0].addRoleName.value);
 
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
@@ -28,7 +28,6 @@
 		}
 		frm.submit();
 	}
-
 </script>
 
 <body>
@@ -64,7 +63,9 @@
 						</button>
 					</center>
 					<br /> <br />
-					<table class="table table-striped table-hover table-condensed">
+					<table
+							class="table table-striped table-hover table-condensed table-bordered"
+							id="sort">
 						<thead>
 							<tr>
 								<th>Role Name</th>
@@ -94,14 +95,12 @@
 
 
 									<!-- PRIVILAGES -->
-									<td class="tengah"><logic:notEmpty
+									<td class="tengah" style="vertical-align: middle;"><logic:notEmpty
 											name="portalMasterRoleList" property="listMasterRoleBeanPriv">
 											<logic:iterate id="priv" name="portalMasterRoleList"
 												property="listMasterRoleBeanPriv">
 												<logic:empty name="priv" property="privilegeName">
-													<p>
-														<br /> -
-													</p>
+													<i class="fa fa-minus" style="color: green"></i>
 												</logic:empty>
 												<bean:write name="priv" property="privilegeName" />
 												<br />
@@ -112,7 +111,7 @@
 										<button type="button" onclick="javascript:editModal();"
 											id="editBtn" class="btn btn-info" data-toggle="modal"
 											data-target="#modalAddRole" data-backdrop="static">
-											<i class="fa fa-pencil"></i> Edit 
+											<i class="fa fa-pencil"></i> Edit
 										</button>
 
 										<button type="button" class="btn btn-danger"
@@ -229,6 +228,9 @@
 			$('#editBtn').click(function() {
 				$("#modalLabel").html("Edit Role");
 			});
+		});
+		$(document).ready(function() {
+			$('#sort').DataTable();
 		});
 	</script>
 </body>

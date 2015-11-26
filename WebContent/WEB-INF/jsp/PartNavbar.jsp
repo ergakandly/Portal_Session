@@ -5,6 +5,176 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
+<style>
+.nav {
+    padding: 0 15px;
+}
+
+.nav {
+	color: #0D47A1;
+}
+
+.nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus,
+.nav>.open>a,
+.nav>.open>a:hover,
+.nav>.open>a:focus {
+    color: #fff;
+    background-color: #0D47A1 !important;
+}
+
+.nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+li.message-preview>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li.message-footer {
+    margin: 5px 0;
+}
+
+</style>
+<script type="text/javascript">
+	function navigateToPage(task) {
+
+		document.forms[0].task.value = task;
+		if (task == "masterMassLeave")
+			document.forms[0].action = "/HRIS_Leave/manageSpecialDate.do?method=showMassLeaveList";
+		else if (task == "masterNationalHoliday")
+			document.forms[0].action = "/HRIS_Leave/manageSpecialDate.do?method=showNationalHolidayList";
+
+		document.forms[0].submit();
+	}
+
+	function startTime() {
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+		var day = today.getDay();
+		var weekday = "";
+		var date = today.getDate();
+		var month = today.getMonth();
+		var monthname = "";
+		var year = today.getFullYear();
+
+		switch (day) {
+		case 0:
+			weekday = "Sunday";
+			break;
+		case 1:
+			weekday = "Monday";
+			break;
+		case 2:
+			weekday = "Tuesday";
+			break;
+		case 3:
+			weekday = "Wednesday";
+			break;
+		case 4:
+			weekday = "Thursday";
+			break;
+		case 5:
+			weekday = "Friday";
+			break;
+		case 6:
+			weekday = "Saturday";
+			break;
+		}
+
+		switch (month) {
+		case 0:
+			monthname = "January";
+			break;
+		case 1:
+			monthname = "February";
+			break;
+		case 2:
+			monthname = "March";
+			break;
+		case 3:
+			monthname = "April";
+			break;
+		case 4:
+			monthname = "May";
+			break;
+		case 5:
+			monthname = "June";
+			break;
+		case 6:
+			monthname = "July";
+			break;
+		case 7:
+			monthname = "August";
+			break;
+		case 8:
+			monthname = "September";
+			break;
+		case 9:
+			monthname = "October";
+			break;
+		case 10:
+			monthname = "November";
+			break;
+		case 11:
+			monthname = "Desember";
+			break;
+		}
+
+		m = checkTime(m);
+		s = checkTime(s);
+		document.getElementById('timeText').innerHTML = weekday + ", " + date
+				+ " " + monthname + " " + year + " [" + h + ":" + m + ":" + s
+				+ " WIB]";
+		var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+		if (i < 10) {
+			i = "0" + i
+		}
+		; // add zero in front of numbers < 10
+		return i;
+	}
+</script>
 <body>
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -18,6 +188,7 @@
 	<!-- END LOGO -->
 
 	<ul class="nav navbar-nav navbar-right">
+		<li><label id="timeText"></label></li>
 		<!-- DROPDOWN OTIFICATION -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
 			data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span>
@@ -39,7 +210,6 @@
 							</div>
 						</div>
 				</a></li>
-				<li class="divider"></li>
 				<li class="message-preview"><a href="#">
 						<div class="media">
 							<span class="pull-left"> <img class="media-object"
@@ -56,7 +226,6 @@
 							</div>
 						</div>
 				</a></li>
-				<li class="divider"></li>
 				<li class="message-preview"><a href="#">
 						<div class="media">
 							<span class="pull-left"> <img class="media-object"
@@ -73,8 +242,7 @@
 							</div>
 						</div>
 				</a></li>
-				<li class="divider"></li>
-				<li class="message-footer"><a href="#">Read All New
+				<li class="message-footer" ><a href="#">Read All New
 						Messages</a></li>
 			</ul></li>
 		<!-- END NOTIFICATION -->
@@ -85,8 +253,8 @@
 				class="caret"> </b></a>
 			<ul class="dropdown-menu">
 				<li><a href="#" data-toggle="modal" data-target="#modalLogin"
-					data-backdrop="static"> <large> <i class=" fa fa-user"></i>
-						<large> Change Password </a></li>
+					data-backdrop="static"> <large> <i class=" fa fa-lock"></i>
+						<large> User Password </a></li>
 				<li class="divider"></li>
 				<li><a href="javascript:flyToPage('success');"><i
 						class=" fa fa-sign-out"></i> Log Out</a></li>
@@ -140,8 +308,12 @@
 					<!-- PANEL -->
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary"><i class="fa fa-check"></i> Save changes</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+					<button type="button" class="btn btn-primary">
+						<i class="fa fa-check"></i> Save changes
+					</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<i class="fa fa-close"></i> Close
+					</button>
 				</div>
 			</div>
 		</div>

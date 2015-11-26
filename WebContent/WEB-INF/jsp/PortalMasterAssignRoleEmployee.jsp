@@ -54,7 +54,7 @@
 					<!-- END ROW 12 -->
 					<br />
 					<!-- ROW MD6 OFFSET3 -->
-					<div class="col-md-6 col-md-offset-3">
+					<div class="col-md-8 col-md-offset-2">
 						<!-- 						PANEL MANUAL SEARCH -->
 						<!-- 						<div class="panel panel-info"> -->
 						<!-- 							<div class="panel-heading"> -->
@@ -126,7 +126,7 @@
 							id="sort">
 							<thead>
 								<tr>
-									<th>Employee ID (NIK)</th>
+									<th>NIK</th>
 									<th>Employee Name</th>
 									<th>Department Name</th>
 									<th>Location Name</th>
