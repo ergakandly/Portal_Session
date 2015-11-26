@@ -8,7 +8,17 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 public class PortalUtil {
-	public String getHash(String pass) throws Exception {
+	private static String key;
+	
+	public PortalUtil() {
+		key = "hrIS0987HRis4321";
+	}
+	
+	public static void setKey(String key) {
+		PortalUtil.key = key;
+	}
+
+	public static String getHash(String pass) throws Exception {
 		MessageDigest mDigest = MessageDigest.getInstance("SHA1");
 		
 		byte[] result = mDigest.digest(pass.getBytes());
@@ -21,7 +31,7 @@ public class PortalUtil {
         return shaResult.toString().toUpperCase();
 	}
 	
-	public String encrypt(String plainText, String key) {
+	public static String encrypt(String plainText) {
 		String encryptedText = null; 
 		
 		try {
@@ -38,7 +48,7 @@ public class PortalUtil {
 		return encryptedText;
 	}
 
-	public String decrypt(String encryptedText, String key) {
+	public static String decrypt(String encryptedText) {
 		String decryptedText = null;
 		
 		try {

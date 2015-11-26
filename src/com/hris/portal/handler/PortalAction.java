@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -28,13 +29,21 @@ public class PortalAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, Exception {
 		
+		if (null!=request.getParameter("zx") && null!=request.getSession().getAttribute("username")) {
+			String param = request.getParameter("zx").replace(' ', '+');
+			String user[] = PortalUtil.decrypt(param).split("##");
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("username", user[0]);
+			session.setAttribute("password", user[1]);
+			session.setAttribute("roleId", user[2]);
+		}
+		
 		PortalForm hForm = (PortalForm) form;
 		PortalManager manager = new PortalManager();
 		
 		if("login".equalsIgnoreCase(hForm.getTask())){
-			PortalUtil pUtil = new PortalUtil();
-			
-			String password = pUtil.getHash(hForm.getPass());
+			String password = PortalUtil.getHash(hForm.getPass());
 			hForm.setPortalUserBean(manager.checkLogin(hForm.getUser(), password));
 			if (null != hForm.getPortalUserBean().getUserRoleId()) {
 				System.out.println("ROLE ID USER = "+hForm.getPortalUserBean().getUserRoleId());
