@@ -144,6 +144,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			GET_HASH(#pass#),
 			#empId#,
 			#roleId#,
+			'0',
 			null,
 			SYSDATE,
 			null,
