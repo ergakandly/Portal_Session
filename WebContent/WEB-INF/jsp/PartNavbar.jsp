@@ -140,8 +140,8 @@
 					<!-- PANEL -->
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Save changes</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary"><i class="fa fa-check"></i> Save changes</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
 				</div>
 			</div>
 		</div>
