@@ -228,7 +228,7 @@ public class PortalAction extends Action {
 					}
 
 					if(count==0){
-						userName = name;
+						userName = name.toLowerCase();
 					}
 					
 					else if(count==1){

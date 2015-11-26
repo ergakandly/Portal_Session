@@ -141,7 +141,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		VALUES (
 			(SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1,
 			#userName#,
-			#pass#,
+			GET_HASH(#pass#),
 			#empId#,
 			#roleId#,
 			null,
