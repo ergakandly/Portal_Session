@@ -6,9 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
-	<!-- JQuery -->
-	<script type="text/javascript" src="asset/js/jQuery/jquery-2.1.1.min.js"></script>
-
 	<!-- Bootstrap -->
 	<script type="text/javascript" src="asset/js/boots/bootstrap.js"></script>
 	
