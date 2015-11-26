@@ -238,7 +238,7 @@ public class PortalAction extends Action {
 					}
 
 					if(count==0){
-						userName = name;
+						userName = name.toLowerCase();
 					}
 					
 					else if(count==1){
@@ -281,7 +281,7 @@ public class PortalAction extends Action {
 			}
 			
 //			hForm.getPortalDepartmentBean().setMsDepartmentName("Employee");
-			hForm.getPortalBean().setRoleId("82");
+			hForm.getPortalBean().setRoleId("4");
 			System.out.println("Department Name Baru = "+hForm.getPortalDepartmentBean().getMsDepartmentName()+"ID Role :"+hForm.getPortalBean().getRoleId());
 			
 			//insert EMP_ID -> USERNAME
@@ -297,7 +297,7 @@ public class PortalAction extends Action {
 			}
 
 			if(count==0){
-				userName = name;
+				userName = name.toLowerCase();
 			}
 			
 			else if(count==1){
