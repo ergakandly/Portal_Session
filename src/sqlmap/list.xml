@@ -3,28 +3,14 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="list">
-	<select id="getMajor" resultClass="com.hris.portal.model.PortalMajorBean">
-		SELECT
-			major_id 	AS majorId, 
-			major 		AS majorName
-		FROM 
-			ms_major
-	</select>
-	
-	<select id="getLocation" resultClass="com.hris.portal.model.PortalLocationBean">
+	<select id="getProvince" resultClass="com.hris.portal.model.PortalProvinceBean">
 		SELECT 
-			location_id AS locationId, 
-			location 	AS locationName
-		FROM
-			ms_location
-	</select>
-	
-	<select id="getPosition" resultClass="com.hris.portal.model.PortalPositionBean">
-		SELECT 
-			position_id AS positionId, 
-			position 	AS positionName
+			province_id	AS provinceId, 
+			province	AS provinceName
 		FROM 
-			ms_position
+			ms_province
+		ORDER BY
+		    province_id
 	</select>
 	
 	<select id="getCity" resultClass="com.hris.portal.model.PortalCityBean">
@@ -33,14 +19,59 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			city 	AS cityName
 		FROM 
 			ms_city
+		ORDER BY
+		    city_id
 	</select>
 	
-	<select id="getProvince" resultClass="com.hris.portal.model.PortalProvinceBean">
-		SELECT 
-			province_id	AS provinceId, 
-			province	AS provinceName
+	<select id="getMajor" resultClass="com.hris.portal.model.PortalMajorBean">
+		SELECT
+			major_id 	AS majorId, 
+			major 		AS majorName
 		FROM 
-			ms_province
+			ms_major
+		ORDER BY
+		    major_id
+	</select>
+	
+	<!-- EXIST -->
+	<select id="getDepartment" resultClass="com.hris.portal.model.PortalDepartmentBean">
+		SELECT
+		    department_id 	AS departmentId,
+		    department 		AS msDepartmentName
+		FROM
+		    ms_department
+		ORDER BY
+		    department_id
+	</select>
+	
+	<select id="getLocation" resultClass="com.hris.portal.model.PortalLocationBean">
+		SELECT 
+			location_id AS locationId, 
+			location 	AS locationName
+		FROM
+			ms_location
+		ORDER BY
+		    location_id
+	</select>
+	
+	<select id = "getPrivelege" resultClass="com.hris.portal.model.PortalPrivilegeBean" parameterClass="java.lang.String">
+		SELECT
+		    privilege_id 	AS privilegeId,
+		    privilege 	AS privilegeName
+		FROM
+		    ms_privilege
+		ORDER BY
+		    privilege_id
+	</select>
+	
+	<select id="getPosition" resultClass="com.hris.portal.model.PortalPositionBean">
+		SELECT 
+			position_id AS positionId, 
+			position 	AS positionName
+		FROM 
+			ms_position
+		ORDER BY
+		    position_id
 	</select>
 	
 	<select id="getBank" resultClass="com.hris.portal.model.PortalBankBean">
@@ -49,5 +80,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			bank 	AS bankName
 		FROM 
 			ms_bank
+		ORDER BY
+		    department_id
 	</select>
 </sqlMap>

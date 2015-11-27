@@ -63,7 +63,7 @@
 										
 <!-- 										<button class="btn btn-default iconDashboard" type="button"	onclick="location.href='/HRIS_Employee/index.do'"> -->
 										
-										<button class="btn btn-default iconDashboard" type="button"	onclick="location.href='/<bean:write name="portalMasterRoleMenuList" property="urlMenuRole" />'">
+										<button class="btn btn-default iconDashboard" type="button"	onclick="<bean:write name="portalMasterRoleMenuList" property="urlMenuRole" />">
 											<span class="<bean:write name="portalMasterRoleMenuList" property="icon" />"
 												style="font-size: 100px;"></span><br>
 											<h3><bean:write name="portalMasterRoleMenuList" property="menuName" /></h3>

@@ -53,6 +53,7 @@ public class PortalAction extends Action {
 					return mapping.findForward("dashboardAdmin");
 				else {
 					hForm.setListPortalMasterRoleMenu(manager.getMenuRoleName(hForm.getPortalUserBean().getUserRoleId()));
+					System.out.println(hForm.getPortalMasterRoleBean().getUrlMenuRole());
 					return mapping.findForward("dashboardUser");
 				}
 			}
@@ -370,6 +371,9 @@ public class PortalAction extends Action {
 			hForm.getPortalModulBean().setUrlMenu("");
 			
 			return mapping.findForward("masterModul");
+		}else if ("masterOthers".equalsIgnoreCase(hForm.getTask())){
+
+			return mapping.findForward("masterOthers");
 		}
 		
 		return mapping.findForward("success");

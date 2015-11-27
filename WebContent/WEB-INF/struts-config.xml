@@ -19,6 +19,7 @@
 			<forward name="assignRole" path="/WEB-INF/jsp/PortalMasterAssignRole.jsp"></forward>
 			<forward name="addEditAssignRole" path="/WEB-INF/jsp/PortalAddEditAssignRole.jsp"></forward>
 			<forward name="assignRoleEmployee" path="/WEB-INF/jsp/PortalMasterAssignRoleEmployee.jsp"></forward>
+			<forward name="masterOthers" path="/WEB-INF/jsp/PortalMasterOthers.jsp"></forward>
 			<forward name="success" path="/WEB-INF/jsp/PortalLogin.jsp"></forward>
 			<forward name="kirimEmail" path="/WEB-INF/jsp/PortalKirimEmail.jsp"></forward>
 <!-- 			<forward name="success" path="/WEB-INF/jsp/PortalUserChangePassword.jsp"></forward> -->
