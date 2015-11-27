@@ -45,7 +45,7 @@
 							<!-- BREADCRUMB -->
 							<ul class="breadcrumb">
 								<li><i class="fa fa-dashboard"></i><a
-									href="javascript:flyToPage('dashboardAdmin');"> Dashboard</a></li>
+									href="javascript:flyToPage('dashboardUser');"> Dashboard</a></li>
 								<li><i class="fa fa-th-large"></i> Master Lainnya</li>
 							</ul>
 							<!-- END BREADCRUMB -->
@@ -80,14 +80,14 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalProvince">
+											<logic:iterate id="portalProvinceList" name="PortalForm"
+												property="listPortalProvince">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalProvinceList"
+															property="provinceId" /></td>
+													<td><bean:write name="portalProvinceList"
+															property="provinceName" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
@@ -95,7 +95,7 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
+															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalProvinceList" property="provinceId" />');">
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -136,24 +136,26 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalCity">
+											<logic:iterate id="portalCityList" name="PortalForm"
+												property="listPortalCity">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalCityList"
+															property="cityId" /></td>
+													<td><bean:write name="portalCityList"
+															property="cityProvinceName" /></td>
+													<td><bean:write name="portalCityList"
+															property="cityName" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-															<span class="glyphicon glyphicon-remove"></span> Delete
-														</button>
+<!-- 														<button type="button" class="btn btn-danger" -->
+<!-- 															data-toggle="modal" data-target="#modalYakin" -->
+<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
+<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
+<!-- 														</button> -->
 													</td>
 												</tr>
 											</logic:iterate>
@@ -175,7 +177,7 @@
 							</div>
 							<div class="panel-body">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddCity">
+									data-toggle="modal" data-target="#modalAddMajor">
 									<span class="glyphicon glyphicon-plus"></span> Add New Major
 								</button>
 								<br /> <br />
@@ -192,24 +194,26 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalMajor">
+											<logic:iterate id="portalMajorList" name="PortalForm"
+												property="listPortalMajor">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalMajorList"
+															property="majorId" /></td>
+													<td><bean:write name="portalMajorList"
+															property="majorName" /></td>
+													<td><bean:write name="portalMajorList"
+															property="description" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-															<span class="glyphicon glyphicon-remove"></span> Delete
-														</button>
+<!-- 														<button type="button" class="btn btn-danger" -->
+<!-- 															data-toggle="modal" data-target="#modalYakin" -->
+<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
+<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
+<!-- 														</button> -->
 													</td>
 												</tr>
 											</logic:iterate>
@@ -231,7 +235,7 @@
 							</div>
 							<div class="panel-body">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddCity">
+									data-toggle="modal" data-target="#modalAddDepartment">
 									<span class="glyphicon glyphicon-plus"></span> Add New Department
 								</button>
 								<br /> <br />
@@ -248,24 +252,26 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalDepartment">
+											<logic:iterate id="portalDepartmentList" name="PortalForm"
+												property="listPortalDepartment">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalDepartmentList"
+															property="departmentId" /></td>
+													<td><bean:write name="portalDepartmentList"
+															property="msDepartmentName" /></td>
+													<td><bean:write name="portalDepartmentList"
+															property="description" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-															<span class="glyphicon glyphicon-remove"></span> Delete
-														</button>
+<!-- 														<button type="button" class="btn btn-danger" -->
+<!-- 															data-toggle="modal" data-target="#modalYakin" -->
+<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
+<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
+<!-- 														</button> -->
 													</td>
 												</tr>
 											</logic:iterate>
@@ -287,7 +293,7 @@
 							</div>
 							<div class="panel-body">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddCity">
+									data-toggle="modal" data-target="#modalAddLocation">
 									<span class="glyphicon glyphicon-plus"></span> Add New Location
 								</button>
 								<br /> <br />
@@ -304,24 +310,26 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalLocation">
+											<logic:iterate id="portalLocationList" name="PortalForm"
+												property="listPortalLocation">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalLocationList"
+															property="locationId" /></td>
+													<td><bean:write name="portalLocationList"
+															property="locationName" /></td>
+													<td><bean:write name="portalLocationList"
+															property="description" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-															<span class="glyphicon glyphicon-remove"></span> Delete
-														</button>
+<!-- 														<button type="button" class="btn btn-danger" -->
+<!-- 															data-toggle="modal" data-target="#modalYakin" -->
+<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
+<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
+<!-- 														</button> -->
 													</td>
 												</tr>
 											</logic:iterate>
@@ -343,7 +351,7 @@
 							</div>
 							<div class="panel-body">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddCity">
+									data-toggle="modal" data-target="#modalAddPrivilege">
 									<span class="glyphicon glyphicon-plus"></span> Add New Privilege
 								</button>
 								<br /> <br />
@@ -360,24 +368,26 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalPrivilege">
+											<logic:iterate id="portalPrivilegeList" name="PortalForm"
+												property="listPortalPrivilege">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalPrivilegeList"
+															property="privilegeId" /></td>
+													<td><bean:write name="portalPrivilegeList"
+															property="privilegeName" /></td>
+													<td><bean:write name="portalPrivilegeList"
+															property="description" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-															<span class="glyphicon glyphicon-remove"></span> Delete
-														</button>
+<!-- 														<button type="button" class="btn btn-danger" -->
+<!-- 															data-toggle="modal" data-target="#modalYakin" -->
+<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
+<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
+<!-- 														</button> -->
 													</td>
 												</tr>
 											</logic:iterate>
@@ -399,7 +409,7 @@
 							</div>
 							<div class="panel-body">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddCity">
+									data-toggle="modal" data-target="#modalAddPosition">
 									<span class="glyphicon glyphicon-plus"></span> Add New Position
 								</button>
 								<br /> <br />
@@ -416,24 +426,26 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalPosition">
+											<logic:iterate id="portalPositionList" name="PortalForm"
+												property="listPortalPosition">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalPositionList"
+															property="positionId" /></td>
+													<td><bean:write name="portalPositionList"
+															property="positionName" /></td>
+													<td><bean:write name="portalPositionList"
+															property="description" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-															<span class="glyphicon glyphicon-remove"></span> Delete
-														</button>
+<!-- 														<button type="button" class="btn btn-danger" -->
+<!-- 															data-toggle="modal" data-target="#modalYakin" -->
+<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
+<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
+<!-- 														</button> -->
 													</td>
 												</tr>
 											</logic:iterate>
@@ -455,7 +467,7 @@
 							</div>
 							<div class="panel-body">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddCity">
+									data-toggle="modal" data-target="#modalAddBank">
 									<span class="glyphicon glyphicon-plus"></span> Add New Bank
 								</button>
 								<br /> <br />
@@ -472,24 +484,26 @@
 									</thead>
 									<tbody>
 										<logic:notEmpty name="PortalForm"
-											property="listPortalModulBean">
-											<logic:iterate id="portalModulBeanList" name="PortalForm"
-												property="listPortalModulBean">
+											property="listPortalBank">
+											<logic:iterate id="portalBankList" name="PortalForm"
+												property="listPortalBank">
 												<tr>
-													<td><bean:write name="portalModulBeanList"
-															property="menuName" /></td>
-													<td><bean:write name="portalModulBeanList"
-															property="urlMenu" /></td>
+													<td><bean:write name="portalBankList"
+															property="bankId" /></td>
+													<td><bean:write name="portalBankList"
+															property="bankName" /></td>
+													<td><bean:write name="portalBankList"
+															property="description" /></td>
 													<td class="width30">
 														<button type="button" class="btn btn-info"
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
-															<span class="glyphicon glyphicon-remove"></span> Delete
-														</button>
+<!-- 														<button type="button" class="btn btn-danger" -->
+<!-- 															data-toggle="modal" data-target="#modalYakin" -->
+<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
+<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
+<!-- 														</button> -->
 													</td>
 												</tr>
 											</logic:iterate>
@@ -525,13 +539,13 @@
 							<tr>
 								<td class="kanan">Province Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalModulBean.menuName"/></td>
+										property="portalProvinceBean.provinceName"/></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -558,14 +572,54 @@
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
-								<td class="kanan">Province Name :</td>
+								<td class="kanan">Province ID :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalModulBean.menuName"/></td>
+										property="portalCityBean.cityProvinceId"/></td>
 							</tr>
 							<tr>
 								<td class="kanan">City Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalModulBean.urlMenu" /></td>
+										property="portalCityBean.cityName" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterOthers');">
+							<i class="fa fa-check"></i> Submit
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close"></i> Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END ADD CITY MODAL  -->
+		
+		<!-- ADD MAJOR MODAL -->
+		<div class="modal fade" id="modalAddMajor" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Add New Major</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table table-borderless">
+							<tr>
+								<td class="kanan">Major Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalMajorBean.majorName"/></td>
+							</tr>
+							<tr>
+								<td class="kanan">Description :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalMajorBean.description" /></td>
 							</tr>
 						</table>
 					</div>
@@ -581,7 +635,207 @@
 				</div>
 			</div>
 		</div>
-		<!-- END ADD CITY MODAL  -->
+		<!-- END ADD MAJOR MODAL  -->
+		
+		<!-- ADD DEPARTMENT MODAL -->
+		<div class="modal fade" id="modalAddDepartment" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Add New Department</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table table-borderless">
+							<tr>
+								<td class="kanan">Department Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalDepartmentBean.msDepartmentName"/></td>
+							</tr>
+							<tr>
+								<td class="kanan">Description :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalDepartmentBean.description" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterModul');">
+							<i class="fa fa-check"></i> Submit
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close"></i> Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END ADD DEPARTMENT MODAL  -->
+		
+		<!-- ADD LOCATION MODAL -->
+		<div class="modal fade" id="modalAddLocation" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Add New Location</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table table-borderless">
+							<tr>
+								<td class="kanan">Location Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalLocationBean.locationName"/></td>
+							</tr>
+							<tr>
+								<td class="kanan">Description :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalLocationBean.description" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterModul');">
+							<i class="fa fa-check"></i> Submit
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close"></i> Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END ADD LOCATION MODAL  -->
+		
+		<!-- ADD PRIVILEGE MODAL -->
+		<div class="modal fade" id="modalAddPrivilege" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Add New Privilege</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table table-borderless">
+							<tr>
+								<td class="kanan">Privilege Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalPrivilegeBean.privilegeName"/></td>
+							</tr>
+							<tr>
+								<td class="kanan">Description :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalPrivilegeBean.description" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterModul');">
+							<i class="fa fa-check"></i> Submit
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close"></i> Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END ADD PRIVILEGE MODAL  -->
+		
+		<!-- ADD POSITION MODAL -->
+		<div class="modal fade" id="modalAddPosition" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Add New Position</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table table-borderless">
+							<tr>
+								<td class="kanan">Position Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalPositionBean.positionName"/></td>
+							</tr>
+							<tr>
+								<td class="kanan">Description :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalPositionBean.description" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterModul');">
+							<i class="fa fa-check"></i> Submit
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close"></i> Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END ADD POSITION MODAL  -->
+		
+		<!-- ADD BANK MODAL -->
+		<div class="modal fade" id="modalAddBank" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Add New Bank</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table table-borderless">
+							<tr>
+								<td class="kanan">Bank Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalBankBean.bankName"/></td>
+							</tr>
+							<tr>
+								<td class="kanan">Description :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalBankBean.description" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterModul');">
+							<i class="fa fa-check"></i> Submit
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close"></i> Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END ADD BANK MODAL  -->
 
 		<%@include file="PartJavascript.jsp"%>
 		<script>

@@ -6,10 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 import com.hris.portal.ibatis.IbatisHelper;
+import com.hris.portal.model.PortalBankBean;
 import com.hris.portal.model.PortalBean;
+import com.hris.portal.model.PortalCityBean;
 import com.hris.portal.model.PortalDepartmentBean;
+import com.hris.portal.model.PortalLocationBean;
+import com.hris.portal.model.PortalMajorBean;
 import com.hris.portal.model.PortalMasterRoleBean;
 import com.hris.portal.model.PortalModulBean;
+import com.hris.portal.model.PortalPositionBean;
+import com.hris.portal.model.PortalPrivilegeBean;
+import com.hris.portal.model.PortalProvinceBean;
 import com.hris.portal.model.PortalUserBean;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -501,5 +508,386 @@ public class PortalManager {
 		}
 		return bean;
 	}
+	
+	/*BEGIN MASTER OTHERS*/
+	//GET
+	
+	//PROVINCE
+	public List<PortalProvinceBean> getAllProvince() {
+		List<PortalProvinceBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getProvince", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	//CITY
+	public List<PortalCityBean> getAllCity() {
+		List<PortalCityBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getCity", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	//MAJOR
+	public List<PortalMajorBean> getAllMajor() {
+		List<PortalMajorBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getMajor", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	//DEPARTMENT
+	public List<PortalDepartmentBean> getAllDepartment() {
+		List<PortalDepartmentBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getDepartment", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+		
+	//LOCATION
+	public List<PortalLocationBean> getAllLocation() {
+		List<PortalLocationBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getLocation", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	//PRIVILEGE
+	public List<PortalPrivilegeBean> getAllPrivilege() {
+		List<PortalPrivilegeBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getPrivilege", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	//POSITION
+	public List<PortalPositionBean> getAllPosition() {
+		List<PortalPositionBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getPosition", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	//BANK
+	public List<PortalBankBean> getAllBank() {
+		List<PortalBankBean> list = null;
+
+		try {
+			ibatis.startTransaction();
+			list = ibatis.queryForList("list.getBank", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
+	
+	
+	//INSERT
+	
+	//PROVINCE
+	public void insertNewProvince(String provinceName) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertProvince", provinceName);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//CITY
+	public void insertNewCity(String cityName, String cityProvinceId) {
+		
+		Map map = new HashMap();
+		map.put("cityName", cityName);
+		map.put("cityProvinceId", cityProvinceId);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertCity", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//MAJOR
+	public void insertNewMajor(String majorName, String description) {
+		
+		Map map = new HashMap();
+		map.put("majorName", majorName);
+		map.put("description", description);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertMajor", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//DEPARTMENT
+	public void insertNewDepartment(String msDepartmentName, String description) {
+		
+		Map map = new HashMap();
+		map.put("msDepartmentName", msDepartmentName);
+		map.put("description", description);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertDepartment", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//LOCATION
+	public void insertNewLocation(String locationName, String description) {
+		
+		Map map = new HashMap();
+		map.put("locationName", locationName);
+		map.put("description", description);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertLocation", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//PRIVILEGE
+	public void insertNewPrivilege(String privilegeName, String description) {
+		
+		Map map = new HashMap();
+		map.put("privilegeName", privilegeName);
+		map.put("description", description);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertPrivilege", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//POSITION
+	public void insertNewPosition(String positionName, String description) {
+		
+		Map map = new HashMap();
+		map.put("positionName", positionName);
+		map.put("description", description);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertPosition", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//BANK
+	public void insertNewBank(String bankName, String description) {
+		
+		Map map = new HashMap();
+		map.put("bankName", bankName);
+		map.put("description", description);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("list.insertBank", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//END MASTER OTHERS
 
 }

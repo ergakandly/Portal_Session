@@ -23,6 +23,8 @@ import com.hris.portal.model.PortalMasterRoleBean;
 import com.hris.portal.util.PortalUtil;
 
 public class PortalAction extends Action {
+
+	String userRoleId=null;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -48,6 +50,7 @@ public class PortalAction extends Action {
 			hForm.setPortalUserBean(manager.checkLogin(hForm.getUser(), password));
 			if (null != hForm.getPortalUserBean().getUserRoleId()) {
 				System.out.println("ROLE ID USER = "+hForm.getPortalUserBean().getUserRoleId());
+				userRoleId = hForm.getPortalUserBean().getUserRoleId();
 				
 				if("admin".equalsIgnoreCase(hForm.getUser()))
 					return mapping.findForward("dashboardAdmin");
@@ -57,46 +60,6 @@ public class PortalAction extends Action {
 					return mapping.findForward("dashboardUser");
 				}
 			}
-			
-			/*
-			hForm.setListUserDepartment(manager.getUserList());
-			
-			for(int i=0; i<hForm.getListUserDepartment().size(); i++){
-				
-//				System.out.println("User "+(i+1)+" = "+hForm.getListUserDepartment().get(i).getUserName());
-//				System.out.println("Password "+(i+1)+" = "+hForm.getListUserDepartment().get(i).getPassword());
-				
-				if(hForm.getUser().toLowerCase().equals(hForm.getListUserDepartment().get(i).getUserName().toLowerCase()) &&
-					hForm.getPass().equals(hForm.getListUserDepartment().get(i).getPassword())){
-					
-					System.out.println("ROLE ID USER= "+hForm.getListUserDepartment().get(i).getUserRoleId());
-					
-					if(hForm.getUser().toLowerCase().equals("admin")){
-						return mapping.findForward("dashboardAdmin");
-					}
-					else{
-						hForm.setListPortalMasterRoleMenu(manager.getMenuRoleName(hForm.getListUserDepartment().get(i).getUserRoleId()));
-						return mapping.findForward("dashboardUser");
-					}
-				}
-//				else{
-//					System.out.println("Salaaahhh");					
-//				}
-				
-			} 
-			*/
-			
-//			if(hForm.getUser().equals("user") && hForm.getPass().equals("user")){
-//				System.out.println("Jenis User : " + hForm.getUser());
-//				return mapping.findForward("dashboardUser");
-//			}
-//			else if(hForm.getUser().equals("admin") && hForm.getPass().equals("admin")){
-//				System.out.println("Jenis User : " + hForm.getUser());
-//				return mapping.findForward("dashboardAdmin");
-//			}
-//			else {
-//				System.out.println("SALAAAAHHH");
-//			}
 		}
 		else if ("deleteRole".equalsIgnoreCase(hForm.getTask())){	
 			System.out.println("Tasknya : " + hForm.getTask());
@@ -191,6 +154,10 @@ public class PortalAction extends Action {
 			return mapping.findForward("changePass");
 		}else if ("dashboardAdmin".equalsIgnoreCase(hForm.getTask())){
 			return mapping.findForward("dashboardAdmin");
+		}else if ("dashboardUser".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("User Role ID Balik: "+userRoleId);
+			hForm.setListPortalMasterRoleMenu(manager.getMenuRoleName(userRoleId));
+			return mapping.findForward("dashboardUser");
 		}else if ("addEditRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			return mapping.findForward("addEditRole");
@@ -363,6 +330,7 @@ public class PortalAction extends Action {
 			return mapping.findForward("masterModul");
 		}else if ("saveAddModule".equalsIgnoreCase(hForm.getTask())){
 			manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
+			hForm.setListPortalModulBean(manager.getMasterModul());
 			return mapping.findForward("masterModul");
 		}else if ("editModule".equalsIgnoreCase(hForm.getTask())){
 			manager.editModul(hForm.getId(), hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
@@ -372,7 +340,32 @@ public class PortalAction extends Action {
 			
 			return mapping.findForward("masterModul");
 		}else if ("masterOthers".equalsIgnoreCase(hForm.getTask())){
-
+			if(hForm.getPortalProvinceBean().getProvinceName()!=null){
+				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName());
+			}else if(hForm.getPortalCityBean().getCityName()!=null){
+				manager.insertNewCity(hForm.getPortalCityBean().getCityName(), hForm.getPortalCityBean().getCityProvinceId());
+			}else if(hForm.getPortalMajorBean().getMajorName()!=null){
+				manager.insertNewMajor(hForm.getPortalMajorBean().getMajorName(), hForm.getPortalMajorBean().getDescription());
+			}else if(hForm.getPortalDepartmentBean().getMsDepartmentName()!=null){
+				manager.insertNewDepartment(hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getPortalDepartmentBean().getDescription());
+			}else if(hForm.getPortalLocationBean().getLocationName()!=null){
+				manager.insertNewLocation(hForm.getPortalLocationBean().getLocationName(), hForm.getPortalLocationBean().getDescription());
+			}else if(hForm.getPortalPrivilegeBean().getPrivilegeName()!=null){
+				manager.insertNewPrivilege(hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription());
+			}else if(hForm.getPortalPositionBean().getPositionName()!=null){
+				manager.insertNewPosition(hForm.getPortalPositionBean().getPositionName(), hForm.getPortalPositionBean().getDescription());
+			}else if(hForm.getPortalBankBean().getBankName()!=null){
+				manager.insertNewBank(hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription());
+			}
+			
+			hForm.setListPortalProvince(manager.getAllProvince());
+			hForm.setListPortalCity(manager.getAllCity());
+			hForm.setListPortalMajor(manager.getAllMajor());
+			hForm.setListPortalDepartment(manager.getAllDepartment());
+			hForm.setListPortalLocation(manager.getAllLocation());
+			hForm.setListPortalPrivilege(manager.getAllPrivilege());
+			hForm.setListPortalPosition(manager.getAllPosition());
+			hForm.setListPortalBank(manager.getAllBank());
 			return mapping.findForward("masterOthers");
 		}
 		

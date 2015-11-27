@@ -8,8 +8,15 @@ public class PortalBankBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String bankId;
-	private String bankName;
+	private String bankName=null;
+	private String description;
 	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getBankId() {
 		return bankId;
 	}

@@ -8,7 +8,15 @@ public class PortalLocationBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String locationId;
-	private String locationName;
+	private String locationName=null;
+	private String description;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getLocationId() {
 		return locationId;
 	}

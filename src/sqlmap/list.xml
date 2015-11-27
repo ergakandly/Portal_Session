@@ -3,6 +3,9 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="list">
+
+<!-- 	SELECT -->
+
 	<select id="getProvince" resultClass="com.hris.portal.model.PortalProvinceBean">
 		SELECT 
 			province_id	AS provinceId, 
@@ -15,18 +18,22 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	
 	<select id="getCity" resultClass="com.hris.portal.model.PortalCityBean">
 		SELECT 
-			city_id AS cityId, 
-			city 	AS cityName
+		    c.city_id AS cityId, 
+		    c.city 	AS cityName,
+		    p.province AS cityProvinceName
 		FROM 
-			ms_city
+		    ms_city c
+		    join ms_province p
+		    on p.province_id = c.province_id
 		ORDER BY
-		    city_id
+		    c.city_id
 	</select>
 	
 	<select id="getMajor" resultClass="com.hris.portal.model.PortalMajorBean">
 		SELECT
 			major_id 	AS majorId, 
-			major 		AS majorName
+			major 		AS majorName,
+			description	AS description
 		FROM 
 			ms_major
 		ORDER BY
@@ -37,7 +44,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<select id="getDepartment" resultClass="com.hris.portal.model.PortalDepartmentBean">
 		SELECT
 		    department_id 	AS departmentId,
-		    department 		AS msDepartmentName
+		    department 		AS msDepartmentName,
+		    description		AS description
 		FROM
 		    ms_department
 		ORDER BY
@@ -47,17 +55,19 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<select id="getLocation" resultClass="com.hris.portal.model.PortalLocationBean">
 		SELECT 
 			location_id AS locationId, 
-			location 	AS locationName
+			location 	AS locationName,
+		    description	AS description
 		FROM
 			ms_location
 		ORDER BY
 		    location_id
 	</select>
 	
-	<select id = "getPrivelege" resultClass="com.hris.portal.model.PortalPrivilegeBean" parameterClass="java.lang.String">
+	<select id = "getPrivilege" resultClass="com.hris.portal.model.PortalPrivilegeBean" parameterClass="java.lang.String">
 		SELECT
 		    privilege_id 	AS privilegeId,
-		    privilege 	AS privilegeName
+		    privilege 		AS privilegeName,
+		    description		AS description
 		FROM
 		    ms_privilege
 		ORDER BY
@@ -77,10 +87,189 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<select id="getBank" resultClass="com.hris.portal.model.PortalBankBean">
 		SELECT 
 			bank_id AS bankId, 
-			bank 	AS bankName
+			bank 	AS bankName,
+		    description		AS description
 		FROM 
 			ms_bank
 		ORDER BY
-		    department_id
+		    bank_id
 	</select>
+	
+<!-- 	INSERT  -->
+	
+	<insert id = "insertProvince" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_PROVINCE(
+		    	province_id,
+		    	province,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_PROVINCE_SEQ.NEXTVAL,
+				#provinceName#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	<insert id = "insertCity" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_CITY(
+		    	city_id,
+		    	city,
+		    	province_id,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_CITY_SEQ.NEXTVAL,
+				#cityName#,
+				#provinceId#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	<insert id = "insertMajor" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_MAJOR(
+		    	major_id,
+		    	major,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_MAJOR_SEQ.NEXTVAL,
+				#majorName#,
+				#description#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	<insert id = "insertDepartment" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_DEPARTMENT(
+		    	department_id,
+		    	department,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_DEPARTMENT_SEQ.NEXTVAL,
+				#msDepartmentName#,
+				#description#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	<insert id = "insertLocation" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_LOCATION(
+		    	location_id,
+		    	location,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_LOCATION_SEQ.NEXTVAL,
+				#locationName#,
+				#description#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	<insert id = "insertPrivilege" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_PRIVILEGE(
+		    	privilege_id,
+		    	privilege,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_PRIVILEGE_SEQ.NEXTVAL,
+				#privilegeName#,
+				#description#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	<insert id = "insertPosition" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_POSITION(
+		    	position_id,
+		    	position,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_POSITION_SEQ.NEXTVAL,
+				#positionName#,
+				#description#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	<insert id = "insertBank" parameterClass="java.lang.String">
+		INSERT INTO
+		    MS_BANK(
+		    	bank_id,
+		    	bank,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				MS_BANK_SEQ.NEXTVAL,
+				#bankName#,
+				#description#,
+				'',
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>
+	
+	
 </sqlMap>

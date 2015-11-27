@@ -8,7 +8,16 @@ public class PortalMajorBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String majorId;
-	private String majorName;
+	private String majorName=null;
+	private String description;
+	
+		
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getMajorId() {
 		return majorId;
 	}

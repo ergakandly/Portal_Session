@@ -137,18 +137,29 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	
 	<insert id = "insertUser" parameterClass="java.util.Map">
 		INSERT INTO
-			MS_USER
+			MS_USER (
+				user_id,
+				username,
+				password,
+				employee_id,
+				role_id,
+				is_login,
+				created_by,
+				create_date,
+				updated_by,
+				update_date
+			)
 		VALUES (
-			(SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1,
-			#userName#,
-			GET_HASH(#pass#),
-			#empId#,
-			#roleId#,
-			'0',
-			null,
-			SYSDATE,
-			null,
-			null
+				(SELECT MAX(user_id) AS MAX_ID FROM MS_USER)+1,
+				#userName#,
+				GET_HASH(#pass#),
+				#empId#,
+				#roleId#,
+				'0',
+				null,
+				SYSDATE,
+				null,
+				null
 		)
 	</insert>
 
@@ -235,47 +246,73 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- 	INSERT NEW ROLE Name-->
 	<insert id = "insertNewRoleName" parameterClass="java.lang.String">
 		INSERT INTO
-		    ms_role
+		    ms_role(
+		    	role_id,
+		    	role_name,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
 		VALUES (
-			MS_ROLE_SEQ.NEXTVAL,
-		    #addRoleName#,
-		    '',
-		    '',
-		    SYSDATE,
-		    '',
-		    ''
+				MS_ROLE_SEQ.NEXTVAL,
+			    #addRoleName#,
+			    '',
+			    '',
+			    SYSDATE,
+			    '',
+			    ''
 		)
 	</insert>
 
 <!-- 	INSERT NEW ROLE TR_MENU-->
 	<insert id = "insertNewRoleMenu" parameterClass="java.lang.String">
 		INSERT INTO
-		    tr_role_menu
+		    tr_role_menu(
+		    	role_menu_id,
+		    	role_id,
+		    	menu_id,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
 		VALUES(
-			TR_ROLE_MENU_SEQ.NEXTVAL,
-			MS_ROLE_SEQ.CURRVAL,
-			#insertRoleMenuId#,
-			'',
-			1,
-			SYSDATE,
-			'',
-			''
+				TR_ROLE_MENU_SEQ.NEXTVAL,
+				MS_ROLE_SEQ.CURRVAL,
+				#insertRoleMenuId#,
+				'',
+				1,
+				SYSDATE,
+				'',
+				''
 		)
 	</insert>
 	
 <!-- 	INSERT NEW ROLE -->
 	<insert id = "insertNewRolePriv" parameterClass="java.lang.String">
 		INSERT INTO
-		    tr_role_privilege
+		    tr_role_privilege(
+		    	role_privilege_id,
+		    	role_id,
+		    	privilege_id,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
 		VALUES(
-			TR_ROLE_PRIVILEGE_SEQ.NEXTVAL,
-			MS_ROLE_SEQ.CURRVAL,
-			#insertRolePrivId#,
-			'',
-			1,
-			sysdate,
-			'',
-			''
+				TR_ROLE_PRIVILEGE_SEQ.NEXTVAL,
+				MS_ROLE_SEQ.CURRVAL,
+				#insertRolePrivId#,
+				'',
+				1,
+				sysdate,
+				'',
+				''
 		)
 	</insert>
 
@@ -320,7 +357,16 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <!-- 	INSERT NEW MODUL -->
 	<insert id = "insertNewModul" parameterClass="java.util.Map">
 		INSERT INTO
-		    ms_menu
+		    ms_menu(
+		    	menu_id,
+		    	menu,
+		    	url_menu,
+		    	icon,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
 		VALUES(
 			MS_MENU_SEQ.NEXTVAL,
 			#menuName#,

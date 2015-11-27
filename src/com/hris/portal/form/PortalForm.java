@@ -5,9 +5,16 @@ import java.util.List;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.util.LabelValueBean;
 
+import com.hris.portal.model.PortalBankBean;
 import com.hris.portal.model.PortalBean;
+import com.hris.portal.model.PortalCityBean;
 import com.hris.portal.model.PortalDepartmentBean;
+import com.hris.portal.model.PortalLocationBean;
+import com.hris.portal.model.PortalMajorBean;
 import com.hris.portal.model.PortalModulBean;
+import com.hris.portal.model.PortalPositionBean;
+import com.hris.portal.model.PortalPrivilegeBean;
+import com.hris.portal.model.PortalProvinceBean;
 import com.hris.portal.model.PortalUserBean;
 import com.hris.portal.model.PortalMasterRoleBean;
 
@@ -33,6 +40,28 @@ public class PortalForm extends ActionForm{
 	
 	private List<PortalModulBean> listPortalModulBean;
 	private PortalModulBean portalModulBean = new PortalModulBean();
+	
+	private List<PortalBankBean> listPortalBank;
+	private PortalBankBean portalBankBean = new PortalBankBean();
+	
+	private List<PortalCityBean> listPortalCity;
+	private PortalCityBean portalCityBean = new PortalCityBean();
+	
+	private List<PortalLocationBean> listPortalLocation;
+	private PortalLocationBean portalLocationBean = new PortalLocationBean();
+	
+	private List<PortalMajorBean> listPortalMajor;
+	private PortalMajorBean portalMajorBean = new PortalMajorBean();
+	
+	private List<PortalPositionBean> listPortalPosition;
+	private PortalPositionBean portalPositionBean = new PortalPositionBean();
+	
+	private List<PortalProvinceBean> listPortalProvince;
+	private PortalProvinceBean portalProvinceBean = new PortalProvinceBean();
+	
+	private List<PortalPrivilegeBean> listPortalPrivilege;
+	private PortalPrivilegeBean portalPrivilegeBean = new PortalPrivilegeBean();
+	
 	
 	private String task;
 	private String id;
@@ -90,6 +119,90 @@ public class PortalForm extends ActionForm{
 	public void setListPortalMasterRole(
 			List<PortalMasterRoleBean> listPortalMasterRole) {
 		this.listPortalMasterRole = listPortalMasterRole;
+	}
+	public List<PortalBankBean> getListPortalBank() {
+		return listPortalBank;
+	}
+	public void setListPortalBank(List<PortalBankBean> listPortalBank) {
+		this.listPortalBank = listPortalBank;
+	}
+	public PortalBankBean getPortalBankBean() {
+		return portalBankBean;
+	}
+	public void setPortalBankBean(PortalBankBean portalBankBean) {
+		this.portalBankBean = portalBankBean;
+	}
+	public List<PortalCityBean> getListPortalCity() {
+		return listPortalCity;
+	}
+	public void setListPortalCity(List<PortalCityBean> listPortalCity) {
+		this.listPortalCity = listPortalCity;
+	}
+	public PortalCityBean getPortalCityBean() {
+		return portalCityBean;
+	}
+	public void setPortalCityBean(PortalCityBean portalCityBean) {
+		this.portalCityBean = portalCityBean;
+	}
+	public List<PortalLocationBean> getListPortalLocation() {
+		return listPortalLocation;
+	}
+	public void setListPortalLocation(List<PortalLocationBean> listPortalLocation) {
+		this.listPortalLocation = listPortalLocation;
+	}
+	public PortalLocationBean getPortalLocationBean() {
+		return portalLocationBean;
+	}
+	public void setPortalLocationBean(PortalLocationBean portalLocationBean) {
+		this.portalLocationBean = portalLocationBean;
+	}
+	public List<PortalMajorBean> getListPortalMajor() {
+		return listPortalMajor;
+	}
+	public void setListPortalMajor(List<PortalMajorBean> listPortalMajor) {
+		this.listPortalMajor = listPortalMajor;
+	}
+	public PortalMajorBean getPortalMajorBean() {
+		return portalMajorBean;
+	}
+	public void setPortalMajorBean(PortalMajorBean portalMajorBean) {
+		this.portalMajorBean = portalMajorBean;
+	}
+	public List<PortalPositionBean> getListPortalPosition() {
+		return listPortalPosition;
+	}
+	public void setListPortalPosition(List<PortalPositionBean> listPortalPosition) {
+		this.listPortalPosition = listPortalPosition;
+	}
+	public PortalPositionBean getPortalPositionBean() {
+		return portalPositionBean;
+	}
+	public void setPortalPositionBean(PortalPositionBean portalPositionBean) {
+		this.portalPositionBean = portalPositionBean;
+	}
+	public List<PortalProvinceBean> getListPortalProvince() {
+		return listPortalProvince;
+	}
+	public void setListPortalProvince(List<PortalProvinceBean> listPortalProvince) {
+		this.listPortalProvince = listPortalProvince;
+	}
+	public PortalProvinceBean getPortalProvinceBean() {
+		return portalProvinceBean;
+	}
+	public void setPortalProvinceBean(PortalProvinceBean portalProvinceBean) {
+		this.portalProvinceBean = portalProvinceBean;
+	}
+	public List<PortalPrivilegeBean> getListPortalPrivilege() {
+		return listPortalPrivilege;
+	}
+	public void setListPortalPrivilege(List<PortalPrivilegeBean> listPortalPrivilege) {
+		this.listPortalPrivilege = listPortalPrivilege;
+	}
+	public PortalPrivilegeBean getPortalPrivilegeBean() {
+		return portalPrivilegeBean;
+	}
+	public void setPortalPrivilegeBean(PortalPrivilegeBean portalPrivilegeBean) {
+		this.portalPrivilegeBean = portalPrivilegeBean;
 	}
 	public PortalMasterRoleBean getPortalMasterRoleBean() {
 		return PortalMasterRoleBean;
