@@ -8,11 +8,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 public class PortalUtil {
-	private static String key;
-	
-	public PortalUtil() {
-		key = "hrIS0987HRis4321";
-	}
+	private static String key = "hrIS0987HRis4321";
 	
 	public static void setKey(String key) {
 		PortalUtil.key = key;
