@@ -95,7 +95,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="province" />
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -151,11 +152,12 @@
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-<!-- 														<button type="button" class="btn btn-danger" -->
-<!-- 															data-toggle="modal" data-target="#modalYakin" -->
-<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
-<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
-<!-- 														</button> -->
+														<button type="button" class="btn btn-danger"
+															data-toggle="modal" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="city" />
+															<span class="glyphicon glyphicon-remove"></span> Delete
+														</button>
 													</td>
 												</tr>
 											</logic:iterate>
@@ -209,11 +211,12 @@
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-<!-- 														<button type="button" class="btn btn-danger" -->
-<!-- 															data-toggle="modal" data-target="#modalYakin" -->
-<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
-<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
-<!-- 														</button> -->
+														<button type="button" class="btn btn-danger"
+															data-toggle="modal" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="major" />
+															<span class="glyphicon glyphicon-remove"></span> Delete
+														</button>
 													</td>
 												</tr>
 											</logic:iterate>
@@ -267,11 +270,12 @@
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-<!-- 														<button type="button" class="btn btn-danger" -->
-<!-- 															data-toggle="modal" data-target="#modalYakin" -->
-<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
-<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
-<!-- 														</button> -->
+														<button type="button" class="btn btn-danger"
+															data-toggle="modal" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="department" />
+															<span class="glyphicon glyphicon-remove"></span> Delete
+														</button>
 													</td>
 												</tr>
 											</logic:iterate>
@@ -325,11 +329,12 @@
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-<!-- 														<button type="button" class="btn btn-danger" -->
-<!-- 															data-toggle="modal" data-target="#modalYakin" -->
-<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
-<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
-<!-- 														</button> -->
+														<button type="button" class="btn btn-danger"
+															data-toggle="modal" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="location" />
+															<span class="glyphicon glyphicon-remove"></span> Delete
+														</button>
 													</td>
 												</tr>
 											</logic:iterate>
@@ -383,11 +388,12 @@
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-<!-- 														<button type="button" class="btn btn-danger" -->
-<!-- 															data-toggle="modal" data-target="#modalYakin" -->
-<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
-<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
-<!-- 														</button> -->
+														<button type="button" class="btn btn-danger"
+															data-toggle="modal" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="privilege" />
+															<span class="glyphicon glyphicon-remove"></span> Delete
+														</button>
 													</td>
 												</tr>
 											</logic:iterate>
@@ -441,11 +447,12 @@
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-<!-- 														<button type="button" class="btn btn-danger" -->
-<!-- 															data-toggle="modal" data-target="#modalYakin" -->
-<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
-<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
-<!-- 														</button> -->
+														<button type="button" class="btn btn-danger"
+															data-toggle="modal" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="position" />
+															<span class="glyphicon glyphicon-remove"></span> Delete
+														</button>
 													</td>
 												</tr>
 											</logic:iterate>
@@ -499,11 +506,12 @@
 															data-toggle="modal" data-target="#modalAddModul">
 															<span class="glyphicon glyphicon-pencil"></span> Edit
 														</button>
-<!-- 														<button type="button" class="btn btn-danger" -->
-<!-- 															data-toggle="modal" data-target="#modalYakin" -->
-<%-- 															onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');"> --%>
-<!-- 															<span class="glyphicon glyphicon-remove"></span> Delete -->
-<!-- 														</button> -->
+														<button type="button" class="btn btn-danger"
+															data-toggle="modal" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="bank" />
+															<span class="glyphicon glyphicon-remove"></span> Delete
+														</button>
 													</td>
 												</tr>
 											</logic:iterate>

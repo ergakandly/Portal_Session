@@ -888,6 +888,171 @@ public class PortalManager {
 		}
 	}
 	
+	
+	
+	//DELETE
+	
+	//PROVINCE
+	public void deleteProvince(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deleteProvince", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//CITY
+	public void deleteCity(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deleteCity", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//MAJOR
+	public void deleteMajor(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deleteMajor", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//DEPARTMENT
+	public void deleteDepartment(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deleteDepartment", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		}
+	
+	//LOCATION
+	public void deleteLocation(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deleteLocation", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//PRIVILEGE
+	public void deletePrivilege(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deletePrivilege", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//POSITION
+	public void deletePosition(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deletePosition", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//BANK
+	public void deleteBank(String id) {
+
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("list.deleteBank", id);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	//END MASTER OTHERS
 
 }

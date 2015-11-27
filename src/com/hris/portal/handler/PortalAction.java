@@ -339,8 +339,33 @@ public class PortalAction extends Action {
 			hForm.getPortalModulBean().setUrlMenu("");
 			
 			return mapping.findForward("masterModul");
-		}else if ("masterOthers".equalsIgnoreCase(hForm.getTask())){
-			if(hForm.getPortalProvinceBean().getProvinceName()!=null){
+		}else if ("masterOthers".equalsIgnoreCase(hForm.getTask())){	
+			hForm.setListPortalProvince(null);
+			hForm.setListPortalCity(null);
+			hForm.setListPortalMajor(null);
+			hForm.setListPortalDepartment(null);
+			hForm.setListPortalLocation(null);
+			hForm.setListPortalPrivilege(null);
+			hForm.setListPortalPosition(null);
+			hForm.setListPortalBank(null);
+			
+			if(hForm.getIsDeleteMasterOthers().equals("province")){
+				manager.deleteProvince(hForm.getId());
+			}else if(hForm.getIsDeleteMasterOthers().equals("city")){
+				manager.deleteCity(hForm.getId());
+			}else if(hForm.getIsDeleteMasterOthers().equals("major")){
+				manager.deleteMajor(hForm.getId());
+			}else if(hForm.getIsDeleteMasterOthers().equals("department")){
+				manager.deleteDepartment(hForm.getId());
+			}else if(hForm.getIsDeleteMasterOthers().equals("location")){
+				manager.deleteLocation(hForm.getId());
+			}else if(hForm.getIsDeleteMasterOthers().equals("privilege")){
+				manager.deletePrivilege(hForm.getId());
+			}else if(hForm.getIsDeleteMasterOthers().equals("position")){
+				manager.deletePosition(hForm.getId());
+			}else if(hForm.getIsDeleteMasterOthers().equals("bank")){
+				manager.deleteBank(hForm.getId());
+			}else if(hForm.getPortalProvinceBean().getProvinceName()!=null){
 				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName());
 			}else if(hForm.getPortalCityBean().getCityName()!=null){
 				manager.insertNewCity(hForm.getPortalCityBean().getCityName(), hForm.getPortalCityBean().getCityProvinceId());
@@ -357,6 +382,9 @@ public class PortalAction extends Action {
 			}else if(hForm.getPortalBankBean().getBankName()!=null){
 				manager.insertNewBank(hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription());
 			}
+			
+			
+			hForm.setIsDeleteMasterOthers("0");
 			
 			hForm.setListPortalProvince(manager.getAllProvince());
 			hForm.setListPortalCity(manager.getAllCity());

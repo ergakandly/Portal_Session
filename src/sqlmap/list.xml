@@ -271,5 +271,62 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		)
 	</insert>
 	
+<!-- 	DELETE -->
+
+	<delete id = "deleteProvince" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_province
+		WHERE
+		    province_id = #id#
+	</delete>
+	
+	<delete id = "deleteCity" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_city
+		WHERE
+		    city_id = #id#
+	</delete>
+	
+	<delete id = "deleteMajor" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_major
+		WHERE
+		    major_id = #id#
+	</delete>
+	
+	<delete id = "deleteDepartment" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_department
+		WHERE
+		    department_id = #id#
+	</delete>
+	
+	<delete id = "deleteLocation" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_location
+		WHERE
+		    location_id = #id#
+	</delete>
+	
+	<delete id = "deletePrivilege" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_privilege
+		WHERE
+		    privilege_id = #id#
+	</delete>
+	
+	<delete id = "deletePosition" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_position
+		WHERE
+		    position_id = #id#
+	</delete>
+	
+	<delete id = "deleteBank" parameterClass="java.lang.String">
+		DELETE FROM
+		    ms_bank
+		WHERE
+		    bank_id = #id#
+	</delete>
 	
 </sqlMap>

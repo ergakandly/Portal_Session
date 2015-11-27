@@ -62,7 +62,7 @@ public class PortalForm extends ActionForm{
 	private List<PortalPrivilegeBean> listPortalPrivilege;
 	private PortalPrivilegeBean portalPrivilegeBean = new PortalPrivilegeBean();
 	
-	
+	private String isDeleteMasterOthers="0";
 	private String task;
 	private String id;
 	private String user;
@@ -75,6 +75,12 @@ public class PortalForm extends ActionForm{
 	public List viewMenu;
 	public List viewPriv;
 	
+	public String getIsDeleteMasterOthers() {
+		return isDeleteMasterOthers;
+	}
+	public void setIsDeleteMasterOthers(String isDeleteMasterOthers) {
+		this.isDeleteMasterOthers = isDeleteMasterOthers;
+	}
 	public String[] getSelectedNewPriv() {
 		return selectedNewPriv;
 	}
