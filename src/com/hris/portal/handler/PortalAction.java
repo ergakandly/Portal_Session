@@ -409,6 +409,7 @@ public class PortalAction extends Action {
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
 			
+			System.out.println("NAVBAR"+hForm.getId());
 			System.out.println("Isdelete luar: "+hForm.getIsDeleteMasterOthers());
 			
 			//DELETE

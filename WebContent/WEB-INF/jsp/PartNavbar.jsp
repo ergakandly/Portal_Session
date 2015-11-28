@@ -79,12 +79,12 @@ li.message-footer {
 </style>
 <script type="text/javascript">
 
-	function flyToPage(task, id) {
-	//		alert(document.forms[0].addRoleName.value);	
-		document.forms[0].task.value = task;
-		document.forms[0].id.value = id;
-		document.forms[0].submit();
-	}
+// 	function flyToPage(task, id) {
+// 	//		alert(document.forms[0].addRoleName.value);	
+// 		document.forms[0].task.value = task;
+// 		document.forms[0].id.value = id;
+// 		document.forms[0].submit();
+// 	}
 
 	function navigateToPage(task) {
 
@@ -326,9 +326,13 @@ li.message-footer {
 					<!-- PANEL -->
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">
-						<i class="fa fa-check"></i> Save changes
+					<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterOthers', '<bean:write name="PortalForm" property="userExist" />', '0', '<bean:write name="PortalForm" property="oldPass"/>', '<bean:write name="PortalForm" property="newPass"/>', '<bean:write name="PortalForm" property="rePass"/>');">
+							<i class="fa fa-check"></i> Save changes
 					</button>
+<!-- 					<button type="button" class="btn btn-primary"> -->
+<!-- 						<i class="fa fa-check"></i> Save changes -->
+<!-- 					</button> -->
 					<button type="button" class="btn btn-danger" data-dismiss="modal">
 						<i class="fa fa-close"></i> Close
 					</button>
