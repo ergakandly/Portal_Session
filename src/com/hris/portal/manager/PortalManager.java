@@ -702,7 +702,7 @@ public class PortalManager {
 	
 	//PROVINCE
 	public void insertNewProvince(String provinceName) {
-
+		System.out.println("MANAGER province dalam jalan loohh");
 		try {
 			ibatis.startTransaction();
 			ibatis.insert("list.insertProvince", provinceName);
@@ -722,11 +722,11 @@ public class PortalManager {
 	
 	//CITY
 	public void insertNewCity(String cityName, String cityProvinceId) {
-		
+		System.out.println("MANAGER CITY dalam jalan loohh");
 		Map map = new HashMap();
 		map.put("cityName", cityName);
 		map.put("cityProvinceId", cityProvinceId);
-		
+		System.out.println("Lalala");
 		try {
 			ibatis.startTransaction();
 			ibatis.insert("list.insertCity", map);
@@ -746,6 +746,8 @@ public class PortalManager {
 	
 	//MAJOR
 	public void insertNewMajor(String majorName, String description) {
+		
+		System.out.println("MANAGER MAJOR dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("majorName", majorName);
@@ -771,6 +773,8 @@ public class PortalManager {
 	//DEPARTMENT
 	public void insertNewDepartment(String msDepartmentName, String description) {
 		
+		System.out.println("MANAGER Department dalam jalan loohh");
+		
 		Map map = new HashMap();
 		map.put("msDepartmentName", msDepartmentName);
 		map.put("description", description);
@@ -794,6 +798,8 @@ public class PortalManager {
 	
 	//LOCATION
 	public void insertNewLocation(String locationName, String description) {
+		
+		System.out.println("MANAGER location dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("locationName", locationName);
@@ -819,6 +825,8 @@ public class PortalManager {
 	//PRIVILEGE
 	public void insertNewPrivilege(String privilegeName, String description) {
 		
+		System.out.println("MANAGER PRIVILEGE dalam jalan loohh");
+		
 		Map map = new HashMap();
 		map.put("privilegeName", privilegeName);
 		map.put("description", description);
@@ -843,6 +851,8 @@ public class PortalManager {
 	//POSITION
 	public void insertNewPosition(String positionName, String description) {
 		
+		System.out.println("MANAGER POSITION dalam jalan loohh");
+		
 		Map map = new HashMap();
 		map.put("positionName", positionName);
 		map.put("description", description);
@@ -866,6 +876,8 @@ public class PortalManager {
 	
 	//BANK
 	public void insertNewBank(String bankName, String description) {
+		
+		System.out.println("MANAGER BANK dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("bankName", bankName);
@@ -894,7 +906,7 @@ public class PortalManager {
 	
 	//PROVINCE
 	public void deleteProvince(String id) {
-
+		System.out.println("Delete Province");
 		try {
 			ibatis.startTransaction();
 			ibatis.delete("list.deleteProvince", id);
@@ -914,7 +926,8 @@ public class PortalManager {
 	
 	//CITY
 	public void deleteCity(String id) {
-
+		System.out.println("Delete City");
+		
 		try {
 			ibatis.startTransaction();
 			ibatis.delete("list.deleteCity", id);
@@ -934,6 +947,7 @@ public class PortalManager {
 	
 	//MAJOR
 	public void deleteMajor(String id) {
+		System.out.println("Delete Major");
 
 		try {
 			ibatis.startTransaction();
@@ -954,6 +968,7 @@ public class PortalManager {
 	
 	//DEPARTMENT
 	public void deleteDepartment(String id) {
+		System.out.println("Delete Department");
 
 		try {
 			ibatis.startTransaction();
@@ -974,6 +989,7 @@ public class PortalManager {
 	
 	//LOCATION
 	public void deleteLocation(String id) {
+		System.out.println("Delete Location");
 
 		try {
 			ibatis.startTransaction();
@@ -994,6 +1010,7 @@ public class PortalManager {
 	
 	//PRIVILEGE
 	public void deletePrivilege(String id) {
+		System.out.println("Delete Privilege");
 
 		try {
 			ibatis.startTransaction();
@@ -1014,6 +1031,7 @@ public class PortalManager {
 	
 	//POSITION
 	public void deletePosition(String id) {
+		System.out.println("Delete Position");
 
 		try {
 			ibatis.startTransaction();
@@ -1034,6 +1052,7 @@ public class PortalManager {
 	
 	//BANK
 	public void deleteBank(String id) {
+		System.out.println("Delete Bank");
 
 		try {
 			ibatis.startTransaction();

@@ -8,12 +8,19 @@ public class PortalDepartmentBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String departmentId;
-	private String msDepartmentName=null;
+	private String msDepartmentName;
 	private String locationId;
 	private String deptEmployeeName;
 	private String dateOfBirth;
 	private String description;
+	private String msDepartmentNameTemp="";
 	
+	public String getMsDepartmentNameTemp() {
+		return msDepartmentNameTemp;
+	}
+	public void setMsDepartmentNameTemp(String msDepartmentNameTemp) {
+		this.msDepartmentNameTemp = msDepartmentNameTemp;
+	}
 	public String getDescription() {
 		return description;
 	}

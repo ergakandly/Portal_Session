@@ -14,7 +14,7 @@
 </head>
 <script language="JavaScript">
 	function flyToPage(task, id) {
-		// 		alert(document.forms[0].addRoleName.value);
+// 		alert(document.forms[0].addRoleName.value);
 
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
@@ -28,11 +28,11 @@
 		}
 		frm.submit();
 	}
+
 </script>
 
 <body>
-	<html:hidden name="PortalForm" property="task" />
-	<html:hidden name="PortalForm" property="id" />
+
 	<%@include file="PartNavbar.jsp"%>
 	<html:form method="post" action="/portal">
 
@@ -64,9 +64,7 @@
 						</button>
 					</center>
 					<br /> <br />
-					<table
-						class="table table-striped table-hover table-condensed table-bordered"
-						id="sort">
+					<table class="table table-striped table-hover table-condensed">
 						<thead>
 							<tr>
 								<th>Role Name</th>
@@ -96,12 +94,14 @@
 
 
 									<!-- PRIVILAGES -->
-									<td class="tengah" style="vertical-align: middle;"><logic:notEmpty
+									<td class="tengah"><logic:notEmpty
 											name="portalMasterRoleList" property="listMasterRoleBeanPriv">
 											<logic:iterate id="priv" name="portalMasterRoleList"
 												property="listMasterRoleBeanPriv">
 												<logic:empty name="priv" property="privilegeName">
-													<i class="fa fa-minus" style="color: green"></i>
+													<p>
+														<br /> -
+													</p>
 												</logic:empty>
 												<bean:write name="priv" property="privilegeName" />
 												<br />
@@ -112,7 +112,7 @@
 										<button type="button" onclick="javascript:editModal();"
 											id="editBtn" class="btn btn-info" data-toggle="modal"
 											data-target="#modalAddRole" data-backdrop="static">
-											<i class="fa fa-pencil"></i> Edit
+											<i class="fa fa-pencil"></i> Edit 
 										</button>
 
 										<button type="button" class="btn btn-danger"
@@ -121,6 +121,7 @@
 											Delete
 										</button>
 									</td>
+
 								</tr>
 							</logic:iterate>
 						</logic:notEmpty>
@@ -142,7 +143,8 @@
 						<h4 id="modalLabel"></h4>
 					</div>
 					<div class="modal-body ">
-
+						<html:hidden name="PortalForm" property="task" />
+						<html:hidden name="PortalForm" property="id" />
 						<table align="center">
 							<tr>
 								<td class="kanan">Role Name :</td>
@@ -192,6 +194,7 @@
 																<bean:write name="portalMasterRolePrivList"
 																	property="privilegeIdView" />
 															</html:multibox></td>
+
 													</logic:equal>
 												</logic:iterate>
 											</logic:notEmpty>
@@ -200,14 +203,6 @@
 									</logic:iterate>
 								</logic:notEmpty>
 							</tbody>
-						</table>
-
-						<table align="center">
-							<tr>
-								<td class="kanan">Description :</td>
-								<td><textarea rows="4" cols="50">
-</textarea></td>
-							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
@@ -235,39 +230,6 @@
 				$("#modalLabel").html("Edit Role");
 			});
 		});
-		$(document).ready(function() {
-			$('#sort').DataTable();
-		});
-
-		function addModal() {
-			document.forms["PortalForm"].elements["currentSpecialDateBean.description"].value = "";
-			document.forms["PortalForm"].elements["currentSpecialDateBean.date"].value = "";
-			document.forms["PortalForm"].task.value = "saveAddModule";
-		}
-
-		function editModal(id, name, link, icon) {
-			document.forms["PortalForm"].task.value = "editModule";
-			document.forms["PortalForm"].elements["portalModulBean.menuName"].value = name;
-			document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = link;
-			document.forms["PortalForm"].elements["portalModulBean.icon"].value = icon;
-			document.forms["PortalForm"].id.value = id;
-		}
-
-		function onModalClose() {
-			document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
-			document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
-		}
-
-		function submitForm(task, id) {
-
-			var method = task == "" ? document.forms["PortalForm"].task.value
-					: task;
-
-			if (id != "")
-				document.forms["PortalForm"].id.value = id;
-
-			document.forms["PortalForm"].submit();
-		}
 	</script>
 </body>
 

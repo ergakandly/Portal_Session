@@ -8,10 +8,17 @@ public class PortalCityBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String cityId;
-	private String cityName=null;
+	private String cityName;
 	private String cityProvinceName;
 	private String cityProvinceId;
+	private String cityNameTemp="";
 	
+	public String getCityNameTemp() {
+		return cityNameTemp;
+	}
+	public void setCityNameTemp(String cityNameTemp) {
+		this.cityNameTemp = cityNameTemp;
+	}
 	public String getCityProvinceId() {
 		return cityProvinceId;
 	}

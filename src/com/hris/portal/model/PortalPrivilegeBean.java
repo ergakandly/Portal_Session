@@ -8,9 +8,16 @@ public class PortalPrivilegeBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String privilegeId;
-	private String privilegeName=null;
+	private String privilegeName;
 	private String description;
+	private String privilegeNameTemp="";
 	
+	public String getPrivilegeNameTemp() {
+		return privilegeNameTemp;
+	}
+	public void setPrivilegeNameTemp(String privilegeNameTemp) {
+		this.privilegeNameTemp = privilegeNameTemp;
+	}
 	public String getDescription() {
 		return description;
 	}

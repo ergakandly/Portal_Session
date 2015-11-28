@@ -8,9 +8,16 @@ public class PortalPositionBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String positionId;
-	private String positionName=null;
+	private String positionName;
 	private String description;
+	private String positionNameTemp="";
 	
+	public String getPositionNameTemp() {
+		return positionNameTemp;
+	}
+	public void setPositionNameTemp(String positionNameTemp) {
+		this.positionNameTemp = positionNameTemp;
+	}
 	public String getDescription() {
 		return description;
 	}

@@ -8,8 +8,15 @@ public class PortalProvinceBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String provinceId;
-	private String provinceName=null;
+	private String provinceName;
+	private String provinceNameTemp="";
 	
+	public String getProvinceNameTemp() {
+		return provinceNameTemp;
+	}
+	public void setProvinceNameTemp(String provinceNameTemp) {
+		this.provinceNameTemp = provinceNameTemp;
+	}
 	public String getProvinceId() {
 		return provinceId;
 	}

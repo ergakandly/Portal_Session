@@ -14,10 +14,14 @@
 </head>
 
 <script type="text/javascript">
-	function flyToPage(task, id) {
+	function flyToPage(task, id, isDeleteMasterOthers) {
+// 		alert(task+"::"+id+"::"+isDeleteMasterOthers);
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
+		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
+// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
 		document.forms[0].submit();
+		
 	}
 </script>
 
@@ -25,7 +29,7 @@
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
-
+		<html:hidden name="PortalForm" property="isDeleteMasterOthers" />
 		<div id="wrapper">
 			<%@include file="PartNavbar.jsp"%>
 			<div id="page-wrapper">
@@ -95,8 +99,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="province" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="province" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -154,8 +158,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="city" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalCityList" property="cityId" />', 'city');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="city" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -213,8 +217,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="major" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalMajorList" property="majorId" />', 'major');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="major" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -272,8 +276,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="department" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="department" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -331,8 +335,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="location" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalLocationList" property="locationId" />', 'location');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="location" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -390,8 +394,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="privilege" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPrivilegeList" property="privilegeId" />', 'privilege');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="privilege" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -449,8 +453,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="position" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPositionList" property="positionId" />', 'position');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="position" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -508,8 +512,8 @@
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
-															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="bank" />
+															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalBankList" property="bankId" />', 'bank');">
+<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="bank" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -547,7 +551,7 @@
 							<tr>
 								<td class="kanan">Province Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalProvinceBean.provinceName"/></td>
+										property="portalProvinceBean.provinceNameTemp"/></td>
 							</tr>
 						</table>
 					</div>
@@ -587,7 +591,7 @@
 							<tr>
 								<td class="kanan">City Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalCityBean.cityName" /></td>
+										property="portalCityBean.cityNameTemp" /></td>
 							</tr>
 						</table>
 					</div>
@@ -622,7 +626,7 @@
 							<tr>
 								<td class="kanan">Major Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalMajorBean.majorName"/></td>
+										property="portalMajorBean.majorNameTemp"/></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -633,7 +637,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -662,7 +666,7 @@
 							<tr>
 								<td class="kanan">Department Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalDepartmentBean.msDepartmentName"/></td>
+										property="portalDepartmentBean.msDepartmentNameTemp"/></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -673,7 +677,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -702,7 +706,7 @@
 							<tr>
 								<td class="kanan">Location Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalLocationBean.locationName"/></td>
+										property="portalLocationBean.locationNameTemp"/></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -713,7 +717,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -742,7 +746,7 @@
 							<tr>
 								<td class="kanan">Privilege Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPrivilegeBean.privilegeName"/></td>
+										property="portalPrivilegeBean.privilegeNameTemp"/></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -753,7 +757,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -782,7 +786,7 @@
 							<tr>
 								<td class="kanan">Position Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPositionBean.positionName"/></td>
+										property="portalPositionBean.positionNameTemp"/></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -793,7 +797,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -822,7 +826,7 @@
 							<tr>
 								<td class="kanan">Bank Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalBankBean.bankName"/></td>
+										property="portalBankBean.bankNameTemp"/></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -833,7 +837,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterModul');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">

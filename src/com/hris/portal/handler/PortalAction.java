@@ -340,50 +340,74 @@ public class PortalAction extends Action {
 			
 			return mapping.findForward("masterModul");
 		}else if ("masterOthers".equalsIgnoreCase(hForm.getTask())){	
-			hForm.setListPortalProvince(null);
-			hForm.setListPortalCity(null);
-			hForm.setListPortalMajor(null);
-			hForm.setListPortalDepartment(null);
-			hForm.setListPortalLocation(null);
-			hForm.setListPortalPrivilege(null);
-			hForm.setListPortalPosition(null);
-			hForm.setListPortalBank(null);
 			
-			if(hForm.getIsDeleteMasterOthers().equals("province")){
+			System.out.println("Isdelete luar: "+hForm.getIsDeleteMasterOthers());
+			
+			//DELETE
+			
+			if("province".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deleteProvince(hForm.getId());
-			}else if(hForm.getIsDeleteMasterOthers().equals("city")){
+			}else if("city".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deleteCity(hForm.getId());
-			}else if(hForm.getIsDeleteMasterOthers().equals("major")){
+			}else if("major".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deleteMajor(hForm.getId());
-			}else if(hForm.getIsDeleteMasterOthers().equals("department")){
+			}else if("department".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deleteDepartment(hForm.getId());
-			}else if(hForm.getIsDeleteMasterOthers().equals("location")){
+			}else if("location".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deleteLocation(hForm.getId());
-			}else if(hForm.getIsDeleteMasterOthers().equals("privilege")){
+			}else if("privilege".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deletePrivilege(hForm.getId());
-			}else if(hForm.getIsDeleteMasterOthers().equals("position")){
+			}else if("position".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deletePosition(hForm.getId());
-			}else if(hForm.getIsDeleteMasterOthers().equals("bank")){
+			}else if("bank".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deleteBank(hForm.getId());
-			}else if(hForm.getPortalProvinceBean().getProvinceName()!=null){
-				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName());
-			}else if(hForm.getPortalCityBean().getCityName()!=null){
-				manager.insertNewCity(hForm.getPortalCityBean().getCityName(), hForm.getPortalCityBean().getCityProvinceId());
-			}else if(hForm.getPortalMajorBean().getMajorName()!=null){
-				manager.insertNewMajor(hForm.getPortalMajorBean().getMajorName(), hForm.getPortalMajorBean().getDescription());
-			}else if(hForm.getPortalDepartmentBean().getMsDepartmentName()!=null){
-				manager.insertNewDepartment(hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getPortalDepartmentBean().getDescription());
-			}else if(hForm.getPortalLocationBean().getLocationName()!=null){
-				manager.insertNewLocation(hForm.getPortalLocationBean().getLocationName(), hForm.getPortalLocationBean().getDescription());
-			}else if(hForm.getPortalPrivilegeBean().getPrivilegeName()!=null){
-				manager.insertNewPrivilege(hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription());
-			}else if(hForm.getPortalPositionBean().getPositionName()!=null){
-				manager.insertNewPosition(hForm.getPortalPositionBean().getPositionName(), hForm.getPortalPositionBean().getDescription());
-			}else if(hForm.getPortalBankBean().getBankName()!=null){
-				manager.insertNewBank(hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription());
 			}
+				
 			
-			
+			//INSERT
+
+			if(!"".equals(hForm.getPortalProvinceBean().getProvinceNameTemp())){
+				System.out.println("Province Luar: "+hForm.getPortalProvinceBean().getProvinceNameTemp());
+				hForm.getPortalProvinceBean().setProvinceName(hForm.getPortalProvinceBean().getProvinceNameTemp());
+				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName());
+				hForm.getPortalProvinceBean().setProvinceNameTemp("");
+			}else if(!"".equals(hForm.getPortalCityBean().getCityNameTemp())){
+				System.out.println("City Luar: "+hForm.getPortalProvinceBean().getProvinceNameTemp());
+				hForm.getPortalCityBean().setCityName(hForm.getPortalCityBean().getCityNameTemp());
+				manager.insertNewCity(hForm.getPortalCityBean().getCityName(), hForm.getPortalCityBean().getCityProvinceId());
+				hForm.getPortalCityBean().setCityNameTemp("");
+			}else if(!"".equals(hForm.getPortalMajorBean().getMajorNameTemp())){
+				System.out.println("Major Luar: "+hForm.getPortalMajorBean().getMajorNameTemp());
+				hForm.getPortalMajorBean().setMajorName(hForm.getPortalMajorBean().getMajorNameTemp());
+				manager.insertNewMajor(hForm.getPortalMajorBean().getMajorName(), hForm.getPortalMajorBean().getDescription());
+				hForm.getPortalMajorBean().setMajorNameTemp("");
+			}else if(!"".equals(hForm.getPortalDepartmentBean().getMsDepartmentNameTemp())){
+				System.out.println("Department Luar: "+hForm.getPortalDepartmentBean().getMsDepartmentNameTemp());
+				hForm.getPortalDepartmentBean().setMsDepartmentName(hForm.getPortalDepartmentBean().getMsDepartmentNameTemp());
+				manager.insertNewDepartment(hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getPortalDepartmentBean().getDescription());
+				hForm.getPortalDepartmentBean().setMsDepartmentNameTemp("");
+			}else if(!"".equals(hForm.getPortalLocationBean().getLocationNameTemp())){
+				System.out.println("Location Luar: "+hForm.getPortalLocationBean().getLocationNameTemp());
+				hForm.getPortalLocationBean().setLocationName(hForm.getPortalLocationBean().getLocationNameTemp());
+				manager.insertNewLocation(hForm.getPortalLocationBean().getLocationName(), hForm.getPortalLocationBean().getDescription());
+				hForm.getPortalLocationBean().setLocationNameTemp("");
+			}else if(!"".equals(hForm.getPortalPrivilegeBean().getPrivilegeNameTemp())){
+				System.out.println("Privilege Luar: "+hForm.getPortalPrivilegeBean().getPrivilegeNameTemp());
+				hForm.getPortalPrivilegeBean().setPrivilegeName(hForm.getPortalPrivilegeBean().getPrivilegeNameTemp());
+				manager.insertNewPrivilege(hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription());
+				hForm.getPortalPrivilegeBean().setPrivilegeNameTemp("");
+			}else if(!"".equals(hForm.getPortalPositionBean().getPositionNameTemp())){
+				System.out.println("Position Luar: "+hForm.getPortalPositionBean().getPositionNameTemp());
+				hForm.getPortalPositionBean().setPositionName(hForm.getPortalPositionBean().getPositionNameTemp());
+				manager.insertNewPosition(hForm.getPortalPositionBean().getPositionName(), hForm.getPortalPositionBean().getDescription());
+				hForm.getPortalPositionBean().setPositionNameTemp("");
+			}else if(!"".equals(hForm.getPortalBankBean().getBankNameTemp())){
+				System.out.println("Bank Luar: "+hForm.getPortalBankBean().getBankNameTemp());
+				hForm.getPortalBankBean().setBankName(hForm.getPortalBankBean().getBankNameTemp());
+				manager.insertNewBank(hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription());
+				hForm.getPortalBankBean().setBankNameTemp("");
+			}
+
 			hForm.setIsDeleteMasterOthers("0");
 			
 			hForm.setListPortalProvince(manager.getAllProvince());
