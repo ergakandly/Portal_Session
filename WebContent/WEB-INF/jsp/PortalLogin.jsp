@@ -41,11 +41,60 @@
 						value="<bean:write name="PortalForm" property="pass"/>">
 				</div>
 				<html:submit value="Login" onclick="javascript:doSubmit();" />
-<!-- 				<a href=""> Forgot Password ?</a> -->
+				<button type="button"
+										class="btn btn-primary" data-toggle="modal"
+										data-backdrop="static" data-target="#modalForgot">
+										<i class="fa fa-plus"></i> Forgot Password
+									</button>
 			</form>
 		</div>
 	</html:form>
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
+	<!-- MODAL -->
+	<div class="modal fade" id="modalForgot" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">User Profile</h4>
+				</div>
+				<div class="modal-body ">
+
+					<!-- PANEL PASSWORD-->
+					<div class="panel panel-info ">
+						<div class="panel-heading">
+							<h5 class="panel-title">
+								<span class="glyphicon glyphicon-lock"></span> Forgot Password
+							</h5>
+						</div>
+						<div class="panel-body">
+							<table align="center" class="table table-nonfluid table-hover ">
+								<tr>
+									<td class="kanan fontBold">Email</td>
+									<td><input type="password" class="form-control"></td>
+								</tr>
+								
+							</table>
+						</div>
+					</div>
+					<!-- PANEL -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">
+						<i class="fa fa-check"></i> Save changes
+					</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<i class="fa fa-close"></i> Close
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MODAL -->
 </body>
 </html>
