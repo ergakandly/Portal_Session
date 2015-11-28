@@ -25,6 +25,8 @@ import com.hris.portal.util.PortalUtil;
 public class PortalAction extends Action {
 
 	String userRoleId=null;
+	String userAction;
+	String passAction;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -51,10 +53,17 @@ public class PortalAction extends Action {
 			if (null != hForm.getPortalUserBean().getUserRoleId()) {
 				System.out.println("ROLE ID USER = "+hForm.getPortalUserBean().getUserRoleId());
 				userRoleId = hForm.getPortalUserBean().getUserRoleId();
+				hForm.setUserExist(hForm.getUser());
+				hForm.setPassExist(password);
+				userAction = hForm.getUser();
+				passAction = password;
 				
-				if("admin".equalsIgnoreCase(hForm.getUser()))
+				if("admin".equalsIgnoreCase(hForm.getUser())){
+					System.out.println("Get user Id: "+hForm.getUserExist());
 					return mapping.findForward("dashboardAdmin");
+				}
 				else {
+					System.out.println("Get user Id: "+hForm.getUserExist());
 					hForm.setListPortalMasterRoleMenu(manager.getMenuRoleName(hForm.getPortalUserBean().getUserRoleId()));
 					System.out.println(hForm.getPortalMasterRoleBean().getUrlMenuRole());
 					return mapping.findForward("dashboardUser");
@@ -64,6 +73,8 @@ public class PortalAction extends Action {
 		else if ("deleteRole".equalsIgnoreCase(hForm.getTask())){	
 			System.out.println("Tasknya : " + hForm.getTask());
 			System.out.println("ROLE_ID = "+hForm.getId());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
 			
 			manager.deleteRole(hForm.getId());
 			
@@ -100,6 +111,9 @@ public class PortalAction extends Action {
 		
 		else if ("masterRole".equalsIgnoreCase(hForm.getTask())){			
 			System.out.println("Tasknya : " + hForm.getTask());
+			System.out.println("Get user Id: "+hForm.getUserExist());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
 
 			if(hForm.getAddRoleName()!=null){
 				manager.insertNewRoleName(hForm.getAddRoleName());
@@ -151,33 +165,65 @@ public class PortalAction extends Action {
 			return mapping.findForward("masterRole");
 		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			return mapping.findForward("changePass");
 		}else if ("dashboardAdmin".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
+			System.out.println("ID USER di Admin = "+hForm.getUserExist());
+			System.out.println("ID PASS di Admin = "+hForm.getPassExist());
 			return mapping.findForward("dashboardAdmin");
 		}else if ("dashboardUser".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			System.out.println("User Role ID Balik: "+userRoleId);
+			System.out.println("ID USER di Admin = "+hForm.getUserExist());
+			System.out.println("ID PASS di Admin = "+hForm.getPassExist());
 			hForm.setListPortalMasterRoleMenu(manager.getMenuRoleName(userRoleId));
 			return mapping.findForward("dashboardUser");
 		}else if ("addEditRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			return mapping.findForward("addEditRole");
 		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			hForm.setListPortal(manager.getRoleList());
 			return mapping.findForward("assignRole");
 		}else if ("assignRoleEmployee".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			System.out.println("Department : " + hForm.getPortalDepartmentBean().getMsDepartmentName());
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName(), hForm.getPortalDepartmentBean().getMsDepartmentName()));
 			hForm.setListPortalDepartment(manager.getDepartmentName());
 			return mapping.findForward("assignRoleEmployee");
 		}else if ("search".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			System.out.println("ID : " + hForm.getPortalDepartmentBean().getDepartmentId());
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName(), hForm.getPortalDepartmentBean().getDepartmentId()));
 			hForm.setListPortalDepartment(manager.getDepartmentName());
 			
 			return mapping.findForward("assignRoleEmployee");
 		}else if ("select".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			System.out.println("ID : "+hForm.getId());
 			hForm.setPortalDepartmentBean(manager.getOneEmployee(hForm.getId()));
 			System.out.println("Department Name: " + hForm.getPortalDepartmentBean().getMsDepartmentName());
@@ -302,9 +348,17 @@ public class PortalAction extends Action {
 			hForm.setListPortalDepartment(manager.getDepartmentName());
 			return mapping.findForward("assignRoleEmployee");
 		}else if ("addEditAssignRole".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");
 		}else if ("masterModul".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			for(int i=0; i<hForm.getListPortalModulBean().size(); i++){
 				System.out.println("Modul ID "+(i+1)+": "+hForm.getListPortalModulBean().get(i).getMenuIdModul());
@@ -315,6 +369,9 @@ public class PortalAction extends Action {
 			return mapping.findForward("masterModul");
 		}else if ("deleteModul".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			System.out.println("ROLE_ID = " + hForm.getId());
 			
 			manager.deleteMenu(hForm.getId());
@@ -329,10 +386,18 @@ public class PortalAction extends Action {
 			}
 			return mapping.findForward("masterModul");
 		}else if ("saveAddModule".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			return mapping.findForward("masterModul");
 		}else if ("editModule".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			
 			manager.editModul(hForm.getId(), hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			hForm.getPortalModulBean().setMenuName("");
@@ -340,6 +405,9 @@ public class PortalAction extends Action {
 			
 			return mapping.findForward("masterModul");
 		}else if ("masterOthers".equalsIgnoreCase(hForm.getTask())){	
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
 			
 			System.out.println("Isdelete luar: "+hForm.getIsDeleteMasterOthers());
 			

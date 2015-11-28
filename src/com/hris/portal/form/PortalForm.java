@@ -67,6 +67,8 @@ public class PortalForm extends ActionForm{
 	private String id;
 	private String user;
 	private String pass;
+	public String userExist;
+	public String passExist;
 	private String searchName;
 	private String addRoleName;
 	private String selectNewMenu;
@@ -75,6 +77,18 @@ public class PortalForm extends ActionForm{
 	public List viewMenu;
 	public List viewPriv;
 	
+	public String getUserExist() {
+		return userExist;
+	}
+	public void setUserExist(String userExist) {
+		this.userExist = userExist;
+	}
+	public String getPassExist() {
+		return passExist;
+	}
+	public void setPassExist(String passExist) {
+		this.passExist = passExist;
+	}
 	public String getIsDeleteMasterOthers() {
 		return isDeleteMasterOthers;
 	}

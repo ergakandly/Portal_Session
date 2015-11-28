@@ -1,3 +1,7 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -249,7 +253,7 @@ li.message-footer {
 
 		<!-- DROPDOWN USER -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
-			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, User <b
+			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, <bean:write name="PortalForm" property="userExist" /> <b
 				class="caret"> </b></a>
 			<ul class="dropdown-menu">
 				<li><a href="#" data-toggle="modal" data-target="#modalLogin"
