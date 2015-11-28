@@ -78,6 +78,14 @@ li.message-footer {
 
 </style>
 <script type="text/javascript">
+
+	function flyToPage(task, id) {
+	//		alert(document.forms[0].addRoleName.value);	
+		document.forms[0].task.value = task;
+		document.forms[0].id.value = id;
+		document.forms[0].submit();
+	}
+
 	function navigateToPage(task) {
 
 		document.forms[0].task.value = task;
@@ -281,7 +289,7 @@ li.message-footer {
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">User Profile</h4>
+					<h4 class="modal-title" id="myModalLabel">User <bean:write name="PortalForm" property="userExist" /></h4>
 				</div>
 				<div class="modal-body ">
 
@@ -295,16 +303,22 @@ li.message-footer {
 						<div class="panel-body">
 							<table align="center" class="table table-nonfluid table-hover ">
 								<tr>
-									<td class="kanan fontBold">Old Password:</td>
-									<td><input type="password" class="form-control"></td>
+									<td class="kanan fontBold">Old Password:</td>									
+									<td><input type="password" class="form-control" name="oldPass" placeholder="**********"
+										value="<bean:write name="PortalForm" property="oldPass"/>"></td>
+<!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 								<tr>
 									<td class="kanan fontBold">New Password :</td>
-									<td><input type="password" class="form-control"></td>
+									<td><input type="password" class="form-control" name="newPass" placeholder="**********"
+										value="<bean:write name="PortalForm" property="newPass"/>"></td>
+<!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 								<tr>
 									<td class="kanan fontBold">Retype New Password :</td>
-									<td><input type="password" class="form-control"></td>
+									<td><input type="password" class="form-control" name="rePass" placeholder="**********"
+										value="<bean:write name="PortalForm" property="rePass"/>"></td>
+<!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 							</table>
 						</div>

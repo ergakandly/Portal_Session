@@ -66,11 +66,18 @@
 									<i class="fa fa-lock"></i> Master Province
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalProvince();"
 									class="btn btn-primary" id="addBtnProvince" data-toggle="modal"
 									data-backdrop="static" data-target="#modalAddProvince">
 									<span class="fa fa-plus"></span> Add Province
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddProvince">
+									<span class="glyphicon glyphicon-plus"></span> Add New Province
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
@@ -123,11 +130,18 @@
 									<i class="fa fa-lock"></i> Master City
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalCity();"
 									class="btn btn-primary" id="addBtnCity" data-toggle="modal"
 									data-backdrop="static" data-target="#modalAddCity">
 									<span class="fa fa-plus"></span> Add New City
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddCity">
+									<span class="glyphicon glyphicon-plus"></span> Add New City
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
@@ -182,11 +196,18 @@
 									<i class="fa fa-lock"></i> Master Major
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalMajor();"
 									class="btn btn-primary" id="addBtnMajor" data-toggle="modal"
 									data-backdrop="static" data-target="#modalAddMajor">
 									<span class="fa fa-plus"></span> Add New Major
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddMajor">
+									<span class="glyphicon glyphicon-plus"></span> Add New Major
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
@@ -241,12 +262,19 @@
 									<i class="fa fa-lock"></i> Master Department
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalDepartment();"
 									class="btn btn-primary" id="addBtnDepartment"
 									data-toggle="modal" data-backdrop="static"
 									data-target="#modalAddDepartment">
 									<span class="fa fa-plus"></span> Add New Department
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddDepartment">
+									<span class="glyphicon glyphicon-plus"></span> Add New Department
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
@@ -303,11 +331,18 @@
 									<i class="fa fa-lock"></i> Master Location
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalLocation();"
 									class="btn btn-primary" id="addBtnLocation" data-toggle="modal"
 									data-backdrop="static" data-target="#modalAddLocation">
 									<span class="fa fa-plus"></span> Add New Location
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddLocation">
+									<span class="glyphicon glyphicon-plus"></span> Add New Location
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
@@ -363,12 +398,19 @@
 									<i class="fa fa-lock"></i> Master Privilege
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalPrivilege();"
 									class="btn btn-primary" id="addBtnPrivilege"
 									data-toggle="modal" data-backdrop="static"
 									data-target="#modalAddPrivilege">
 									<span class="fa fa-plus"></span> Add New Privilege
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddPrivilege">
+									<span class="glyphicon glyphicon-plus"></span> Add New Privilege
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
@@ -425,11 +467,18 @@
 									<i class="fa fa-lock"></i> Master Position
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalPosition();"
 									class="btn btn-primary" id="addBtnPosition" data-toggle="modal"
 									data-backdrop="static" data-target="#modalAddPosition">
 									<span class="fa fa-plus"></span> Add New Position
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddPosition">
+									<span class="glyphicon glyphicon-plus"></span> Add New Position
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
@@ -485,11 +534,18 @@
 									<i class="fa fa-lock"></i> Master Bank
 								</h5>
 							</div>
+<<<<<<< HEAD
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalBank();"
 									class="btn btn-primary" id="addBtnBank" data-toggle="modal"
 									data-backdrop="static" data-target="#modalAddBank">
 									<span class="fa fa-plus"></span> Add New Bankk
+=======
+							<div class="panel-body" align="center">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#modalAddBank">
+									<span class="glyphicon glyphicon-plus"></span> Add New Bank
+>>>>>>> ae03d3b6324aa5d3b7fbe8d2777dc6032b3a5ff0
 								</button>
 								<br /> <br />
 								<table
