@@ -66,7 +66,7 @@
 									<i class="fa fa-lock"></i> Master Province
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddProvince">
 									<span class="glyphicon glyphicon-plus"></span> Add New Province
@@ -122,7 +122,7 @@
 									<i class="fa fa-lock"></i> Master City
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddCity">
 									<span class="glyphicon glyphicon-plus"></span> Add New City
@@ -181,7 +181,7 @@
 									<i class="fa fa-lock"></i> Master Major
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddMajor">
 									<span class="glyphicon glyphicon-plus"></span> Add New Major
@@ -240,7 +240,7 @@
 									<i class="fa fa-lock"></i> Master Department
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddDepartment">
 									<span class="glyphicon glyphicon-plus"></span> Add New Department
@@ -299,7 +299,7 @@
 									<i class="fa fa-lock"></i> Master Location
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddLocation">
 									<span class="glyphicon glyphicon-plus"></span> Add New Location
@@ -358,7 +358,7 @@
 									<i class="fa fa-lock"></i> Master Privilege
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddPrivilege">
 									<span class="glyphicon glyphicon-plus"></span> Add New Privilege
@@ -417,7 +417,7 @@
 									<i class="fa fa-lock"></i> Master Position
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddPosition">
 									<span class="glyphicon glyphicon-plus"></span> Add New Position
@@ -476,7 +476,7 @@
 									<i class="fa fa-lock"></i> Master Bank
 								</h5>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body" align="center">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#modalAddBank">
 									<span class="glyphicon glyphicon-plus"></span> Add New Bank
