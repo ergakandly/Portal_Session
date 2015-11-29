@@ -103,11 +103,6 @@
 															data-toggle="modal" data-target="#modalAddProvince">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
-												
-<!-- 														<button type="button" class="btn btn-info editBtnProvince" -->
-<!-- 															data-toggle="modal" data-target="#modalAddProvince"> -->
-<!-- 															<i class="fa fa-pencil"></i> Edit -->
-<!-- 														</button> -->
 														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
@@ -577,7 +572,8 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
+							onclick="javascript:submitForm('','');">
+<%-- 							onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');"> --%>
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
@@ -992,21 +988,35 @@
 			});
 
 			function addProvince() {
-				document.forms["PortalForm"].elements["portalProvinceBean.provinceId"].value = "";
+// 				document.forms["PortalForm"].elements["portalProvinceBean.provinceId"].value = "";
 				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = "";
 				document.forms["PortalForm"].task.value = "masterOthers";
 			}
 			
-			function editProvince(id, name, idGet) {
+			function editProvince(id, name) {
 				document.forms["PortalForm"].task.value = "masterOthers";
 				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = name;
-				document.forms["PortalForm"].elements["portalProvinceBean.provinceId"].value = id;
-				document.forms["PortalForm"].id.value = idGet;
+// 				document.forms["PortalForm"].elements["portalProvinceBean.provinceId"].value = id;
+				document.forms["PortalForm"].id.value = id;
 			}
 			
 			function provinceClose() {
 				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = "";
 			}
+			
+			
+			
+			
+			
+			function submitForm(task, id) {
+
+							var method = task==""? document.forms["PortalForm"].task.value:task;
+
+							if(id != "")
+								document.forms["PortalForm"].id.value= id;
+
+							document.forms["PortalForm"].submit();
+						}
 			
 			// 			function addModal() {
 			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
