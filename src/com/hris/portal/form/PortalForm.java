@@ -64,7 +64,7 @@ public class PortalForm extends ActionForm{
 	
 	private String isDeleteMasterOthers="0";
 	private String task;
-	private String id;
+	private String id="";
 	private String user;
 	private String pass;
 	private String oldPass;

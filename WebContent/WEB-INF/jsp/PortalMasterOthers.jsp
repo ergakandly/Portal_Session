@@ -79,7 +79,7 @@
 									id="sortProvince">
 									<thead>
 										<tr>
-<!-- 											<th>Province ID</th> -->
+											<th>Province ID</th>
 											<th>Province Name</th>
 											<th class="tengah">Action</th>
 										</tr>
@@ -90,19 +90,28 @@
 											<logic:iterate id="portalProvinceList" name="PortalForm"
 												property="listPortalProvince">
 												<tr>
-<%-- 													<td><bean:write name="portalProvinceList" --%>
-<%-- 															property="provinceId" /></td> --%>
+													<td><bean:write name="portalProvinceList"
+ 															property="provinceId" /></td>
 													<td><bean:write name="portalProvinceList"
 															property="provinceName" /></td>
 													<td class="width30 tengah">
+														
 														<button type="button" class="btn btn-info editBtnProvince"
+															onclick="javascript:editProvince('<bean:write name="portalProvinceList"
+															property="provinceId" />','<bean:write name="portalProvinceList"
+															property="provinceName" />');"
 															data-toggle="modal" data-target="#modalAddProvince">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
+												
+<!-- 														<button type="button" class="btn btn-info editBtnProvince" -->
+<!-- 															data-toggle="modal" data-target="#modalAddProvince"> -->
+<!-- 															<i class="fa fa-pencil"></i> Edit -->
+<!-- 														</button> -->
+														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="province" /> --%>
 															<i class="fa fa-trash"></i> Delete
 														</button>
 													</td>
@@ -127,7 +136,7 @@
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalCity();"
 									class="btn btn-primary" id="addBtnCity" data-toggle="modal"
-									data-backdrop="static" data-target="#modalAddCity">
+									data-backdrop="static" data-target="#modalAddProvince">
 									<span class="fa fa-plus"></span> Add New City
 								</button>
 								<br /> <br />
@@ -555,20 +564,29 @@
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
+								<td class="kanan">Province Id :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalProvinceBean.provinceId" disabled="true"/></td>
+							</tr>
+							<tr>
 								<td class="kanan">Province Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalProvinceBean.provinceNameTemp" /></td>
+										property="portalProvinceBean.provinceName" /></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:provinceClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
+<!-- 						<button type="button" class="btn btn-danger" data-dismiss="modal"> -->
+<!-- 							<i class="fa fa-close"></i> Close -->
+<!-- 						</button> -->
 					</div>
 				</div>
 			</div>
@@ -859,7 +877,7 @@
 		<script>
 			$(document).ready(function() {
 				$('#sortProvince').dataTable({
-					"columns" : [ null, {
+					"columns" : [ null, null, {
 						"orderable" : false
 					} ]
 				});
@@ -973,6 +991,23 @@
 				});
 			});
 
+			function addProvince() {
+				document.forms["PortalForm"].elements["portalProvinceBean.provinceId"].value = "";
+				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editProvince(id, name, idGet) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = name;
+				document.forms["PortalForm"].elements["portalProvinceBean.provinceId"].value = id;
+				document.forms["PortalForm"].id.value = idGet;
+			}
+			
+			function provinceClose() {
+				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = "";
+			}
+			
 			// 			function addModal() {
 			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
 			// 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";

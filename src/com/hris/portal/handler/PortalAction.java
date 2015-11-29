@@ -408,8 +408,12 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
-			
+
 			System.out.println("Isdelete luar: "+hForm.getIsDeleteMasterOthers());
+			System.out.println("ID dapat: "+hForm.getId());
+			
+//			System.out.println("ID PROV dapat: "+hForm.getPortalProvinceBean().getProvinceId());
+			System.out.println("Nama exist provname: "+hForm.getPortalProvinceBean().getProvinceName());
 			
 			//DELETE
 			
@@ -430,15 +434,15 @@ public class PortalAction extends Action {
 			}else if("bank".equals(hForm.getIsDeleteMasterOthers())){
 				manager.deleteBank(hForm.getId());
 			}
-				
 			
 			//INSERT
 
-			if(!"".equals(hForm.getPortalProvinceBean().getProvinceNameTemp())){
-				System.out.println("Province Luar: "+hForm.getPortalProvinceBean().getProvinceNameTemp());
-				hForm.getPortalProvinceBean().setProvinceName(hForm.getPortalProvinceBean().getProvinceNameTemp());
+			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && "".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Province Luar: "+hForm.getPortalProvinceBean().getProvinceName());
+//				hForm.getPortalProvinceBean().setProvinceName(hForm.getPortalProvinceBean().getProvinceNameTemp());
 				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName());
-				hForm.getPortalProvinceBean().setProvinceNameTemp("");
+//				hForm.getPortalProvinceBean().setProvinceName("");
 			}else if(!"".equals(hForm.getPortalCityBean().getCityNameTemp())){
 				System.out.println("City Luar: "+hForm.getPortalProvinceBean().getProvinceNameTemp());
 				hForm.getPortalCityBean().setCityName(hForm.getPortalCityBean().getCityNameTemp());
@@ -474,6 +478,14 @@ public class PortalAction extends Action {
 				hForm.getPortalBankBean().setBankName(hForm.getPortalBankBean().getBankNameTemp());
 				manager.insertNewBank(hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription());
 				hForm.getPortalBankBean().setBankNameTemp("");
+			}
+			
+			//EDIT
+			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && !"".equals(hForm.getId())){
+				System.out.println("Edit Province Luar "+hForm.getPortalProvinceBean().getProvinceName()+" dan ID "+hForm.getId());
+				
+				manager.editProvince(hForm.getId(), hForm.getPortalProvinceBean().getProvinceName());
+				hForm.setId("");
 			}
 
 			//CHANGE PASSWORD

@@ -1097,6 +1097,32 @@ public class PortalManager {
 		}
 	}
 	
+	//EDIT PROVINCE
+	public void editProvince(String id, String provinceName) {
+
+		System.out.println("id "+id);
+		System.out.println("provname "+provinceName);
+		
+		Map map = new HashMap();
+		map.put("id", id);
+		map.put("provinceName", provinceName);
+
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editProvince", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	//END MASTER OTHERS
 
