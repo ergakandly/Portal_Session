@@ -15,13 +15,13 @@
 
 <script type="text/javascript">
 	function flyToPage(task, id, isDeleteMasterOthers) {
-// 		alert(task+"::"+id+"::"+isDeleteMasterOthers);
+		// 		alert(task+"::"+id+"::"+isDeleteMasterOthers);
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
-// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
+		// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
 		document.forms[0].submit();
-		
+
 	}
 </script>
 
@@ -51,14 +51,14 @@
 							<ul class="breadcrumb">
 								<li><i class="fa fa-dashboard"></i><a
 									href="javascript:flyToPage('dashboardUser');"> Dashboard</a></li>
-								<li><i class="fa fa-th-large"></i> Master Lainnya</li>
+								<li><i class="fa fa-th-large"></i> Others</li>
 							</ul>
 							<!-- END BREADCRUMB -->
 						</div>
 					</div>
 					<!-- END ROW 12 -->
 					<br />
-					
+
 					<!-- PANEL PROVINCE-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
@@ -67,10 +67,11 @@
 									<i class="fa fa-lock"></i> Master Province
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddProvince">
-									<span class="glyphicon glyphicon-plus"></span> Add New Province
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalProvince();"
+									class="btn btn-primary" id="addBtnProvince" data-toggle="modal"
+									data-backdrop="static" data-target="#modalAddProvince">
+									<span class="fa fa-plus"></span> Add Province
 								</button>
 								<br /> <br />
 								<table
@@ -78,9 +79,9 @@
 									id="sortProvince">
 									<thead>
 										<tr>
-											<th>Province ID</th>
+											<!-- 											<th>Province ID</th> -->
 											<th>Province Name</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -89,20 +90,20 @@
 											<logic:iterate id="portalProvinceList" name="PortalForm"
 												property="listPortalProvince">
 												<tr>
-													<td><bean:write name="portalProvinceList"
-															property="provinceId" /></td>
+													<%-- 													<td><bean:write name="portalProvinceList" --%>
+													<%-- 															property="provinceId" /></td> --%>
 													<td><bean:write name="portalProvinceList"
 															property="provinceName" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button" class="btn btn-info editBtnProvince"
+															data-toggle="modal" data-target="#modalAddProvince">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="province" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="province" /> --%>
+															<i class="fa fa-trash"></i> Delete
 														</button>
 													</td>
 												</tr>
@@ -114,7 +115,7 @@
 						</div>
 					</div>
 					<!-- END PANEL PROVINCE-->
-					
+
 					<!-- PANEL CITY-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
@@ -123,10 +124,11 @@
 									<i class="fa fa-lock"></i> Master City
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddCity">
-									<span class="glyphicon glyphicon-plus"></span> Add New City
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalCity();"
+									class="btn btn-primary" id="addBtnCity" data-toggle="modal"
+									data-backdrop="static" data-target="#modalAddCity">
+									<span class="fa fa-plus"></span> Add New City
 								</button>
 								<br /> <br />
 								<table
@@ -134,34 +136,33 @@
 									id="sortCity">
 									<thead>
 										<tr>
-											<th>City ID</th>
+											<!-- 											<th>City ID</th> -->
 											<th>Province Name</th>
 											<th>City Name</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<logic:notEmpty name="PortalForm"
-											property="listPortalCity">
+										<logic:notEmpty name="PortalForm" property="listPortalCity">
 											<logic:iterate id="portalCityList" name="PortalForm"
 												property="listPortalCity">
 												<tr>
-													<td><bean:write name="portalCityList"
-															property="cityId" /></td>
+													<%-- 													<td><bean:write name="portalCityList" --%>
+													<%-- 															property="cityId" /></td> --%>
 													<td><bean:write name="portalCityList"
 															property="cityProvinceName" /></td>
 													<td><bean:write name="portalCityList"
 															property="cityName" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button" class="btn btn-info editBtnCity"
+															data-toggle="modal" data-target="#modalAddCity">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalCityList" property="cityId" />', 'city');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="city" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="city" /> --%>
+															<i class="fa fa-trash"></i> Delete
 														</button>
 													</td>
 												</tr>
@@ -172,9 +173,9 @@
 							</div>
 						</div>
 					</div>
-				<!-- END PANEL CITY-->
-				
-				<!-- PANEL MAJOR-->
+					<!-- END PANEL CITY-->
+
+					<!-- PANEL MAJOR-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
 							<div class="panel-heading">
@@ -182,44 +183,44 @@
 									<i class="fa fa-lock"></i> Master Major
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddMajor">
-									<span class="glyphicon glyphicon-plus"></span> Add New Major
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalMajor();"
+									class="btn btn-primary" id="addBtnMajor" data-toggle="modal"
+									data-backdrop="static" data-target="#modalAddMajor">
+									<span class="fa fa-plus"></span> Add New Major
 								</button>
 								<br /> <br />
 								<table
 									class="table table-striped table-hover table-condensed table-bordered"
-									id="sortCity">
+									id="sortMajor">
 									<thead>
 										<tr>
-											<th>Major ID</th>
-											<th>Major Name</th>
+											<!-- 											<th>Major ID</th> -->
+											<th>Name</th>
 											<th>Description</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<logic:notEmpty name="PortalForm"
-											property="listPortalMajor">
+										<logic:notEmpty name="PortalForm" property="listPortalMajor">
 											<logic:iterate id="portalMajorList" name="PortalForm"
 												property="listPortalMajor">
 												<tr>
-													<td><bean:write name="portalMajorList"
-															property="majorId" /></td>
+													<%-- 													<td><bean:write name="portalMajorList" --%>
+													<%-- 															property="majorId" /></td> --%>
 													<td><bean:write name="portalMajorList"
 															property="majorName" /></td>
 													<td><bean:write name="portalMajorList"
 															property="description" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button" class="btn btn-info editBtnMajor"
+															data-toggle="modal" data-target="#modalAddMajor">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalMajorList" property="majorId" />', 'major');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="major" /> --%>
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="major" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -231,9 +232,9 @@
 							</div>
 						</div>
 					</div>
-				<!-- END PANEL MAJOR-->
-				
-				<!-- PANEL DEPARTMENT-->
+					<!-- END PANEL MAJOR-->
+
+					<!-- PANEL DEPARTMENT-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
 							<div class="panel-heading">
@@ -241,21 +242,23 @@
 									<i class="fa fa-lock"></i> Master Department
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddDepartment">
-									<span class="glyphicon glyphicon-plus"></span> Add New Department
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalDepartment();"
+									class="btn btn-primary" id="addBtnDepartment"
+									data-toggle="modal" data-backdrop="static"
+									data-target="#modalAddDepartment">
+									<span class="fa fa-plus"></span> Add New Department
 								</button>
 								<br /> <br />
 								<table
 									class="table table-striped table-hover table-condensed table-bordered"
-									id="sortCity">
+									id="sortDepartment">
 									<thead>
 										<tr>
-											<th>Department ID</th>
+											<!-- 											<th>Department ID</th> -->
 											<th>Department Name</th>
 											<th>Description</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -264,21 +267,22 @@
 											<logic:iterate id="portalDepartmentList" name="PortalForm"
 												property="listPortalDepartment">
 												<tr>
-													<td><bean:write name="portalDepartmentList"
-															property="departmentId" /></td>
+													<%-- 													<td><bean:write name="portalDepartmentList" --%>
+													<%-- 															property="departmentId" /></td> --%>
 													<td><bean:write name="portalDepartmentList"
 															property="msDepartmentName" /></td>
 													<td><bean:write name="portalDepartmentList"
 															property="description" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button"
+															class="btn btn-info editBtnDepartment"
+															data-toggle="modal" data-target="#modalAddDepartment">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="department" /> --%>
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="department" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -290,9 +294,9 @@
 							</div>
 						</div>
 					</div>
-				<!-- END PANEL DEPARTMENT-->
-				
-				<!-- PANEL LOCATION-->
+					<!-- END PANEL DEPARTMENT-->
+
+					<!-- PANEL LOCATION-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
 							<div class="panel-heading">
@@ -300,21 +304,22 @@
 									<i class="fa fa-lock"></i> Master Location
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddLocation">
-									<span class="glyphicon glyphicon-plus"></span> Add New Location
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalLocation();"
+									class="btn btn-primary" id="addBtnLocation" data-toggle="modal"
+									data-backdrop="static" data-target="#modalAddLocation">
+									<span class="fa fa-plus"></span> Add New Location
 								</button>
 								<br /> <br />
 								<table
 									class="table table-striped table-hover table-condensed table-bordered"
-									id="sortCity">
+									id="sortLocation">
 									<thead>
 										<tr>
-											<th>Location ID</th>
+											<!-- 											<th>Location ID</th> -->
 											<th>Location Name</th>
 											<th>Description</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -323,21 +328,21 @@
 											<logic:iterate id="portalLocationList" name="PortalForm"
 												property="listPortalLocation">
 												<tr>
-													<td><bean:write name="portalLocationList"
-															property="locationId" /></td>
+													<%-- 													<td><bean:write name="portalLocationList" --%>
+													<%-- 															property="locationId" /></td> --%>
 													<td><bean:write name="portalLocationList"
 															property="locationName" /></td>
 													<td><bean:write name="portalLocationList"
 															property="description" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button" class="btn btn-info editBtnLocation"
+															data-toggle="modal" data-target="#modalAddLocation">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalLocationList" property="locationId" />', 'location');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="location" /> --%>
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="location" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -349,9 +354,9 @@
 							</div>
 						</div>
 					</div>
-				<!-- END PANEL LOCATION-->
-				
-				<!-- PANEL PRIVILEGE-->
+					<!-- END PANEL LOCATION-->
+
+					<!-- PANEL PRIVILEGE-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
 							<div class="panel-heading">
@@ -359,21 +364,23 @@
 									<i class="fa fa-lock"></i> Master Privilege
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddPrivilege">
-									<span class="glyphicon glyphicon-plus"></span> Add New Privilege
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalPrivilege();"
+									class="btn btn-primary" id="addBtnPrivilege"
+									data-toggle="modal" data-backdrop="static"
+									data-target="#modalAddPrivilege">
+									<span class="fa fa-plus"></span> Add New Privilege
 								</button>
 								<br /> <br />
 								<table
 									class="table table-striped table-hover table-condensed table-bordered"
-									id="sortCity">
+									id="sortPrivilege">
 									<thead>
 										<tr>
-											<th>Privilege ID</th>
+											<!-- 											<th>Privilege ID</th> -->
 											<th>Privilege Name</th>
 											<th>Description</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -382,21 +389,22 @@
 											<logic:iterate id="portalPrivilegeList" name="PortalForm"
 												property="listPortalPrivilege">
 												<tr>
-													<td><bean:write name="portalPrivilegeList"
-															property="privilegeId" /></td>
+													<%-- 													<td><bean:write name="portalPrivilegeList" --%>
+													<%-- 															property="privilegeId" /></td> --%>
 													<td><bean:write name="portalPrivilegeList"
 															property="privilegeName" /></td>
 													<td><bean:write name="portalPrivilegeList"
 															property="description" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button"
+															class="btn btn-info editBtnPrivilege" data-toggle="modal"
+															data-target="#modalAddPrivilege">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPrivilegeList" property="privilegeId" />', 'privilege');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="privilege" /> --%>
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="privilege" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -408,9 +416,9 @@
 							</div>
 						</div>
 					</div>
-				<!-- END PANEL PRIVILEGE-->
-				
-				<!-- PANEL POSITION-->
+					<!-- END PANEL PRIVILEGE-->
+
+					<!-- PANEL POSITION-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
 							<div class="panel-heading">
@@ -418,21 +426,22 @@
 									<i class="fa fa-lock"></i> Master Position
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddPosition">
-									<span class="glyphicon glyphicon-plus"></span> Add New Position
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalPosition();"
+									class="btn btn-primary" id="addBtnPosition" data-toggle="modal"
+									data-backdrop="static" data-target="#modalAddPosition">
+									<span class="fa fa-plus"></span> Add New Position
 								</button>
 								<br /> <br />
 								<table
 									class="table table-striped table-hover table-condensed table-bordered"
-									id="sortCity">
+									id="sortPosition">
 									<thead>
 										<tr>
-											<th>Position ID</th>
+											<!-- 											<th>Position ID</th> -->
 											<th>Position Name</th>
 											<th>Description</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -441,21 +450,21 @@
 											<logic:iterate id="portalPositionList" name="PortalForm"
 												property="listPortalPosition">
 												<tr>
-													<td><bean:write name="portalPositionList"
-															property="positionId" /></td>
+													<%-- 													<td><bean:write name="portalPositionList" --%>
+													<%-- 															property="positionId" /></td> --%>
 													<td><bean:write name="portalPositionList"
 															property="positionName" /></td>
 													<td><bean:write name="portalPositionList"
 															property="description" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button" class="btn btn-info editBtnPosition"
+															data-toggle="modal" data-target="#modalAddPosition">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPositionList" property="positionId" />', 'position');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="position" /> --%>
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="position" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -467,9 +476,9 @@
 							</div>
 						</div>
 					</div>
-				<!-- END PANEL POSITION-->
-				
-				<!-- PANEL BANK-->
+					<!-- END PANEL POSITION-->
+
+					<!-- PANEL BANK-->
 					<div class="col-md-6">
 						<div class="panel panel-info ">
 							<div class="panel-heading">
@@ -477,44 +486,44 @@
 									<i class="fa fa-lock"></i> Master Bank
 								</h5>
 							</div>
-							<div class="panel-body" align="center">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#modalAddBank">
-									<span class="glyphicon glyphicon-plus"></span> Add New Bank
+							<div class="panel-body">
+								<button type="button" onclick="javascript:addModalBank();"
+									class="btn btn-primary" id="addBtnBank" data-toggle="modal"
+									data-backdrop="static" data-target="#modalAddBank">
+									<span class="fa fa-plus"></span> Add New Bankk
 								</button>
 								<br /> <br />
 								<table
 									class="table table-striped table-hover table-condensed table-bordered"
-									id="sortCity">
+									id="sortBank">
 									<thead>
 										<tr>
-											<th>Bank ID</th>
+											<!-- 											<th>Bank ID</th> -->
 											<th>Bank Name</th>
 											<th>Description</th>
-											<th>Action</th>
+											<th class="tengah">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<logic:notEmpty name="PortalForm"
-											property="listPortalBank">
+										<logic:notEmpty name="PortalForm" property="listPortalBank">
 											<logic:iterate id="portalBankList" name="PortalForm"
 												property="listPortalBank">
 												<tr>
-													<td><bean:write name="portalBankList"
-															property="bankId" /></td>
+													<%-- 													<td><bean:write name="portalBankList" --%>
+													<%-- 															property="bankId" /></td> --%>
 													<td><bean:write name="portalBankList"
 															property="bankName" /></td>
 													<td><bean:write name="portalBankList"
 															property="description" /></td>
-													<td class="width30">
-														<button type="button" class="btn btn-info"
-															data-toggle="modal" data-target="#modalAddModul">
-															<span class="glyphicon glyphicon-pencil"></span> Edit
+													<td class="width30 tengah">
+														<button type="button" class="btn btn-info editBtnBank"
+															data-toggle="modal" data-target="#modalAddBank">
+															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalBankList" property="bankId" />', 'bank');">
-<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="bank" /> --%>
+															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="bank" /> --%>
 															<span class="glyphicon glyphicon-remove"></span> Delete
 														</button>
 													</td>
@@ -526,18 +535,14 @@
 							</div>
 						</div>
 					</div>
-				<!-- END PANEL BANK-->
-				
+					<!-- END PANEL BANK-->
 				</div>
-
 			</div>
 		</div>
 
-
-
 		<!-- ADD PROVINCE MODAL -->
-		<div class="modal fade" id="modalAddProvince" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel">
+		<div class="modal fade" id="modalAddProvince" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -545,14 +550,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Modul</h4>
+						<h4 id="modalLabelProvince"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Province Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalProvinceBean.provinceNameTemp"/></td>
+										property="portalProvinceBean.provinceNameTemp" /></td>
 							</tr>
 						</table>
 					</div>
@@ -569,7 +574,7 @@
 			</div>
 		</div>
 		<!-- END ADD PROVINCE MODAL  -->
-		
+
 		<!-- ADD CITY MODAL -->
 		<div class="modal fade" id="modalAddCity" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
@@ -580,14 +585,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New City</h4>
+						<h4 id="modalLabelCity"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Province ID :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalCityBean.cityProvinceId"/></td>
+										property="portalCityBean.cityProvinceId" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">City Name :</td>
@@ -609,7 +614,7 @@
 			</div>
 		</div>
 		<!-- END ADD CITY MODAL  -->
-		
+
 		<!-- ADD MAJOR MODAL -->
 		<div class="modal fade" id="modalAddMajor" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
@@ -620,14 +625,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Major</h4>
+						<h4 id="modalLabelMajor"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Major Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalMajorBean.majorNameTemp"/></td>
+										property="portalMajorBean.majorNameTemp" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -649,10 +654,10 @@
 			</div>
 		</div>
 		<!-- END ADD MAJOR MODAL  -->
-		
+
 		<!-- ADD DEPARTMENT MODAL -->
-		<div class="modal fade" id="modalAddDepartment" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel">
+		<div class="modal fade" id="modalAddDepartment" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -660,14 +665,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Department</h4>
+						<h4 id="modalLabelDepartment"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Department Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalDepartmentBean.msDepartmentNameTemp"/></td>
+										property="portalDepartmentBean.msDepartmentNameTemp" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -689,10 +694,10 @@
 			</div>
 		</div>
 		<!-- END ADD DEPARTMENT MODAL  -->
-		
+
 		<!-- ADD LOCATION MODAL -->
-		<div class="modal fade" id="modalAddLocation" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel">
+		<div class="modal fade" id="modalAddLocation" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -700,14 +705,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Location</h4>
+						<h4 id="modalLabelLocation"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Location Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalLocationBean.locationNameTemp"/></td>
+										property="portalLocationBean.locationNameTemp" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -729,10 +734,10 @@
 			</div>
 		</div>
 		<!-- END ADD LOCATION MODAL  -->
-		
+
 		<!-- ADD PRIVILEGE MODAL -->
-		<div class="modal fade" id="modalAddPrivilege" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel">
+		<div class="modal fade" id="modalAddPrivilege" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -740,14 +745,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Privilege</h4>
+						<h4 id="modalLabelPrivilege"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Privilege Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPrivilegeBean.privilegeNameTemp"/></td>
+										property="portalPrivilegeBean.privilegeNameTemp" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -769,10 +774,10 @@
 			</div>
 		</div>
 		<!-- END ADD PRIVILEGE MODAL  -->
-		
+
 		<!-- ADD POSITION MODAL -->
-		<div class="modal fade" id="modalAddPosition" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel">
+		<div class="modal fade" id="modalAddPosition" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -780,14 +785,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Position</h4>
+						<h4 id="modalLabelPosition"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Position Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPositionBean.positionNameTemp"/></td>
+										property="portalPositionBean.positionNameTemp" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -809,7 +814,7 @@
 			</div>
 		</div>
 		<!-- END ADD POSITION MODAL  -->
-		
+
 		<!-- ADD BANK MODAL -->
 		<div class="modal fade" id="modalAddBank" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
@@ -820,14 +825,14 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Add New Bank</h4>
+						<h4 id="modalLabelBank"></h4>
 					</div>
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Bank Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalBankBean.bankNameTemp"/></td>
+										property="portalBankBean.bankNameTemp" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -853,12 +858,150 @@
 		<%@include file="PartJavascript.jsp"%>
 		<script>
 			$(document).ready(function() {
-				$('#sortProvince').DataTable();
+				$('#sortProvince').dataTable({
+					"columns" : [ null, {
+						"orderable" : false
+					} ]
+				});
 			});
-			
+
 			$(document).ready(function() {
-				$('#sortCity').DataTable();
+				$('#sortCity').dataTable({
+					"columns" : [ null, null, {
+						"orderable" : false
+					} ]
+				});
 			});
+
+			$(document).ready(function() {
+				$('#sortMajor').dataTable({
+					"columns" : [ null, null, {
+						"orderable" : false
+					} ]
+				});
+			});
+
+			$(document).ready(function() {
+				$('#sortDepartment').dataTable({
+					"columns" : [ null, null, {
+						"orderable" : false
+					} ]
+				});
+			});
+
+			$(document).ready(function() {
+				$('#sortLocation').dataTable({
+					"columns" : [ null, null, {
+						"orderable" : false
+					} ]
+				});
+			});
+
+			$(document).ready(function() {
+				$('#sortPrivilege').dataTable({
+					"columns" : [ null, null, {
+						"orderable" : false
+					} ]
+				});
+			});
+
+			$(document).ready(function() {
+				$('#sortPosition').dataTable({
+					"columns" : [ null, null, {
+						"orderable" : false
+					} ]
+				});
+			});
+
+			$(document).ready(function() {
+				$('#sortBank').dataTable({
+					"columns" : [ null, null, {
+						"orderable" : false
+					} ]
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$('#addBtnProvince').click(function() {
+					$("#modalLabelProvince").html("Add New Province");
+				});
+				$('.editBtnProvince').click(function() {
+					$("#modalLabelProvince").html("Edit Province");
+				});
+				$('#addBtnCity').click(function() {
+					$("#modalLabelCity").html("Add New City");
+				});
+				$('.editBtnCity').click(function() {
+					$("#modalLabelCity").html("Edit City");
+				});
+				$('#addBtnMajor').click(function() {
+					$("#modalLabelMajor").html("Add New Major");
+				});
+				$('.editBtnMajor').click(function() {
+					$("#modalLabelMajor").html("Edit Major");
+				});
+				$('#addBtnDepartment').click(function() {
+					$("#modalLabelDepartment").html("Add New Department");
+				});
+				$('.editBtnDepartment').click(function() {
+					$("#modalLabelDepartment").html("Edit Department");
+				});
+				$('#addBtnLocation').click(function() {
+					$("#modalLabelLocation").html("Add New Location");
+				});
+				$('.editBtnLocation').click(function() {
+					$("#modalLabelLocation").html("Edit Location");
+				});
+				$('#addBtnPrivilege').click(function() {
+					$("#modalLabelPrivilege").html("Add New Privilege");
+				});
+				$('.editBtnPrivilege').click(function() {
+					$("#modalLabelPrivilege").html("Edit Privilege");
+				});
+				$('#addBtnPosition').click(function() {
+					$("#modalLabelPosition").html("Add New Position");
+				});
+				$('.editBtnPosition').click(function() {
+					$("#modalLabelPosition").html("Edit Position");
+				});
+				$('#addBtnBank').click(function() {
+					$("#modalLabelBank").html("Add New Bank");
+				});
+				$('.editBtnBank').click(function() {
+					$("#modalLabelBank").html("Edit Bank");
+				});
+			});
+
+			// 			function addModal() {
+			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
+			// 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
+			// 				document.forms["PortalForm"].task.value = "saveAddModule";
+			// 			}
+
+			// 			function editModal(id, name, link, icon) {
+			// 				document.forms["PortalForm"].task.value = "editModule";
+			// // 				document.forms["PortalForm"].elements["portalModulBean.menuIdModul"].value = id;
+			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = name;
+			// 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = link;
+			// 				document.forms["PortalForm"].elements["portalModulBean.icon"].value = icon;
+			// 				document.forms["PortalForm"].id.value = id;
+			// 			}
+
+			// 			function onModalClose() {
+			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
+			// 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
+			// 			}
+
+			// 			function submitForm(task, id) {
+
+			// 				var method = task==""? document.forms["PortalForm"].task.value:task;
+
+			// 				if(id != "")
+			// 					document.forms["PortalForm"].id.value= id;
+
+			// 				document.forms["PortalForm"].submit();
+			// 			}
 		</script>
 	</html:form>
 </body>
