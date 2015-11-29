@@ -409,7 +409,6 @@ public class PortalAction extends Action {
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
 			
-			System.out.println("NAVBAR"+hForm.getId());
 			System.out.println("Isdelete luar: "+hForm.getIsDeleteMasterOthers());
 			
 			//DELETE
@@ -477,6 +476,17 @@ public class PortalAction extends Action {
 				hForm.getPortalBankBean().setBankNameTemp("");
 			}
 
+			//CHANGE PASSWORD
+			if(!"".equals(hForm.getOldPass())){
+				System.out.println("NAVBAR OLD: "+hForm.getOldPass());
+				System.out.println("NAVBAR NEW: "+hForm.getNewPass());
+				System.out.println("NAVBAR RE: "+hForm.getRePass());
+				
+				
+				
+				hForm.setOldPass("");
+			}
+			
 			hForm.setIsDeleteMasterOthers("0");
 			
 			hForm.setListPortalProvince(manager.getAllProvince());

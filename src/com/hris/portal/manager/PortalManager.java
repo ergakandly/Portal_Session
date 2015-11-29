@@ -1072,6 +1072,33 @@ public class PortalManager {
 	}
 	
 	
+	//EDIT PASSWORD
+	
+	public void editPassword(String oldPass, String userName) {
+
+		Map map = new HashMap();
+		map.put("oldPass", oldPass);
+		map.put("userName", userName);
+
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editPassword", map);
+			ibatis.queryForObject("list.", arg1)
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	//END MASTER OTHERS
 
 }

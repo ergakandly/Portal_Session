@@ -303,21 +303,30 @@ li.message-footer {
 						<div class="panel-body">
 							<table align="center" class="table table-nonfluid table-hover ">
 								<tr>
-									<td class="kanan fontBold">Old Password:</td>									
-									<td><input type="password" class="form-control" name="oldPass" placeholder="**********"
-										value="<bean:write name="PortalForm" property="oldPass"/>"></td>
+									<td class="kanan fontBold">Old Password:</td>			
+									<td><html:text styleClass="form-control" name="PortalForm"
+										property="oldPass"/></td>	
+															
+<!-- 									<td><input type="password" class="form-control" name="oldPass" placeholder="**********" -->
+<%-- 										value="<bean:write name="PortalForm" property="oldPass"/>"></td> --%>
 <!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 								<tr>
-									<td class="kanan fontBold">New Password :</td>
-									<td><input type="password" class="form-control" name="newPass" placeholder="**********"
-										value="<bean:write name="PortalForm" property="newPass"/>"></td>
+									<td class="kanan fontBold">New Password :</td>			
+									<td><html:text styleClass="form-control" name="PortalForm"
+										property="newPass"/></td>
+										
+<!-- 									<td><input type="password" class="form-control" name="newPass" placeholder="**********" -->
+<%-- 										value="<bean:write name="PortalForm" property="newPass"/>"></td> --%>
 <!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 								<tr>
-									<td class="kanan fontBold">Retype New Password :</td>
-									<td><input type="password" class="form-control" name="rePass" placeholder="**********"
-										value="<bean:write name="PortalForm" property="rePass"/>"></td>
+									<td class="kanan fontBold">Retype New Password :</td>			
+									<td><html:text styleClass="form-control" name="PortalForm"
+										property="rePass"/></td>
+										
+<!-- 									<td><input type="password" class="form-control" name="rePass" placeholder="**********" -->
+<%-- 										value="<bean:write name="PortalForm" property="rePass"/>"></td> --%>
 <!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 							</table>
@@ -327,12 +336,18 @@ li.message-footer {
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers', '<bean:write name="PortalForm" property="userExist" />', '0', '<bean:write name="PortalForm" property="oldPass"/>', '<bean:write name="PortalForm" property="newPass"/>', '<bean:write name="PortalForm" property="rePass"/>');">
+							onclick="javascript:flyToPage('masterOthers');">
 							<i class="fa fa-check"></i> Save changes
 					</button>
+					
+<!-- 					<button type="button" class="btn btn-primary" -->
+<!-- 							onclick="javascript:flyToPage('masterOthers', '', '', 'oldPass', 'newPass', 'rePass');"> -->
+<!-- 							<i class="fa fa-check"></i> Save changes -->
+<!-- 					</button> -->
 <!-- 					<button type="button" class="btn btn-primary"> -->
 <!-- 						<i class="fa fa-check"></i> Save changes -->
 <!-- 					</button> -->
+
 					<button type="button" class="btn btn-danger" data-dismiss="modal">
 						<i class="fa fa-close"></i> Close
 					</button>

@@ -14,15 +14,12 @@
 </head>
 
 <script type="text/javascript">
-	function flyToPage(task, id, isDeleteMasterOthers, oldPass, newPass, rePass) {
-		alert(task+"::"+id+"::"+isDeleteMasterOthers);
+	function flyToPage(task, id, isDeleteMasterOthers) {
+// 		alert(task+"::"+id+"::"+isDeleteMasterOthers);
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
-		document.forms[0].oldPass.value = oldPass;
-		document.forms[0].newPass.value = newPass;
-		document.forms[0].rePass.value = rePass;
-		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
+// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
 		document.forms[0].submit();
 		
 	}
@@ -33,9 +30,6 @@
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
 		<html:hidden name="PortalForm" property="isDeleteMasterOthers" />
-		<html:hidden name="PortalForm" property="oldPass" />
-		<html:hidden name="PortalForm" property="newPass" />
-		<html:hidden name="PortalForm" property="rePass" />
 		
 		<div id="wrapper">
 			<%@include file="PartNavbar.jsp"%>
