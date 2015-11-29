@@ -79,7 +79,7 @@
 									id="sortProvince">
 									<thead>
 										<tr>
-											<!-- 											<th>Province ID</th> -->
+<!-- 											<th>Province ID</th> -->
 											<th>Province Name</th>
 											<th class="tengah">Action</th>
 										</tr>
@@ -90,8 +90,8 @@
 											<logic:iterate id="portalProvinceList" name="PortalForm"
 												property="listPortalProvince">
 												<tr>
-													<%-- 													<td><bean:write name="portalProvinceList" --%>
-													<%-- 															property="provinceId" /></td> --%>
+<%-- 													<td><bean:write name="portalProvinceList" --%>
+<%-- 															property="provinceId" /></td> --%>
 													<td><bean:write name="portalProvinceList"
 															property="provinceName" /></td>
 													<td class="width30 tengah">
@@ -195,7 +195,7 @@
 									id="sortMajor">
 									<thead>
 										<tr>
-											<!-- 											<th>Major ID</th> -->
+<!-- 											<th>Major ID</th> -->
 											<th>Name</th>
 											<th>Description</th>
 											<th class="tengah">Action</th>
@@ -206,8 +206,8 @@
 											<logic:iterate id="portalMajorList" name="PortalForm"
 												property="listPortalMajor">
 												<tr>
-													<%-- 													<td><bean:write name="portalMajorList" --%>
-													<%-- 															property="majorId" /></td> --%>
+<%-- 													<td><bean:write name="portalMajorList" --%>
+<%-- 															property="majorId" /></td>  --%>
 													<td><bean:write name="portalMajorList"
 															property="majorName" /></td>
 													<td><bean:write name="portalMajorList"
@@ -490,7 +490,7 @@
 								<button type="button" onclick="javascript:addModalBank();"
 									class="btn btn-primary" id="addBtnBank" data-toggle="modal"
 									data-backdrop="static" data-target="#modalAddBank">
-									<span class="fa fa-plus"></span> Add New Bankk
+									<span class="fa fa-plus"></span> Add New Bank
 								</button>
 								<br /> <br />
 								<table
