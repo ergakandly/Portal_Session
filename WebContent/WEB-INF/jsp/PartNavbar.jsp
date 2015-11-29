@@ -337,7 +337,7 @@ li.message-footer {
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary"
 							onclick="javascript:flyToPage('masterOthers');">
-							<i class="fa fa-check"></i> Save changes
+							<i class="fa fa-check"></i> Save Changes
 					</button>
 					
 <!-- 					<button type="button" class="btn btn-primary" -->

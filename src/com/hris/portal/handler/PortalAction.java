@@ -478,13 +478,30 @@ public class PortalAction extends Action {
 
 			//CHANGE PASSWORD
 			if(!"".equals(hForm.getOldPass())){
+				
 				System.out.println("NAVBAR OLD: "+hForm.getOldPass());
 				System.out.println("NAVBAR NEW: "+hForm.getNewPass());
 				System.out.println("NAVBAR RE: "+hForm.getRePass());
 				
+				hForm.setOldPass(PortalUtil.getHash(hForm.getOldPass()));
+				System.out.println("NAVBAR OLD 2: "+hForm.getOldPass());
 				
+				if(passAction.equals(hForm.getOldPass())){
+					if(hForm.getNewPass().equals(hForm.getRePass())){
+						manager.editPassword(userAction, hForm.getNewPass());
+						System.out.println("Password Berhasil Update !");
+					}
+					else {
+						System.out.println("NewPass dan RePass bedaaaa !");
+					}
+				}
+				else{
+					System.out.println("OldPass Salaaah !");
+				}
 				
 				hForm.setOldPass("");
+				hForm.setNewPass("");
+				hForm.setRePass("");
 			}
 			
 			hForm.setIsDeleteMasterOthers("0");
