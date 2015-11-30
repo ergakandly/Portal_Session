@@ -412,7 +412,6 @@ public class PortalAction extends Action {
 			System.out.println("Isdelete luar: "+hForm.getIsDeleteMasterOthers());
 			System.out.println("ID dapat: "+hForm.getId());
 			
-//			System.out.println("ID PROV dapat: "+hForm.getPortalProvinceBean().getProvinceId());
 			System.out.println("Nama exist provname: "+hForm.getPortalProvinceBean().getProvinceName());
 			
 			//DELETE
@@ -437,17 +436,20 @@ public class PortalAction extends Action {
 			
 			//INSERT
 
-			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && "".equals(hForm.getId())){
+			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && "undefined".equals(hForm.getId())){
 				System.out.println("Sebenernya: "+hForm.getId());
 				System.out.println("Province Luar: "+hForm.getPortalProvinceBean().getProvinceName());
 //				hForm.getPortalProvinceBean().setProvinceName(hForm.getPortalProvinceBean().getProvinceNameTemp());
 				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName());
+				hForm.setId("undefined");
 //				hForm.getPortalProvinceBean().setProvinceName("");
-			}else if(!"".equals(hForm.getPortalCityBean().getCityNameTemp())){
-				System.out.println("City Luar: "+hForm.getPortalProvinceBean().getProvinceNameTemp());
-				hForm.getPortalCityBean().setCityName(hForm.getPortalCityBean().getCityNameTemp());
+			}else if(!"".equals(hForm.getPortalCityBean().getCityName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("City Luar: "+hForm.getPortalProvinceBean().getProvinceName());
+//				hForm.getPortalCityBean().setCityName(hForm.getPortalCityBean().getCityNameTemp());
 				manager.insertNewCity(hForm.getPortalCityBean().getCityName(), hForm.getPortalCityBean().getCityProvinceId());
-				hForm.getPortalCityBean().setCityNameTemp("");
+				hForm.setId("undefined");
+//				hForm.getPortalCityBean().setCityNameTemp("");
 			}else if(!"".equals(hForm.getPortalMajorBean().getMajorNameTemp())){
 				System.out.println("Major Luar: "+hForm.getPortalMajorBean().getMajorNameTemp());
 				hForm.getPortalMajorBean().setMajorName(hForm.getPortalMajorBean().getMajorNameTemp());
@@ -481,11 +483,14 @@ public class PortalAction extends Action {
 			}
 			
 			//EDIT
-			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && !"".equals(hForm.getId())){
+			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && !"undefined".equals(hForm.getId())){
 				System.out.println("Edit Province Luar "+hForm.getPortalProvinceBean().getProvinceName()+" dan ID "+hForm.getId());
-				
 				manager.editProvince(hForm.getId(), hForm.getPortalProvinceBean().getProvinceName());
-				hForm.setId("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalCityBean().getCityName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Province Luar "+hForm.getPortalProvinceBean().getProvinceName()+" dan ID "+hForm.getId());
+				manager.editCity(hForm.getId(), hForm.getPortalCityBean().getCityProvinceId(), hForm.getPortalCityBean().getCityName());
+				hForm.setId("undefined");
 			}
 
 			//CHANGE PASSWORD

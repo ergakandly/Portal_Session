@@ -1124,6 +1124,36 @@ public class PortalManager {
 		}
 	}
 	
+	//EDIT CITY
+		public void editCity(String id, String cityProvinceId, String cityName) {
+
+			System.out.println("id "+id);
+			System.out.println("cityProvinceId "+cityProvinceId);
+			System.out.println("cityName "+cityName);
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("cityProvinceId", cityProvinceId);
+			map.put("cityName", cityName);
+
+
+			try {
+				ibatis.startTransaction();
+				ibatis.update("list.editCity", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+	
 	//END MASTER OTHERS
 
 }

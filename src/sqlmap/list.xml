@@ -20,7 +20,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		SELECT 
 		    c.city_id AS cityId, 
 		    c.city 	AS cityName,
-		    p.province AS cityProvinceName
+		    p.province AS cityProvinceName,
+		    c.province_id AS cityProvinceId
 		FROM 
 		    ms_city c
 		    join ms_province p
@@ -348,5 +349,17 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		WHERE 
 		    province_id = #id#
 	</update>
+	
+<!-- 	EDIT CITY -->
+	<update id = "editCity" parameterClass="java.util.Map">
+		UPDATE
+		    ms_city
+		SET
+		    city = #cityName#,
+		    province_id = #cityProvinceId#
+		WHERE 
+		    city_id = #id#
+	</update>	
+
 
 </sqlMap>
