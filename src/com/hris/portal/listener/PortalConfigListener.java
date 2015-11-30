@@ -3,6 +3,8 @@ package com.hris.portal.listener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import com.hris.portal.manager.PortalManager;
+
 /**
  * Application Lifecycle Listener implementation class PortalConfigListener
  *
@@ -23,8 +25,8 @@ public class PortalConfigListener implements ServletContextListener {
     	System.out.println("Webapp start - PORTAL");
     	
     	System.out.println("COBA1 - Reset Status Login.");
-    	//PortalManager pManager = new PortalManager();
-    	//pManager.resetStatusLogin();
+    	PortalManager pManager = new PortalManager();
+    	pManager.resetStatusLogin();
     }
 	
 }
