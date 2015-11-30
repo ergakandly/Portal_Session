@@ -72,6 +72,7 @@ public class PortalForm extends ActionForm{
 	private String rePass;
 	public String userExist;
 	public String passExist;
+	public String userIdExist;
 	private String searchName;
 	private String addRoleName;
 	private String selectNewMenu;
@@ -80,6 +81,12 @@ public class PortalForm extends ActionForm{
 	public List viewMenu;
 	public List viewPriv;
 	
+	public String getUserIdExist() {
+		return userIdExist;
+	}
+	public void setUserIdExist(String userIdExist) {
+		this.userIdExist = userIdExist;
+	}
 	public String getOldPass() {
 		return oldPass;
 	}

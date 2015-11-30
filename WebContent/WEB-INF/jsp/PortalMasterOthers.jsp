@@ -100,7 +100,7 @@
 															onclick="javascript:editProvince('<bean:write name="portalProvinceList"
 															property="provinceId" />','<bean:write name="portalProvinceList"
 															property="provinceName" />');"
-															data-toggle="modal" data-target="#modalAddProvince">
+															data-toggle="modal" data-target="#modalAddProvince" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
 														
@@ -164,7 +164,7 @@
 															property="cityId" />','<bean:write name="portalCityList"
 															property="cityProvinceId" />','<bean:write name="portalCityList"
 															property="cityName" />');"
-															data-toggle="modal" data-target="#modalAddCity">
+															data-toggle="modal" data-target="#modalAddCity" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
 														
@@ -228,16 +228,22 @@
 													<td><bean:write name="portalMajorList"
 															property="description" /></td>
 													<td class="width30 tengah">
+														
 														<button type="button" class="btn btn-info editBtnMajor"
-															data-toggle="modal" data-target="#modalAddMajor">
+															onclick="javascript:editMajor('<bean:write name="portalMajorList"
+															property="majorId" />','<bean:write name="portalMajorList"
+															property="majorName" />','<bean:write name="portalMajorList"
+															property="description" />');"
+															data-toggle="modal" data-target="#modalAddMajor" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
+														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalMajorList" property="majorId" />', 'major');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="major" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<i class="fa fa-trash"></i> Delete
 														</button>
+														
 													</td>
 												</tr>
 											</logic:iterate>
@@ -289,17 +295,22 @@
 													<td><bean:write name="portalDepartmentList"
 															property="description" /></td>
 													<td class="width30 tengah">
-														<button type="button"
-															class="btn btn-info editBtnDepartment"
-															data-toggle="modal" data-target="#modalAddDepartment">
+														
+														<button type="button" class="btn btn-info editBtnDepartment"
+															onclick="javascript:editDepartment('<bean:write name="portalDepartmentList"
+															property="departmentId" />','<bean:write name="portalDepartmentList"
+															property="msDepartmentName" />','<bean:write name="portalDepartmentList"
+															property="description" />');"
+															data-toggle="modal" data-target="#modalAddDepartment" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
+													
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="department" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<i class="fa fa-trash"></i> Delete
 														</button>
+														
 													</td>
 												</tr>
 											</logic:iterate>
@@ -350,16 +361,22 @@
 													<td><bean:write name="portalLocationList"
 															property="description" /></td>
 													<td class="width30 tengah">
+													
 														<button type="button" class="btn btn-info editBtnLocation"
-															data-toggle="modal" data-target="#modalAddLocation">
+															onclick="javascript:editLocation('<bean:write name="portalLocationList"
+															property="locationId" />','<bean:write name="portalLocationList"
+															property="locationName" />','<bean:write name="portalLocationList"
+															property="description" />');"
+															data-toggle="modal" data-target="#modalAddLocation" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
-														</button>
+														</button>														
+														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalLocationList" property="locationId" />', 'location');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="location" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<i class="fa fa-trash"></i> Delete
 														</button>
+														
 													</td>
 												</tr>
 											</logic:iterate>
@@ -411,17 +428,22 @@
 													<td><bean:write name="portalPrivilegeList"
 															property="description" /></td>
 													<td class="width30 tengah">
-														<button type="button"
-															class="btn btn-info editBtnPrivilege" data-toggle="modal"
-															data-target="#modalAddPrivilege">
+													
+														<button type="button" class="btn btn-info editBtnPrivilege"
+															onclick="javascript:editPrivilege('<bean:write name="portalPrivilegeList"
+															property="privilegeId" />','<bean:write name="portalPrivilegeList"
+															property="privilegeName" />','<bean:write name="portalPrivilegeList"
+															property="description" />');"
+															data-toggle="modal" data-target="#modalAddPrivilege" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
-														</button>
+														</button>														
+														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPrivilegeList" property="privilegeId" />', 'privilege');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="privilege" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<i class="fa fa-trash"></i> Delete
 														</button>
+														
 													</td>
 												</tr>
 											</logic:iterate>
@@ -472,16 +494,22 @@
 													<td><bean:write name="portalPositionList"
 															property="description" /></td>
 													<td class="width30 tengah">
+													
 														<button type="button" class="btn btn-info editBtnPosition"
-															data-toggle="modal" data-target="#modalAddPosition">
+															onclick="javascript:editPosition('<bean:write name="portalPositionList"
+															property="positionId" />','<bean:write name="portalPositionList"
+															property="positionName" />','<bean:write name="portalPositionList"
+															property="description" />');"
+															data-toggle="modal" data-target="#modalAddPosition" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
+														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPositionList" property="positionId" />', 'position');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="position" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<i class="fa fa-trash"></i> Delete
 														</button>
+														
 													</td>
 												</tr>
 											</logic:iterate>
@@ -531,16 +559,22 @@
 													<td><bean:write name="portalBankList"
 															property="description" /></td>
 													<td class="width30 tengah">
+														
 														<button type="button" class="btn btn-info editBtnBank"
-															data-toggle="modal" data-target="#modalAddBank">
+															onclick="javascript:editBank('<bean:write name="portalBankList"
+															property="bankId" />','<bean:write name="portalBankList"
+															property="bankName" />','<bean:write name="portalBankList"
+															property="description" />');"
+															data-toggle="modal" data-target="#modalAddBank" data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
+														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalBankList" property="bankId" />', 'bank');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="bank" /> --%>
-															<span class="glyphicon glyphicon-remove"></span> Delete
+															<i class="fa fa-trash"></i> Delete
 														</button>
+														
 													</td>
 												</tr>
 											</logic:iterate>
@@ -584,16 +618,12 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
-<%-- 							onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />');"> --%>
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:provinceClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
-<!-- 						<button type="button" class="btn btn-danger" data-dismiss="modal"> -->
-<!-- 							<i class="fa fa-close"></i> Close -->
-<!-- 						</button> -->
 					</div>
 				</div>
 			</div>
@@ -658,7 +688,7 @@
 							<tr>
 								<td class="kanan">Major Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalMajorBean.majorNameTemp" /></td>
+										property="portalMajorBean.majorName" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -667,15 +697,18 @@
 							</tr>
 						</table>
 					</div>
+					
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:majorClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -698,7 +731,7 @@
 							<tr>
 								<td class="kanan">Department Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalDepartmentBean.msDepartmentNameTemp" /></td>
+										property="portalDepartmentBean.msDepartmentName" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -708,13 +741,17 @@
 						</table>
 					</div>
 					<div class="modal-footer">
+						
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:departmentClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
+						
 					</div>
 				</div>
 			</div>
@@ -738,7 +775,7 @@
 							<tr>
 								<td class="kanan">Location Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalLocationBean.locationNameTemp" /></td>
+										property="portalLocationBean.locationName" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -748,13 +785,17 @@
 						</table>
 					</div>
 					<div class="modal-footer">
+					
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:locationClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
+						
 					</div>
 				</div>
 			</div>
@@ -778,7 +819,7 @@
 							<tr>
 								<td class="kanan">Privilege Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPrivilegeBean.privilegeNameTemp" /></td>
+										property="portalPrivilegeBean.privilegeName" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -788,13 +829,17 @@
 						</table>
 					</div>
 					<div class="modal-footer">
+					
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:privilegeClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
+						
 					</div>
 				</div>
 			</div>
@@ -818,7 +863,7 @@
 							<tr>
 								<td class="kanan">Position Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPositionBean.positionNameTemp" /></td>
+										property="portalPositionBean.positionName" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -828,13 +873,17 @@
 						</table>
 					</div>
 					<div class="modal-footer">
+					
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:positionClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
+						
 					</div>
 				</div>
 			</div>
@@ -858,7 +907,7 @@
 							<tr>
 								<td class="kanan">Bank Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalBankBean.bankNameTemp" /></td>
+										property="portalBankBean.bankName" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
@@ -868,13 +917,17 @@
 						</table>
 					</div>
 					<div class="modal-footer">
+					
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:bankClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
+						
 					</div>
 				</div>
 			</div>
@@ -1040,6 +1093,132 @@
 				document.forms["PortalForm"].id.value = "undefined";
 			}
 			
+// 			MODAL MAJOR
+			function addMajor() {
+				document.forms["PortalForm"].id.value = "undefined";
+				document.forms["PortalForm"].elements["portalMajorBean.majorName"].value = "";
+				document.forms["PortalForm"].elements["portalMajorBean.description"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editMajor(id, name, desc) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalMajorBean.majorName"].value = name;
+				document.forms["PortalForm"].elements["portalMajorBean.description"].value = desc;
+				document.forms["PortalForm"].id.value = id;
+			}
+			
+			function majorClose() {
+				document.forms["PortalForm"].elements["portalMajorBean.majorName"].value = "";
+				document.forms["PortalForm"].elements["portalMajorBean.description"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
+			}
+			
+// 			MODAL DEPARTMENT
+			function addDepartment() {
+				document.forms["PortalForm"].id.value = "undefined";
+				document.forms["PortalForm"].elements["portalDepartmentBean.msDepartmentName"].value = "";
+				document.forms["PortalForm"].elements["portalDepartmentBean.description"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editDepartment(id, name, desc) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalDepartmentBean.msDepartmentName"].value = name;
+				document.forms["PortalForm"].elements["portalDepartmentBean.description"].value = desc;
+				document.forms["PortalForm"].id.value = id;
+			}
+			
+			function departmentClose() {
+				document.forms["PortalForm"].elements["portalDepartmentBean.msDepartmentName"].value = "";
+				document.forms["PortalForm"].elements["portalDepartmentBean.description"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
+			}
+			
+// 			MODAL LOCATION
+			function addLocation() {
+				document.forms["PortalForm"].id.value = "undefined";
+				document.forms["PortalForm"].elements["portalLocationBean.locationName"].value = "";
+				document.forms["PortalForm"].elements["portalLocationBean.description"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editLocation(id, name, desc) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalLocationBean.locationName"].value = name;
+				document.forms["PortalForm"].elements["portalLocationBean.description"].value = desc;
+				document.forms["PortalForm"].id.value = id;
+			}
+			
+			function locationClose() {
+				document.forms["PortalForm"].elements["portalLocationBean.locationName"].value = "";
+				document.forms["PortalForm"].elements["portalLocationBean.description"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
+			}
+			
+// 			MODAL PRIVILEGE
+			function addPrivilege() {
+				document.forms["PortalForm"].id.value = "undefined";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.privilegeName"].value = "";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.description"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editPrivilege(id, name, desc) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.privilegeName"].value = name;
+				document.forms["PortalForm"].elements["portalPrivilegeBean.description"].value = desc;
+				document.forms["PortalForm"].id.value = id;
+			}
+			
+			function privilegeClose() {
+				document.forms["PortalForm"].elements["portalPrivilegeBean.privilegeName"].value = "";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.description"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
+			}
+			
+// 			MODAL POSITION
+			function addPosition() {
+				document.forms["PortalForm"].id.value = "undefined";
+				document.forms["PortalForm"].elements["portalPositionBean.positionName"].value = "";
+				document.forms["PortalForm"].elements["portalPositionBean.description"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editPosition(id, name, desc) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalPositionBean.positionName"].value = name;
+				document.forms["PortalForm"].elements["portalPositionBean.description"].value = desc;
+				document.forms["PortalForm"].id.value = id;
+			}
+			
+			function positionClose() {
+				document.forms["PortalForm"].elements["portalPositionBean.positionName"].value = "";
+				document.forms["PortalForm"].elements["portalPositionBean.description"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
+			}
+			
+// 			MODAL BANK
+			function addBank() {
+				document.forms["PortalForm"].id.value = "undefined";
+				document.forms["PortalForm"].elements["portalBankBean.bankName"].value = "";
+				document.forms["PortalForm"].elements["portalBankBean.description"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editBank(id, name, desc) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalBankBean.bankName"].value = name;
+				document.forms["PortalForm"].elements["portalBankBean.description"].value = desc;
+				document.forms["PortalForm"].id.value = id;
+			}
+			
+			function bankClose() {
+				document.forms["PortalForm"].elements["portalBankBean.bankName"].value = "";
+				document.forms["PortalForm"].elements["portalBankBean.description"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
+			}
+			
 			
 			
 			
@@ -1055,35 +1234,6 @@
 							document.forms["PortalForm"].submit();
 						}
 			
-			// 			function addModal() {
-			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
-			// 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
-			// 				document.forms["PortalForm"].task.value = "saveAddModule";
-			// 			}
-
-			// 			function editModal(id, name, link, icon) {
-			// 				document.forms["PortalForm"].task.value = "editModule";
-			// // 				document.forms["PortalForm"].elements["portalModulBean.menuIdModul"].value = id;
-			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = name;
-			// 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = link;
-			// 				document.forms["PortalForm"].elements["portalModulBean.icon"].value = icon;
-			// 				document.forms["PortalForm"].id.value = id;
-			// 			}
-
-			// 			function onModalClose() {
-			// 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
-			// 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
-			// 			}
-
-			// 			function submitForm(task, id) {
-
-			// 				var method = task==""? document.forms["PortalForm"].task.value:task;
-
-			// 				if(id != "")
-			// 					document.forms["PortalForm"].id.value= id;
-
-			// 				document.forms["PortalForm"].submit();
-			// 			}
 		</script>
 	</html:form>
 </body>

@@ -701,11 +701,16 @@ public class PortalManager {
 	//INSERT
 	
 	//PROVINCE
-	public void insertNewProvince(String provinceName) {
+	public void insertNewProvince(String provinceName, String createdBy) {
 		System.out.println("MANAGER province dalam jalan loohh");
+		
+		Map map = new HashMap();
+		map.put("provinceName", provinceName);
+		map.put("createdBy", createdBy);
+		
 		try {
 			ibatis.startTransaction();
-			ibatis.insert("list.insertProvince", provinceName);
+			ibatis.insert("list.insertProvince", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -721,12 +726,14 @@ public class PortalManager {
 	}
 	
 	//CITY
-	public void insertNewCity(String cityName, String cityProvinceId) {
+	public void insertNewCity(String cityName, String cityProvinceId, String createdBy) {
 		System.out.println("MANAGER CITY dalam jalan loohh");
+		
 		Map map = new HashMap();
 		map.put("cityName", cityName);
 		map.put("cityProvinceId", cityProvinceId);
-		System.out.println("Lalala");
+		map.put("createdBy", createdBy);
+		
 		try {
 			ibatis.startTransaction();
 			ibatis.insert("list.insertCity", map);
@@ -745,13 +752,14 @@ public class PortalManager {
 	}
 	
 	//MAJOR
-	public void insertNewMajor(String majorName, String description) {
+	public void insertNewMajor(String majorName, String description, String createdBy) {
 		
 		System.out.println("MANAGER MAJOR dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("majorName", majorName);
 		map.put("description", description);
+		map.put("createdBy", createdBy);
 		
 		try {
 			ibatis.startTransaction();
@@ -771,13 +779,14 @@ public class PortalManager {
 	}
 	
 	//DEPARTMENT
-	public void insertNewDepartment(String msDepartmentName, String description) {
+	public void insertNewDepartment(String msDepartmentName, String description, String createdBy) {
 		
 		System.out.println("MANAGER Department dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("msDepartmentName", msDepartmentName);
 		map.put("description", description);
+		map.put("createdBy", createdBy);
 		
 		try {
 			ibatis.startTransaction();
@@ -797,13 +806,14 @@ public class PortalManager {
 	}
 	
 	//LOCATION
-	public void insertNewLocation(String locationName, String description) {
+	public void insertNewLocation(String locationName, String description, String createdBy) {
 		
 		System.out.println("MANAGER location dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("locationName", locationName);
 		map.put("description", description);
+		map.put("createdBy", createdBy);
 		
 		try {
 			ibatis.startTransaction();
@@ -823,13 +833,14 @@ public class PortalManager {
 	}
 	
 	//PRIVILEGE
-	public void insertNewPrivilege(String privilegeName, String description) {
+	public void insertNewPrivilege(String privilegeName, String description, String createdBy) {
 		
 		System.out.println("MANAGER PRIVILEGE dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("privilegeName", privilegeName);
 		map.put("description", description);
+		map.put("createdBy", createdBy);
 		
 		try {
 			ibatis.startTransaction();
@@ -849,13 +860,14 @@ public class PortalManager {
 	}
 	
 	//POSITION
-	public void insertNewPosition(String positionName, String description) {
+	public void insertNewPosition(String positionName, String description, String createdBy) {
 		
 		System.out.println("MANAGER POSITION dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("positionName", positionName);
 		map.put("description", description);
+		map.put("createdBy", createdBy);
 		
 		try {
 			ibatis.startTransaction();
@@ -875,13 +887,14 @@ public class PortalManager {
 	}
 	
 	//BANK
-	public void insertNewBank(String bankName, String description) {
+	public void insertNewBank(String bankName, String description, String createdBy) {
 		
 		System.out.println("MANAGER BANK dalam jalan loohh");
 		
 		Map map = new HashMap();
 		map.put("bankName", bankName);
 		map.put("description", description);
+		map.put("createdBy", createdBy);
 		
 		try {
 			ibatis.startTransaction();
@@ -1074,11 +1087,12 @@ public class PortalManager {
 	
 	//EDIT PASSWORD
 	
-	public void editPassword(String userName, String newPass) {
+	public void editPassword(String userName, String newPass, String updatedBy) {
 
 		Map map = new HashMap();
 		map.put("userName", userName);
 		map.put("newPass", newPass);
+		map.put("updatedBy", updatedBy);
 
 		try {
 			ibatis.startTransaction();
@@ -1098,14 +1112,16 @@ public class PortalManager {
 	}
 	
 	//EDIT PROVINCE
-	public void editProvince(String id, String provinceName) {
+	public void editProvince(String id, String provinceName, String updatedBy) {
 
 		System.out.println("id "+id);
 		System.out.println("provname "+provinceName);
+		System.out.println("Updated By: "+updatedBy);
 		
 		Map map = new HashMap();
 		map.put("id", id);
 		map.put("provinceName", provinceName);
+		map.put("updatedBy", updatedBy);
 
 		try {
 			ibatis.startTransaction();
@@ -1125,7 +1141,7 @@ public class PortalManager {
 	}
 	
 	//EDIT CITY
-		public void editCity(String id, String cityProvinceId, String cityName) {
+		public void editCity(String id, String cityProvinceId, String cityName, String updatedBy) {
 
 			System.out.println("id "+id);
 			System.out.println("cityProvinceId "+cityProvinceId);
@@ -1135,6 +1151,7 @@ public class PortalManager {
 			map.put("id", id);
 			map.put("cityProvinceId", cityProvinceId);
 			map.put("cityName", cityName);
+			map.put("updatedBy", updatedBy);
 
 
 			try {
@@ -1153,7 +1170,187 @@ public class PortalManager {
 				}
 			}
 		}
-	
+		
+	//EDIT MAJOR
+		public void editMajor(String id, String majorName, String description, String updatedBy) {
+
+			System.out.println("id "+id);
+			System.out.println("majorName "+majorName);
+			System.out.println("description "+description);
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("majorName", majorName);
+			map.put("description", description);
+			map.put("updatedBy", updatedBy);
+
+			try {
+				ibatis.startTransaction();
+				ibatis.update("list.editMajor", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	//EDIT DEPARTMENT
+		public void editDepartment(String id, String msDepartmentName, String description, String updatedBy) {
+
+			System.out.println("id "+id);
+			System.out.println("msDepartmentName "+msDepartmentName);
+			System.out.println("description "+description);
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("msDepartmentName", msDepartmentName);
+			map.put("description", description);
+			map.put("updatedBy", updatedBy);
+
+			try {
+				ibatis.startTransaction();
+				ibatis.update("list.editDepartment", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	//EDIT LOCATION
+		public void editLocation(String id, String locationName, String description, String updatedBy) {
+
+			System.out.println("id "+id);
+			System.out.println("locationName "+locationName);
+			System.out.println("description "+description);
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("locationName", locationName);
+			map.put("description", description);
+			map.put("updatedBy", updatedBy);
+
+			try {
+				ibatis.startTransaction();
+				ibatis.update("list.editLocation", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	//EDIT PRIVILEGE
+		public void editPrivilege(String id, String privilegeName, String description, String updatedBy) {
+
+			System.out.println("id "+id);
+			System.out.println("privilegeName "+privilegeName);
+			System.out.println("description "+description);
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("privilegeName", privilegeName);
+			map.put("description", description);
+			map.put("updatedBy", updatedBy);
+
+			try {
+				ibatis.startTransaction();
+				ibatis.update("list.editPrivilege", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	//EDIT POSITION
+		public void editPosition(String id, String positionName, String description, String updatedBy) {
+
+			System.out.println("id "+id);
+			System.out.println("positionName "+positionName);
+			System.out.println("description "+description);
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("positionName", positionName);
+			map.put("description", description);
+			map.put("updatedBy", updatedBy);
+
+			try {
+				ibatis.startTransaction();
+				ibatis.update("list.editPosition", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	//EDIT BANK
+		public void editBank(String id, String bankName, String description, String updatedBy) {
+
+			System.out.println("id "+id);
+			System.out.println("bankName "+bankName);
+			System.out.println("description "+description);
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("bankName", bankName);
+			map.put("description", description);
+			map.put("updatedBy", updatedBy);
+
+			try {
+				ibatis.startTransaction();
+				ibatis.update("list.editBank", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+
 	//END MASTER OTHERS
 
 }

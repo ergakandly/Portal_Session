@@ -27,6 +27,7 @@ public class PortalAction extends Action {
 	String userRoleId=null;
 	String userAction;
 	String passAction;
+	String userIdAction;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -53,10 +54,16 @@ public class PortalAction extends Action {
 			if (null != hForm.getPortalUserBean().getUserRoleId()) {
 				System.out.println("ROLE ID USER = "+hForm.getPortalUserBean().getUserRoleId());
 				userRoleId = hForm.getPortalUserBean().getUserRoleId();
+				
+				System.out.println("USERID= "+hForm.getPortalUserBean().getUserId());
+				
+				hForm.setUserIdExist(hForm.getPortalUserBean().getUserId());
 				hForm.setUserExist(hForm.getUser());
 				hForm.setPassExist(password);
+				
 				userAction = hForm.getUser();
 				passAction = password;
+				userIdAction = hForm.getPortalUserBean().getUserId();
 				
 				if("admin".equalsIgnoreCase(hForm.getUser())){
 					System.out.println("Get user Id: "+hForm.getUserExist());
@@ -75,6 +82,7 @@ public class PortalAction extends Action {
 			System.out.println("ROLE_ID = "+hForm.getId());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			manager.deleteRole(hForm.getId());
 			
@@ -114,6 +122,7 @@ public class PortalAction extends Action {
 			System.out.println("Get user Id: "+hForm.getUserExist());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 
 			if(hForm.getAddRoleName()!=null){
 				manager.insertNewRoleName(hForm.getAddRoleName());
@@ -167,12 +176,14 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			return mapping.findForward("changePass");
 		}else if ("dashboardAdmin".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			System.out.println("ID USER di Admin = "+hForm.getUserExist());
 			System.out.println("ID PASS di Admin = "+hForm.getPassExist());
@@ -181,6 +192,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			System.out.println("User Role ID Balik: "+userRoleId);
 			System.out.println("ID USER di Admin = "+hForm.getUserExist());
@@ -191,12 +203,14 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			return mapping.findForward("addEditRole");
 		}else if ("assignRole".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			hForm.setListPortal(manager.getRoleList());
 			return mapping.findForward("assignRole");
@@ -204,6 +218,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			System.out.println("Department : " + hForm.getPortalDepartmentBean().getMsDepartmentName());
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName(), hForm.getPortalDepartmentBean().getMsDepartmentName()));
@@ -213,6 +228,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			System.out.println("ID : " + hForm.getPortalDepartmentBean().getDepartmentId());
 			hForm.setListPortal(manager.getEmployee(hForm.getSearchName(), hForm.getPortalDepartmentBean().getDepartmentId()));
@@ -223,6 +239,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			System.out.println("ID : "+hForm.getId());
 			hForm.setPortalDepartmentBean(manager.getOneEmployee(hForm.getId()));
@@ -351,6 +368,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			hForm.setListPortal(manager.getRoleName());
 			return mapping.findForward("addEditAssignRole");
@@ -358,6 +376,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			for(int i=0; i<hForm.getListPortalModulBean().size(); i++){
@@ -371,6 +390,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			System.out.println("ROLE_ID = " + hForm.getId());
 			
@@ -389,6 +409,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
 			hForm.setListPortalModulBean(manager.getMasterModul());
@@ -397,6 +418,7 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
 			manager.editModul(hForm.getId(), hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
 			hForm.setListPortalModulBean(manager.getMasterModul());
@@ -408,6 +430,9 @@ public class PortalAction extends Action {
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
+			
+			System.out.println("USER : "+hForm.getUserExist());
 
 			System.out.println("Isdelete luar: "+hForm.getIsDeleteMasterOthers());
 			System.out.println("ID dapat: "+hForm.getId());
@@ -439,57 +464,107 @@ public class PortalAction extends Action {
 			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && "undefined".equals(hForm.getId())){
 				System.out.println("Sebenernya: "+hForm.getId());
 				System.out.println("Province Luar: "+hForm.getPortalProvinceBean().getProvinceName());
-//				hForm.getPortalProvinceBean().setProvinceName(hForm.getPortalProvinceBean().getProvinceNameTemp());
-				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName());
+				manager.insertNewProvince(hForm.getPortalProvinceBean().getProvinceName(), hForm.getUserIdExist());
+				hForm.getPortalProvinceBean().setProvinceName("");
 				hForm.setId("undefined");
-//				hForm.getPortalProvinceBean().setProvinceName("");
 			}else if(!"".equals(hForm.getPortalCityBean().getCityName()) && "undefined".equals(hForm.getId())){
 				System.out.println("Sebenernya: "+hForm.getId());
 				System.out.println("City Luar: "+hForm.getPortalProvinceBean().getProvinceName());
-//				hForm.getPortalCityBean().setCityName(hForm.getPortalCityBean().getCityNameTemp());
-				manager.insertNewCity(hForm.getPortalCityBean().getCityName(), hForm.getPortalCityBean().getCityProvinceId());
+				manager.insertNewCity(hForm.getPortalCityBean().getCityName(), hForm.getPortalCityBean().getCityProvinceId(), hForm.getUserIdExist());
+				hForm.getPortalCityBean().setCityName("");
+				hForm.getPortalCityBean().setCityProvinceId("");
 				hForm.setId("undefined");
-//				hForm.getPortalCityBean().setCityNameTemp("");
-			}else if(!"".equals(hForm.getPortalMajorBean().getMajorNameTemp())){
-				System.out.println("Major Luar: "+hForm.getPortalMajorBean().getMajorNameTemp());
-				hForm.getPortalMajorBean().setMajorName(hForm.getPortalMajorBean().getMajorNameTemp());
-				manager.insertNewMajor(hForm.getPortalMajorBean().getMajorName(), hForm.getPortalMajorBean().getDescription());
-				hForm.getPortalMajorBean().setMajorNameTemp("");
-			}else if(!"".equals(hForm.getPortalDepartmentBean().getMsDepartmentNameTemp())){
-				System.out.println("Department Luar: "+hForm.getPortalDepartmentBean().getMsDepartmentNameTemp());
-				hForm.getPortalDepartmentBean().setMsDepartmentName(hForm.getPortalDepartmentBean().getMsDepartmentNameTemp());
-				manager.insertNewDepartment(hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getPortalDepartmentBean().getDescription());
-				hForm.getPortalDepartmentBean().setMsDepartmentNameTemp("");
-			}else if(!"".equals(hForm.getPortalLocationBean().getLocationNameTemp())){
-				System.out.println("Location Luar: "+hForm.getPortalLocationBean().getLocationNameTemp());
-				hForm.getPortalLocationBean().setLocationName(hForm.getPortalLocationBean().getLocationNameTemp());
-				manager.insertNewLocation(hForm.getPortalLocationBean().getLocationName(), hForm.getPortalLocationBean().getDescription());
-				hForm.getPortalLocationBean().setLocationNameTemp("");
-			}else if(!"".equals(hForm.getPortalPrivilegeBean().getPrivilegeNameTemp())){
-				System.out.println("Privilege Luar: "+hForm.getPortalPrivilegeBean().getPrivilegeNameTemp());
-				hForm.getPortalPrivilegeBean().setPrivilegeName(hForm.getPortalPrivilegeBean().getPrivilegeNameTemp());
-				manager.insertNewPrivilege(hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription());
-				hForm.getPortalPrivilegeBean().setPrivilegeNameTemp("");
-			}else if(!"".equals(hForm.getPortalPositionBean().getPositionNameTemp())){
-				System.out.println("Position Luar: "+hForm.getPortalPositionBean().getPositionNameTemp());
-				hForm.getPortalPositionBean().setPositionName(hForm.getPortalPositionBean().getPositionNameTemp());
-				manager.insertNewPosition(hForm.getPortalPositionBean().getPositionName(), hForm.getPortalPositionBean().getDescription());
-				hForm.getPortalPositionBean().setPositionNameTemp("");
-			}else if(!"".equals(hForm.getPortalBankBean().getBankNameTemp())){
-				System.out.println("Bank Luar: "+hForm.getPortalBankBean().getBankNameTemp());
-				hForm.getPortalBankBean().setBankName(hForm.getPortalBankBean().getBankNameTemp());
-				manager.insertNewBank(hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription());
-				hForm.getPortalBankBean().setBankNameTemp("");
+			}else if(!"".equals(hForm.getPortalMajorBean().getMajorName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Major Luar: "+hForm.getPortalMajorBean().getMajorName());
+				manager.insertNewMajor(hForm.getPortalMajorBean().getMajorName(), hForm.getPortalMajorBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalMajorBean().setMajorName("");
+				hForm.getPortalMajorBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalDepartmentBean().getMsDepartmentName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Department Luar: "+hForm.getPortalDepartmentBean().getMsDepartmentName());
+				manager.insertNewDepartment(hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getPortalDepartmentBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalDepartmentBean().setMsDepartmentName("");
+				hForm.getPortalDepartmentBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalLocationBean().getLocationName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Location Luar: "+hForm.getPortalLocationBean().getLocationName());
+				manager.insertNewLocation(hForm.getPortalLocationBean().getLocationName(), hForm.getPortalLocationBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalLocationBean().setLocationName("");
+				hForm.getPortalLocationBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalPrivilegeBean().getPrivilegeName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Privilege Luar: "+hForm.getPortalPrivilegeBean().getPrivilegeName());
+				manager.insertNewPrivilege(hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalPrivilegeBean().setPrivilegeName("");
+				hForm.getPortalPrivilegeBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalPositionBean().getPositionName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Position Luar: "+hForm.getPortalPositionBean().getPositionName());
+				manager.insertNewPosition(hForm.getPortalPositionBean().getPositionName(), hForm.getPortalPositionBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalPositionBean().setPositionName("");
+				hForm.getPortalPositionBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalBankBean().getBankName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Bank Luar: "+hForm.getPortalBankBean().getBankName());
+				manager.insertNewBank(hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalBankBean().setBankName("");
+				hForm.getPortalBankBean().setDescription("");
+				hForm.setId("undefined");
 			}
 			
 			//EDIT
 			if(!"".equals(hForm.getPortalProvinceBean().getProvinceName()) && !"undefined".equals(hForm.getId())){
 				System.out.println("Edit Province Luar "+hForm.getPortalProvinceBean().getProvinceName()+" dan ID "+hForm.getId());
-				manager.editProvince(hForm.getId(), hForm.getPortalProvinceBean().getProvinceName());
+				manager.editProvince(hForm.getId(), hForm.getPortalProvinceBean().getProvinceName(), hForm.getUserIdExist());
+				hForm.getPortalProvinceBean().setProvinceName("");
 				hForm.setId("undefined");
 			}else if(!"".equals(hForm.getPortalCityBean().getCityName()) && !"undefined".equals(hForm.getId())){
-				System.out.println("Edit Province Luar "+hForm.getPortalProvinceBean().getProvinceName()+" dan ID "+hForm.getId());
-				manager.editCity(hForm.getId(), hForm.getPortalCityBean().getCityProvinceId(), hForm.getPortalCityBean().getCityName());
+				System.out.println("Edit City Luar "+hForm.getPortalCityBean().getCityName()+" dan ID "+hForm.getId());
+				manager.editCity(hForm.getId(), hForm.getPortalCityBean().getCityProvinceId(), hForm.getPortalCityBean().getCityName(), hForm.getUserIdExist());
+				hForm.getPortalCityBean().setCityName("");
+				hForm.getPortalCityBean().setCityProvinceId("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalMajorBean().getMajorName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Major Luar "+hForm.getPortalMajorBean().getMajorName()+" dan ID "+hForm.getId());
+				manager.editMajor(hForm.getId(), hForm.getPortalMajorBean().getMajorName(), hForm.getPortalMajorBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalMajorBean().setMajorName("");
+				hForm.getPortalMajorBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalDepartmentBean().getMsDepartmentName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Department Luar "+hForm.getPortalDepartmentBean().getMsDepartmentName()+" dan ID "+hForm.getId());
+				manager.editDepartment(hForm.getId(), hForm.getPortalDepartmentBean().getMsDepartmentName(), hForm.getPortalDepartmentBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalDepartmentBean().setMsDepartmentName("");
+				hForm.getPortalDepartmentBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalLocationBean().getLocationName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Location Luar "+hForm.getPortalLocationBean().getLocationName()+" dan ID "+hForm.getId());
+				manager.editLocation(hForm.getId(), hForm.getPortalLocationBean().getLocationName(), hForm.getPortalLocationBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalLocationBean().setLocationName("");
+				hForm.getPortalLocationBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalPrivilegeBean().getPrivilegeName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Privilege Luar "+hForm.getPortalPrivilegeBean().getPrivilegeName()+" dan ID "+hForm.getId());
+				manager.editPrivilege(hForm.getId(), hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalPrivilegeBean().setPrivilegeName("");
+				hForm.getPortalPrivilegeBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalPositionBean().getPositionName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Position Luar "+hForm.getPortalPositionBean().getPositionName()+" dan ID "+hForm.getId());
+				manager.editPosition(hForm.getId(), hForm.getPortalPositionBean().getPositionName(), hForm.getPortalPositionBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalPositionBean().setPositionName("");
+				hForm.getPortalPositionBean().setDescription("");
+				hForm.setId("undefined");
+			}else if(!"".equals(hForm.getPortalBankBean().getBankName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Bank Luar "+hForm.getPortalBankBean().getBankName()+" dan ID "+hForm.getId());
+				manager.editBank(hForm.getId(), hForm.getPortalBankBean().getBankName(), hForm.getPortalBankBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalBankBean().setBankName("");
+				hForm.getPortalBankBean().setDescription("");
 				hForm.setId("undefined");
 			}
 
@@ -505,7 +580,7 @@ public class PortalAction extends Action {
 				
 				if(passAction.equals(hForm.getOldPass())){
 					if(hForm.getNewPass().equals(hForm.getRePass())){
-						manager.editPassword(userAction, hForm.getNewPass());
+						manager.editPassword(userAction, hForm.getNewPass(), userAction);
 						System.out.println("Password Berhasil Update !");
 					}
 					else {

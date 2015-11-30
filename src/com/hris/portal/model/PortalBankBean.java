@@ -7,9 +7,9 @@ public class PortalBankBean implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String bankId;
-	private String bankName;
-	private String description;
+	private String bankId="";
+	private String bankName="";
+	private String description="";
 	private String bankNameTemp="";
 	
 	public String getBankNameTemp() {

@@ -128,7 +128,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	
 	<select id = "checkLogin" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.util.Map">
 		SELECT
-			role_id		AS userRoleId
+			role_id		AS userRoleId,
+			user_id 	AS userId
 		FROM
 		    ms_user
 		WHERE
