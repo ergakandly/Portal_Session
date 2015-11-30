@@ -204,6 +204,10 @@
 								</logic:notEmpty>
 							</tbody>
 						</table>
+							<tr>
+								<td class="kanan">Description :</td>
+								<td><textarea rows="4" cols="50"></textarea></td>
+							</tr>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
