@@ -21,13 +21,13 @@
 		document.forms[0].submit();
 	}
 
-	function doSubmit() {
-		var frm = document.forms[0];
-		if (!validateForm(frm)) {
-			return;
-		}
-		frm.submit();
-	}
+// 	function doSubmit() {
+// 		var frm = document.forms[0];
+// 		if (!validateForm(frm)) {
+// 			return;
+// 		}
+// 		frm.submit();
+// 	}
 
 </script>
 

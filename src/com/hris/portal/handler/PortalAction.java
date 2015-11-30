@@ -580,7 +580,7 @@ public class PortalAction extends Action {
 				
 				if(passAction.equals(hForm.getOldPass())){
 					if(hForm.getNewPass().equals(hForm.getRePass())){
-						manager.editPassword(userAction, hForm.getNewPass(), userAction);
+						manager.editPassword(hForm.getUserExist(), hForm.getNewPass(), hForm.getUserIdExist());
 						System.out.println("Password Berhasil Update !");
 					}
 					else {
@@ -594,6 +594,7 @@ public class PortalAction extends Action {
 				hForm.setOldPass("");
 				hForm.setNewPass("");
 				hForm.setRePass("");
+				return mapping.findForward("success");
 			}
 			
 			hForm.setIsDeleteMasterOthers("0");
