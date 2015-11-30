@@ -18,7 +18,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			AND
 			password = #password#
 			AND
-			is_login = 1
+			is_login > 0
 			AND
 			status = 1
 	</select>
@@ -28,7 +28,12 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		UPDATE
 			ms_user
 		SET
-			is_login = #status#
+		<isEqual property="status" compareValue="1">
+			is_login = is_login + 1
+		</isEqual>
+		<isEqual property="status" compareValue="0">
+			is_login = is_login - 1
+		</isEqual>
 		WHERE
 			username = #username#
 	</update>
