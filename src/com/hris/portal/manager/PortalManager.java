@@ -1357,4 +1357,62 @@ public class PortalManager {
 
 	//END MASTER OTHERS
 
+
+		public boolean isAuthorized(String username, String password) {
+			Map user = new HashMap();
+			user.put("username", username);
+			user.put("password", password);
+			
+			int result = 0;
+			try {
+				result = (Integer) ibatis.queryForObject("users.isAuthorized", user);
+				if (result == 1)
+					return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return false;	
+		}
+		
+		public void updateStatusLogin(String username, int status) {
+			Map<String,String> user = new HashMap<String,String>();
+			user.put("username", username);
+			user.put("status",String.valueOf(status));
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.update("users.updateStatusLogin", user);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		public void resetStatusLogin() {
+			try {
+				ibatis.startTransaction();
+				ibatis.update("users.resetStatusLogin", "");
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 }
