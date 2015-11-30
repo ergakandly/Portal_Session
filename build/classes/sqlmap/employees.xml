@@ -157,7 +157,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				#empId#,
 				#roleId#,
 				'0',
-				null,
+				1,
 				SYSDATE,
 				null,
 				null
@@ -168,7 +168,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<select id = "getMasterRoleName" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
 		SELECT
 			role_id 	AS roleId,
-			role_name 	AS roleName
+			role_name 	AS roleName,
+			description AS description
 		FROM
 		    ms_role
 		ORDER BY
@@ -245,7 +246,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	</select>
 
 <!-- 	INSERT NEW ROLE Name-->
-	<insert id = "insertNewRoleName" parameterClass="java.lang.String">
+	<insert id = "insertNewRoleName" parameterClass="java.util.Map">
 		INSERT INTO
 		    ms_role(
 		    	role_id,
@@ -259,8 +260,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		VALUES (
 				MS_ROLE_SEQ.NEXTVAL,
 			    #addRoleName#,
-			    '',
-			    '',
+			    #description#,
+			    1,
 			    SYSDATE,
 			    '',
 			    ''

@@ -75,12 +75,20 @@ public class PortalForm extends ActionForm{
 	public String userIdExist;
 	private String searchName;
 	private String addRoleName;
+	private String roleDescription;
 	private String selectNewMenu;
 	public String[] selectedNewMenu;
 	public String[] selectedNewPriv;
 	public List viewMenu;
 	public List viewPriv;
 	
+	
+	public String getRoleDescription() {
+		return roleDescription;
+	}
+	public void setRoleDescription(String roleDescription) {
+		this.roleDescription = roleDescription;
+	}
 	public String getUserIdExist() {
 		return userIdExist;
 	}

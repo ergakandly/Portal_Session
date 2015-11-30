@@ -20,7 +20,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		SELECT 
 		    c.city_id AS cityId, 
 		    c.city 	AS cityName,
-		    p.province AS cityProvinceName
+		    p.province AS cityProvinceName,
+		    c.province_id AS cityProvinceId
 		FROM 
 		    ms_city c
 		    join ms_province p
@@ -77,7 +78,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	<select id="getPosition" resultClass="com.hris.portal.model.PortalPositionBean">
 		SELECT 
 			position_id AS positionId, 
-			position 	AS positionName
+			position 	AS positionName,
+			description AS description
 		FROM 
 			ms_position
 		ORDER BY
@@ -97,7 +99,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	
 <!-- 	INSERT  -->
 	
-	<insert id = "insertProvince" parameterClass="java.lang.String">
+	<insert id = "insertProvince" parameterClass="java.util.Map">
 		INSERT INTO
 		    MS_PROVINCE(
 		    	province_id,
@@ -110,7 +112,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		VALUES(
 				MS_PROVINCE_SEQ.NEXTVAL,
 				#provinceName#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -132,7 +134,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				MS_CITY_SEQ.NEXTVAL,
 				#cityName#,
 				#cityProvinceId#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -154,7 +156,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				MS_MAJOR_SEQ.NEXTVAL,
 				#majorName#,
 				#description#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -176,7 +178,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				MS_DEPARTMENT_SEQ.NEXTVAL,
 				#msDepartmentName#,
 				#description#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -198,7 +200,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				MS_LOCATION_SEQ.NEXTVAL,
 				#locationName#,
 				#description#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -220,7 +222,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				MS_PRIVILEGE_SEQ.NEXTVAL,
 				#privilegeName#,
 				#description#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -242,7 +244,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				MS_POSITION_SEQ.NEXTVAL,
 				#positionName#,
 				#description#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -264,7 +266,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				MS_BANK_SEQ.NEXTVAL,
 				#bankName#,
 				#description#,
-				'',
+				#createdBy#,
 				SYSDATE,
 				'',
 				''
@@ -334,7 +336,9 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		UPDATE
 		    ms_user
 		SET
-		    password = GET_HASH(#newPass#)
+		    password = GET_HASH(#newPass#),
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
 		WHERE 
 		    username = #userName#
 	</update>
@@ -344,9 +348,102 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		UPDATE
 		    ms_province
 		SET
-		    province = #provinceName#
+		    province = #provinceName#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
 		WHERE 
 		    province_id = #id#
 	</update>
+	
+<!-- 	EDIT CITY -->
+	<update id = "editCity" parameterClass="java.util.Map">
+		UPDATE
+		    ms_city
+		SET
+		    city = #cityName#,
+		    province_id = #cityProvinceId#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
+		WHERE 
+		    city_id = #id#
+	</update>	
+	
+<!-- 	EDIT MAJOR -->
+	<update id = "editMajor" parameterClass="java.util.Map">
+		UPDATE
+		    ms_major
+		SET
+		    major = #majorName#,
+		    description = #description#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
+		WHERE 
+		    major_id = #id#
+	</update>	
+
+<!-- 	EDIT DEPARTMENT -->
+	<update id = "editDepartment" parameterClass="java.util.Map">
+		UPDATE
+		    ms_department
+		SET
+		    department = #msDepartmentName#,
+		    description = #description#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
+		WHERE 
+		    department_id = #id#
+	</update>	
+
+<!-- 	EDIT LOCATION -->
+	<update id = "editLocation" parameterClass="java.util.Map">
+		UPDATE
+		    ms_location
+		SET
+		    location = #locationName#,
+		    description = #description#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
+		WHERE 
+		    location_id = #id#
+	</update>	
+
+<!-- 	EDIT PRIVILEGE -->
+	<update id = "editPrivilege" parameterClass="java.util.Map">
+		UPDATE
+		    ms_privilege
+		SET
+		    privilege = #privilegeName#,
+		    description = #description#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
+		WHERE 
+		    privilege_id = #id#
+	</update>	
+
+<!-- 	EDIT POSITION -->
+	<update id = "editPosition" parameterClass="java.util.Map">
+		UPDATE
+		    ms_position
+		SET
+		    position = #positionName#,
+		    description = #description#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
+		WHERE 
+		    position_id = #id#
+	</update>	
+
+<!-- 	EDIT BANK -->
+	<update id = "editBank" parameterClass="java.util.Map">
+		UPDATE
+		    ms_bank
+		SET
+		    bank = #bankName#,
+		    description = #description#,
+		    updated_by = #updatedBy#,
+		    update_date = sysdate
+		WHERE 
+		    bank_id = #id#
+	</update>	
 
 </sqlMap>

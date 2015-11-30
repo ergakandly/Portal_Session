@@ -128,7 +128,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	
 	<select id = "checkLogin" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.util.Map">
 		SELECT
-			role_id		AS userRoleId
+			role_id		AS userRoleId,
+			user_id 	AS userId
 		FROM
 		    ms_user
 		WHERE
@@ -156,7 +157,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 				#empId#,
 				#roleId#,
 				'0',
-				null,
+				1,
 				SYSDATE,
 				null,
 				null
@@ -244,7 +245,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	</select>
 
 <!-- 	INSERT NEW ROLE Name-->
-	<insert id = "insertNewRoleName" parameterClass="java.lang.String">
+	<insert id = "insertNewRoleName" parameterClass="java.util.Map">
 		INSERT INTO
 		    ms_role(
 		    	role_id,
@@ -258,8 +259,8 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		VALUES (
 				MS_ROLE_SEQ.NEXTVAL,
 			    #addRoleName#,
-			    '',
-			    '',
+			    #description#,
+			    1,
 			    SYSDATE,
 			    '',
 			    ''

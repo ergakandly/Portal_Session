@@ -70,6 +70,7 @@
 								<th>Role Name</th>
 								<th>Access Menu</th>
 								<th class="tengah">Access Privileges for Employee Modul</th>
+								<th class="tengah">Description</th>
 								<th class="tengah">Action Button</th>
 							</tr>
 						</thead>
@@ -106,7 +107,13 @@
 												<bean:write name="priv" property="privilegeName" />
 												<br />
 											</logic:iterate>
-										</logic:notEmpty></td>
+										</logic:notEmpty>
+									</td>
+
+									<!-- Description -->
+									<td class="tengah"><bean:write name="portalMasterRoleList"
+											property="description" /></td>
+
 
 									<td class="tengah">
 										<button type="button" onclick="javascript:editModal();"
@@ -206,7 +213,8 @@
 						</table>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><textarea rows="4" cols="50"></textarea></td>
+								<td><html:textarea styleClass="form-control" name="PortalForm"
+										property="roleDescription" rows="4" cols="50" /></td>
 							</tr>
 					</div>
 					<div class="modal-footer">

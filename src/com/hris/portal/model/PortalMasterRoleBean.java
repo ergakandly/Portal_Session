@@ -24,9 +24,16 @@ public class PortalMasterRoleBean implements Serializable {
 	private String insertRolePrivId;
 	private String icon;
 	private String urlMenuRole;
+	private String description; 
 	
 	//Untuk NestedIterate
 	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	private List<PortalMasterRoleBean> listMasterRoleBean;
 	private List<PortalMasterRoleBean> listMasterRoleBeanPriv;
 

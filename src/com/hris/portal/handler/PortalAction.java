@@ -125,7 +125,7 @@ public class PortalAction extends Action {
 			hForm.setUserIdExist(userIdAction);
 
 			if(hForm.getAddRoleName()!=null){
-				manager.insertNewRoleName(hForm.getAddRoleName());
+				manager.insertNewRoleName(hForm.getAddRoleName(), hForm.getRoleDescription());
 				System.out.println("Add Role Name: "+hForm.getAddRoleName());
 			
 			

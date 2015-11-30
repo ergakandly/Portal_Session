@@ -307,11 +307,15 @@ public class PortalManager {
 	}
 
 	// INSERT NEW ROLE Name
-	public void insertNewRoleName(String addRoleName) {
-
+	public void insertNewRoleName(String addRoleName, String description) {
+		
+		Map map = new HashMap();
+		map.put("addRoleName", addRoleName);
+		map.put("description", description);
+		
 		try {
 			ibatis.startTransaction();
-			ibatis.insert("employees.insertNewRoleName", addRoleName);
+			ibatis.insert("employees.insertNewRoleName", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
