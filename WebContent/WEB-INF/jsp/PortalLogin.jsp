@@ -31,7 +31,8 @@
 				<div class="input">
 					<label for="name" class="entypo-user"></label>
 					<%-- <html:text name="PortalForm" property="user" styleId="abc"></html:text> --%>
-					<input type="text" name="user" placeholder="username" styleClass="form-control"
+					<input type="text" name="user" placeholder="username"
+						styleClass="form-control"
 						value="<bean:write name="PortalForm" property="user"/>">
 				</div>
 				<div class="input">
@@ -41,19 +42,16 @@
 						value="<bean:write name="PortalForm" property="pass"/>">
 				</div>
 				<html:submit value="Login" onclick="javascript:doSubmit();" />
-				<button type="button"
-										class="btn btn-primary" data-toggle="modal"
-										data-backdrop="static" data-target="#modalForgot">
-										<i class="fa fa-plus"></i> Forgot Password
-									</button>
+				<a href="#" data-toggle="modal" data-target="#modalForgot">Forgot Password?</a>
 			</form>
 		</div>
 	</html:form>
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
-	<!-- MODAL -->
+	
+	<!-- MODAL FORGOT-->
 	<div class="modal fade" id="modalForgot" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+		aria-labelledby="myModalLabel" id="modalForgot">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -61,32 +59,17 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">User Profile</h4>
+					<h4 class="modal-title" id="myModalLabel">Forgot Password</h4>
 				</div>
 				<div class="modal-body ">
-
-					<!-- PANEL PASSWORD-->
-					<div class="panel panel-info ">
-						<div class="panel-heading">
-							<h5 class="panel-title">
-								<span class="glyphicon glyphicon-lock"></span> Forgot Password
-							</h5>
-						</div>
-						<div class="panel-body">
-							<table align="center" class="table table-nonfluid table-hover ">
-								<tr>
-									<td class="kanan fontBold">Email</td>
-									<td><input type="password" class="form-control"></td>
-								</tr>
-								
-							</table>
-						</div>
-					</div>
-					<!-- PANEL -->
+					Please input your <strong>email</strong> or <strong> username</strong> to reset your password.<br/>
+					We will notify your new password to your email.<br/><br/>
+					<input type="text" class="form-control" placeholder="input your email or username here">
+							
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary">
-						<i class="fa fa-check"></i> Save changes
+						<i class="fa fa-check"></i> Send Me New Password
 					</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">
 						<i class="fa fa-close"></i> Close
@@ -95,6 +78,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- MODAL -->
+	<!-- END MODAL FORGOT-->
 </body>
 </html>

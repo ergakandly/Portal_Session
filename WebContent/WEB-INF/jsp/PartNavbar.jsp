@@ -201,7 +201,7 @@ li.message-footer {
 
 	<ul class="nav navbar-nav navbar-right">
 		<li><label id="timeText"></label></li>
-		<!-- DROPDOWN OTIFICATION -->
+		<!-- DROPDOWN NOTIFICATION -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
 			data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span>
 				<span class="badge">3</span> <b class="caret"></b></a>
@@ -279,7 +279,7 @@ li.message-footer {
 	<!-- END NAVBAR -->
 	<br />
 	<br />
-	<!-- MODAL -->
+	<!-- MODAL PASSWORD-->
 	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -356,5 +356,88 @@ li.message-footer {
 		</div>
 	</div>
 	<!-- MODAL -->
+	
+	<script type="text/javascript">
+		$('#validate-form')
+				.bootstrapValidator(
+						{
+							//       live: 'disabled',
+							excluded : 'disabled',
+							message : 'This value is not valid',
+							feedbackIcons : {
+								valid : 'glyphicon glyphicon-ok',
+								invalid : 'glyphicon glyphicon-remove',
+								validating : 'glyphicon glyphicon-refresh'
+							},
+							fields : {
+								'empBean.employeeName' : {
+									validators : {
+										notEmpty : {
+											message : 'Name is required and cannot be empty'
+										},
+
+									}
+								},
+								'currentSpecialDateBean.description' : {
+									validators : {
+										notEmpty : {
+											message : 'Description is required and cannot be empty'
+										},
+
+										stringLength : {
+											message : 'Description content must be less than 100 characters',
+											max : function(value, validator,
+													$field) {
+												return 100 - (value
+														.match(/\r/g) || []).length;
+											}
+										}
+									}
+								},
+								'empBean.departmentId' : {
+									validators : {
+										callback : {
+											message : 'Destination Department is required and cannot be empty',
+											callback : function(value,
+													validator, $field) {
+												// Get the selected options
+												var options = validator
+														.getFieldElements(
+																'empBean.departmentId')
+														.val();
+
+												if (options == null)
+													return (false);
+												else if (options != null)
+													return (true);
+
+											}
+
+										}
+									}
+								}
+							// 								'empBean.roleId' : {
+							// 									validators : {
+							// 										callback : {
+							// 											message : 'Destination Role is required and cannot be empty',
+							// 											callback : function(value,
+							// 													validator, $field) {
+							// 												// Get the selected options
+							// 												var options = validator
+							// 														.getFieldElements(
+							// 																'empBean.departmentId')
+							// 														.val();
+
+							// 												if (options == null)
+							// 													return (false);
+							// 												else if (options != null)
+							// 													return (true);
+							// 											}
+							// 										}
+							// 									}
+							// 								}
+							}
+						});
+	</script>
 </body>
 </html>
