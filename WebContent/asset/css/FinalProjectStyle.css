@@ -208,4 +208,9 @@ div.modal div.modal-backdrop {
 	background-color: #337AB7;
 }
 
+/* Validator */
+.form-control-feedback {
+	line-height: 23px;
+}
+
 

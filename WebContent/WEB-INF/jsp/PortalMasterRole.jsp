@@ -235,6 +235,32 @@
 			});
 		});
 	</script>
+<!-- 	<script> -->
+<!-- // 		$('#contact-form').bootstrapValidator({ -->
+<!-- // 		//  live: 'disabled', -->
+<!-- // 		  message: 'This value is not valid', -->
+<!-- // 		  feedbackIcons: { -->
+<!-- // 		      valid: 'glyphicon glyphicon-ok', -->
+<!-- // 		      invalid: 'glyphicon glyphicon-remove', -->
+<!-- // 		      validating: 'glyphicon glyphicon-refresh' -->
+<!-- // 		  }, -->
+<!-- // 		  fields: { -->
+<!-- // 		     'portalModulBean.menuName': { -->
+<!-- // 		          validators: { -->
+<!-- // 		              notEmpty: { -->
+<!-- // 		                  message: 'Role Name is required and cannot be empty' -->
+<!-- // 		              }, -->
+		              
+<!-- // 		              stringLength: { -->
+<!-- // 		                  message: 'Role Name content must be less than 20 characters', -->
+<!-- // 		                  max: function (value, validator, $field) { -->
+<!-- // 		                      return 20 - (value.match(/\r/g) || []).length; -->
+<!-- // 		              }} -->
+<!-- // 		          } -->
+<!-- // 		      } -->
+<!-- // 		  } -->
+<!-- // 		}); -->
+<!-- 	</script> -->
 </body>
 
 </html>

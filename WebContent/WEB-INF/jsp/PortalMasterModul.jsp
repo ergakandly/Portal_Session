@@ -9,7 +9,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@include file="PartBootstrap.jsp"%>
-
 <title>Master Module</title>
 </head>
 
@@ -22,7 +21,8 @@
 </script>
 
 <body>
-	<html:form method="post" action="/portal">
+	<html:form method="post" action="/portal" styleId="contact-form"
+		styleClass="contact-form">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
 
@@ -133,13 +133,17 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Module Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalModulBean.menuName" size="30" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalModulBean.menuName" size="30" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Module Link :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalModulBean.urlMenu" size="30" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalModulBean.urlMenu" size="30" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Icon :</td>
@@ -150,13 +154,15 @@
 								</td>
 							</tr>
 						</table>
+
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
-<!-- 							onclick="javascript:flyToPage('masterModul');">							 -->
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
+
+						<!-- 						<button type="submit" class="btn main-btn pull-right">Send -->
+						<!-- 									a message</button> -->
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:onModalClose();">
 							<i class="fa fa-close"></i> Close
@@ -231,6 +237,8 @@
 			}
 
 			function onModalClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalModulBean.menuName');
+				$('#contact-form').bootstrapValidator('resetField','portalModulBean.urlMenu');
 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
 			}
@@ -244,6 +252,45 @@
 						
 				document.forms["PortalForm"].submit();
 			}
+		</script>
+		<script>
+			$('#contact-form').bootstrapValidator({
+			//  live: 'disabled',
+			  message: 'This value is not valid',
+			  feedbackIcons: {
+			      valid: 'glyphicon glyphicon-ok',
+			      invalid: 'glyphicon glyphicon-remove',
+			      validating: 'glyphicon glyphicon-refresh'
+			  },
+			  fields: {
+			     'portalModulBean.menuName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Modul Name is required and cannot be empty'
+			              },
+			              
+			              stringLength: {
+			                  message: 'Modul Name content must be less than 20 characters',
+			                  max: function (value, validator, $field) {
+			                      return 20 - (value.match(/\r/g) || []).length;
+			              }}
+			          }
+			      },
+			      'portalModulBean.urlMenu': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Menu URL is required and cannot be empty'
+			              },
+			              
+			              stringLength: {
+			                  message: 'Menu URL content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
+			          }
+			      }
+			  }
+			});
 		</script>
 	</html:form>
 </body>

@@ -26,6 +26,9 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
 	
+	<!-- Validator -->
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+	
 	<!-- KHUSUS -->
 <!-- 	<script type="text/javascript" src="asset/js/jQuery/bootstrap-datepicker.js"></script> -->
 </body>
