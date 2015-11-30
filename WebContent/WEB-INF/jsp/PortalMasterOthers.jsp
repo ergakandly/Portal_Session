@@ -131,7 +131,7 @@
 							<div class="panel-body">
 								<button type="button" onclick="javascript:addModalCity();"
 									class="btn btn-primary" id="addBtnCity" data-toggle="modal"
-									data-backdrop="static" data-target="#modalAddProvince">
+									data-backdrop="static" data-target="#modalAddCity">
 									<span class="fa fa-plus"></span> Add New City
 								</button>
 								<br /> <br />
@@ -158,10 +158,21 @@
 													<td><bean:write name="portalCityList"
 															property="cityName" /></td>
 													<td class="width30 tengah">
+													
 														<button type="button" class="btn btn-info editBtnCity"
+															onclick="javascript:editCity('<bean:write name="portalCityList"
+															property="cityId" />','<bean:write name="portalCityList"
+															property="cityProvinceId" />','<bean:write name="portalCityList"
+															property="cityName" />');"
 															data-toggle="modal" data-target="#modalAddCity">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
+														
+<!-- 														<button type="button" class="btn btn-info editBtnCity" -->
+<!-- 															data-toggle="modal" data-target="#modalAddCity"> -->
+<!-- 															<i class="fa fa-pencil"></i> Edit -->
+<!-- 														</button> -->
+														
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalCityList" property="cityId" />', 'city');">
@@ -604,23 +615,24 @@
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
-								<td class="kanan">Province ID :</td>
+								<td class="kanan">Province Id :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
 										property="portalCityBean.cityProvinceId" /></td>
 							</tr>
 							<tr>
 								<td class="kanan">City Name :</td>
 								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalCityBean.cityNameTemp" /></td>
+										property="portalCityBean.cityName" /></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterOthers');">
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:cityClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
 					</div>
@@ -987,7 +999,9 @@
 				});
 			});
 
+// 			MODAL PROVINCE
 			function addProvince() {
+				document.forms["PortalForm"].id.value = "undefined";
 // 				document.forms["PortalForm"].elements["portalProvinceBean.provinceId"].value = "";
 				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = "";
 				document.forms["PortalForm"].task.value = "masterOthers";
@@ -1002,12 +1016,35 @@
 			
 			function provinceClose() {
 				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
+			}
+			
+// 			MODAL CITY
+			function addCity() {
+				document.forms["PortalForm"].id.value = "undefined";
+				document.forms["PortalForm"].elements["portalCityBean.cityProvinceId"].value = "";
+				document.forms["PortalForm"].elements["portalCityBean.cityName"].value = "";
+				document.forms["PortalForm"].task.value = "masterOthers";
+			}
+			
+			function editCity(id, idProv, name) {
+				document.forms["PortalForm"].task.value = "masterOthers";
+				document.forms["PortalForm"].elements["portalCityBean.cityProvinceId"].value = idProv;
+				document.forms["PortalForm"].elements["portalCityBean.cityName"].value = name;
+				document.forms["PortalForm"].id.value = id;
+			}
+			
+			function cityClose() {
+				document.forms["PortalForm"].elements["portalCityBean.cityProvinceId"].value = "";
+				document.forms["PortalForm"].elements["portalCityBean.cityName"].value = "";
+				document.forms["PortalForm"].id.value = "undefined";
 			}
 			
 			
 			
 			
 			
+// 			SUBMIT FORM
 			function submitForm(task, id) {
 
 							var method = task==""? document.forms["PortalForm"].task.value:task;
