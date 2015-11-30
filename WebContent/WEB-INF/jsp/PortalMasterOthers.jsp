@@ -19,18 +19,20 @@
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
+			
 		// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
-		document.forms[0].submit();
+// 		document.forms[0].submit();
 
 	}
 </script>
 
 <body>
-	<html:form method="post" action="/portal">
+	<html:form method="post" action="/portal" styleId="contact-form"
+		styleClass="contact-form">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
 		<html:hidden name="PortalForm" property="isDeleteMasterOthers" />
-		
+
 		<div id="wrapper">
 			<%@include file="PartNavbar.jsp"%>
 			<div id="page-wrapper">
@@ -54,6 +56,15 @@
 								<li><i class="fa fa-th-large"></i> Others</li>
 							</ul>
 							<!-- END BREADCRUMB -->
+
+							<link rel="stylesheet"
+								href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
+							<script type="text/javascript"
+								src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+
+
+
 						</div>
 					</div>
 					<!-- END ROW 12 -->
@@ -91,19 +102,20 @@
 												property="listPortalProvince">
 												<tr>
 													<td><bean:write name="portalProvinceList"
- 															property="provinceId" /></td>
+															property="provinceId" /></td>
 													<td><bean:write name="portalProvinceList"
 															property="provinceName" /></td>
 													<td class="width30 tengah">
-														
+
 														<button type="button" class="btn btn-info editBtnProvince"
 															onclick="javascript:editProvince('<bean:write name="portalProvinceList"
 															property="provinceId" />','<bean:write name="portalProvinceList"
 															property="provinceName" />');"
-															data-toggle="modal" data-target="#modalAddProvince" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddProvince"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
-														
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');">
@@ -158,21 +170,20 @@
 													<td><bean:write name="portalCityList"
 															property="cityName" /></td>
 													<td class="width30 tengah">
-													
+
 														<button type="button" class="btn btn-info editBtnCity"
 															onclick="javascript:editCity('<bean:write name="portalCityList"
 															property="cityId" />','<bean:write name="portalCityList"
 															property="cityProvinceId" />','<bean:write name="portalCityList"
 															property="cityName" />');"
-															data-toggle="modal" data-target="#modalAddCity" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddCity"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
-														</button>
-														
-<!-- 														<button type="button" class="btn btn-info editBtnCity" -->
-<!-- 															data-toggle="modal" data-target="#modalAddCity"> -->
-<!-- 															<i class="fa fa-pencil"></i> Edit -->
-<!-- 														</button> -->
-														
+														</button> <!-- 														<button type="button" class="btn btn-info editBtnCity" -->
+														<!-- 															data-toggle="modal" data-target="#modalAddCity"> -->
+														<!-- 															<i class="fa fa-pencil"></i> Edit -->
+														<!-- 														</button> -->
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalCityList" property="cityId" />', 'city');">
@@ -210,7 +221,7 @@
 									id="sortMajor">
 									<thead>
 										<tr>
-<!-- 											<th>Major ID</th> -->
+											<!-- 											<th>Major ID</th> -->
 											<th>Name</th>
 											<th>Description</th>
 											<th class="tengah">Action</th>
@@ -221,29 +232,30 @@
 											<logic:iterate id="portalMajorList" name="PortalForm"
 												property="listPortalMajor">
 												<tr>
-<%-- 													<td><bean:write name="portalMajorList" --%>
-<%-- 															property="majorId" /></td>  --%>
+													<%-- 													<td><bean:write name="portalMajorList" --%>
+													<%-- 															property="majorId" /></td>  --%>
 													<td><bean:write name="portalMajorList"
 															property="majorName" /></td>
 													<td><bean:write name="portalMajorList"
 															property="description" /></td>
 													<td class="width30 tengah">
-														
+
 														<button type="button" class="btn btn-info editBtnMajor"
 															onclick="javascript:editMajor('<bean:write name="portalMajorList"
 															property="majorId" />','<bean:write name="portalMajorList"
 															property="majorName" />','<bean:write name="portalMajorList"
 															property="description" />');"
-															data-toggle="modal" data-target="#modalAddMajor" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddMajor"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
-														
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalMajorList" property="majorId" />', 'major');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
-														
+
 													</td>
 												</tr>
 											</logic:iterate>
@@ -295,22 +307,24 @@
 													<td><bean:write name="portalDepartmentList"
 															property="description" /></td>
 													<td class="width30 tengah">
-														
-														<button type="button" class="btn btn-info editBtnDepartment"
+
+														<button type="button"
+															class="btn btn-info editBtnDepartment"
 															onclick="javascript:editDepartment('<bean:write name="portalDepartmentList"
 															property="departmentId" />','<bean:write name="portalDepartmentList"
 															property="msDepartmentName" />','<bean:write name="portalDepartmentList"
 															property="description" />');"
-															data-toggle="modal" data-target="#modalAddDepartment" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddDepartment"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
-													
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
-														
+
 													</td>
 												</tr>
 											</logic:iterate>
@@ -361,22 +375,23 @@
 													<td><bean:write name="portalLocationList"
 															property="description" /></td>
 													<td class="width30 tengah">
-													
+
 														<button type="button" class="btn btn-info editBtnLocation"
 															onclick="javascript:editLocation('<bean:write name="portalLocationList"
 															property="locationId" />','<bean:write name="portalLocationList"
 															property="locationName" />','<bean:write name="portalLocationList"
 															property="description" />');"
-															data-toggle="modal" data-target="#modalAddLocation" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddLocation"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
-														</button>														
-														
+														</button>
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalLocationList" property="locationId" />', 'location');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
-														
+
 													</td>
 												</tr>
 											</logic:iterate>
@@ -428,22 +443,24 @@
 													<td><bean:write name="portalPrivilegeList"
 															property="description" /></td>
 													<td class="width30 tengah">
-													
-														<button type="button" class="btn btn-info editBtnPrivilege"
+
+														<button type="button"
+															class="btn btn-info editBtnPrivilege"
 															onclick="javascript:editPrivilege('<bean:write name="portalPrivilegeList"
 															property="privilegeId" />','<bean:write name="portalPrivilegeList"
 															property="privilegeName" />','<bean:write name="portalPrivilegeList"
 															property="description" />');"
-															data-toggle="modal" data-target="#modalAddPrivilege" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddPrivilege"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
-														</button>														
-														
+														</button>
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPrivilegeList" property="privilegeId" />', 'privilege');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
-														
+
 													</td>
 												</tr>
 											</logic:iterate>
@@ -494,22 +511,23 @@
 													<td><bean:write name="portalPositionList"
 															property="description" /></td>
 													<td class="width30 tengah">
-													
+
 														<button type="button" class="btn btn-info editBtnPosition"
 															onclick="javascript:editPosition('<bean:write name="portalPositionList"
 															property="positionId" />','<bean:write name="portalPositionList"
 															property="positionName" />','<bean:write name="portalPositionList"
 															property="description" />');"
-															data-toggle="modal" data-target="#modalAddPosition" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddPosition"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
-														
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPositionList" property="positionId" />', 'position');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
-														
+
 													</td>
 												</tr>
 											</logic:iterate>
@@ -559,22 +577,23 @@
 													<td><bean:write name="portalBankList"
 															property="description" /></td>
 													<td class="width30 tengah">
-														
+
 														<button type="button" class="btn btn-info editBtnBank"
 															onclick="javascript:editBank('<bean:write name="portalBankList"
 															property="bankId" />','<bean:write name="portalBankList"
 															property="bankName" />','<bean:write name="portalBankList"
 															property="description" />');"
-															data-toggle="modal" data-target="#modalAddBank" data-backdrop="static">
+															data-toggle="modal" data-target="#modalAddBank"
+															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
-														
+
 														<button type="button" class="btn btn-danger"
 															data-toggle="modal" data-target="#modalYakin"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalBankList" property="bankId" />', 'bank');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
-														
+
 													</td>
 												</tr>
 											</logic:iterate>
@@ -604,20 +623,19 @@
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
-								<td class="kanan">Province Id :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalProvinceBean.provinceId" disabled="true"/></td>
-							</tr>
-							<tr>
 								<td class="kanan">Province Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalProvinceBean.provinceName" /></td>
+								<td>
+									<div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalProvinceBean.provinceName" />
+									</div>
+								</td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary"
+							>
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
@@ -651,13 +669,15 @@
 							</tr>
 							<tr>
 								<td class="kanan">City Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalCityBean.cityName" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalCityBean.cityName" />
+									</div></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
+						<button type="submit" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
@@ -687,19 +707,23 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Major Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalMajorBean.majorName" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalMajorBean.majorName" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalMajorBean.description" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalMajorBean.description" />
+									</div></td>
 							</tr>
 						</table>
 					</div>
-					
+
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
+						<button type="submit" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
@@ -708,7 +732,7 @@
 							<i class="fa fa-close"></i> Close
 						</button>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -730,28 +754,32 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Department Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalDepartmentBean.msDepartmentName" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalDepartmentBean.msDepartmentName" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalDepartmentBean.description" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalDepartmentBean.description" />
+									</div></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
-						
-						<button type="button" class="btn btn-primary"
+
+						<button type="submit" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						
+
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:departmentClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
-						
+
 					</div>
 				</div>
 			</div>
@@ -774,28 +802,32 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Location Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalLocationBean.locationName" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalLocationBean.locationName" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalLocationBean.description" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalLocationBean.description" />
+									</div></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
-					
-						<button type="button" class="btn btn-primary"
+
+						<button type="submit" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						
+
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:locationClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
-						
+
 					</div>
 				</div>
 			</div>
@@ -818,28 +850,32 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Privilege Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPrivilegeBean.privilegeName" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalPrivilegeBean.privilegeName" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPrivilegeBean.description" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalPrivilegeBean.description" />
+									</div></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
-					
-						<button type="button" class="btn btn-primary"
+
+						<button type="submit" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						
+
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:privilegeClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
-						
+
 					</div>
 				</div>
 			</div>
@@ -862,28 +898,32 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Position Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPositionBean.positionName" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalPositionBean.positionName" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalPositionBean.description" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalPositionBean.description" />
+									</div></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
-					
-						<button type="button" class="btn btn-primary"
+
+						<button type="submit" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						
+
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:positionClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
-						
+
 					</div>
 				</div>
 			</div>
@@ -906,28 +946,32 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Bank Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalBankBean.bankName" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalBankBean.bankName" />
+									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="portalBankBean.description" /></td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control" name="PortalForm"
+											property="portalBankBean.description" />
+									</div></td>
 							</tr>
 						</table>
 					</div>
 					<div class="modal-footer">
-					
-						<button type="button" class="btn btn-primary"
+
+						<button type="submit" class="btn btn-primary"
 							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						
+
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:bankClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
-						
+
 					</div>
 				</div>
 			</div>
@@ -1068,6 +1112,7 @@
 			}
 			
 			function provinceClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalProvinceBean.provinceName');
 				document.forms["PortalForm"].elements["portalProvinceBean.provinceName"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
 			}
@@ -1088,6 +1133,8 @@
 			}
 			
 			function cityClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalCityBean.cityProvinceId');
+				$('#contact-form').bootstrapValidator('resetField','portalCityBean.cityName');
 				document.forms["PortalForm"].elements["portalCityBean.cityProvinceId"].value = "";
 				document.forms["PortalForm"].elements["portalCityBean.cityName"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
@@ -1109,6 +1156,8 @@
 			}
 			
 			function majorClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalMajorBean.majorName');
+				$('#contact-form').bootstrapValidator('resetField','portalMajorBean.description');
 				document.forms["PortalForm"].elements["portalMajorBean.majorName"].value = "";
 				document.forms["PortalForm"].elements["portalMajorBean.description"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
@@ -1130,6 +1179,8 @@
 			}
 			
 			function departmentClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalDepartmentBean.msDepartmentName');
+				$('#contact-form').bootstrapValidator('resetField','portalDepartmentBean.description');
 				document.forms["PortalForm"].elements["portalDepartmentBean.msDepartmentName"].value = "";
 				document.forms["PortalForm"].elements["portalDepartmentBean.description"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
@@ -1151,6 +1202,8 @@
 			}
 			
 			function locationClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalLocationBean.locationName');
+				$('#contact-form').bootstrapValidator('resetField','portalLocationBean.description');
 				document.forms["PortalForm"].elements["portalLocationBean.locationName"].value = "";
 				document.forms["PortalForm"].elements["portalLocationBean.description"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
@@ -1172,6 +1225,8 @@
 			}
 			
 			function privilegeClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalPrivilegeBean.privilegeName');
+				$('#contact-form').bootstrapValidator('resetField','portalPrivilegeBean.description');
 				document.forms["PortalForm"].elements["portalPrivilegeBean.privilegeName"].value = "";
 				document.forms["PortalForm"].elements["portalPrivilegeBean.description"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
@@ -1193,6 +1248,8 @@
 			}
 			
 			function positionClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalPositionBean.positionName');
+				$('#contact-form').bootstrapValidator('resetField','portalPositionBean.description');
 				document.forms["PortalForm"].elements["portalPositionBean.positionName"].value = "";
 				document.forms["PortalForm"].elements["portalPositionBean.description"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
@@ -1214,14 +1271,12 @@
 			}
 			
 			function bankClose() {
+				$('#contact-form').bootstrapValidator('resetField','portalBankBean.bankName');
+				$('#contact-form').bootstrapValidator('resetField','portalBankBean.description');
 				document.forms["PortalForm"].elements["portalBankBean.bankName"].value = "";
 				document.forms["PortalForm"].elements["portalBankBean.description"].value = "";
 				document.forms["PortalForm"].id.value = "undefined";
 			}
-			
-			
-			
-			
 			
 // 			SUBMIT FORM
 			function submitForm(task, id) {
@@ -1234,6 +1289,117 @@
 							document.forms["PortalForm"].submit();
 						}
 			
+		</script>
+		<script>
+			$('#contact-form').bootstrapValidator({
+			//  live: 'disabled',
+			  message: 'This value is not valid',
+			  feedbackIcons: {
+			      valid: 'glyphicon glyphicon-ok',
+			      invalid: 'glyphicon glyphicon-remove',
+			      validating: 'glyphicon glyphicon-refresh'
+			  },
+			  fields: {
+			      'portalProvinceBean.provinceName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Province Name is required'
+			              }
+			          }
+			      },
+			      'portalCityBean.cityName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'City Name is required'
+			              }
+			          }
+			      },
+			      'portalMajorBean.majorName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Major Name is required'
+			              }
+			          }
+			      },
+			      'portalMajorBean.description': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Major Description is required'
+			              }
+			          }
+			      },
+			      'portalDepartmentBean.msDepartmentName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Department Name is required'
+			              }
+			          }
+			      },
+			      'portalDepartmentBean.description': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Department Description is required'
+			              }
+			          }
+			      },
+			      'portalLocationBean.locationName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Location Name is required'
+			              }
+			          }
+			      },
+			      'portalLocationBean.description': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Location Description is required'
+			              }
+			          }
+			      },
+			      'portalPrivilegeBean.privilegeName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Privilege Name is required'
+			              }
+			          }
+			      },
+			      'portalPrivilegeBean.description': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Privilege Description is required'
+			              }
+			          }
+			      },
+			      'portalPositionBean.positionName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Position Name is required'
+			              }
+			          }
+			      },
+			      'portalPositionBean.description': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Position Description is required'
+			              }
+			          }
+			      },
+			      'portalBankBean.bankName': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Bank Name is required'
+			              }
+			          }
+			      },
+			      'portalBankBean.description': {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Bank Description is required'
+			              }
+			          }
+			      }
+			  }
+			});
 		</script>
 	</html:form>
 </body>
