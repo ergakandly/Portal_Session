@@ -47,7 +47,7 @@
 
 					<!-- BREADCRUMB -->
 					<ul class="breadcrumb">
-						<li><span class="glyphicon glyphicon-dashboard"></span><a
+						<li><i class="fa fa-dashboard"></i><a
 							href="javascript:flyToPage('dashboardAdmin');"> Dashboard</a></li>
 						<li><span class="glyphicon glyphicon-king"></span> Roles</li>
 					</ul>

@@ -65,7 +65,7 @@
 									<th>Employee Name</th>
 									<th>Department Name</th>
 									<th>Location Name</th>
-									<th>Activated</th>
+									<th>Status</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -81,18 +81,17 @@
 													property="departmentName" /></td>
 											<td><bean:write name="portalList"
 													property="locationName" /></td>
-											<td><logic:empty name="portalList"
+											<td>
+												<logic:empty name="portalList"
 													property="userEmployeeId">
 													<button type="button" class="btn btn-primary"
 														onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
-														<span class="glyphicon glyphicon-ok"></span>
+														<i class="fa fa-check-square-o"> Make it Active</i>
 													</button>
-												</logic:empty> <logic:notEmpty name="portalList" property="userEmployeeId">
-													<button type="button" class="btn btn-primary"
-														onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');"
-														disabled="true">
-														<span class="glyphicon glyphicon-ok"></span>
-													</button>
+												</logic:empty> 
+												<logic:notEmpty name="portalList" property="userEmployeeId">
+													<i class="fa fa-check"
+																style="color: green">Activated</i>
 												</logic:notEmpty></td>
 										</tr>
 									</logic:iterate>
