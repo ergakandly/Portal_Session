@@ -115,17 +115,48 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin" data-backdrop="static"
-<%-- 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');" --%>
-															>
+															data-toggle="modal" data-target="#modalYakinProvince"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
-														</button> 
+														</button>
 
 													</td>
 												</tr>
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+									<!-- MODAL HAPUS -->
+									<div class="modal fade" id="modalYakinProvince" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this province?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -185,9 +216,8 @@
 														<!-- 														</button> -->
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalCityList" property="cityId" />', 'city');">
-															<%-- 															<html:hidden name="PortalForm" property="isDeleteMasterOthers" value="city" /> --%>
+															data-toggle="modal" data-target="#modalYakinCity"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
 														</button>
 													</td>
@@ -195,6 +225,39 @@
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+
+									<!-- MODAL HAPUS -->
+									<div class="modal fade" id="modalYakinCity" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this city?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalCityList" property="cityId" />', 'city');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -251,8 +314,8 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalMajorList" property="majorId" />', 'major');">
+															data-toggle="modal" data-target="#modalYakinMajor"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
 														</button>
 
@@ -261,6 +324,40 @@
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinMajor" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Major?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalMajorList" property="majorId" />', 'major');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -320,8 +417,8 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
+															data-toggle="modal" data-target="#modalYakinDepartment"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
 														</button>
 
@@ -330,6 +427,39 @@
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinDepartment" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this record?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -387,8 +517,8 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalLocationList" property="locationId" />', 'location');">
+															data-toggle="modal" data-target="#modalYakinLocation"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
 														</button>
 
@@ -397,6 +527,39 @@
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinLocation" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Location?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalLocationList" property="locationId" />', 'location');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -456,8 +619,8 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPrivilegeList" property="privilegeId" />', 'privilege');">
+															data-toggle="modal" data-target="#modalYakinPrivilege"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
 														</button>
 
@@ -466,6 +629,39 @@
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinPrivilege" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Privilege?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPrivilegeList" property="privilegeId" />', 'privilege');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -523,8 +719,8 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPositionList" property="positionId" />', 'position');">
+															data-toggle="modal" data-target="#modalYakinPosition"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
 														</button>
 
@@ -533,6 +729,39 @@
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinPosition" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Postion?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPositionList" property="positionId" />', 'position');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -589,8 +818,8 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalBankList" property="bankId" />', 'bank');">
+															data-toggle="modal" data-target="#modalYakinBank"
+															data-backdrop="static">
 															<i class="fa fa-trash"></i> Delete
 														</button>
 
@@ -599,6 +828,39 @@
 											</logic:iterate>
 										</logic:notEmpty>
 									</tbody>
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinBank" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Bank?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalBankList" property="bankId" />', 'bank');">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 								</table>
 							</div>
 						</div>
@@ -676,8 +938,7 @@
 						</table>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
@@ -722,8 +983,7 @@
 					</div>
 
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
@@ -769,8 +1029,7 @@
 					</div>
 					<div class="modal-footer">
 
-						<button type="submit" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 
@@ -817,8 +1076,7 @@
 					</div>
 					<div class="modal-footer">
 
-						<button type="submit" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 
@@ -865,8 +1123,7 @@
 					</div>
 					<div class="modal-footer">
 
-						<button type="submit" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 
@@ -913,8 +1170,7 @@
 					</div>
 					<div class="modal-footer">
 
-						<button type="submit" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 
@@ -961,8 +1217,7 @@
 					</div>
 					<div class="modal-footer">
 
-						<button type="submit" class="btn btn-primary"
-							onclick="javascript:submitForm('','');">
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 
@@ -1300,101 +1555,161 @@
 			  },
 			  fields: {
 			      'portalProvinceBean.provinceName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'Province Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'Province Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalCityBean.cityName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'City Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'City Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalMajorBean.majorName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'Major Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'Major Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalMajorBean.description': {
-			          validators: {
-			              notEmpty: {
-			                  message: 'Major Description is required'
-			              }
+			    	  validators: {
+			    		  stringLength: {
+			                  message: 'Major Description content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalDepartmentBean.msDepartmentName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'Department Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'Department Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalDepartmentBean.description': {
 			          validators: {
-			              notEmpty: {
-			                  message: 'Department Description is required'
-			              }
+			        	  stringLength: {
+			                  message: 'Department Description content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalLocationBean.locationName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'Location Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'Location Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalLocationBean.description': {
-			          validators: {
-			              notEmpty: {
-			                  message: 'Location Description is required'
-			              }
+			    	  validators: {
+			        	  stringLength: {
+			                  message: 'Location Description content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalPrivilegeBean.privilegeName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'Privilege Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'Privilege Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalPrivilegeBean.description': {
-			          validators: {
-			              notEmpty: {
-			                  message: 'Privilege Description is required'
-			              }
+			    	  validators: {
+			        	  stringLength: {
+			                  message: 'Privilege Description content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalPositionBean.positionName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'Position Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'Position Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalPositionBean.description': {
-			          validators: {
-			              notEmpty: {
-			                  message: 'Position Description is required'
-			              }
+			    	  validators: {
+			        	  stringLength: {
+			                  message: 'Position Description content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalBankBean.bankName': {
-			          validators: {
+			    	  validators: {
 			              notEmpty: {
 			                  message: 'Bank Name is required'
-			              }
+			              },
+			              
+			              stringLength: {
+			                  message: 'Bank Name content must be less than 30 characters',
+			                  max: function (value, validator, $field) {
+			                      return 30 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      },
 			      'portalBankBean.description': {
-			          validators: {
-			              notEmpty: {
-			                  message: 'Bank Description is required'
-			              }
+			    	  validators: {
+			        	  stringLength: {
+			                  message: 'Bank Description content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
 			          }
 			      }
 			  }
