@@ -574,6 +574,9 @@ public class PortalAction extends Action {
 			manager.insertNewModul(hForm.getPortalModulBean().getMenuName(), hForm.getPortalModulBean().getUrlMenu(), hForm.getPortalModulBean().getIcon());
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			return mapping.findForward("masterModul");
+		}else if ("masterPrivilege".equalsIgnoreCase(hForm.getTask())){
+			
+			return mapping.findForward("masterPrivilege");
 		}else if ("editModule".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());
 			hForm.setUserExist(userAction);

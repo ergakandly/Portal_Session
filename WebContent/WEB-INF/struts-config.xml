@@ -22,6 +22,7 @@
 			<forward name="masterOthers" path="/WEB-INF/jsp/PortalMasterOthers.jsp"></forward>
 			<forward name="success" path="/WEB-INF/jsp/PortalLogin.jsp"></forward>
 			<forward name="kirimEmail" path="/WEB-INF/jsp/PortalKirimEmail.jsp"></forward>
+			<forward name="masterPrivilege" path="/WEB-INF/jsp/PortalMasterPrivilege.jsp"></forward>
 <!-- 			<forward name="success" path="/WEB-INF/jsp/PortalUserChangePassword.jsp"></forward> -->
  		</action>
 	</action-mappings>

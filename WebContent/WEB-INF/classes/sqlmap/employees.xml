@@ -320,11 +320,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		WHERE
 		    role_id = #id#
 	</update>
-	
-<!-- 	EDIT NEW ROLE TR_MENU -->
-	<update id = "updateNewRoleMenu" parameterClass="java.util.Map">
-	
-	</update>
 
 <!-- 	DELETE ROLE MENU-->
 	<delete id = "deleteRoleMenu" parameterClass="java.lang.String">
@@ -409,5 +404,97 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		WHERE
 		    menu_id = #menuIdModul#
 	</delete>
+	
+	
+<!-- 	SELECT MENU FROM ROLE_ID -->
+	<select id = "getMenuRoleList" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    menu_id AS menuId
+		FROM
+		    tr_role_menu
+		WHERE
+		    role_id = #id#
+	</select>
+	
+<!-- 	SELECT PRIVILEGE FROM ROLE_ID -->
+	<select id = "getPrivilegeRoleList" resultClass="com.hris.portal.model.PortalMasterRoleBean" parameterClass="java.lang.String">
+		SELECT
+		    privilege_id AS privilegeId
+		FROM
+		    tr_role_privilege
+		WHERE
+		    role_id = #id#
+	</select>
+	
+	
+<!-- 	DELETE EXIST MENU-->
+	<delete id = "deleteExistMenu" parameterClass="java.util.Map">
+		DELETE FROM
+		    tr_role_menu
+		WHERE
+		    role_id = #id#
+		AND
+			menu_id = #menuId#
+	</delete>
+	
+<!-- 	DELETE EXIST PRIVILEGE-->
+	<delete id = "deleteExistPriv" parameterClass="java.util.Map">
+		DELETE FROM
+		    tr_role_privilege
+		WHERE
+		    role_id = #id#
+		AND
+			privilege_id = #privilegeId#
+	</delete>
+	
+	<!-- 	UPDATE-INSERT NEW ROLE TR_MENU-->
+	<insert id = "updateNewRoleMenu" parameterClass="java.util.Map">
+		INSERT INTO
+		    tr_role_menu(
+		    	role_menu_id,
+		    	role_id,
+		    	menu_id,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				TR_ROLE_MENU_SEQ.NEXTVAL,
+				#id#,
+				#menuId#,
+				'',
+				1,
+				SYSDATE,
+				'',
+				''
+		)
+	</insert>	
+	
+<!-- 	UPDATE-INSERT NEW ROLE TR_PRIVILEGE -->
+	<insert id = "updateNewRolePriv" parameterClass="java.util.Map">
+		INSERT INTO
+		    tr_role_privilege(
+		    	role_privilege_id,
+		    	role_id,
+		    	privilege_id,
+		    	description,
+		    	created_by,
+		    	create_date,
+		    	updated_by,
+		    	update_date
+		    )
+		VALUES(
+				TR_ROLE_PRIVILEGE_SEQ.NEXTVAL,
+				#id#,
+				#privilegeId#,
+				'',
+				1,
+				sysdate,
+				'',
+				''
+		)
+	</insert>
 	
 </sqlMap>

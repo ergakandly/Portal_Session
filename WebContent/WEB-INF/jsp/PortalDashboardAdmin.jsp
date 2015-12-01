@@ -64,6 +64,12 @@
 								style="font-size: 100px;"></span><br>
 							<h3>Modules</h3>
 						</button>
+						<button class="btn btn-default iconDashboard" type="button"
+							onclick="javascript:flyToPage('masterPrivilege');">
+							<span class="glyphicon glyphicon-eye-open"
+								style="font-size: 100px;"></span><br>
+							<h3>Privileges</h3>
+						</button>
 <!-- 						<button class="btn btn-default iconDashboard" type="button" -->
 <!-- 							onclick="javascript:flyToPage('kirimEmail');"> -->
 <!-- 							<span class="glyphicon glyphicon-th-large" -->
