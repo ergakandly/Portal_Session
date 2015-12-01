@@ -575,7 +575,36 @@ public class PortalAction extends Action {
 			hForm.setListPortalModulBean(manager.getMasterModul());
 			return mapping.findForward("masterModul");
 		}else if ("masterPrivilege".equalsIgnoreCase(hForm.getTask())){
+			System.out.println("Tasknya : " + hForm.getTask());
+			hForm.setUserExist(userAction);
+			hForm.setPassExist(passAction);
+			hForm.setUserIdExist(userIdAction);
 			
+			if("privilege".equals(hForm.getIsDeleteMasterOthers())){
+				manager.deletePrivilege(hForm.getId());
+			}
+			
+			if(!"".equals(hForm.getPortalPrivilegeBean().getPrivilegeName()) && "undefined".equals(hForm.getId())){
+				System.out.println("Sebenernya: "+hForm.getId());
+				System.out.println("Privilege Luar: "+hForm.getPortalPrivilegeBean().getPrivilegeName());
+				manager.insertNewPrivilege(hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalPrivilegeBean().setPrivilegeName("");
+				hForm.getPortalPrivilegeBean().setDescription("");
+				hForm.setId("undefined");
+			}
+			
+			if(!"".equals(hForm.getPortalPrivilegeBean().getPrivilegeName()) && !"undefined".equals(hForm.getId())){
+				System.out.println("Edit Privilege Luar "+hForm.getPortalPrivilegeBean().getPrivilegeName()+" dan ID "+hForm.getId());
+				manager.editPrivilege(hForm.getId(), hForm.getPortalPrivilegeBean().getPrivilegeName(), hForm.getPortalPrivilegeBean().getDescription(), hForm.getUserIdExist());
+				hForm.getPortalPrivilegeBean().setPrivilegeName("");
+				hForm.getPortalPrivilegeBean().setDescription("");
+				hForm.setId("undefined");
+			}
+			
+			hForm.setListPortalPrivilege(manager.getAllPrivilege());
+			
+			hForm.setIsDeleteMasterOthers("0");
+			System.out.println("Berhasil Privilege");
 			return mapping.findForward("masterPrivilege");
 		}else if ("editModule".equalsIgnoreCase(hForm.getTask())){
 			System.out.println("Tasknya : " + hForm.getTask());

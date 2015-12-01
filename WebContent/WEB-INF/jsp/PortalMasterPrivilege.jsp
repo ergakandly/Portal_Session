@@ -13,19 +13,23 @@
 </head>
 
 <script type="text/javascript">
-	function flyToPage(task, id) {
+	function flyToPage(task, id, isDeleteMasterOthers) {
+		// 		alert(task+"::"+id+"::"+isDeleteMasterOthers);
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
+		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
+		// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
 		document.forms[0].submit();
+	
 	}
 </script>
 
 
 <body>
-	<html:form method="post" action="/portal" styleId="contact-form"
-		styleClass="contact-form">
+	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" />
 		<html:hidden name="PortalForm" property="id" />
+		<html:hidden name="PortalForm" property="isDeleteMasterOthers" />
 
 		<div id="wrapper">
 			<%@include file="PartNavbar.jsp"%>
@@ -39,7 +43,7 @@
 						<div class="col-md-12">
 							<!-- PAGE HEADER -->
 							<div class="page-header">
-								<h3 id="timeline">Module</h3>
+								<h3 id="timeline">Master Privilege</h3>
 							</div>
 							<!-- END PAGE HEADER -->
 
@@ -47,7 +51,7 @@
 							<ul class="breadcrumb">
 								<li><i class="fa fa-dashboard"></i><a
 									href="javascript:flyToPage('dashboardAdmin');"> Dashboard</a></li>
-								<li><i class="fa fa-th-large"></i> Module</li>
+								<li><i class="fa fa-th-large"></i> Master Privilege</li>
 							</ul>
 							<!-- END BREADCRUMB -->
 						</div>
@@ -60,8 +64,8 @@
 						<div class="tengah">
 							<button type="button" onclick="javascript:addModal();"
 								class="btn btn-primary" id="addBtn" data-toggle="modal"
-								data-backdrop="static" data-target="#modalAddModul">
-								<span class="fa fa-plus"></span> Add New Module
+								data-backdrop="static" data-target="#modalAddPrivilege">
+								<span class="fa fa-plus"></span> Add New Privilege
 							</button>
 						</div>
 
@@ -72,38 +76,38 @@
 							<thead>
 								<tr>
 									<th></th>
-									<th>Module Name</th>
-									<th>Module Link</th>
-									<th>Module Icon</th>
+									<th>Privilege ID</th>
+									<th>Privilege Name</th>
+									<th>Description</th>
 									<th>Button Action</th>
 								</tr>
 							</thead>
 							<tbody>
 
-								<logic:notEmpty name="PortalForm" property="listPortalModulBean">
-									<logic:iterate id="portalModulBeanList" name="PortalForm"
-										property="listPortalModulBean">
+								<logic:notEmpty name="PortalForm" property="listPortalPrivilege">
+									<logic:iterate id="portalPrivilegeList" name="PortalForm"
+										property="listPortalPrivilege">
 										<tr>
-											<td><bean:write name="portalModulBeanList"
-													property="iconSubstr" /></td>
-											<td><bean:write name="portalModulBeanList"
-													property="menuName" /></td>
-											<td><bean:write name="portalModulBeanList"
-													property="urlMenu" /></td>
-											<td class="tengah"><span
-												class="<bean:write name="portalModulBeanList" property="icon" />"></span>
+											<td><bean:write name="portalPrivilegeList"
+													property="privilegeId" /></td>
+											<td><bean:write name="portalPrivilegeList"
+													property="privilegeName" /></td>
+											<td><bean:write name="portalPrivilegeList"
+													property="description" /></td>
+											<td class="tengah">
 											<td class="width30">
 												<button type="button" class="btn btn-info editBtn"
-													onclick="javascript:editModal('<bean:write name="portalModulBeanList"
-													property="menuIdModul" />','<bean:write name="portalModulBeanList"
-													property="menuName" />','<bean:write name="portalModulBeanList"
-													property="urlMenu" />','<bean:write name="portalModulBeanList" property="icon" />');"
-													data-toggle="modal" data-target="#modalAddModul">
+													onclick="javascript:editModal('<bean:write name="portalPrivilegeList"
+													property="privilegeId" />','<bean:write name="portalPrivilegeList"
+													property="privilegeName" />','<bean:write name="portalPrivilegeList"
+													property="description" />');"
+													data-toggle="modal" data-target="#modalAddPrivilege" data-backdrop="static">
 													<i class="fa fa-pencil"></i> Edit
 												</button>
 												<button type="button" class="btn btn-danger"
-													data-toggle="modal" data-target="#modalYakin" data-backdrop="static">
-													<i class="fa fa-trash"></i> Delete
+															data-toggle="modal" data-backdrop="static" data-target="#modalYakin"
+															onclick="javascript:flyToPage('masterPrivilege', '<bean:write name="portalPrivilegeList" property="privilegeId" />', 'privilege');">
+															<i class="fa fa-trash"></i> Delete
 												</button>
 											</td>
 										</tr>
@@ -118,7 +122,7 @@
 		</div>
 
 		<!-- MODAL ADD/EDIT-->
-		<div class="modal fade" id="modalAddModul" tabindex="-1" role="dialog"
+		<div class="modal fade" id="modalAddPrivilege" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -132,39 +136,43 @@
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
-								<td class="kanan">Module Name :</td>
-								<td><div class="form-group">
-										<html:text styleClass="form-control" name="PortalForm"
-											property="portalModulBean.menuName" size="30" />
-									</div></td>
+								<td class="kanan">Privilege Name :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalPrivilegeBean.privilegeName" /></td>
+<!-- 								<td><div class="form-group"> -->
+<%-- 										<html:text styleClass="form-control" name="PortalForm" --%>
+<%-- 											property="portalModulBean.menuName" size="30" /> --%>
+<!-- 									</div></td> -->
 							</tr>
 							<tr>
-								<td class="kanan">Module Link :</td>
-								<td><div class="form-group">
-										<html:text styleClass="form-control" name="PortalForm"
-											property="portalModulBean.urlMenu" size="30" />
-									</div></td>
-							</tr>
-							<tr>
-								<td class="kanan">Icon :</td>
-								<td>
-									<button class="btn btn-default" data-iconset="glyphicon"
-										data-icon="glyphicon-camera" role="iconpicker"
-										name="portalModulBean.icon"></button>
-								</td>
+								<td class="kanan">Description :</td>
+								<td><html:text styleClass="form-control" name="PortalForm"
+										property="portalPrivilegeBean.description" /></td>
+<!-- 								<td><div class="form-group"> -->
+<%-- 										<html:text styleClass="form-control" name="PortalForm" --%>
+<%-- 											property="portalModulBean.urlMenu" size="30" /> --%>
+<!-- 									</div></td> -->
 							</tr>
 						</table>
-
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:submitForm('','');">
 							<i class="fa fa-check"></i> Submit
 						</button>
+						
+<!-- 						<button type="submit" class="btn btn-primary"> -->
+<!-- 							<i class="fa fa-check"></i> Submit -->
+<!-- 						</button> -->
 
 						<!-- 						<button type="submit" class="btn main-btn pull-right">Send -->
 						<!-- 									a message</button> -->
+<!-- 						<button type="button" class="btn btn-danger" data-dismiss="modal" -->
+<!-- 							onclick="javascript:onModalClose();"> -->
+<!-- 							<i class="fa fa-close"></i> Close -->
+<!-- 						</button> -->
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
-							onclick="javascript:onModalClose();">
+							onclick="javascript:privilegeClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
 					</div>
@@ -192,7 +200,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
+						<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('masterPrivilege', '<bean:write name="portalPrivilegeList" property="privilegeId" />');">
 							<i class="fa fa-check"></i> Yes
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -208,11 +216,11 @@
 		<script type="text/javascript">
 			$(function() {
 				$('#addBtn').click(function() {
-					$("#modalLabel").html("Add New Module");
+					$("#modalLabel").html("Add New Privilege");
 					$("#iconnya").html("glyphicon-camera");
 				});
 				$('.editBtn').click(function() {
-					$("#modalLabel").html("Edit Module");
+					$("#modalLabel").html("Edit Privilege");
 					$("#iconnya").html("glyphicon-calendar");
 				});
 			});
@@ -222,25 +230,23 @@
 			});
 
 			function addModal() {
-				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
-				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
-				document.forms["PortalForm"].task.value = "saveAddModule";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.privilegeName"].value = "";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.description"].value = "";
+				document.forms["PortalForm"].task.value = "masterPrivilege";
 			}
 
-			function editModal(id, name, link, icon) {
-				document.forms["PortalForm"].task.value = "editModule";
-// 				document.forms["PortalForm"].elements["portalModulBean.menuIdModul"].value = id;
-				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = name;
-				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = link;
-				document.forms["PortalForm"].elements["portalModulBean.icon"].value = icon;
+			function editModal(id, name, desc) {
+				document.forms["PortalForm"].task.value = "masterPrivilege";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.privilegeName"].value = name;
+				document.forms["PortalForm"].elements["portalPrivilegeBean.description"].value = desc;
 				document.forms["PortalForm"].id.value = id;
 			}
 
 			function onModalClose() {
-				$('#contact-form').bootstrapValidator('resetField','portalModulBean.menuName');
-				$('#contact-form').bootstrapValidator('resetField','portalModulBean.urlMenu');
-				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = "";
-				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = "";
+				$('#contact-form').bootstrapValidator('resetField','portalPrivilegeBean.privilegeName');
+				$('#contact-form').bootstrapValidator('resetField','portalPrivilegeBean.description');
+				document.forms["PortalForm"].elements["portalPrivilegeBean.privilegeName"].value = "";
+				document.forms["PortalForm"].elements["portalPrivilegeBean.description"].value = "";
 			}
 			
 			function submitForm(task, id) {
@@ -263,23 +269,23 @@
 			      validating: 'glyphicon glyphicon-refresh'
 			  },
 			  fields: {
-			     'portalModulBean.menuName': {
+			     'portalPrivilegeBean.privilegeName': {
 			          validators: {
 			              notEmpty: {
-			                  message: 'Modul Name is required and cannot be empty'
+			                  message: 'Privilege Name is required and cannot be empty'
 			              },
 			              
 			              stringLength: {
-			                  message: 'Modul Name content must be less than 20 characters',
+			                  message: 'Privilege Name content must be less than 20 characters',
 			                  max: function (value, validator, $field) {
 			                      return 20 - (value.match(/\r/g) || []).length;
 			              }}
 			          }
 			      },
-			      'portalModulBean.urlMenu': {
+			      'portalPrivilegeBean.description': {
 			          validators: {
 			              notEmpty: {
-			                  message: 'Menu URL is required and cannot be empty'
+			                  message: 'Description is required and cannot be empty'
 			              },
 			              
 			              stringLength: {
