@@ -634,6 +634,12 @@ public class PortalAction extends Action {
 						hForm.setOldPass("");
 						hForm.setNewPass("");
 						hForm.setRePass("");
+						
+						HttpSession session = request.getSession(false);
+				    	if (null != session)
+				    		session.invalidate();
+				    	System.out.println("Session is Destroyed");
+				    	
 						return mapping.findForward("success");
 					}
 					else {
@@ -687,6 +693,12 @@ public class PortalAction extends Action {
 			return mapping.findForward("masterOthers");
 		}
 		
+
+		HttpSession session = request.getSession(false);
+    	if (null != session)
+    		session.invalidate();
+    	System.out.println("Session is Destroyed");
+    	
 		return mapping.findForward("success");
 	}
 }
