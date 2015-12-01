@@ -8,8 +8,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="asset/css/login.css">
+<link rel="shortcut icon" type="image/ico" href="asset/img/icon.ico" />
 <%@include file="PartBootstrap.jsp"%>
-
 <title>Login Page</title>
 <script language="JavaScript">
 	function doSubmit() {
@@ -23,6 +23,7 @@
 </script>
 </head>
 <body>
+
 	<html:form method="post" action="/portal">
 		<html:hidden name="PortalForm" property="task" value="login" />
 		<div id="login_el">
@@ -42,13 +43,14 @@
 						value="<bean:write name="PortalForm" property="pass"/>">
 				</div>
 				<html:submit value="Login" onclick="javascript:doSubmit();" />
-				<a href="#" data-toggle="modal" data-target="#modalForgot">Forgot Password?</a>
+				<a href="#" data-toggle="modal" data-target="#modalForgot">Forgot
+					Password?</a>
 			</form>
 		</div>
 	</html:form>
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
-	
+
 	<!-- MODAL FORGOT-->
 	<div class="modal fade" id="modalForgot" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" id="modalForgot">
@@ -62,10 +64,12 @@
 					<h4 class="modal-title" id="myModalLabel">Forgot Password</h4>
 				</div>
 				<div class="modal-body ">
-					Please input your <strong>email</strong> or <strong> username</strong> to reset your password.<br/>
-					We will notify your new password to your email.<br/><br/>
-					<input type="text" class="form-control" placeholder="input your email or username here">
-							
+					Please input your <strong>email</strong> or <strong>
+						username</strong> to reset your password.<br /> We will notify your new
+					password to your email.<br />
+					<br /> <input type="text" class="form-control"
+						placeholder="input your email or username here">
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary">

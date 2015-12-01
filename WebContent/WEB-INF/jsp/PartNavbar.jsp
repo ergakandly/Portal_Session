@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="shortcut icon" type="image/ico" href="asset/img/icon.ico" />
 </head>
 <style>
 .nav {
@@ -188,6 +189,7 @@ li.message-footer {
 	}
 </script>
 <body>
+
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
