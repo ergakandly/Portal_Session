@@ -582,19 +582,47 @@ public class PortalAction extends Action {
 					if(hForm.getNewPass().equals(hForm.getRePass())){
 						manager.editPassword(hForm.getUserExist(), hForm.getNewPass(), hForm.getUserIdExist());
 						System.out.println("Password Berhasil Update !");
+						hForm.setOldPass("");
+						hForm.setNewPass("");
+						hForm.setRePass("");
+						return mapping.findForward("success");
 					}
 					else {
 						System.out.println("NewPass dan RePass bedaaaa !");
+						if(hForm.getUserExist().equals("admin")){
+							hForm.setOldPass("");
+							hForm.setNewPass("");
+							hForm.setRePass("");
+							
+							return mapping.findForward("dashboardAdmin");							
+						}
+						else{
+							hForm.setOldPass("");
+							hForm.setNewPass("");
+							hForm.setRePass("");
+							
+							return mapping.findForward("dashboardUser");
+						}
 					}
 				}
 				else{
 					System.out.println("OldPass Salaaah !");
+					if(hForm.getUserExist().equals("admin")){
+						hForm.setOldPass("");
+						hForm.setNewPass("");
+						hForm.setRePass("");
+						
+						return mapping.findForward("dashboardAdmin");							
+					}
+					else{
+						hForm.setOldPass("");
+						hForm.setNewPass("");
+						hForm.setRePass("");
+						
+						return mapping.findForward("dashboardUser");
+					}
 				}
 				
-				hForm.setOldPass("");
-				hForm.setNewPass("");
-				hForm.setRePass("");
-				return mapping.findForward("success");
 			}
 			
 			hForm.setIsDeleteMasterOthers("0");
