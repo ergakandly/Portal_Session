@@ -28,13 +28,15 @@ public class PortalSessionListener implements HttpSessionListener {
      * @see HttpSessionListener#sessionDestroyed(HttpSessionEvent)
      */
     public void sessionDestroyed(HttpSessionEvent event)  { 
+    	HttpSession session = event.getSession();
+    	
     	System.out.println("===============================");
-    	System.out.println("sessionDestroyed - PORTAL");
+    	System.out.println("sessionDestroyed - PORTAL | "+session.getAttribute("username"));
     	if (totalActiveSession > 0)
     		totalActiveSession--;
     	System.out.println("PORTAL - active session: " + totalActiveSession);
     	
-    	HttpSession session = event.getSession();
+    	
     	PortalManager pManager = new PortalManager();
     	pManager.updateStatusLogin(session.getAttribute("username").toString(), 0);
     }

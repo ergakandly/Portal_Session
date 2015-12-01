@@ -87,8 +87,11 @@ public class PortalAction extends Action {
 			else
 				password = hForm.getPortalUserBean().getPassword();
 			
-			if (null != hForm.getPortalUserBean().getUserRoleId()) {
-				String param = hForm.getPortalUserBean().getUserName()+"##"+password+"##"+hForm.getPortalUserBean().getUserRoleId();
+			if (null == hForm.getPortalUserBean().getUserRoleId())
+				return mapping.findForward("success");
+			else {
+				String param = hForm.getPortalUserBean().getUserName()+"##"+password+"##"+
+							   hForm.getPortalUserBean().getUserRoleId()+"##"+hForm.getPortalUserBean().getUserName();
 				
 				//parameter yang akan dikirim
 			    System.out.println("PORTAL paramdikirim: "+ param);
@@ -715,13 +718,17 @@ public class PortalAction extends Action {
 			hForm.setListPortalBank(manager.getAllBank());
 			return mapping.findForward("masterOthers");
 		}
+		else if ("logout".equalsIgnoreCase(hForm.getTask())) {
+			HttpSession session = request.getSession(false);
+			
+			manager.updateStatusLogin(session.getAttribute("username").toString(), 0);
+			System.out.println("PORTAL "+session.getAttribute("username")+" logout.");
+			
+			if(session != null)
+	    		session.invalidate();
+			System.out.println("PORTAL Kembali ke halaman login.");
+		}
 		
-
-		HttpSession session = request.getSession(false);
-    	if (null != session)
-    		session.invalidate();
-    	System.out.println("Session is Destroyed");
-    	
 		return mapping.findForward("success");
 	}
 }

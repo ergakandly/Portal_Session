@@ -12,7 +12,14 @@ public class PortalUserBean implements Serializable {
 	private String password;
 	private String userRoleId;
 	private String userEmployeeId;
+	private String employeeName;
 	
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
 	public String getUserId() {
 		return userId;
 	}
