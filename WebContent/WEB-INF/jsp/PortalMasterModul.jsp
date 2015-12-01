@@ -55,7 +55,7 @@
 					<br />
 					<!-- ROW MD6 OFFSET3 -->
 
-					<div class="col-md-6 col-md-offset-3">
+					<div class="col-md-8 col-md-offset-2">
 						<div class="tengah">
 							<button type="button" onclick="javascript:addModal();"
 								class="btn btn-primary" id="addBtn" data-toggle="modal"
@@ -66,15 +66,14 @@
 
 						<br /> <br />
 						<table
-							class="table table-striped table-hover table-condensed table-bordered"
+							class="table  table-striped table-hover table-condensed table-bordered"
 							id="sort">
 							<thead>
 								<tr>
-									<th></th>
 									<th>Module Name</th>
 									<th>Module Link</th>
 									<th>Module Icon</th>
-									<th>Button Action</th>
+									<th class="tengah" width="20%">Button Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -84,14 +83,12 @@
 										property="listPortalModulBean">
 										<tr>
 											<td><bean:write name="portalModulBeanList"
-													property="iconSubstr" /></td>
-											<td><bean:write name="portalModulBeanList"
 													property="menuName" /></td>
 											<td><bean:write name="portalModulBeanList"
 													property="urlMenu" /></td>
 											<td class="tengah"><span
 												class="<bean:write name="portalModulBeanList" property="icon" />"></span>
-											<td class="width30">
+											<td class="tengah">
 												<button type="button" class="btn btn-info editBtn"
 													onclick="javascript:editModal('<bean:write name="portalModulBeanList"
 													property="menuIdModul" />','<bean:write name="portalModulBeanList"
@@ -131,14 +128,14 @@
 					<div class="modal-body">
 						<table class="table table-borderless">
 							<tr>
-								<td class="kanan">Module Name :</td>
+								<td class="kanan">Module Name <font color="red">*</font> :</td>
 								<td><div class="form-group">
 										<html:text styleClass="form-control" name="PortalForm"
 											property="portalModulBean.menuName" size="30" />
 									</div></td>
 							</tr>
 							<tr>
-								<td class="kanan">Module Link :</td>
+								<td class="kanan">Module Link <font color="red">*</font> :</td>
 								<td><div class="form-group">
 										<html:text styleClass="form-control" name="PortalForm"
 											property="portalModulBean.urlMenu" size="30" />
@@ -159,9 +156,6 @@
 						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
-
-						<!-- 						<button type="submit" class="btn main-btn pull-right">Send -->
-						<!-- 									a message</button> -->
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:onModalClose();">
 							<i class="fa fa-close"></i> Close
@@ -228,7 +222,6 @@
 
 			function editModal(id, name, link, icon) {
 				document.forms["PortalForm"].task.value = "editModule";
-// 				document.forms["PortalForm"].elements["portalModulBean.menuIdModul"].value = id;
 				document.forms["PortalForm"].elements["portalModulBean.menuName"].value = name;
 				document.forms["PortalForm"].elements["portalModulBean.urlMenu"].value = link;
 				document.forms["PortalForm"].elements["portalModulBean.icon"].value = icon;

@@ -43,8 +43,10 @@
 						value="<bean:write name="PortalForm" property="pass"/>">
 				</div>
 				<html:submit value="Login" onclick="javascript:doSubmit();" />
-				<a href="#" data-toggle="modal" data-target="#modalForgot">Forgot
-					Password?</a>
+				<div class="kiri">
+					<small><a href="#" data-toggle="modal" data-target="#modalForgot" style="color:white">
+						Forgot Password?</a></small>
+				</div>
 			</form>
 		</div>
 	</html:form>
@@ -66,8 +68,8 @@
 				<div class="modal-body ">
 					Please input your <strong>email</strong> or <strong>
 						username</strong> to reset your password.<br /> We will notify your new
-					password to your email.<br />
-					<br /> <input type="text" class="form-control"
+					password to your email.<br /> <br /> <input type="text"
+						class="form-control"
 						placeholder="input your email or username here">
 
 				</div>

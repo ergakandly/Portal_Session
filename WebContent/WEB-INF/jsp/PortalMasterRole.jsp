@@ -14,8 +14,6 @@
 </head>
 <script language="JavaScript">
 	function flyToPage(task, id) {
-// 		alert(document.forms[0].addRoleName.value);
-
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].submit();
@@ -36,21 +34,12 @@
 		alert(selectedMenuArr);
 		alert(selectedPrivArr);
 	}
-	
-// 	function doSubmit() {
-// 		var frm = document.forms[0];
-// 		if (!validateForm(frm)) {
-// 			return;
-// 		}
-// 		frm.submit();
-// 	}
-
 </script>
 
 <body>
-
 	<%@include file="PartNavbar.jsp"%>
-	<html:form method="post" action="/portal" onsubmit="javascript:doAlert();">
+	<html:form method="post" action="/portal"
+		onsubmit="javascript:doAlert();">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -79,13 +68,15 @@
 						</button>
 					</center>
 					<br /> <br />
-					<table class="table table-striped table-hover table-condensed">
+					<table
+						class="table table-striped table-hover table-condensed table-bordered"
+						id="sort">
 						<thead>
 							<tr>
 								<th>Role Name</th>
 								<th>Access Menu</th>
-								<th class="tengah">Access Privileges for Employee Modul</th>
-								<th class="tengah">Description</th>
+								<th>Access Privileges for Employee Modul</th>
+								<th>Description</th>
 								<th class="tengah">Action Button</th>
 							</tr>
 						</thead>
@@ -122,32 +113,28 @@
 												<bean:write name="priv" property="privilegeName" />
 												<br />
 											</logic:iterate>
-										</logic:notEmpty>
-									</td>
+										</logic:notEmpty></td>
 
 									<!-- Description -->
-									<td class="tengah"><bean:write name="portalMasterRoleList"
+									<td><bean:write name="portalMasterRoleList"
 											property="description" /></td>
 
-
-									<td class="tengah">
-									
+									<td class="tengah" width="20%">
 										<button type="button" id="editBtn" class="btn btn-info"
 											onclick="javascript:editRole('<bean:write name="portalMasterRoleList"
 											property="roleId" />','<bean:write name="portalMasterRoleList"
 											property="roleName" />','<bean:write name="portalMasterRoleList"
 											property="description" />');"
-											data-toggle="modal" data-target="#modalAddRole" data-backdrop="static">
+											data-toggle="modal" data-target="#modalAddRole"
+											data-backdrop="static">
 											<i class="fa fa-pencil"></i> Edit
 										</button>
-									
 										<button type="button" class="btn btn-danger"
 											onclick="javascript:flyToPage('deleteRole', '<bean:write name="portalMasterRoleList" property="roleId" />');">
 											<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 											Delete
 										</button>
 									</td>
-
 								</tr>
 							</logic:iterate>
 						</logic:notEmpty>
@@ -169,7 +156,7 @@
 						<h4 id="modalLabel"></h4>
 					</div>
 					<div class="modal-body ">
-						<html:hidden name="PortalForm" property="task" value="masterRole"/>
+						<html:hidden name="PortalForm" property="task" value="masterRole" />
 						<html:hidden name="PortalForm" property="id" />
 						<table align="center">
 							<tr>
@@ -203,14 +190,12 @@
 										property="viewMenu">
 										<tr>
 											<td>
-											<font color="red"><bean:write name="portalMasterRoleMenuList"
-														property="menuIdView" /></font>
-											<bean:define id="menuId" name="portalMasterRoleMenuList"
-														property="menuIdView" type="java.lang.String" />
-											<html:multibox name="PortalForm"
-													property="selectedNewMenu" value="<%=menuId %>">
+												<bean:define id="menuId" name="portalMasterRoleMenuList"
+													property="menuIdView" type="java.lang.String" /> <html:multibox
+													name="PortalForm" property="selectedNewMenu"
+													value="<%=menuId%>">
 													<bean:write name="portalMasterRoleMenuList"
- 														property="menuIdView" />
+														property="menuIdView" />
 												</html:multibox> <bean:write name="portalMasterRoleMenuList"
 													property="menuNameView" /><br /></td>
 
@@ -235,26 +220,26 @@
 								</logic:notEmpty>
 							</tbody>
 						</table>
-							<tr>
-								<td class="kanan">Description :</td>
-								<td><html:textarea styleClass="form-control" name="PortalForm"
-										property="roleDescription" rows="4" cols="50" /></td>
-							</tr>
+						<tr>
+							<td class="kanan">Description :</td>
+							<td><html:textarea styleClass="form-control"
+									name="PortalForm" property="roleDescription" rows="4" cols="50" /></td>
+						</tr>
 					</div>
 					<div class="modal-footer">
-<!-- 						<button type="button" class="btn btn-primary" -->
-<!-- 							onclick="javascript:flyToPage('masterRole');"> -->
-<!-- 							<i class="fa fa-check"></i> Submit -->
-<!-- 						</button> -->
+						<!-- 						<button type="button" class="btn btn-primary" -->
+						<!-- 							onclick="javascript:flyToPage('masterRole');"> -->
+						<!-- 							<i class="fa fa-check"></i> Submit -->
+						<!-- 						</button> -->
 
-						<button type="submit" class="btn btn-primary" >
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						
-<!-- 						<button type="button" class="btn btn-danger" data-dismiss="modal"> -->
-<!-- 							<i class="fa fa-close"></i> Close -->
-<!-- 						</button> -->
-						
+
+						<!-- 						<button type="button" class="btn btn-danger" data-dismiss="modal"> -->
+						<!-- 							<i class="fa fa-close"></i> Close -->
+						<!-- 						</button> -->
+
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:onRoleClose();">
 							<i class="fa fa-close"></i> Close
@@ -268,6 +253,18 @@
 	<!-- JAVASCRIPT -->
 	<%@include file="PartJavascript.jsp"%>
 	<script>
+	$(document).ready(function() {
+		$('#sort').dataTable( {
+			 "columns": [
+			             null,
+			             null,
+			             null,
+			             null,
+			             { "orderable": false }
+			            ]
+		} );
+	});
+	
 		$(function() {
 			$('#addBtn').click(function() {
 				$("#modalLabel").html("Add New Role");
@@ -290,8 +287,8 @@
 		}
 
 		function onRoleClose() {
-// 			$('#contact-form').bootstrapValidator('resetField','portalModulBean.menuName');
-// 			$('#contact-form').bootstrapValidator('resetField','portalModulBean.urlMenu');
+			$('#contact-form').bootstrapValidator('resetField','portalModulBean.menuName');
+			$('#contact-form').bootstrapValidator('resetField','portalModulBean.urlMenu');
 			document.forms["PortalForm"].elements["addRoleName"].value = "";
 			document.forms["PortalForm"].elements["roleDescription"].value = "";
 		}
@@ -306,32 +303,6 @@
 			document.forms["PortalForm"].submit();
 		}
 	</script>
-<!-- 	<script> -->
-<!-- // 		$('#contact-form').bootstrapValidator({ -->
-<!-- // 		//  live: 'disabled', -->
-<!-- // 		  message: 'This value is not valid', -->
-<!-- // 		  feedbackIcons: { -->
-<!-- // 		      valid: 'glyphicon glyphicon-ok', -->
-<!-- // 		      invalid: 'glyphicon glyphicon-remove', -->
-<!-- // 		      validating: 'glyphicon glyphicon-refresh' -->
-<!-- // 		  }, -->
-<!-- // 		  fields: { -->
-<!-- // 		     'portalModulBean.menuName': { -->
-<!-- // 		          validators: { -->
-<!-- // 		              notEmpty: { -->
-<!-- // 		                  message: 'Role Name is required and cannot be empty' -->
-<!-- // 		              }, -->
-		              
-<!-- // 		              stringLength: { -->
-<!-- // 		                  message: 'Role Name content must be less than 20 characters', -->
-<!-- // 		                  max: function (value, validator, $field) { -->
-<!-- // 		                      return 20 - (value.match(/\r/g) || []).length; -->
-<!-- // 		              }} -->
-<!-- // 		          } -->
-<!-- // 		      } -->
-<!-- // 		  } -->
-<!-- // 		}); -->
-<!-- 	</script> -->
 </body>
 
 </html>
