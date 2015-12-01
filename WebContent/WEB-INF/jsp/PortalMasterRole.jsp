@@ -21,6 +21,22 @@
 		document.forms[0].submit();
 	}
 
+	function doAlert(){
+		var selectedMenuArr=[];
+		var selectedPrivArr=[];
+		$("input:checkbox[name=selectedNewMenu]:checked").each(function(){
+			selectedMenuArr.push($(this).val());
+		});
+		$("input:checkbox[name=selectedNewPriv]:checked").each(function(){
+			selectedPrivArr.push($(this).val());
+		});
+		
+		document.forms[0].selectedNewMenu = selectedMenuArr;
+		document.forms[0].selectedNewPriv = selectedPrivArr;
+		alert(selectedMenuArr);
+		alert(selectedPrivArr);
+	}
+	
 // 	function doSubmit() {
 // 		var frm = document.forms[0];
 // 		if (!validateForm(frm)) {
@@ -34,8 +50,7 @@
 <body>
 
 	<%@include file="PartNavbar.jsp"%>
-	<html:form method="post" action="/portal">
-
+	<html:form method="post" action="/portal" onsubmit="javascript:doAlert();">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -126,12 +141,6 @@
 											<i class="fa fa-pencil"></i> Edit
 										</button>
 									
-<!-- 										<button type="button" onclick="javascript:editModal();" -->
-<!-- 											id="editBtn" class="btn btn-info" data-toggle="modal" -->
-<!-- 											data-target="#modalAddRole" data-backdrop="static"> -->
-<!-- 											<i class="fa fa-pencil"></i> Edit  -->
-<!-- 										</button> -->
-
 										<button type="button" class="btn btn-danger"
 											onclick="javascript:flyToPage('deleteRole', '<bean:write name="portalMasterRoleList" property="roleId" />');">
 											<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -160,7 +169,7 @@
 						<h4 id="modalLabel"></h4>
 					</div>
 					<div class="modal-body ">
-						<html:hidden name="PortalForm" property="task" />
+						<html:hidden name="PortalForm" property="task" value="masterRole"/>
 						<html:hidden name="PortalForm" property="id" />
 						<table align="center">
 							<tr>
@@ -193,10 +202,15 @@
 									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm"
 										property="viewMenu">
 										<tr>
-											<td><html:multibox name="PortalForm"
-													property="selectedNewMenu">
+											<td>
+											<font color="red"><bean:write name="portalMasterRoleMenuList"
+														property="menuIdView" /></font>
+											<bean:define id="menuId" name="portalMasterRoleMenuList"
+														property="menuIdView" type="java.lang.String" />
+											<html:multibox name="PortalForm"
+													property="selectedNewMenu" value="<%=menuId %>">
 													<bean:write name="portalMasterRoleMenuList"
-														property="menuIdView" />
+ 														property="menuIdView" />
 												</html:multibox> <bean:write name="portalMasterRoleMenuList"
 													property="menuNameView" /><br /></td>
 
@@ -207,7 +221,7 @@
 													<logic:equal name="portalMasterRoleMenuList"
 														property="menuNameView" value="Employee">
 														<td class="tengah"><html:multibox name="PortalForm"
-																property="selectedNewPriv">
+																property="selectedNewPriv" styleId="multiPriv">
 																<bean:write name="portalMasterRolePrivList"
 																	property="privilegeIdView" />
 															</html:multibox></td>
@@ -233,7 +247,7 @@
 <!-- 							<i class="fa fa-check"></i> Submit -->
 <!-- 						</button> -->
 
-						<button type="submit" class="btn btn-primary">
+						<button type="submit" class="btn btn-primary" >
 							<i class="fa fa-check"></i> Submit
 						</button>
 						
@@ -266,14 +280,10 @@
 		function addRole() {
 			document.forms["PortalForm"].elements["addRoleName"].value = "";
 			document.forms["PortalForm"].elements["roleDescription"].value = "";
-			document.forms["PortalForm"].task.value = "masterRole";
+
 		}
 
 		function editRole(id, name, desc) {
-			alert(id);
-			alert(name);
-			alert(desc);
-			document.forms["PortalForm"].task.value = "editModule";
 			document.forms["PortalForm"].elements["addRoleName"].value = name;
 			document.forms["PortalForm"].elements["roleDescription"].value = desc;
 			document.forms["PortalForm"].id.value = id;

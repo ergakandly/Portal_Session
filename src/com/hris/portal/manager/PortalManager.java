@@ -1409,4 +1409,172 @@ public class PortalManager {
 				}
 			}
 		}
+		
+		
+		// SELECT PRIVILEGE FROM ROLE_ID
+		public List<PortalMasterRoleBean> getPrivilegeRoleList(String id) {
+			List<PortalMasterRoleBean> list = null;
+
+			try {
+				ibatis.startTransaction();
+				list = ibatis.queryForList("employees.getPrivilegeRoleList", id);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+			return list;
+		}
+		
+		// SELECT MENU FROM ROLE_ID
+		public List<PortalMasterRoleBean> getMenuRoleList(String id) {
+			List<PortalMasterRoleBean> list = null;
+
+			try {
+				ibatis.startTransaction();
+				list = ibatis.queryForList("employees.getMenuRoleList", id);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+			return list;
+		}
+		
+		//DELETE EXIST MENU 
+		public void deleteExistMenu(String id, String menuId) {
+			System.out.println("DELETE EXIST MENU ");
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("menuId", menuId);
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.delete("employees.deleteExistMenu", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		//DELETE EXIST PRIVILEGE 
+		public void deleteExistPriv(String id, String privilegeId) {
+			System.out.println("DELETE EXIST PRIVILEGE ");
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("privilegeId", privilegeId);
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.delete("employees.deleteExistPriv", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		// UPDATE NEW ROLE Name
+		public void updateNewRoleName(String id, String roleName, String description) {
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("roleName", roleName);
+			map.put("description", description);
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.insert("employees.updateNewRoleName", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		// UPDATE-INSERT NEW ROLE TR_MENU
+		public void updateNewRoleMenu(String id, String menuId) {
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("menuId", menuId);
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.insert("employees.updateNewRoleMenu", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		// UPDATE-INSERT NEW ROLE TR_PRIVILEGE 
+		public void updateNewRolePriv(String id, String privilegeId) {
+			
+			Map map = new HashMap();
+			map.put("id", id);
+			map.put("privilegeId", privilegeId);
+			
+			try {
+				ibatis.startTransaction();
+				ibatis.insert("employees.updateNewRolePriv", map);
+				ibatis.commitTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				try {
+					ibatis.endTransaction();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
 }

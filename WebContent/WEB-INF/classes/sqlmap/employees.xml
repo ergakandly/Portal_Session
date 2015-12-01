@@ -308,6 +308,24 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		)
 	</insert>
 
+<!-- 	EDIT NEW ROLE Name -->
+	<update id = "updateNewRoleName" parameterClass="java.util.Map">
+		UPDATE
+		    ms_role
+		SET
+		    role_name = #roleName#,
+		    description = #description#,
+		    updated_by = 1,
+		    update_date = SYSDATE
+		WHERE
+		    role_id = #id#
+	</update>
+	
+<!-- 	EDIT NEW ROLE TR_MENU -->
+	<update id = "updateNewRoleMenu" parameterClass="java.util.Map">
+	
+	</update>
+
 <!-- 	DELETE ROLE MENU-->
 	<delete id = "deleteRoleMenu" parameterClass="java.lang.String">
 		DELETE FROM

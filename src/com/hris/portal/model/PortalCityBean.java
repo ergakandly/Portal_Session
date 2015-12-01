@@ -9,7 +9,7 @@ public class PortalCityBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String cityId="";
 	private String cityName="";
-	private String cityProvinceName;
+	private String cityProvinceName="";
 	private String cityProvinceId="";
 	private String cityNameTemp="";
 	

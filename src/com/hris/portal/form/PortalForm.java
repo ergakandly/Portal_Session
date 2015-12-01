@@ -37,6 +37,12 @@ public class PortalForm extends ActionForm{
 	
 	private List<PortalMasterRoleBean> listPortalMasterRolePriv;
 	private PortalMasterRoleBean PortalMasterRolePriv = new PortalMasterRoleBean();	
+
+	private List<PortalMasterRoleBean> listPortalMasterRoleGetMenu;
+	private PortalMasterRoleBean portalMasterRoleGetMenu = new PortalMasterRoleBean();	
+
+	private List<PortalMasterRoleBean> listPortalMasterRoleGetPriv;
+	private PortalMasterRoleBean portalMasterRoleGetPriv = new PortalMasterRoleBean();	
 	
 	private List<PortalModulBean> listPortalModulBean;
 	private PortalModulBean portalModulBean = new PortalModulBean();
@@ -190,6 +196,34 @@ public class PortalForm extends ActionForm{
 	}
 	public PortalBankBean getPortalBankBean() {
 		return portalBankBean;
+	}
+	public List<PortalMasterRoleBean> getListPortalMasterRoleGetMenu() {
+		return listPortalMasterRoleGetMenu;
+	}
+	public void setListPortalMasterRoleGetMenu(
+			List<PortalMasterRoleBean> listPortalMasterRoleGetMenu) {
+		this.listPortalMasterRoleGetMenu = listPortalMasterRoleGetMenu;
+	}
+	public PortalMasterRoleBean getPortalMasterRoleGetMenu() {
+		return portalMasterRoleGetMenu;
+	}
+	public void setPortalMasterRoleGetMenu(
+			PortalMasterRoleBean portalMasterRoleGetMenu) {
+		this.portalMasterRoleGetMenu = portalMasterRoleGetMenu;
+	}
+	public List<PortalMasterRoleBean> getListPortalMasterRoleGetPriv() {
+		return listPortalMasterRoleGetPriv;
+	}
+	public void setListPortalMasterRoleGetPriv(
+			List<PortalMasterRoleBean> listPortalMasterRoleGetPriv) {
+		this.listPortalMasterRoleGetPriv = listPortalMasterRoleGetPriv;
+	}
+	public PortalMasterRoleBean getPortalMasterRoleGetPriv() {
+		return portalMasterRoleGetPriv;
+	}
+	public void setPortalMasterRoleGetPriv(
+			PortalMasterRoleBean portalMasterRoleGetPriv) {
+		this.portalMasterRoleGetPriv = portalMasterRoleGetPriv;
 	}
 	public void setPortalBankBean(PortalBankBean portalBankBean) {
 		this.portalBankBean = portalBankBean;

@@ -172,36 +172,118 @@ public class PortalAction extends Action {
 		else if ("masterRole".equalsIgnoreCase(hForm.getTask())){			
 			System.out.println("Tasknya : " + hForm.getTask());
 			System.out.println("Get user Id: "+hForm.getUserExist());
+			System.out.println("GET ROLE ID: "+hForm.getId());
+			
 			hForm.setUserExist(userAction);
 			hForm.setPassExist(passAction);
 			hForm.setUserIdExist(userIdAction);
 
 			if(hForm.getAddRoleName()!=null){
+				
 				//EDIT ROLE
-				if(hForm.getId()!=null){
-					manager.insertNewRoleName(hForm.getAddRoleName(), hForm.getRoleDescription());
+				if(!"".equals(hForm.getId())){
 					System.out.println("Add Role Name: "+hForm.getAddRoleName());
-				
-				
-					if(hForm.getSelectedNewMenu()!=null){
-						for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
-							manager.insertNewRoleMenu(hForm.getSelectedNewMenu()[i]);
-							System.out.println("Selected Menu: "+hForm.getSelectedNewMenu()[i]);
-							if(hForm.getSelectedNewMenu()[i].equals("1")){
-								for(int j=0; j<hForm.getSelectedNewPriv().length; j++){
-									manager.insertNewRolePriv(hForm.getSelectedNewPriv()[j]);
-									System.out.println("Privilege : "+hForm.getSelectedNewPriv()[j]);
-								}
+					System.out.println("GET DESCRIPTION: "+hForm.getRoleDescription());
+					
+					manager.updateNewRoleName(hForm.getId(), hForm.getAddRoleName(), hForm.getRoleDescription());
+					
+					hForm.setListPortalMasterRoleGetMenu(manager.getMenuRoleList(hForm.getId()));
+					hForm.setListPortalMasterRoleGetPriv(manager.getPrivilegeRoleList(hForm.getId()));
+					String selectNewMenu[] = hForm.getSelectedNewMenu();
+					String selectNewPriv[] = hForm.getSelectedNewPriv();
+					int isExist=0;
+					
+					//NEW MENU
+					for(int i=0; i<hForm.getListPortalMasterRoleGetMenu().size(); i++){
+						
+						for(int j=0; j<selectNewMenu.length; j++){
+							if(hForm.getListPortalMasterRoleGetMenu().get(i).getMenuId().equals(selectNewMenu[j])){
+								isExist++;
 							}
 						}
+						//Delete menuId Exist
+						if(isExist==0){
+							manager.deleteExistMenu(hForm.getId(), hForm.getListPortalMasterRoleGetMenu().get(i).getMenuId());
+							System.out.println("Get menu Id: "+hForm.getListPortalMasterRoleGetMenu().get(i).getMenuId());
+						}
+						isExist=0;
 					}
+					
+					for(int i=0; i<selectNewMenu.length; i++){
+						for(int j=0; j<hForm.getListPortalMasterRoleGetMenu().size(); j++){
+							if(!selectNewMenu[i].equals(hForm.getListPortalMasterRoleGetMenu().get(j).getMenuId())){
+								isExist++;
+							}
+						}
+						//Insert menuId New
+						System.out.println("Exist: "+isExist);
+						if(isExist!=0){
+							manager.updateNewRoleMenu(hForm.getId(), selectNewMenu[i]);					
+						}
+						isExist=0;
+					}
+					
+					//NEW PRIVILEGE
+					for(int i=0; i<hForm.getListPortalMasterRoleGetPriv().size(); i++){
+						
+						for(int j=0; j<selectNewPriv.length; j++){
+							if(hForm.getListPortalMasterRoleGetPriv().get(i).getPrivilegeId().equals(selectNewPriv[j])){
+								isExist++;
+							}
+						}
+						//Delete privilegeId Exist
+						if(isExist==0){
+							manager.deleteExistPriv(hForm.getId(), hForm.getListPortalMasterRoleGetPriv().get(i).getPrivilegeId());
+						}
+						isExist=0;
+					}
+					
+					for(int i=0; i<selectNewPriv.length; i++){
+						for(int j=0; j<hForm.getListPortalMasterRoleGetPriv().size(); j++){
+							if(!selectNewPriv[i].equals(hForm.getListPortalMasterRoleGetPriv().get(j).getPrivilegeId())){
+								isExist++;
+							}
+						}
+						//Insert privilegeId New
+						if(isExist!=0){
+							manager.updateNewRolePriv(hForm.getId(), selectNewPriv[i]);
+						}
+						isExist=0;
+					}
+					
+					
+//					if(hForm.getSelectedNewMenu() != null){
+//						String a[] = hForm.getSelectedNewMenu();
+//						if(a.length>0)
+//						{
+//							for(int i=0;i<a.length;i++)
+//							{
+//								//Update Role Menu
+//								System.out.println("Menu: "+a[i]);
+//							}
+//						}
+//					}
+					
+//					if(hForm.getSelectedNewPriv() != null){
+//						String b[] = hForm.getSelectedNewPriv();
+//						if(b.length>0)
+//						{
+//							for(int i=0;i<b.length;i++)
+//							{
+//								//Update Role Privilege
+//								System.out.println("Priv: "+b[i]);
+//							}
+//						}
+//					}
+					
+					hForm.setId("");
 				}
 				
 				//INSERT ROLE
-				else if(hForm.getId()==null){
+				else if("".equals(hForm.getId())){
+					System.out.println("INSERTTT NIHHHH");
 					manager.insertNewRoleName(hForm.getAddRoleName(), hForm.getRoleDescription());
 					System.out.println("Add Role Name: "+hForm.getAddRoleName());
-				
 				
 					if(hForm.getSelectedNewMenu()!=null){
 						for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
@@ -215,7 +297,9 @@ public class PortalAction extends Action {
 							}
 						}
 					}
-				}			
+					hForm.setId("");
+				}
+				
 			}
 			
 			hForm.setViewMenu(null);
@@ -245,6 +329,7 @@ public class PortalAction extends Action {
 			hForm.setViewPriv(hForm.getListPortalMasterRolePriv());
 
 			hForm.setAddRoleName(null);
+			hForm.setId("");
 			
 			return mapping.findForward("masterRole");
 		}else if ("changePass".equalsIgnoreCase(hForm.getTask())){
