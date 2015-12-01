@@ -20,6 +20,7 @@ import com.hris.portal.form.PortalForm;
 import com.hris.portal.manager.PortalManager;
 import com.hris.portal.model.PortalBean;
 import com.hris.portal.model.PortalMasterRoleBean;
+import com.hris.portal.model.PortalUserBean;
 import com.hris.portal.util.PortalUtil;
 
 public class PortalAction extends Action {
@@ -34,24 +35,72 @@ public class PortalAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, Exception {
 		
-		if (null!=request.getParameter("zx") && null!=request.getSession().getAttribute("username")) {
+		PortalForm hForm = (PortalForm) form;
+		PortalManager manager = new PortalManager();
+		
+		//check session jika ada parameter yang diterima
+		if (null!=request.getParameter("zx") && PortalUtil.isBase64(request.getParameter("zx"))) {
+			//parameter diterima
+			System.out.println("PORTAL Check session dari parameter.");
 			String param = request.getParameter("zx").replace(' ', '+');
 			String user[] = PortalUtil.decrypt(param).split("##");
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("username", user[0]);
-			session.setAttribute("password", user[1]);
-			session.setAttribute("roleId", user[2]);
+			// cek apakah memang data memiliki hak akses
+			if (manager.isAuthorized(user[0], user[1])) {
+				//parameter yang akan dikirim
+			    System.out.println("PORTAL paramdikirim: "+ param);
+			    request.setAttribute("zx", param);
+			    hForm.setParam(param);
+			    
+				System.out.println("PORTAL Set session "+user[0]+".");
+				HttpSession session = request.getSession();
+				session.setAttribute("username", user[0]);
+				session.setAttribute("password", user[1]);
+				session.setAttribute("roleId", user[2]);
+				
+				hForm.getPortalUserBean().setUserId(user[0]);
+				hForm.getPortalUserBean().setPassword(user[1]);
+				hForm.getPortalUserBean().setUserRoleId(user[2]);
+				
+				System.out.println("PORTAL Kembali ke halaman Dahboard");
+				hForm.setListPortalModulBean(manager.getMasterModul());
+				hForm.setTask("login");
+			}
+			else {
+				// hancurkan session karena username dan password tidak pernah ada
+		    	HttpSession session = request.getSession(false);
+		    	System.out.println("PORTAL "+session.getAttribute("username")+" tidak terautorisasi. Session dihancurkan.");
+		    	if (null != session)
+		    		session.invalidate();
+		    	System.out.println("PORTAL Kembali ke halaman login.");
+			}	
 		}
 		
-		PortalForm hForm = (PortalForm) form;
-		PortalManager manager = new PortalManager();
 		System.out.println("Tasknya : " + hForm.getTask());
 		
 		if("login".equalsIgnoreCase(hForm.getTask())){
-			String password = PortalUtil.getHash(hForm.getPass());
-			hForm.setPortalUserBean(manager.checkLogin(hForm.getUser(), password));
+			String password = null;
+			if (null==request.getSession(false).getAttribute("username")) {
+				password = PortalUtil.getHash(hForm.getPass());
+				hForm.setPortalUserBean(manager.checkLogin(hForm.getUser(), password));
+			}
+			else
+				password = hForm.getPortalUserBean().getPassword();
+			
 			if (null != hForm.getPortalUserBean().getUserRoleId()) {
+				String param = hForm.getPortalUserBean().getUserName()+"##"+password+"##"+hForm.getPortalUserBean().getUserRoleId();
+				
+				//parameter yang akan dikirim
+			    System.out.println("PORTAL paramdikirim: "+ param);
+			    request.setAttribute("zx", PortalUtil.encrypt(param));
+				
+			    //session set
+			    HttpSession session = request.getSession(false);
+				session.setAttribute("username", hForm.getPortalUserBean().getUserName());
+				session.setAttribute("password", password);
+				session.setAttribute("roleId", hForm.getPortalUserBean().getUserRoleId());
+				manager.updateStatusLogin(session.getAttribute("username").toString(), 1);
+				
 				System.out.println("ROLE ID USER = "+hForm.getPortalUserBean().getUserRoleId());
 				userRoleId = hForm.getPortalUserBean().getUserRoleId();
 				

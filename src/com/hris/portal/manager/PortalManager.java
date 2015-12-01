@@ -506,7 +506,7 @@ public class PortalManager {
 
 		PortalUserBean bean = null;
 		try {
-			bean = (PortalUserBean) ibatis.queryForObject("employees.checkLogin", user);
+			bean = (PortalUserBean) ibatis.queryForObject("users.checkLogin", user);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

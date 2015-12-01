@@ -3,6 +3,18 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="users">
+	<select id = "checkLogin" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.util.Map">
+		SELECT
+			role_id		AS userRoleId,
+			user_id 	AS userId,
+			username	AS userName,
+			password	AS password
+		FROM
+		    ms_user
+		WHERE
+			lower(username) = lower(#username#) AND password = #password#
+	</select>
+	
 	<!-- AUTHORIZED USER -->
 	<select id="isAuthorized" parameterClass="java.util.Map" resultClass="int">
 		SELECT

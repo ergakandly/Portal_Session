@@ -126,16 +126,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			user_id
 	</select>
 	
-	<select id = "checkLogin" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.util.Map">
-		SELECT
-			role_id		AS userRoleId,
-			user_id 	AS userId
-		FROM
-		    ms_user
-		WHERE
-			lower(username) = lower(#username#) AND password = #password#
-	</select>
-	
 	<insert id = "insertUser" parameterClass="java.util.Map">
 		INSERT INTO
 			MS_USER (
