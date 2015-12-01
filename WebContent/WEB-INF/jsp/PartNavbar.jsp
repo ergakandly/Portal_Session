@@ -268,7 +268,7 @@ li.message-footer {
 					data-backdrop="static"> <large> <i class=" fa fa-lock"></i>
 						<large> User Password </a></li>
 				<li class="divider"></li>
-				<li><a href="javascript:flyToPage('success');"><i
+				<li><a href="javascript:flyToPage('logout');"><i
 						class=" fa fa-sign-out"></i> Log Out</a></li>
 			</ul></li>
 		<!-- END DROPDOWN USER -->

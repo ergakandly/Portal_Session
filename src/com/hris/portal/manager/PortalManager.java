@@ -1362,7 +1362,7 @@ public class PortalManager {
 			Map user = new HashMap();
 			user.put("username", username);
 			user.put("password", password);
-			
+			System.out.println(user);
 			int result = 0;
 			try {
 				result = (Integer) ibatis.queryForObject("users.isAuthorized", user);
@@ -1370,12 +1370,6 @@ public class PortalManager {
 					return true;
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 			return false;	
 		}
@@ -1383,8 +1377,8 @@ public class PortalManager {
 		public void updateStatusLogin(String username, int status) {
 			Map<String,String> user = new HashMap<String,String>();
 			user.put("username", username);
-			user.put("status",String.valueOf(status));
-			
+			user.put("status", String.valueOf(status));
+			System.out.println(user);
 			try {
 				ibatis.startTransaction();
 				ibatis.update("users.updateStatusLogin", user);

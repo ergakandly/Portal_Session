@@ -24,7 +24,7 @@ public class PortalConfigListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event)  {
     	System.out.println("Webapp start - PORTAL");
     	
-    	System.out.println("COBA1 - Reset Status Login.");
+    	System.out.println("PORTAL - Reset Status Login.");
     	PortalManager pManager = new PortalManager();
     	pManager.resetStatusLogin();
     }

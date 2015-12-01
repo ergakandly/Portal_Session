@@ -5,17 +5,22 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 <sqlMap namespace="users">
 	<select id = "checkLogin" resultClass="com.hris.portal.model.PortalUserBean" parameterClass="java.util.Map">
 		SELECT
-			role_id		AS userRoleId,
-			user_id 	AS userId,
-			username	AS userName,
-			password	AS password
+			role_id			AS userRoleId,
+			user_id 		AS userId,
+			username		AS userName,
+			password		AS password,
+			employee_name	AS employeeName
 		FROM
-		    ms_user
+		    ms_user users
+		JOIN
+			ms_employee emp
+		ON
+			users.employee_id = emp.employee_id
 		WHERE
 			lower(username) = lower(#username#) AND password = #password#
 	</select>
 	
-	<!-- AUTHORIZED USER -->
+<!-- AUTHORIZED USER -->
 	<select id="isAuthorized" parameterClass="java.util.Map" resultClass="int">
 		SELECT
 			1
@@ -30,9 +35,9 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			AND
 			password = #password#
 			AND
-			is_login > 0
+			is_login = '0'
 			AND
-			status = 1
+			status = '1'
 	</select>
 	
 <!-- UPDATE STATUS LOGIN -->
@@ -40,12 +45,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		UPDATE
 			ms_user
 		SET
-		<isEqual property="status" compareValue="1">
-			is_login = is_login + 1
-		</isEqual>
-		<isEqual property="status" compareValue="0">
-			is_login = is_login - 1
-		</isEqual>
+			is_login = #status#
 		WHERE
 			username = #username#
 	</update>
@@ -55,7 +55,9 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		UPDATE
 			ms_user
 		SET
-			is_login = 0,
+			is_login = '0',
 			update_date = SYSDATE
+		WHERE
+			is_login = '1'
 	</update>	
 </sqlMap>
