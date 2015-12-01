@@ -174,22 +174,45 @@ public class PortalAction extends Action {
 			hForm.setUserIdExist(userIdAction);
 
 			if(hForm.getAddRoleName()!=null){
-				manager.insertNewRoleName(hForm.getAddRoleName(), hForm.getRoleDescription());
-				System.out.println("Add Role Name: "+hForm.getAddRoleName());
-			
-			
-				if(hForm.getSelectedNewMenu()!=null){
-					for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
-						manager.insertNewRoleMenu(hForm.getSelectedNewMenu()[i]);
-						System.out.println("Selected Menu: "+hForm.getSelectedNewMenu()[i]);
-						if(hForm.getSelectedNewMenu()[i].equals("1")){
-							for(int j=0; j<hForm.getSelectedNewPriv().length; j++){
-								manager.insertNewRolePriv(hForm.getSelectedNewPriv()[j]);
-								System.out.println("Privilege : "+hForm.getSelectedNewPriv()[j]);
+				//EDIT ROLE
+				if(hForm.getId()!=null){
+					manager.insertNewRoleName(hForm.getAddRoleName(), hForm.getRoleDescription());
+					System.out.println("Add Role Name: "+hForm.getAddRoleName());
+				
+				
+					if(hForm.getSelectedNewMenu()!=null){
+						for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
+							manager.insertNewRoleMenu(hForm.getSelectedNewMenu()[i]);
+							System.out.println("Selected Menu: "+hForm.getSelectedNewMenu()[i]);
+							if(hForm.getSelectedNewMenu()[i].equals("1")){
+								for(int j=0; j<hForm.getSelectedNewPriv().length; j++){
+									manager.insertNewRolePriv(hForm.getSelectedNewPriv()[j]);
+									System.out.println("Privilege : "+hForm.getSelectedNewPriv()[j]);
+								}
 							}
 						}
 					}
 				}
+				
+				//INSERT ROLE
+				else if(hForm.getId()==null){
+					manager.insertNewRoleName(hForm.getAddRoleName(), hForm.getRoleDescription());
+					System.out.println("Add Role Name: "+hForm.getAddRoleName());
+				
+				
+					if(hForm.getSelectedNewMenu()!=null){
+						for(int i=0; i<hForm.getSelectedNewMenu().length; i++){
+							manager.insertNewRoleMenu(hForm.getSelectedNewMenu()[i]);
+							System.out.println("Selected Menu: "+hForm.getSelectedNewMenu()[i]);
+							if(hForm.getSelectedNewMenu()[i].equals("1")){
+								for(int j=0; j<hForm.getSelectedNewPriv().length; j++){
+									manager.insertNewRolePriv(hForm.getSelectedNewPriv()[j]);
+									System.out.println("Privilege : "+hForm.getSelectedNewPriv()[j]);
+								}
+							}
+						}
+					}
+				}			
 			}
 			
 			hForm.setViewMenu(null);

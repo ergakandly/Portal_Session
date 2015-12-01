@@ -21,7 +21,7 @@
 		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
 			
 		// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
-// 		document.forms[0].submit();
+		document.forms[0].submit();
 
 	}
 </script>
