@@ -101,8 +101,7 @@
 													<i class="fa fa-pencil"></i> Edit
 												</button>
 												<button type="button" class="btn btn-danger"
-													data-toggle="modal" data-target="#modalYakin"
-													onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
+													data-toggle="modal" data-target="#modalYakin" data-backdrop="static">
 													<i class="fa fa-trash"></i> Delete
 												</button>
 											</td>
@@ -192,8 +191,8 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary">
-							<i class="fa fa-check "></i> Yes
+						<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
+							<i class="fa fa-check"></i> Yes
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">
 							<i class="fa fa-close "></i> No

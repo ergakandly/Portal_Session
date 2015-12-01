@@ -21,7 +21,7 @@
 		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
 			
 		// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
-// 		document.forms[0].submit();
+		document.forms[0].submit();
 
 	}
 </script>
@@ -108,19 +108,19 @@
 													<td class="width30 tengah">
 
 														<button type="button" class="btn btn-info editBtnProvince"
-															onclick="javascript:editProvince('<bean:write name="portalProvinceList"
-															property="provinceId" />','<bean:write name="portalProvinceList"
-															property="provinceName" />');"
+															onclick="javascript:editProvince('<bean:write name="portalProvinceList" property="provinceId" />','<bean:write name="portalProvinceList" property="provinceName" />');"
 															data-toggle="modal" data-target="#modalAddProvince"
 															data-backdrop="static">
 															<i class="fa fa-pencil"></i> Edit
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
-															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');">
+															data-toggle="modal" data-target="#modalYakin" data-backdrop="static"
+<%-- 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');" --%>
+															>
 															<i class="fa fa-trash"></i> Delete
-														</button>
+														</button> 
+
 													</td>
 												</tr>
 											</logic:iterate>
@@ -634,8 +634,7 @@
 						</table>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary"
-							>
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal"

@@ -81,17 +81,49 @@
 													property="departmentName" /></td>
 											<td><bean:write name="portalList"
 													property="locationName" /></td>
-											<td>
-												<logic:empty name="portalList"
+											<td><logic:empty name="portalList"
 													property="userEmployeeId">
 													<button type="button" class="btn btn-primary"
-														onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
+														data-toggle="modal" data-target="#modalYakin"
+														data-backdrop="static">
 														<i class="fa fa-check-square-o"> Make it Active</i>
 													</button>
-												</logic:empty> 
-												<logic:notEmpty name="portalList" property="userEmployeeId">
-													<i class="fa fa-check"
-																style="color: green">Activated</i>
+
+													<!-- MODAL MAKE IT ACTIVE -->
+													<div class="modal fade" id="modalYakin" tabindex="-1"
+														role="dialog" aria-labelledby="myModalLabel">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																	<h4 class="modal-title">Notification</h4>
+																</div>
+																<div class="modal-body">
+																	<div class="alert alert-danger kiri" role="alert">
+																		<i class="fa fa-exclamation-triangle"></i> Are you
+																		sure make this employee active?
+																	</div>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-primary"
+																		onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
+																		<i class="fa fa-check"></i> Yes
+																	</button>
+																	<button type="button" class="btn btn-danger"
+																		data-dismiss="modal">
+																		<i class="fa fa-close "></i> No
+																	</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!-- END MODAL MAKE IT ACTIVE-->
+
+												</logic:empty> <logic:notEmpty name="portalList" property="userEmployeeId">
+													<i class="fa fa-check" style="color: green">Activated</i>
 												</logic:notEmpty></td>
 										</tr>
 									</logic:iterate>
@@ -106,6 +138,7 @@
 			<!-- END PAGE WRAPPER -->
 		</div>
 		<!-- END WRAPPER -->
+
 	</html:form>
 	<%@include file="PartJavascript.jsp"%>
 	<script>
