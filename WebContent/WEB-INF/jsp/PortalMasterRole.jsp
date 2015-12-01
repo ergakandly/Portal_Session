@@ -116,11 +116,21 @@
 
 
 									<td class="tengah">
-										<button type="button" onclick="javascript:editModal();"
-											id="editBtn" class="btn btn-info" data-toggle="modal"
-											data-target="#modalAddRole" data-backdrop="static">
-											<i class="fa fa-pencil"></i> Edit 
+									
+										<button type="button" id="editBtn" class="btn btn-info"
+											onclick="javascript:editRole('<bean:write name="portalMasterRoleList"
+											property="roleId" />','<bean:write name="portalMasterRoleList"
+											property="roleName" />','<bean:write name="portalMasterRoleList"
+											property="description" />');"
+											data-toggle="modal" data-target="#modalAddRole" data-backdrop="static">
+											<i class="fa fa-pencil"></i> Edit
 										</button>
+									
+<!-- 										<button type="button" onclick="javascript:editModal();" -->
+<!-- 											id="editBtn" class="btn btn-info" data-toggle="modal" -->
+<!-- 											data-target="#modalAddRole" data-backdrop="static"> -->
+<!-- 											<i class="fa fa-pencil"></i> Edit  -->
+<!-- 										</button> -->
 
 										<button type="button" class="btn btn-danger"
 											onclick="javascript:flyToPage('deleteRole', '<bean:write name="portalMasterRoleList" property="roleId" />');">
@@ -218,11 +228,21 @@
 							</tr>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
-							onclick="javascript:flyToPage('masterRole');">
+<!-- 						<button type="button" class="btn btn-primary" -->
+<!-- 							onclick="javascript:flyToPage('masterRole');"> -->
+<!-- 							<i class="fa fa-check"></i> Submit -->
+<!-- 						</button> -->
+
+						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">
+						
+<!-- 						<button type="button" class="btn btn-danger" data-dismiss="modal"> -->
+<!-- 							<i class="fa fa-close"></i> Close -->
+<!-- 						</button> -->
+						
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							onclick="javascript:onRoleClose();">
 							<i class="fa fa-close"></i> Close
 						</button>
 					</div>
@@ -242,6 +262,39 @@
 				$("#modalLabel").html("Edit Role");
 			});
 		});
+		
+		function addRole() {
+			document.forms["PortalForm"].elements["addRoleName"].value = "";
+			document.forms["PortalForm"].elements["roleDescription"].value = "";
+			document.forms["PortalForm"].task.value = "masterRole";
+		}
+
+		function editRole(id, name, desc) {
+			alert(id);
+			alert(name);
+			alert(desc);
+			document.forms["PortalForm"].task.value = "editModule";
+			document.forms["PortalForm"].elements["addRoleName"].value = name;
+			document.forms["PortalForm"].elements["roleDescription"].value = desc;
+			document.forms["PortalForm"].id.value = id;
+		}
+
+		function onRoleClose() {
+// 			$('#contact-form').bootstrapValidator('resetField','portalModulBean.menuName');
+// 			$('#contact-form').bootstrapValidator('resetField','portalModulBean.urlMenu');
+			document.forms["PortalForm"].elements["addRoleName"].value = "";
+			document.forms["PortalForm"].elements["roleDescription"].value = "";
+		}
+		
+		function submitForm(task, id) {
+			
+			var method = task==""? document.forms["PortalForm"].task.value:task;
+			
+			if(id != "")
+				document.forms["PortalForm"].id.value= id;
+					
+			document.forms["PortalForm"].submit();
+		}
 	</script>
 <!-- 	<script> -->
 <!-- // 		$('#contact-form').bootstrapValidator({ -->
