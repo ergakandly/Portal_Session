@@ -60,7 +60,7 @@
 					<br />
 					<!-- ROW MD6 OFFSET3 -->
 
-					<div class="col-md-6 col-md-offset-3">
+					<div class="col-md-8 col-md-offset-2">
 						<div class="tengah">
 							<button type="button" onclick="javascript:addModal();"
 								class="btn btn-primary" id="addBtn" data-toggle="modal"
@@ -75,7 +75,6 @@
 							id="sort">
 							<thead>
 								<tr>
-									<th></th>
 									<th>Privilege ID</th>
 									<th>Privilege Name</th>
 									<th>Description</th>
@@ -94,8 +93,7 @@
 													property="privilegeName" /></td>
 											<td><bean:write name="portalPrivilegeList"
 													property="description" /></td>
-											<td class="tengah">
-											<td class="width30">
+											<td class="tengah width30">
 												<button type="button" class="btn btn-info editBtn"
 													onclick="javascript:editModal('<bean:write name="portalPrivilegeList"
 													property="privilegeId" />','<bean:write name="portalPrivilegeList"
@@ -137,7 +135,7 @@
 						<table class="table table-borderless">
 							<tr>
 								<td class="kanan">Privilege Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
+								<td><html:text styleClass="form-control form-control-md" name="PortalForm"
 										property="portalPrivilegeBean.privilegeName" /></td>
 <!-- 								<td><div class="form-group"> -->
 <%-- 										<html:text styleClass="form-control" name="PortalForm" --%>
@@ -146,7 +144,7 @@
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
+								<td><html:text styleClass="form-control form-control-md" name="PortalForm"
 										property="portalPrivilegeBean.description" /></td>
 <!-- 								<td><div class="form-group"> -->
 <%-- 										<html:text styleClass="form-control" name="PortalForm" --%>

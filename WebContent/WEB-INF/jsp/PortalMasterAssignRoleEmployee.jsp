@@ -86,7 +86,7 @@
 													<button type="button" class="btn btn-primary"
 														data-toggle="modal" data-target="#modalYakin"
 														data-backdrop="static">
-														<i class="fa fa-check-square-o"> Make it Active</i>
+														<i class="fa fa-check-square-o"> Activate</i>
 													</button>
 
 													<!-- MODAL MAKE IT ACTIVE -->
@@ -123,7 +123,7 @@
 													<!-- END MODAL MAKE IT ACTIVE-->
 
 												</logic:empty> <logic:notEmpty name="portalList" property="userEmployeeId">
-													<i class="fa fa-check" style="color: green">Activated</i>
+													<i class="fa fa-check" style="color: green;"></i> <font color="green">Activated</font>
 												</logic:notEmpty></td>
 										</tr>
 									</logic:iterate>

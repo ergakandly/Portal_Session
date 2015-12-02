@@ -38,8 +38,8 @@
 
 <body>
 	<%@include file="PartNavbar.jsp"%>
-	<html:form method="post" action="/portal"
-		onsubmit="javascript:doAlert();">
+	<html:form method="post" action="/portal" styleId="contact-form"
+		styleClass="contact-form" onsubmit="javascript:doAlert();">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -158,91 +158,96 @@
 					<div class="modal-body ">
 						<html:hidden name="PortalForm" property="task" value="masterRole" />
 						<html:hidden name="PortalForm" property="id" />
-						<table align="center">
+						<table width="80%">
 							<tr>
-								<td class="kanan">Role Name :</td>
-								<td><html:text styleClass="form-control" name="PortalForm"
-										property="addRoleName" size="57" /></td>
+								<td class="kanan">Role Name <font color="red">*
+								</font>: &nbsp;
+								</td>
+								<td><div class="form-group">
+										<html:text styleClass="form-control form-control-md" name="PortalForm"
+											property="addRoleName" />
+									</div></td>
+								<br />
+							</tr>
+							<tr>
+								<td class="kanan">Privilege <font color="red">* </font>:
+									&nbsp;
+								</td>
+								<td><br />
+									<table align="center"
+										class="table table-hover table-condensed table-bordered">
+										<thead>
+											<tr>
+												<td style="vertical-align: middle;" rowspan="2"
+													class="tengah">Access Menu</td>
+												<td colspan="4" class="tengah">Access Privileges</td>
+											</tr>
+											<tr>
+												<td class="tengah">List</td>
+												<td class="tengah">Add</td>
+												<td class="tengah">Edit</td>
+												<td class="tengah">Disable</td>
+											</tr>
+										</thead>
+
+										<tbody>
+											<logic:notEmpty name="PortalForm"
+												property="listPortalMasterRoleMenu">
+												<logic:iterate id="portalMasterRoleMenuList"
+													name="PortalForm" property="viewMenu">
+													<tr>
+														<td><bean:define id="menuId"
+																name="portalMasterRoleMenuList" property="menuIdView"
+																type="java.lang.String" /> <html:multibox
+																name="PortalForm" property="selectedNewMenu"
+																value="<%=menuId%>">
+																<bean:write name="portalMasterRoleMenuList"
+																	property="menuIdView" />
+															</html:multibox> <bean:write name="portalMasterRoleMenuList"
+																property="menuNameView" /><br /></td>
+
+														<logic:notEmpty name="PortalForm"
+															property="listPortalMasterRolePriv">
+															<logic:iterate id="portalMasterRolePrivList"
+																name="PortalForm" property="listPortalMasterRolePriv">
+																<logic:equal name="portalMasterRoleMenuList"
+																	property="menuNameView" value="Employee">
+																	<td class="tengah"><html:multibox
+																			name="PortalForm" property="selectedNewPriv"
+																			styleId="multiPriv">
+																			<bean:write name="portalMasterRolePrivList"
+																				property="privilegeIdView" />
+																		</html:multibox></td>
+
+																</logic:equal>
+															</logic:iterate>
+														</logic:notEmpty>
+
+													</tr>
+												</logic:iterate>
+											</logic:notEmpty>
+										</tbody>
+									</table></td>
+							</tr>
+							<tr>
+								<td class="kanan">Description <font color="red">*
+								</font>: &nbsp;
+								</td>
+								<td><div class="form-group">
+										<html:textarea name="PortalForm" styleClass="form-textarea"
+											property="roleDescription" rows="4" cols="50" />
+									</div></td>
 							</tr>
 						</table>
 						<br />
-
-						<table align="center"
-							class="table table-hover table-condensed table-bordered">
-							<thead>
-								<tr>
-									<td style="vertical-align: middle;" rowspan="2" class="tengah">Access
-										Menu</td>
-									<td colspan="4" class="tengah">Access Privilages</td>
-								</tr>
-								<tr>
-									<td class="tengah">List</td>
-									<td class="tengah">Add</td>
-									<td class="tengah">Edit</td>
-									<td class="tengah">Disable</td>
-								</tr>
-							</thead>
-
-							<tbody>
-								<logic:notEmpty name="PortalForm"
-									property="listPortalMasterRoleMenu">
-									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm"
-										property="viewMenu">
-										<tr>
-											<td>
-												<bean:define id="menuId" name="portalMasterRoleMenuList"
-													property="menuIdView" type="java.lang.String" /> <html:multibox
-													name="PortalForm" property="selectedNewMenu"
-													value="<%=menuId%>">
-													<bean:write name="portalMasterRoleMenuList"
-														property="menuIdView" />
-												</html:multibox> <bean:write name="portalMasterRoleMenuList"
-													property="menuNameView" /><br /></td>
-
-											<logic:notEmpty name="PortalForm"
-												property="listPortalMasterRolePriv">
-												<logic:iterate id="portalMasterRolePrivList"
-													name="PortalForm" property="listPortalMasterRolePriv">
-													<logic:equal name="portalMasterRoleMenuList"
-														property="menuNameView" value="Employee">
-														<td class="tengah"><html:multibox name="PortalForm"
-																property="selectedNewPriv" styleId="multiPriv">
-																<bean:write name="portalMasterRolePrivList"
-																	property="privilegeIdView" />
-															</html:multibox></td>
-
-													</logic:equal>
-												</logic:iterate>
-											</logic:notEmpty>
-
-										</tr>
-									</logic:iterate>
-								</logic:notEmpty>
-							</tbody>
-						</table>
-						<tr>
-							<td class="kanan">Description :</td>
-							<td><html:textarea styleClass="form-control"
-									name="PortalForm" property="roleDescription" rows="4" cols="50" /></td>
-						</tr>
 					</div>
 					<div class="modal-footer">
-						<!-- 						<button type="button" class="btn btn-primary" -->
-						<!-- 							onclick="javascript:flyToPage('masterRole');"> -->
-						<!-- 							<i class="fa fa-check"></i> Submit -->
-						<!-- 						</button> -->
-
 						<button type="submit" class="btn btn-primary">
 							<i class="fa fa-check"></i> Submit
 						</button>
-
-						<!-- 						<button type="button" class="btn btn-danger" data-dismiss="modal"> -->
-						<!-- 							<i class="fa fa-close"></i> Close -->
-						<!-- 						</button> -->
-
 						<button type="button" class="btn btn-danger" data-dismiss="modal"
 							onclick="javascript:onRoleClose();">
-							<i class="fa fa-close"></i> Close
+							<i class="fa fa-close"></i> Cancel
 						</button>
 					</div>
 				</div>
@@ -287,22 +292,59 @@
 		}
 
 		function onRoleClose() {
-			$('#contact-form').bootstrapValidator('resetField','portalModulBean.menuName');
-			$('#contact-form').bootstrapValidator('resetField','portalModulBean.urlMenu');
+			$('#contact-form').bootstrapValidator('resetField','addRoleName');
+			$('#contact-form').bootstrapValidator('resetField','roleDescription');
 			document.forms["PortalForm"].elements["addRoleName"].value = "";
 			document.forms["PortalForm"].elements["roleDescription"].value = "";
 		}
 		
 		function submitForm(task, id) {
-			
 			var method = task==""? document.forms["PortalForm"].task.value:task;
-			
 			if(id != "")
 				document.forms["PortalForm"].id.value= id;
 					
 			document.forms["PortalForm"].submit();
 		}
 	</script>
+	<script>
+			$('#contact-form').bootstrapValidator({
+			//  live: 'disabled',
+			  message: 'This value is not valid',
+			  feedbackIcons: {
+			      valid: 'glyphicon glyphicon-ok',
+			      invalid: 'glyphicon glyphicon-remove',
+			      validating: 'glyphicon glyphicon-refresh'
+			  },
+			  fields: {
+				  addRoleName : {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Role Name is required and cannot be empty'
+			              },
+			              
+			              stringLength: {
+			                  message: 'Role Name content must be less than 20 characters',
+			                  max: function (value, validator, $field) {
+			                      return 20 - (value.match(/\r/g) || []).length;
+			              }}
+			          }
+			      },
+			      roleDescription : {
+			          validators: {
+			              notEmpty: {
+			                  message: 'Role Description is required and cannot be empty'
+			              },
+			              
+			              stringLength: {
+			                  message: 'Role Description content must be less than 100 characters',
+			                  max: function (value, validator, $field) {
+			                      return 100 - (value.match(/\r/g) || []).length;
+			              }}
+			          }
+			      }
+			  }
+			});
+		</script>
 </body>
 
 </html>

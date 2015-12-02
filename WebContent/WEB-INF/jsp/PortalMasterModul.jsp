@@ -130,14 +130,14 @@
 							<tr>
 								<td class="kanan">Module Name <font color="red">*</font> :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control" name="PortalForm"
+										<html:text styleClass="form-control form-control-md" name="PortalForm"
 											property="portalModulBean.menuName" size="30" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Module Link <font color="red">*</font> :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control" name="PortalForm"
+										<html:text styleClass="form-control form-control-md" name="PortalForm"
 											property="portalModulBean.urlMenu" size="30" />
 									</div></td>
 							</tr>

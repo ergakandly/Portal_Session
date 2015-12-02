@@ -109,7 +109,7 @@ td.width100 {
         border-top-left-radius: 15px;
         padding-top: 2px;
         padding-bottom: 2px;
-        width: 200px !important;
+        width: 235px !important;
         resize: none;
 }
 
@@ -209,9 +209,58 @@ div.modal div.modal-backdrop {
 	background-color: #337AB7;
 }
 
-/* Validator */
+/* ==== form control with various size (edwin) ==== */
+
+.form-control-mn {
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px !important;
+	z-index: 0 !important; 
+	width: 80px !important;
+}
+
+.form-control-sm {
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px !important;
+	z-index: 0 !important; 
+	width: 135px !important;
+}
+
+.form-control-md {
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px !important;
+	z-index: 0 !important; 
+	width: 235px !important;
+}
+
+.form-control-lg {
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px !important;
+	z-index: 0 !important; 
+	width: 375px !important;
+}
+
 .form-control-feedback {
 	line-height: 23px;
 }
 
-
+.form-control-md-1 {
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px !important;
+	z-index: 0 !important; 
+	width: 185px !important;
+}
