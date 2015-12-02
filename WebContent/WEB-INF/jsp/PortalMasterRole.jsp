@@ -160,11 +160,11 @@
 						<html:hidden name="PortalForm" property="id" />
 						<table width="80%">
 							<tr>
-								<td class="kanan">Role Name <font color="red">*
+								<td class="kanan" width="20%">Role Name <font color="red">*
 								</font>: &nbsp;
 								</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
+										<html:text styleClass="form-control" name="PortalForm"
 											property="addRoleName" />
 									</div></td>
 								<br />
@@ -230,11 +230,11 @@
 									</table></td>
 							</tr>
 							<tr>
-								<td class="kanan">Description <font color="red">*
+								<td class="kanan" width="20%">Description <font color="red">*
 								</font>: &nbsp;
 								</td>
 								<td><div class="form-group">
-										<html:textarea name="PortalForm" styleClass="form-textarea"
+										<html:textarea name="PortalForm" styleClass="form-textarea" style="width: 100% !important"
 											property="roleDescription" rows="4" cols="50" />
 									</div></td>
 							</tr>
