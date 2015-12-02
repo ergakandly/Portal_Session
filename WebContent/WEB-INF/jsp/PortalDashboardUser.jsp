@@ -53,34 +53,18 @@
 							<div class="tengah">
 								<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
 									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
-									
-										
-<%-- 										<html:button styleClass="btn btn-default iconDashboard" onclick="location.href='<bean:write name="portalMasterRoleMenuList" property="urlMenu" />'" property="urlMenu"> --%>
-<%-- 											<span class="<bean:write name="portalMasterRoleMenuList" property="icon" />" --%>
-<!-- 												style="font-size: 100px;"></span><br> -->
-<%-- 											<h3><bean:write name="portalMasterRoleMenuList" property="menuName" /></h3>										 --%>
-<%-- 										</html:button> --%>
-										
-<!-- 										<button class="btn btn-default iconDashboard" type="button"	onclick="location.href='/HRIS_Employee/index.do'"> -->
-										
-										<button class="btn btn-default iconDashboard" type="button"	onclick="<bean:write name="portalMasterRoleMenuList" property="urlMenuRole" />">
+										<bean:define id="url" name="portalMasterRoleMenuList" property="urlMenuRole"/>
+										<button class="btn btn-default iconDashboard" type="button"
+											onclick="<%= url.toString().substring(0, url.toString().length()-1) %>?zx=<%= request.getAttribute("zx") %>'">
 											<span class="<bean:write name="portalMasterRoleMenuList" property="icon" />"
 												style="font-size: 100px;"></span><br>
 											<h3><bean:write name="portalMasterRoleMenuList" property="menuName" /></h3>
 										</button>
-								
 									</logic:iterate>
 								</logic:notEmpty>
-<!-- 								<button class="btn btn-default iconDashboard" type="button" -->
-<!-- 									onclick="location.href='/HRIS_Attendance/attendance.do'"> -->
-<!-- 									<span class="glyphicon glyphicon-check" -->
-<!-- 										style="font-size: 100px;"></span><br> -->
-<!-- 									<h3>Attendance</h3> -->
-<!-- 								</button> -->
 								<br> <br>
 							</div>
 							<!-- END ICON MENU -->
-
 						</div>
 					</div>
 				</div>

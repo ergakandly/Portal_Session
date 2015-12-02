@@ -18,7 +18,7 @@
     <welcome-file>portal.do</welcome-file>
   </welcome-file-list>
   <session-config>
-    <session-timeout>20</session-timeout>
+    <session-timeout>30</session-timeout>
   </session-config>
   <listener>
     <listener-class>com.hris.portal.listener.PortalSessionListener</listener-class>

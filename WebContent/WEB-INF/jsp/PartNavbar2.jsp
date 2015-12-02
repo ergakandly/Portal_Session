@@ -11,94 +11,9 @@
 
 <!-- TIME -->
 <script type="text/javascript">
-	function startTime() {
-		var today = new Date();
-		var h = today.getHours();
-		var m = today.getMinutes();
-		var s = today.getSeconds();
-		var day = today.getDay();
-		var weekday = "";
-		var date = today.getDate();
-		var month = today.getMonth();
-		var monthname = "";
-		var year = today.getFullYear();
-
-		switch (day) {
-		case 0:
-			weekday = "Sunday";
-			break;
-		case 1:
-			weekday = "Monday";
-			break;
-		case 2:
-			weekday = "Tuesday";
-			break;
-		case 3:
-			weekday = "Wednesday";
-			break;
-		case 4:
-			weekday = "Thursday";
-			break;
-		case 5:
-			weekday = "Friday";
-			break;
-		case 6:
-			weekday = "Saturday";
-			break;
-		}
-
-		switch (month) {
-		case 0:
-			monthname = "January";
-			break;
-		case 1:
-			monthname = "February";
-			break;
-		case 2:
-			monthname = "March";
-			break;
-		case 3:
-			monthname = "April";
-			break;
-		case 4:
-			monthname = "May";
-			break;
-		case 5:
-			monthname = "June";
-			break;
-		case 6:
-			monthname = "July";
-			break;
-		case 7:
-			monthname = "August";
-			break;
-		case 8:
-			monthname = "September";
-			break;
-		case 9:
-			monthname = "October";
-			break;
-		case 10:
-			monthname = "November";
-			break;
-		case 11:
-			monthname = "Desember";
-			break;
-		}
-
-		m = checkTime(m);
-		s = checkTime(s);
-		document.getElementById('timeText').innerHTML = weekday + ", " + date
-				+ " " + monthname + " " + year + " [" + h + ":" + m + ":" + s
-				+ " WIB]";
-		var t = setTimeout(startTime, 500);
-	}
-	function checkTime(i) {
-		if (i < 10) {
-			i = "0" + i
-		}
-		; // add zero in front of numbers < 10
-		return i;
+	function flyToPage(task) {
+		document.forms[0].task.value = task;
+		document.forms[0].submit();
 	}
 </script>
 <!-- END TIME -->
@@ -187,12 +102,12 @@
 		<!-- DROPDOWN USER -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
 			data-toggle="dropdown"><i class=" fa fa-user" id="warnaPutih"></i>
-				<font color="white">Hi, User</font>  <b class="caret" id="warnaPutih"></b></a>
+				<font color="white">Hi, <%= request.getSession().getAttribute("employeeName") %></font>  <b class="caret" id="warnaPutih"></b></a>
 			<ul class="dropdown-menu">
 				<li><a href="" data-toggle="modal" data-target="#modalLogin"><large>
 						<i class=" fa fa-user"></i> <large> Profile</a></li>
 				<li class="divider"></li>
-				<li><a href="javascript:flyToPage('success');"><span
+				<li><a href="javascript:flyToPage('logout');"><span
 						class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 			</ul></li>
 		<!-- END DROPDOWN USER -->

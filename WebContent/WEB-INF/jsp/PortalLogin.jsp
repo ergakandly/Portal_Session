@@ -20,6 +20,11 @@
 		}
 		frm.submit();
 	}
+	
+	function flyToPage(task) {
+		document.forms[0].task.value = task;
+		document.forms[0].submit();
+	}
 </script>
 </head>
 <body>
@@ -31,14 +36,12 @@
 			<form action="#">
 				<div class="input">
 					<label for="name" class="entypo-user"></label>
-					<%-- <html:text name="PortalForm" property="user" styleId="abc"></html:text> --%>
 					<input type="text" name="user" placeholder="username"
 						styleClass="form-control"
 						value="<bean:write name="PortalForm" property="user"/>">
 				</div>
 				<div class="input">
 					<label for="name" class="entypo-lock"></label>
-					<%-- <html:password name="PortalForm" property="pass"></html:password> --%>
 					<input type="password" name="pass" placeholder="**********"
 						value="<bean:write name="PortalForm" property="pass"/>">
 				</div>
@@ -66,15 +69,14 @@
 					<h4 class="modal-title" id="myModalLabel">Forgot Password</h4>
 				</div>
 				<div class="modal-body ">
-					Please input your <strong>email</strong> or <strong>
-						username</strong> to reset your password.<br /> We will notify your new
-					password to your email.<br /> <br /> <input type="text"
+					Please input your <strong>username</strong> to reset your password.<br />
+					We will notify your new	password to your email.<br /> <br />
+					<input type="text"
 						class="form-control"
-						placeholder="input your email or username here">
-
+						placeholder="input your username here">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">
+					<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('forgotPassword');">
 						<i class="fa fa-check"></i> Send Me New Password
 					</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">

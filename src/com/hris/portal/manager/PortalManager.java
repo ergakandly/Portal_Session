@@ -32,7 +32,7 @@ public class PortalManager {
 	public List<PortalBean> getEmployee(String searchName, String departmentId) {
 		List<PortalBean> list = null;
 
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("searchName", searchName);
 		map.put("departmentId", departmentId);
 
@@ -40,19 +40,9 @@ public class PortalManager {
 		System.out.println("Department ID: " + departmentId);
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getEmployee", map);
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -61,19 +51,9 @@ public class PortalManager {
 		PortalDepartmentBean portalDeptBean = null;
 
 		try {
-			ibatis.startTransaction();
 			portalDeptBean = (PortalDepartmentBean) ibatis.queryForObject("employees.getOneEmp", empId);
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return portalDeptBean;
 	}
@@ -82,19 +62,9 @@ public class PortalManager {
 		List<PortalBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getRoleName", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -103,19 +73,9 @@ public class PortalManager {
 		List<PortalUserBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getUserList", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -124,19 +84,9 @@ public class PortalManager {
 		List<PortalDepartmentBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getDepartmentName", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -145,34 +95,22 @@ public class PortalManager {
 		List<PortalBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getRoleList", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
 
 	public void insertUser(String userName, String pass, String empId, String roleId) {
 
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("userName", userName);
 		map.put("pass", pass);
 		map.put("empId", empId);
 		map.put("roleId", roleId);
 
-		System.out.println();
-		System.out.println();
-		System.out.println("Di manager Insert");
+		System.out.println("\n\nDi manager Insert");
 		System.out.println(userName);
 		System.out.println(pass);
 		System.out.println(empId);
@@ -183,13 +121,11 @@ public class PortalManager {
 			ibatis.insert("employees.insertUser", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -200,19 +136,9 @@ public class PortalManager {
 		List<PortalMasterRoleBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getMasterRoleName", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -222,19 +148,9 @@ public class PortalManager {
 		List<PortalMasterRoleBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getMenuRoleName", roleId);
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -244,19 +160,9 @@ public class PortalManager {
 		List<PortalMasterRoleBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getPrivRoleName", roleId);
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -266,21 +172,10 @@ public class PortalManager {
 		List<PortalMasterRoleBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getMasterMenuName", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 
@@ -289,19 +184,9 @@ public class PortalManager {
 		List<PortalMasterRoleBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getMasterPrivilegeName", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
 		return list;
 	}
@@ -309,7 +194,7 @@ public class PortalManager {
 	// INSERT NEW ROLE Name
 	public void insertNewRoleName(String addRoleName, String description) {
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("addRoleName", addRoleName);
 		map.put("description", description);
 		
@@ -318,13 +203,11 @@ public class PortalManager {
 			ibatis.insert("employees.insertNewRoleName", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -338,13 +221,11 @@ public class PortalManager {
 			ibatis.insert("employees.insertNewRoleMenu", insertRoleMenuId);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -358,13 +239,11 @@ public class PortalManager {
 			ibatis.insert("employees.insertNewRolePriv", insertRolePrivId);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -380,13 +259,11 @@ public class PortalManager {
 			ibatis.delete("employees.deleteRoleUser", roleId);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -397,21 +274,10 @@ public class PortalManager {
 		List<PortalModulBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("employees.getMasterModul", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 
@@ -420,7 +286,7 @@ public class PortalManager {
 
 		icon = "glyphicon " + icon;
 
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("menuName", menuName);
 		map.put("urlMenu", urlMenu);
 		map.put("icon", icon);
@@ -434,13 +300,11 @@ public class PortalManager {
 			ibatis.insert("employees.insertNewModul", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -451,7 +315,7 @@ public class PortalManager {
 
 		icon = "glyphicon " + icon;
 
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("menuIdModul", menuIdModul);
 		map.put("menuName", menuName);
 		map.put("urlMenu", urlMenu);
@@ -467,13 +331,11 @@ public class PortalManager {
 			ibatis.update("employees.editModul", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -487,32 +349,16 @@ public class PortalManager {
 			ibatis.delete("employees.deleteMenu", menuIdModul);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
 	}
 
-	public PortalUserBean checkLogin(String username, String password) {
-		Map user = new HashMap();
-		user.put("username", username);
-		user.put("password", password);
-
-		PortalUserBean bean = null;
-		try {
-			bean = (PortalUserBean) ibatis.queryForObject("users.checkLogin", user);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return bean;
-	}
-	
 	/*BEGIN MASTER OTHERS*/
 	//GET
 	
@@ -521,21 +367,10 @@ public class PortalManager {
 		List<PortalProvinceBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getProvince", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 	
@@ -544,21 +379,10 @@ public class PortalManager {
 		List<PortalCityBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getCity", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 	
@@ -567,21 +391,10 @@ public class PortalManager {
 		List<PortalMajorBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getMajor", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 	
@@ -590,21 +403,10 @@ public class PortalManager {
 		List<PortalDepartmentBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getDepartment", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 		
@@ -613,21 +415,10 @@ public class PortalManager {
 		List<PortalLocationBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getLocation", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 	
@@ -636,21 +427,10 @@ public class PortalManager {
 		List<PortalPrivilegeBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getPrivilege", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 	
@@ -659,21 +439,10 @@ public class PortalManager {
 		List<PortalPositionBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getPosition", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 	
@@ -682,21 +451,10 @@ public class PortalManager {
 		List<PortalBankBean> list = null;
 
 		try {
-			ibatis.startTransaction();
 			list = ibatis.queryForList("list.getBank", "");
-			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				ibatis.endTransaction();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
 		}
-
 		return list;
 	}
 	
@@ -708,7 +466,7 @@ public class PortalManager {
 	public void insertNewProvince(String provinceName, String createdBy) {
 		System.out.println("MANAGER province dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("provinceName", provinceName);
 		map.put("createdBy", createdBy);
 		
@@ -717,13 +475,11 @@ public class PortalManager {
 			ibatis.insert("list.insertProvince", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -733,7 +489,7 @@ public class PortalManager {
 	public void insertNewCity(String cityName, String cityProvinceId, String createdBy) {
 		System.out.println("MANAGER CITY dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("cityName", cityName);
 		map.put("cityProvinceId", cityProvinceId);
 		map.put("createdBy", createdBy);
@@ -743,13 +499,11 @@ public class PortalManager {
 			ibatis.insert("list.insertCity", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -757,10 +511,9 @@ public class PortalManager {
 	
 	//MAJOR
 	public void insertNewMajor(String majorName, String description, String createdBy) {
-		
 		System.out.println("MANAGER MAJOR dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("majorName", majorName);
 		map.put("description", description);
 		map.put("createdBy", createdBy);
@@ -770,13 +523,11 @@ public class PortalManager {
 			ibatis.insert("list.insertMajor", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -784,10 +535,9 @@ public class PortalManager {
 	
 	//DEPARTMENT
 	public void insertNewDepartment(String msDepartmentName, String description, String createdBy) {
-		
 		System.out.println("MANAGER Department dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("msDepartmentName", msDepartmentName);
 		map.put("description", description);
 		map.put("createdBy", createdBy);
@@ -797,13 +547,11 @@ public class PortalManager {
 			ibatis.insert("list.insertDepartment", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -811,10 +559,9 @@ public class PortalManager {
 	
 	//LOCATION
 	public void insertNewLocation(String locationName, String description, String createdBy) {
-		
 		System.out.println("MANAGER location dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("locationName", locationName);
 		map.put("description", description);
 		map.put("createdBy", createdBy);
@@ -824,13 +571,11 @@ public class PortalManager {
 			ibatis.insert("list.insertLocation", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -838,10 +583,9 @@ public class PortalManager {
 	
 	//PRIVILEGE
 	public void insertNewPrivilege(String privilegeName, String description, String createdBy) {
-		
 		System.out.println("MANAGER PRIVILEGE dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("privilegeName", privilegeName);
 		map.put("description", description);
 		map.put("createdBy", createdBy);
@@ -851,13 +595,12 @@ public class PortalManager {
 			ibatis.insert("list.insertPrivilege", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
+				
 				e.printStackTrace();
 			}
 		}
@@ -865,10 +608,9 @@ public class PortalManager {
 	
 	//POSITION
 	public void insertNewPosition(String positionName, String description, String createdBy) {
-		
 		System.out.println("MANAGER POSITION dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("positionName", positionName);
 		map.put("description", description);
 		map.put("createdBy", createdBy);
@@ -878,13 +620,11 @@ public class PortalManager {
 			ibatis.insert("list.insertPosition", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -892,10 +632,9 @@ public class PortalManager {
 	
 	//BANK
 	public void insertNewBank(String bankName, String description, String createdBy) {
-		
 		System.out.println("MANAGER BANK dalam jalan loohh");
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("bankName", bankName);
 		map.put("description", description);
 		map.put("createdBy", createdBy);
@@ -905,18 +644,15 @@ public class PortalManager {
 			ibatis.insert("list.insertBank", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
 	}
-	
 	
 	
 	//DELETE
@@ -929,13 +665,11 @@ public class PortalManager {
 			ibatis.delete("list.deleteProvince", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -950,13 +684,11 @@ public class PortalManager {
 			ibatis.delete("list.deleteCity", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -971,13 +703,11 @@ public class PortalManager {
 			ibatis.delete("list.deleteMajor", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -992,13 +722,11 @@ public class PortalManager {
 			ibatis.delete("list.deleteDepartment", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -1013,13 +741,11 @@ public class PortalManager {
 			ibatis.delete("list.deleteLocation", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -1034,13 +760,11 @@ public class PortalManager {
 			ibatis.delete("list.deletePrivilege", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -1055,13 +779,11 @@ public class PortalManager {
 			ibatis.delete("list.deletePosition", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -1076,13 +798,11 @@ public class PortalManager {
 			ibatis.delete("list.deleteBank", id);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -1093,7 +813,7 @@ public class PortalManager {
 	
 	public void editPassword(String userName, String newPass, String updatedBy) {
 
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("userName", userName);
 		map.put("newPass", newPass);
 		map.put("updatedBy", updatedBy);
@@ -1103,13 +823,11 @@ public class PortalManager {
 			ibatis.update("list.editPassword", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
@@ -1122,7 +840,7 @@ public class PortalManager {
 		System.out.println("provname "+provinceName);
 		System.out.println("Updated By: "+updatedBy);
 		
-		Map map = new HashMap();
+		Map<String,String> map = new HashMap<String,String>();
 		map.put("id", id);
 		map.put("provinceName", provinceName);
 		map.put("updatedBy", updatedBy);
@@ -1132,449 +850,447 @@ public class PortalManager {
 			ibatis.update("list.editProvince", map);
 			ibatis.commitTransaction();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				ibatis.endTransaction();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
 	}
 	
 	//EDIT CITY
-		public void editCity(String id, String cityProvinceId, String cityName, String updatedBy) {
+	public void editCity(String id, String cityProvinceId, String cityName, String updatedBy) {
 
-			System.out.println("id "+id);
-			System.out.println("cityProvinceId "+cityProvinceId);
-			System.out.println("cityName "+cityName);
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("cityProvinceId", cityProvinceId);
-			map.put("cityName", cityName);
-			map.put("updatedBy", updatedBy);
+		System.out.println("id "+id);
+		System.out.println("cityProvinceId "+cityProvinceId);
+		System.out.println("cityName "+cityName);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("cityProvinceId", cityProvinceId);
+		map.put("cityName", cityName);
+		map.put("updatedBy", updatedBy);
 
 
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editCity", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				ibatis.startTransaction();
-				ibatis.update("list.editCity", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				ibatis.endTransaction();
+			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 			}
 		}
+	}
 		
 	//EDIT MAJOR
-		public void editMajor(String id, String majorName, String description, String updatedBy) {
+	public void editMajor(String id, String majorName, String description, String updatedBy) {
 
-			System.out.println("id "+id);
-			System.out.println("majorName "+majorName);
-			System.out.println("description "+description);
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("majorName", majorName);
-			map.put("description", description);
-			map.put("updatedBy", updatedBy);
+		System.out.println("id "+id);
+		System.out.println("majorName "+majorName);
+		System.out.println("description "+description);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("majorName", majorName);
+		map.put("description", description);
+		map.put("updatedBy", updatedBy);
 
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editMajor", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				ibatis.startTransaction();
-				ibatis.update("list.editMajor", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				ibatis.endTransaction();
+			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 			}
 		}
+	}
 		
 	//EDIT DEPARTMENT
-		public void editDepartment(String id, String msDepartmentName, String description, String updatedBy) {
+	public void editDepartment(String id, String msDepartmentName, String description, String updatedBy) {
 
-			System.out.println("id "+id);
-			System.out.println("msDepartmentName "+msDepartmentName);
-			System.out.println("description "+description);
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("msDepartmentName", msDepartmentName);
-			map.put("description", description);
-			map.put("updatedBy", updatedBy);
+		System.out.println("id "+id);
+		System.out.println("msDepartmentName "+msDepartmentName);
+		System.out.println("description "+description);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("msDepartmentName", msDepartmentName);
+		map.put("description", description);
+		map.put("updatedBy", updatedBy);
 
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editDepartment", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				ibatis.startTransaction();
-				ibatis.update("list.editDepartment", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				ibatis.endTransaction();
+			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 			}
 		}
+	}
 		
 	//EDIT LOCATION
-		public void editLocation(String id, String locationName, String description, String updatedBy) {
+	public void editLocation(String id, String locationName, String description, String updatedBy) {
 
-			System.out.println("id "+id);
-			System.out.println("locationName "+locationName);
-			System.out.println("description "+description);
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("locationName", locationName);
-			map.put("description", description);
-			map.put("updatedBy", updatedBy);
-
-			try {
-				ibatis.startTransaction();
-				ibatis.update("list.editLocation", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-		}
+		System.out.println("id "+id);
+		System.out.println("locationName "+locationName);
+		System.out.println("description "+description);
 		
-	//EDIT PRIVILEGE
-		public void editPrivilege(String id, String privilegeName, String description, String updatedBy) {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("locationName", locationName);
+		map.put("description", description);
+		map.put("updatedBy", updatedBy);
 
-			System.out.println("id "+id);
-			System.out.println("privilegeName "+privilegeName);
-			System.out.println("description "+description);
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("privilegeName", privilegeName);
-			map.put("description", description);
-			map.put("updatedBy", updatedBy);
-
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editLocation", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				ibatis.startTransaction();
-				ibatis.update("list.editPrivilege", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				ibatis.endTransaction();
+			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 			}
 		}
+	}
+	
+	//EDIT PRIVILEGE
+	public void editPrivilege(String id, String privilegeName, String description, String updatedBy) {
+
+		System.out.println("id "+id);
+		System.out.println("privilegeName "+privilegeName);
+		System.out.println("description "+description);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("privilegeName", privilegeName);
+		map.put("description", description);
+		map.put("updatedBy", updatedBy);
+
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editPrivilege", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 		
 	//EDIT POSITION
-		public void editPosition(String id, String positionName, String description, String updatedBy) {
+	public void editPosition(String id, String positionName, String description, String updatedBy) {
 
-			System.out.println("id "+id);
-			System.out.println("positionName "+positionName);
-			System.out.println("description "+description);
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("positionName", positionName);
-			map.put("description", description);
-			map.put("updatedBy", updatedBy);
-
-			try {
-				ibatis.startTransaction();
-				ibatis.update("list.editPosition", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-		}
+		System.out.println("id "+id);
+		System.out.println("positionName "+positionName);
+		System.out.println("description "+description);
 		
-	//EDIT BANK
-		public void editBank(String id, String bankName, String description, String updatedBy) {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("positionName", positionName);
+		map.put("description", description);
+		map.put("updatedBy", updatedBy);
 
-			System.out.println("id "+id);
-			System.out.println("bankName "+bankName);
-			System.out.println("description "+description);
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("bankName", bankName);
-			map.put("description", description);
-			map.put("updatedBy", updatedBy);
-
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editPosition", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				ibatis.startTransaction();
-				ibatis.update("list.editBank", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				ibatis.endTransaction();
+			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 			}
 		}
+	}
+	
+	//EDIT BANK
+	public void editBank(String id, String bankName, String description, String updatedBy) {
+
+		System.out.println("id "+id);
+		System.out.println("bankName "+bankName);
+		System.out.println("description "+description);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("bankName", bankName);
+		map.put("description", description);
+		map.put("updatedBy", updatedBy);
+
+		try {
+			ibatis.startTransaction();
+			ibatis.update("list.editBank", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	//END MASTER OTHERS
 
+	// SELECT PRIVILEGE FROM ROLE_ID
+	public List<PortalMasterRoleBean> getPrivilegeRoleList(String id) {
+		List<PortalMasterRoleBean> list = null;
 
-		public boolean isAuthorized(String username, String password) {
-			Map user = new HashMap();
-			user.put("username", username);
-			user.put("password", password);
-			System.out.println(user);
-			int result = 0;
-			try {
-				result = (Integer) ibatis.queryForObject("users.isAuthorized", user);
-				if (result == 1)
-					return true;
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return false;	
+		try {
+			list = ibatis.queryForList("employees.getPrivilegeRoleList", id);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		
-		public void updateStatusLogin(String username, int status) {
-			Map<String,String> user = new HashMap<String,String>();
-			user.put("username", username);
-			user.put("status", String.valueOf(status));
-			System.out.println(user);
-			try {
-				ibatis.startTransaction();
-				ibatis.update("users.updateStatusLogin", user);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		public void resetStatusLogin() {
-			try {
-				ibatis.startTransaction();
-				ibatis.update("users.resetStatusLogin", "");
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		
-		// SELECT PRIVILEGE FROM ROLE_ID
-		public List<PortalMasterRoleBean> getPrivilegeRoleList(String id) {
-			List<PortalMasterRoleBean> list = null;
+		return list;
+	}
+	
+	// SELECT MENU FROM ROLE_ID
+	public List<PortalMasterRoleBean> getMenuRoleList(String id) {
+		List<PortalMasterRoleBean> list = null;
 
-			try {
-				ibatis.startTransaction();
-				list = ibatis.queryForList("employees.getPrivilegeRoleList", id);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-			return list;
+		try {
+			list = ibatis.queryForList("employees.getMenuRoleList", id);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		return list;
+	}
+	
+	//DELETE EXIST MENU 
+	public void deleteExistMenu(String id, String menuId) {
+		System.out.println("DELETE EXIST MENU ");
 		
-		// SELECT MENU FROM ROLE_ID
-		public List<PortalMasterRoleBean> getMenuRoleList(String id) {
-			List<PortalMasterRoleBean> list = null;
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("menuId", menuId);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("employees.deleteExistMenu", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//DELETE EXIST PRIVILEGE 
+	public void deleteExistPriv(String id, String privilegeId) {
+		System.out.println("DELETE EXIST PRIVILEGE ");
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("privilegeId", privilegeId);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.delete("employees.deleteExistPriv", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	// UPDATE NEW ROLE Name
+	public void updateNewRoleName(String id, String roleName, String description) {
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("roleName", roleName);
+		map.put("description", description);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("employees.updateNewRoleName", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	// UPDATE-INSERT NEW ROLE TR_MENU
+	public void updateNewRoleMenu(String id, String menuId) {
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("menuId", menuId);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("employees.updateNewRoleMenu", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	// UPDATE-INSERT NEW ROLE TR_PRIVILEGE 
+	public void updateNewRolePriv(String id, String privilegeId) {
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("id", id);
+		map.put("privilegeId", privilegeId);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.insert("employees.updateNewRolePriv", map);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
-			try {
-				ibatis.startTransaction();
-				list = ibatis.queryForList("employees.getMenuRoleList", id);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-			return list;
-		}
+	public boolean isAuthorized(String username, String password) {
+		Map<String,String> user = new HashMap<String,String>();
+		user.put("username", username);
+		user.put("password", password);
+		System.out.println(user);
 		
-		//DELETE EXIST MENU 
-		public void deleteExistMenu(String id, String menuId) {
-			System.out.println("DELETE EXIST MENU ");
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("menuId", menuId);
-			
-			try {
-				ibatis.startTransaction();
-				ibatis.delete("employees.deleteExistMenu", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
+		int result = 0;
+		try {
+			result = (Integer) ibatis.queryForObject("users.isAuthorized", user);
+			if (result == 1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		return false;	
+	}
+	
+	public void updateStatusLogin(String username, int status) {
+		Map<String,String> user = new HashMap<String,String>();
+		user.put("username", username);
+		user.put("status", String.valueOf(status));
+		System.out.println(user);
 		
-		//DELETE EXIST PRIVILEGE 
-		public void deleteExistPriv(String id, String privilegeId) {
-			System.out.println("DELETE EXIST PRIVILEGE ");
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("privilegeId", privilegeId);
-			
+		try {
+			ibatis.startTransaction();
+			ibatis.update("users.updateStatusLogin", user);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				ibatis.startTransaction();
-				ibatis.delete("employees.deleteExistPriv", map);
-				ibatis.commitTransaction();
+				ibatis.endTransaction();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
 			}
 		}
+	}
+	
+	public void resetStatusLogin() {
+		try {
+			ibatis.startTransaction();
+			ibatis.update("users.resetStatusLogin", "");
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public PortalUserBean checkLogin(String username, String password) {
+		Map<String,String> user = new HashMap<String,String>();
+		user.put("username", username);
+		user.put("password", password);
+
+		PortalUserBean bean = null;
+		try {
+			bean = (PortalUserBean) ibatis.queryForObject("users.checkLogin", user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+	
+	public PortalUserBean getEmailData(String username) {
+		PortalUserBean bean = new PortalUserBean();
+		try {
+			bean = (PortalUserBean) ibatis.queryForObject("users.getEmailData", username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bean;
+	}
+	
+	public boolean checkUserExist(String username, String password) {
+		Map<String,String> user = new HashMap<String,String>();
+		user.put("username", username);
+		user.put("password", password);
+		System.out.println(user);
 		
-		// UPDATE NEW ROLE Name
-		public void updateNewRoleName(String id, String roleName, String description) {
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("roleName", roleName);
-			map.put("description", description);
-			
-			try {
-				ibatis.startTransaction();
-				ibatis.insert("employees.updateNewRoleName", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
+		int result = 0;
+		try {
+			result = (Integer) ibatis.queryForObject("users.checkUserExist", user);
+			if (result == 1)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		
-		// UPDATE-INSERT NEW ROLE TR_MENU
-		public void updateNewRoleMenu(String id, String menuId) {
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("menuId", menuId);
-			
-			try {
-				ibatis.startTransaction();
-				ibatis.insert("employees.updateNewRoleMenu", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		// UPDATE-INSERT NEW ROLE TR_PRIVILEGE 
-		public void updateNewRolePriv(String id, String privilegeId) {
-			
-			Map map = new HashMap();
-			map.put("id", id);
-			map.put("privilegeId", privilegeId);
-			
-			try {
-				ibatis.startTransaction();
-				ibatis.insert("employees.updateNewRolePriv", map);
-				ibatis.commitTransaction();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				try {
-					ibatis.endTransaction();
-				} catch (Exception e) {
-					// TODO: handle exception
-					e.printStackTrace();
-				}
-			}
-		}
+		return false;
+	}
+	
 }

@@ -79,113 +79,9 @@ li.message-footer {
 
 </style>
 <script type="text/javascript">
-
-// 	function flyToPage(task, id) {
-// 	//		alert(document.forms[0].addRoleName.value);	
-// 		document.forms[0].task.value = task;
-// 		document.forms[0].id.value = id;
-// 		document.forms[0].submit();
-// 	}
-
-	function navigateToPage(task) {
-
+	function flyToPage(task) {
 		document.forms[0].task.value = task;
-		if (task == "masterMassLeave")
-			document.forms[0].action = "/HRIS_Leave/manageSpecialDate.do?method=showMassLeaveList";
-		else if (task == "masterNationalHoliday")
-			document.forms[0].action = "/HRIS_Leave/manageSpecialDate.do?method=showNationalHolidayList";
-
 		document.forms[0].submit();
-	}
-
-	function startTime() {
-		var today = new Date();
-		var h = today.getHours();
-		var m = today.getMinutes();
-		var s = today.getSeconds();
-		var day = today.getDay();
-		var weekday = "";
-		var date = today.getDate();
-		var month = today.getMonth();
-		var monthname = "";
-		var year = today.getFullYear();
-
-		switch (day) {
-		case 0:
-			weekday = "Sunday";
-			break;
-		case 1:
-			weekday = "Monday";
-			break;
-		case 2:
-			weekday = "Tuesday";
-			break;
-		case 3:
-			weekday = "Wednesday";
-			break;
-		case 4:
-			weekday = "Thursday";
-			break;
-		case 5:
-			weekday = "Friday";
-			break;
-		case 6:
-			weekday = "Saturday";
-			break;
-		}
-
-		switch (month) {
-		case 0:
-			monthname = "January";
-			break;
-		case 1:
-			monthname = "February";
-			break;
-		case 2:
-			monthname = "March";
-			break;
-		case 3:
-			monthname = "April";
-			break;
-		case 4:
-			monthname = "May";
-			break;
-		case 5:
-			monthname = "June";
-			break;
-		case 6:
-			monthname = "July";
-			break;
-		case 7:
-			monthname = "August";
-			break;
-		case 8:
-			monthname = "September";
-			break;
-		case 9:
-			monthname = "October";
-			break;
-		case 10:
-			monthname = "November";
-			break;
-		case 11:
-			monthname = "Desember";
-			break;
-		}
-
-		m = checkTime(m);
-		s = checkTime(s);
-		document.getElementById('timeText').innerHTML = weekday + ", " + date
-				+ " " + monthname + " " + year + " [" + h + ":" + m + ":" + s
-				+ " WIB]";
-		var t = setTimeout(startTime, 500);
-	}
-	function checkTime(i) {
-		if (i < 10) {
-			i = "0" + i
-		}
-		; // add zero in front of numbers < 10
-		return i;
 	}
 </script>
 <body>
@@ -263,7 +159,7 @@ li.message-footer {
 
 		<!-- DROPDOWN USER -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
-			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, <bean:write name="PortalForm" property="userExist" /> <b
+			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, <%= request.getSession().getAttribute("employeeName") %><b
 				class="caret"> </b></a>
 			<ul class="dropdown-menu">
 				<li><a href="#" data-toggle="modal" data-target="#modalLogin"
@@ -305,31 +201,19 @@ li.message-footer {
 						<div class="panel-body">
 							<table align="center" class="table table-nonfluid table-hover ">
 								<tr>
-									<td class="kanan fontBold">Old Password:</td>			
-									<td><html:text styleClass="form-control" name="PortalForm"
-										property="oldPass"/></td>	
-															
-<!-- 									<td><input type="password" class="form-control" name="oldPass" placeholder="**********" -->
-<%-- 										value="<bean:write name="PortalForm" property="oldPass"/>"></td> --%>
-<!-- 									<td><input type="password" class="form-control"></td> -->
+									<td class="kanan fontBold">Old Password <font color="red">*</font> :</td>			
+									<td><html:password styleClass="form-control" name="PortalForm"
+										property="oldPass"/></td>
 								</tr>
 								<tr>
-									<td class="kanan fontBold">New Password :</td>			
-									<td><html:text styleClass="form-control" name="PortalForm"
+									<td class="kanan fontBold">New Password <font color="red">*</font> :</td>			
+									<td><html:password styleClass="form-control" name="PortalForm"
 										property="newPass"/></td>
-										
-<!-- 									<td><input type="password" class="form-control" name="newPass" placeholder="**********" -->
-<%-- 										value="<bean:write name="PortalForm" property="newPass"/>"></td> --%>
-<!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 								<tr>
-									<td class="kanan fontBold">Retype New Password :</td>			
-									<td><html:text styleClass="form-control" name="PortalForm"
+									<td class="kanan fontBold">Retype New Password <font color="red">*</font> :</td>			
+									<td><html:password styleClass="form-control" name="PortalForm"
 										property="rePass"/></td>
-										
-<!-- 									<td><input type="password" class="form-control" name="rePass" placeholder="**********" -->
-<%-- 										value="<bean:write name="PortalForm" property="rePass"/>"></td> --%>
-<!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 							</table>
 						</div>
@@ -342,14 +226,6 @@ li.message-footer {
 							<i class="fa fa-check"></i> Save Changes
 					</button>
 					
-<!-- 					<button type="button" class="btn btn-primary" -->
-<!-- 							onclick="javascript:flyToPage('masterOthers', '', '', 'oldPass', 'newPass', 'rePass');"> -->
-<!-- 							<i class="fa fa-check"></i> Save changes -->
-<!-- 					</button> -->
-<!-- 					<button type="button" class="btn btn-primary"> -->
-<!-- 						<i class="fa fa-check"></i> Save changes -->
-<!-- 					</button> -->
-
 					<button type="button" class="btn btn-danger" data-dismiss="modal">
 						<i class="fa fa-close"></i> Close
 					</button>
@@ -363,7 +239,6 @@ li.message-footer {
 		$('#validate-form')
 				.bootstrapValidator(
 						{
-							//       live: 'disabled',
 							excluded : 'disabled',
 							message : 'This value is not valid',
 							feedbackIcons : {
@@ -418,26 +293,6 @@ li.message-footer {
 										}
 									}
 								}
-							// 								'empBean.roleId' : {
-							// 									validators : {
-							// 										callback : {
-							// 											message : 'Destination Role is required and cannot be empty',
-							// 											callback : function(value,
-							// 													validator, $field) {
-							// 												// Get the selected options
-							// 												var options = validator
-							// 														.getFieldElements(
-							// 																'empBean.departmentId')
-							// 														.val();
-
-							// 												if (options == null)
-							// 													return (false);
-							// 												else if (options != null)
-							// 													return (true);
-							// 											}
-							// 										}
-							// 									}
-							// 								}
 							}
 						});
 	</script>

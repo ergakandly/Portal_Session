@@ -3,7 +3,6 @@ package com.hris.portal.form;
 import java.util.List;
 
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.util.LabelValueBean;
 
 import com.hris.portal.model.PortalBankBean;
 import com.hris.portal.model.PortalBean;
@@ -87,14 +86,7 @@ public class PortalForm extends ActionForm{
 	public String[] selectedNewPriv;
 	public List viewMenu;
 	public List viewPriv;
-	private String param;
 	
-	public String getParam() {
-		return param;
-	}
-	public void setParam(String param) {
-		this.param = param;
-	}
 	public String getRoleDescription() {
 		return roleDescription;
 	}
