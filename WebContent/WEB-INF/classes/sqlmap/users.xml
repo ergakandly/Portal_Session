@@ -19,7 +19,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			users.employee_id = emp.employee_id
 		WHERE
 			lower(username) = lower(#username#)
-			AND password = #password#
+			AND password = GET_HASH(#password#)
 			AND is_login = '0'
 			AND status = '1'
 	</select>
@@ -35,7 +35,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			users.employee_id = emp.employee_id
 		WHERE
 			lower(username) = lower(#username#)
-			AND password = #password#
+			AND password = GET_HASH(#password#)
 			AND status = '1'
 	</select>
 	
@@ -93,6 +93,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		ON
 			users.employee_id = emp.employee_id
 		WHERE
-			lower(username) = lower(#username#)
+			LOWER(username) = LOWER(#username#)
 	</select>
 </sqlMap>

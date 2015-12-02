@@ -85,7 +85,7 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 			username		                        AS userName,
 			employee_name	                        AS employeeName,
 			email			                        AS email,
-			TO_CHAR(date_of_birth, 'YYYY/MM/DD')    AS birthday
+			TO_CHAR(date_of_birth, 'YYYYMMDD')    AS birthday
 		FROM
 		    ms_user users
 		JOIN
@@ -93,6 +93,6 @@ PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 		ON
 			users.employee_id = emp.employee_id
 		WHERE
-			lower(username) = lower(#username#)
+			LOWER(username) = LOWER(#username#)
 	</select>
 </sqlMap>

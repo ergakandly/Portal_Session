@@ -844,7 +844,6 @@ public class PortalAction extends Action {
 			System.out.println("PORTAL Kembali ke halaman login.");
 		}
 		else if ("forgotPassword".equalsIgnoreCase(hForm.getTask())) {
-			System.out.println("masuk forgot password");
 			PortalEmailUtil.sendEmailForgotPassword(hForm.getUser());
 		}
 		return mapping.findForward("success");

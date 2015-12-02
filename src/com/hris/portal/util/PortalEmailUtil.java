@@ -75,7 +75,7 @@ public class PortalEmailUtil {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(pBean.getEmail()));
 			message.setSubject("Password Reset");
 			message.setText("Dear, <b>"+pBean.getEmployeeName()+"</b>.<br/><br/><p>We've received a request to reset the password for this username</p>"+
-							"<br/>This is your new log in information:<br/>Username: "+user+"<br/>Password: "+pBean.getBirthday().replace("/","")+
+							"<br/>This is your new log in information:<br/>Username: "+user+"<br/>Password: "+pBean.getBirthday()+
 							"</p><br/>Keep it secret. Keep it safe.<br/><br/><br/>-- HRIS Administrator");
 			
 			Transport.send(message);
