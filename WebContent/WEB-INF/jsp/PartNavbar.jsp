@@ -79,6 +79,14 @@ li.message-footer {
 
 </style>
 <script type="text/javascript">
+
+// 	function flyToPage(task, id) {
+// 	//		alert(document.forms[0].addRoleName.value);	
+// 		document.forms[0].task.value = task;
+// 		document.forms[0].id.value = id;
+// 		document.forms[0].submit();
+// 	}
+
 	function flyToPage(task) {
 		document.forms[0].task.value = task;
 		document.forms[0].submit();
@@ -159,7 +167,7 @@ li.message-footer {
 
 		<!-- DROPDOWN USER -->
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
-			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, <%= request.getSession().getAttribute("employeeName") %><b
+			data-toggle="dropdown"><i class=" fa fa-user"></i> Hi, <%= request.getSession().getAttribute("employeeName") %> <b
 				class="caret"> </b></a>
 			<ul class="dropdown-menu">
 				<li><a href="#" data-toggle="modal" data-target="#modalLogin"
@@ -203,17 +211,25 @@ li.message-footer {
 								<tr>
 									<td class="kanan fontBold">Old Password <font color="red">*</font> :</td>			
 									<td><html:password styleClass="form-control" name="PortalForm"
-										property="oldPass"/></td>
+										property="oldPass"/></td>	
 								</tr>
 								<tr>
 									<td class="kanan fontBold">New Password <font color="red">*</font> :</td>			
 									<td><html:password styleClass="form-control" name="PortalForm"
 										property="newPass"/></td>
+										
+<!-- 									<td><input type="password" class="form-control" name="newPass" placeholder="**********" -->
+<%-- 										value="<bean:write name="PortalForm" property="newPass"/>"></td> --%>
+<!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 								<tr>
 									<td class="kanan fontBold">Retype New Password <font color="red">*</font> :</td>			
 									<td><html:password styleClass="form-control" name="PortalForm"
 										property="rePass"/></td>
+										
+<!-- 									<td><input type="password" class="form-control" name="rePass" placeholder="**********" -->
+<%-- 										value="<bean:write name="PortalForm" property="rePass"/>"></td> --%>
+<!-- 									<td><input type="password" class="form-control"></td> -->
 								</tr>
 							</table>
 						</div>
@@ -226,6 +242,14 @@ li.message-footer {
 							<i class="fa fa-check"></i> Save Changes
 					</button>
 					
+<!-- 					<button type="button" class="btn btn-primary" -->
+<!-- 							onclick="javascript:flyToPage('masterOthers', '', '', 'oldPass', 'newPass', 'rePass');"> -->
+<!-- 							<i class="fa fa-check"></i> Save changes -->
+<!-- 					</button> -->
+<!-- 					<button type="button" class="btn btn-primary"> -->
+<!-- 						<i class="fa fa-check"></i> Save changes -->
+<!-- 					</button> -->
+
 					<button type="button" class="btn btn-danger" data-dismiss="modal">
 						<i class="fa fa-close"></i> Close
 					</button>
@@ -239,6 +263,7 @@ li.message-footer {
 		$('#validate-form')
 				.bootstrapValidator(
 						{
+							//       live: 'disabled',
 							excluded : 'disabled',
 							message : 'This value is not valid',
 							feedbackIcons : {
@@ -293,6 +318,26 @@ li.message-footer {
 										}
 									}
 								}
+							// 								'empBean.roleId' : {
+							// 									validators : {
+							// 										callback : {
+							// 											message : 'Destination Role is required and cannot be empty',
+							// 											callback : function(value,
+							// 													validator, $field) {
+							// 												// Get the selected options
+							// 												var options = validator
+							// 														.getFieldElements(
+							// 																'empBean.departmentId')
+							// 														.val();
+
+							// 												if (options == null)
+							// 													return (false);
+							// 												else if (options != null)
+							// 													return (true);
+							// 											}
+							// 										}
+							// 									}
+							// 								}
 							}
 						});
 	</script>

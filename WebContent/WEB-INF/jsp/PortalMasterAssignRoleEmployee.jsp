@@ -17,7 +17,9 @@
 	function flyToPage(task, id) {
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
-		document.forms[0].submit();
+		
+		if(task != 'select')
+			document.forms[0].submit();
 	}
 </script>
 
@@ -85,51 +87,49 @@
 													property="userEmployeeId">
 													<button type="button" class="btn btn-primary"
 														data-toggle="modal" data-target="#modalYakin"
-														data-backdrop="static">
-														<i class="fa fa-check-square-o"> Activate</i>
+														onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');"
+														data-backdrop="static" >
+														<i class="fa fa-check-square-o">Active</i>
 													</button>
-
-													<!-- MODAL MAKE IT ACTIVE -->
-													<div class="modal fade" id="modalYakin" tabindex="-1"
-														role="dialog" aria-labelledby="myModalLabel">
-														<div class="modal-dialog" role="document">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<button type="button" class="close"
-																		data-dismiss="modal" aria-label="Close">
-																		<span aria-hidden="true">&times;</span>
-																	</button>
-																	<h4 class="modal-title">Notification</h4>
-																</div>
-																<div class="modal-body">
-																	<div class="alert alert-danger kiri" role="alert">
-																		<i class="fa fa-exclamation-triangle"></i> Are you
-																		sure make this employee active?
-																	</div>
-																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-primary"
-																		onclick="javascript:flyToPage('select', '<bean:write name="portalList" property="employeeId" />');">
-																		<i class="fa fa-check"></i> Yes
-																	</button>
-																	<button type="button" class="btn btn-danger"
-																		data-dismiss="modal">
-																		<i class="fa fa-close "></i> No
-																	</button>
-																</div>
-															</div>
-														</div>
-													</div>
-													<!-- END MODAL MAKE IT ACTIVE-->
-
 												</logic:empty> <logic:notEmpty name="portalList" property="userEmployeeId">
-													<i class="fa fa-check" style="color: green;"></i> <font color="green">Activated</font>
+													<i class="fa fa-check" style="color: green">Activate</i>
 												</logic:notEmpty></td>
 										</tr>
 									</logic:iterate>
 								</logic:notEmpty>
 							</tbody>
 						</table>
+						<!-- MODAL MAKE IT ACTIVE -->
+						<div class="modal fade" id="modalYakin" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h4 class="modal-title">Notification</h4>
+									</div>
+									<div class="modal-body">
+										<div class="alert alert-danger kiri" role="alert">
+											<i class="fa fa-exclamation-triangle"></i> Are you sure make this employee active?
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary">
+											
+											<i class="fa fa-check"></i> Yes
+										</button>
+										<button type="button" class="btn btn-danger"
+											data-dismiss="modal">
+											<i class="fa fa-close "></i> No
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- END MODAL MAKE IT ACTIVE-->
 					</div>
 					<!-- ROW MD6 OFFSET3 -->
 				</div>
@@ -138,7 +138,6 @@
 			<!-- END PAGE WRAPPER -->
 		</div>
 		<!-- END WRAPPER -->
-
 	</html:form>
 	<%@include file="PartJavascript.jsp"%>
 	<script>
@@ -147,5 +146,4 @@
 		});
 	</script>
 </body>
-
 </html>

@@ -14,16 +14,15 @@
 
 <script type="text/javascript">
 	function flyToPage(task, id, isDeleteMasterOthers) {
-		// 		alert(task+"::"+id+"::"+isDeleteMasterOthers);
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
-		// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
-		document.forms[0].submit();
+		
+		if(task=='dashboardAdmin'|| isDeleteMasterOthers != 'privilege')
+			document.forms[0].submit();
 	
 	}
 </script>
-
 
 <body>
 	<html:form method="post" action="/portal">
@@ -198,7 +197,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('masterPrivilege', '<bean:write name="portalPrivilegeList" property="privilegeId" />');">
+						<button type="submit" class="btn btn-primary" >
 							<i class="fa fa-check"></i> Yes
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">

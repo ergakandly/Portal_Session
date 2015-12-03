@@ -39,7 +39,8 @@ public class PortalEmailUtil {
 			message.setSubject("Password Reset");
 			message.setText("Dear, <b>"+bean.getEmployeeName()+"</b>.<br/><br/><p>Welcome to HRIS Application.<br/>"+
 							"Your account has been activated.</p><br/><p>You will be able to login in the future using:<br/>"+
-							"Username: "+user+"<br/>Password: "+pass+"</p><br/>Keep it secret. Keep it safe.<br/><br/><br/>-- HRIS Administrator");
+							"Username: "+user+"<br/>Password: "+pass+"</p><br/>Don't forget to change your password after login."+
+							"<br/><br/><br/>-- HRIS Administrator");
 			
 			Transport.send(message);
 			System.out.println("PORTAL - Send Email Activation.");
@@ -70,6 +71,8 @@ public class PortalEmailUtil {
 		pBean = pManager.getEmailData(user);
 		System.out.println(pBean.getEmail());
 		try {
+			pManager.updatePassword(PortalUtil.getHash(pBean.getBirthday()), pBean.getUserEmployeeId());
+			
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("ace.hris.hris@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(pBean.getEmail()));
@@ -82,6 +85,8 @@ public class PortalEmailUtil {
 			System.out.println("PORTAL - Send Email Activation.");
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	

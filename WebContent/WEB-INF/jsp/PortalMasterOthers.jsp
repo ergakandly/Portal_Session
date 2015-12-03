@@ -15,12 +15,12 @@
 
 <script type="text/javascript">
 	function flyToPage(task, id, isDeleteMasterOthers) {
-		// 		alert(task+"::"+id+"::"+isDeleteMasterOthers);
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
 		document.forms[0].isDeleteMasterOthers.value = isDeleteMasterOthers;
-		// 		alert(document.forms[0].task.value+"//"+document.forms[0].id.value+"//"+document.forms[0].isDeleteMasterOthers.value);
-		document.forms[0].submit();
+		
+		if(task=='dashboardAdmin'|| isDeleteMasterOthers != 'province' || isDeleteMasterOthers != 'city' || isDeleteMasterOthers != 'major' || isDeleteMasterOthers != 'department' || isDeleteMasterOthers != 'location' || isDeleteMasterOthers != 'position' || isDeleteMasterOthers != 'bank')
+			document.forms[0].submit();
 
 	}
 </script>
@@ -107,7 +107,7 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
+															data-toggle="modal" data-target="#modalYakinProvince"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalProvinceList" property="provinceId" />', 'province');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
@@ -168,7 +168,7 @@
 															<i class="fa fa-pencil"></i> Edit
 														</button>
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
+															data-toggle="modal" data-target="#modalYakinCity"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalCityList" property="cityId" />', 'city');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
@@ -230,7 +230,7 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
+															data-toggle="modal" data-target="#modalYakinMajor"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalMajorList" property="majorId" />', 'major');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
@@ -296,7 +296,7 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
+															data-toggle="modal" data-target="#modalYakinDepartment"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
@@ -360,7 +360,7 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
+															data-toggle="modal" data-target="#modalYakinLocation"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalLocationList" property="locationId" />', 'location');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
@@ -424,7 +424,7 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
+															data-toggle="modal" data-target="#modalYakinPosition"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalPositionList" property="positionId" />', 'position');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
@@ -487,7 +487,7 @@
 														</button>
 
 														<button type="button" class="btn btn-danger"
-															data-toggle="modal" data-target="#modalYakin"
+															data-toggle="modal" data-target="#modalYakinBank"
 															onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalBankList" property="bankId" />', 'bank');">
 															<i class="fa fa-trash"></i> Delete
 														</button>
@@ -523,8 +523,8 @@
 							<tr>
 								<td class="kanan">Province Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalProvinceBean.provinceName" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalProvinceBean.provinceName" />
 									</div></td>
 							</tr>
 						</table>
@@ -561,15 +561,15 @@
 							<tr>
 								<td class="kanan">Province Id :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalCityBean.cityProvinceId" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalCityBean.cityProvinceId" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">City Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalCityBean.cityName" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalCityBean.cityName" />
 									</div></td>
 							</tr>
 						</table>
@@ -606,15 +606,15 @@
 							<tr>
 								<td class="kanan">Major Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalMajorBean.majorName" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalMajorBean.majorName" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalMajorBean.description" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalMajorBean.description" />
 									</div></td>
 							</tr>
 						</table>
@@ -653,15 +653,16 @@
 							<tr>
 								<td class="kanan">Department Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm"
 											property="portalDepartmentBean.msDepartmentName" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalDepartmentBean.description" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalDepartmentBean.description" />
 									</div></td>
 							</tr>
 						</table>
@@ -701,15 +702,15 @@
 							<tr>
 								<td class="kanan">Location Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalLocationBean.locationName" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalLocationBean.locationName" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalLocationBean.description" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalLocationBean.description" />
 									</div></td>
 							</tr>
 						</table>
@@ -749,15 +750,16 @@
 							<tr>
 								<td class="kanan">Privilege Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm"
 											property="portalPrivilegeBean.privilegeName" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalPrivilegeBean.description" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalPrivilegeBean.description" />
 									</div></td>
 							</tr>
 						</table>
@@ -797,15 +799,15 @@
 							<tr>
 								<td class="kanan">Position Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalPositionBean.positionName" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalPositionBean.positionName" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalPositionBean.description" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalPositionBean.description" />
 									</div></td>
 							</tr>
 						</table>
@@ -845,15 +847,15 @@
 							<tr>
 								<td class="kanan">Bank Name :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalBankBean.bankName" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalBankBean.bankName" />
 									</div></td>
 							</tr>
 							<tr>
 								<td class="kanan">Description :</td>
 								<td><div class="form-group">
-										<html:text styleClass="form-control form-control-md" name="PortalForm"
-											property="portalBankBean.description" />
+										<html:text styleClass="form-control form-control-md"
+											name="PortalForm" property="portalBankBean.description" />
 									</div></td>
 							</tr>
 						</table>
@@ -875,6 +877,234 @@
 			</div>
 		</div>
 		<!-- END ADD BANK MODAL  -->
+
+		<!-- MODAL HAPUS Province-->
+		<div class="modal fade" id="modalYakinProvince" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Notification</h4>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-danger kiri" role="alert">
+							<i class="fa fa-exclamation-triangle"></i> Are you sure want to
+							delete this province?
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">
+							<i class="fa fa-check"></i> Yes
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close "></i> No
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MODAL HAPUS-->
+
+		<!-- MODAL HAPUS City-->
+		<div class="modal fade" id="modalYakinCity" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Notification</h4>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-danger kiri" role="alert">
+							<i class="fa fa-exclamation-triangle"></i> Are you sure want to
+							delete this city?
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">
+							<i class="fa fa-check"></i> Yes
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close "></i> No
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MODAL HAPUS-->
+
+		<!-- MODAL HAPUS Major-->
+
+		<div class="modal fade" id="modalYakinMajor" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Notification</h4>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-danger kiri" role="alert">
+							<i class="fa fa-exclamation-triangle"></i> Are you sure want to
+							delete this Major?
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">
+							<i class="fa fa-check"></i> Yes
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close "></i> No
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MODAL HAPUS-->
+
+		<!-- MODAL HAPUS Department-->
+
+		<div class="modal fade" id="modalYakinDepartment" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Notification</h4>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-danger kiri" role="alert">
+							<i class="fa fa-exclamation-triangle"></i> Are you sure want to
+							delete this record?
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="javascript:flyToPage('masterOthers', '<bean:write name="portalDepartmentList" property="departmentId" />', 'department');">
+							<i class="fa fa-check"></i> Yes
+						</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">
+							<i class="fa fa-close "></i> No
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MODAL HAPUS-->
+		
+		<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinLocation" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Location?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="submit" class="btn btn-primary"
+														>
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
+									
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinPosition" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Postion?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="submit" class="btn btn-primary"
+														>
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
+									
+									<!-- MODAL HAPUS -->
+
+									<div class="modal fade" id="modalYakinBank" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">Notification</h4>
+												</div>
+												<div class="modal-body">
+													<div class="alert alert-danger kiri" role="alert">
+														<i class="fa fa-exclamation-triangle"></i> Are you sure
+														want to delete this Bank?
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="submit" class="btn btn-primary">
+														<i class="fa fa-check"></i> Yes
+													</button>
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">
+														<i class="fa fa-close "></i> No
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- END MODAL HAPUS-->
 
 		<%@include file="PartJavascript.jsp"%>
 		<script>

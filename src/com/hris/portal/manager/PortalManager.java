@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.hris.portal.exception.PortalException;
 import com.hris.portal.ibatis.IbatisHelper;
 import com.hris.portal.model.PortalBankBean;
 import com.hris.portal.model.PortalBean;
@@ -1196,20 +1197,14 @@ public class PortalManager {
 		}
 	}
 
-	public boolean isAuthorized(String username, String password) {
+	public boolean isAuthorized(String username, String password) throws SQLException {
 		Map<String,String> user = new HashMap<String,String>();
 		user.put("username", username);
 		user.put("password", password);
-		System.out.println(user);
 		
-		int result = 0;
-		try {
-			result = (Integer) ibatis.queryForObject("users.isAuthorized", user);
-			if (result == 1)
-				return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		int result = (Integer) ibatis.queryForObject("users.isAuthorized", user);
+		if (result == 1)
+			return true;
 		return false;	
 	}
 	
@@ -1217,7 +1212,6 @@ public class PortalManager {
 		Map<String,String> user = new HashMap<String,String>();
 		user.put("username", username);
 		user.put("status", String.valueOf(status));
-		System.out.println(user);
 		
 		try {
 			ibatis.startTransaction();
@@ -1278,19 +1272,45 @@ public class PortalManager {
 		Map<String,String> user = new HashMap<String,String>();
 		user.put("username", username);
 		user.put("password", password);
-		System.out.println(user);
 		
-		int result = 0;
+		Integer result = null;
 		try {
 			result = (Integer) ibatis.queryForObject("users.checkUserExist", user);
-			if (result == 1)
-				return true;
-			else
+			if (null == result)
 				return false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return true;
 	}
 	
+	public String getPortalUrl() {
+		String url = null;
+		try {
+			url = (String) ibatis.queryForObject("users.getPortalUrl", "");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return url;
+	}
+	
+	public void updatePassword(String password, String employeeId) {
+		Map<String,String> user = new HashMap<String,String>();
+		user.put("password", password);
+		user.put("employeeId", employeeId);
+		
+		try {
+			ibatis.startTransaction();
+			ibatis.update("users.updatePassword", user);
+			ibatis.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ibatis.endTransaction();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

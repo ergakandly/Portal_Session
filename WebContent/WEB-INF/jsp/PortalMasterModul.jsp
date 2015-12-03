@@ -16,7 +16,9 @@
 	function flyToPage(task, id) {
 		document.forms[0].task.value = task;
 		document.forms[0].id.value = id;
-		document.forms[0].submit();
+		
+		if(task != 'deleteModul')
+			document.forms[0].submit();
 	}
 </script>
 
@@ -98,7 +100,8 @@
 													<i class="fa fa-pencil"></i> Edit
 												</button>
 												<button type="button" class="btn btn-danger"
-													data-toggle="modal" data-target="#modalYakin" data-backdrop="static">
+													data-toggle="modal" data-target="#modalYakin" data-backdrop="static"
+													onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
 													<i class="fa fa-trash"></i> Delete
 												</button>
 											</td>
@@ -185,7 +188,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" onclick="javascript:flyToPage('deleteModul', '<bean:write name="portalModulBeanList" property="menuIdModul" />');">
+						<button type="submit" class="btn btn-primary" >
 							<i class="fa fa-check"></i> Yes
 						</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal">

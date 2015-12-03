@@ -54,8 +54,16 @@
 								<logic:notEmpty name="PortalForm" property="listPortalMasterRoleMenu">
 									<logic:iterate id="portalMasterRoleMenuList" name="PortalForm" property="listPortalMasterRoleMenu">
 										<bean:define id="url" name="portalMasterRoleMenuList" property="urlMenuRole"/>
+										<% String newurl = null;
+										   String urlstr=url.toString();
+										   int max = urlstr.length();
+										   
+											if(urlstr.contains("location"))
+												newurl = urlstr.substring(0, max-1) + "?zx=" + request.getAttribute("zx") + "'"; 
+											else
+												newurl = url.toString(); %>
 										<button class="btn btn-default iconDashboard" type="button"
-											onclick="<%= url.toString().substring(0, url.toString().length()-1) %>?zx=<%= request.getAttribute("zx") %>'">
+											onclick="<%= newurl.toString() %>">
 											<span class="<bean:write name="portalMasterRoleMenuList" property="icon" />"
 												style="font-size: 100px;"></span><br>
 											<h3><bean:write name="portalMasterRoleMenuList" property="menuName" /></h3>
@@ -65,6 +73,7 @@
 								<br> <br>
 							</div>
 							<!-- END ICON MENU -->
+
 						</div>
 					</div>
 				</div>

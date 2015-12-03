@@ -13,16 +13,9 @@ public class PortalUserBean implements Serializable {
 	private String userRoleId;
 	private String userEmployeeId;
 	private String employeeName;
-	private String employeeId;
 	private String email;
 	private String birthday;
 	
-	public String getEmployeeId() {
-		return employeeId;
-	}
-	public void setEmployeeId(String employeeId) {
-		this.employeeId = employeeId;
-	}
 	public String getEmail() {
 		return email;
 	}

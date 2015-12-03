@@ -31,8 +31,6 @@
 		
 		document.forms[0].selectedNewMenu = selectedMenuArr;
 		document.forms[0].selectedNewPriv = selectedPrivArr;
-		alert(selectedMenuArr);
-		alert(selectedPrivArr);
 	}
 </script>
 
